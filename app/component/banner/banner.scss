@@ -1,0 +1,15 @@
+@use "../../style/00_settings/color" as colors;
+@use "../../style/00_settings/util" as utils;
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: map-get(colors.$base-color, secondary);
+  padding: utils.rem(121) 0;
+
+  > h1 {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
