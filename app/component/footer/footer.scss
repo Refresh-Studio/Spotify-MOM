@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../../style/00_settings/color' as colors;
 @use '../../style/00_settings/util' as utils;
 @use '../../style/03_elements/typography' as typography;
@@ -7,7 +8,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: map-get(colors.$base-color, white);
+  color: map.get(colors.$base-color, white);
   padding-top: utils.rem(248px);
 
   > h1 {
@@ -22,10 +23,10 @@
     padding: utils.bu(2);
     width: 434px;
     height: 70px;
-    border-bottom: 1px solid map-get(colors.$base-color, white);
+    border-bottom: 1px solid map.get(colors.$base-color, white);
 
     > input {
-      color: map-get(colors.$base-color, white);
+      color: map.get(colors.$base-color, white);
       width: 100%;
       height: 100%;
       background-color: transparent;
@@ -61,8 +62,8 @@
   > div:last-of-type {
     width: 100%;
     padding: utils.bu(2.5) utils.rem(30);
-    background-color: map-get(colors.$base-color, primary);
-    color: map-get(colors.$base-color, black);
+    background-color: map.get(colors.$base-color, primary);
+    color: map.get(colors.$base-color, black);
     text-transform: uppercase;
   }
 }

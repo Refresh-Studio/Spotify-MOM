@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../../style/00_settings/color' as colors;
 @use '../../style/00_settings/util' as utils;
 
@@ -5,6 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: map-get(colors.$base-color, white);
+  color: map.get(colors.$base-color, white);
   padding: utils.rem(121) utils.rem(30);
 }
