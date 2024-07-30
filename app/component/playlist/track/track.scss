@@ -1,0 +1,47 @@
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: utils.bu(2);
+  border-bottom: 1px solid rgba(#fff, 0.2);
+
+  &__player {
+    display: flex;
+    align-items: center;
+
+    > p {
+      color: #aaa;
+    }
+
+    > svg {
+      color: #e0e1e3;
+      @include mixins.svg-hover;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    > p {
+      margin-top: utils.bu(0.5);
+      color: #aaa;
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: utils.bu(2);
+    text-transform: uppercase;
+
+    > svg {
+      height: 42px;
+      width: 42px;
+    }
+  }
+}
