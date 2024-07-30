@@ -62,6 +62,7 @@
 
 @mixin svg-hover {
   &:hover {
+    cursor: pointer;
     opacity: 0.7;
   }
 }

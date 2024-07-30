@@ -1,11 +1,79 @@
-@use "sass:map";
+@use 'sass:map';
 @use '../../style/00_settings/color' as colors;
 @use '../../style/00_settings/util' as utils;
+@use '../../style/01_tools/mixin' as mixins;
 
 .playlist {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: map.get(colors.$base-color, white);
   padding: utils.rem(121) utils.rem(30);
+
+  > header {
+    width: 100%;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(#fff, 0.2);
+    padding: utils.bu(2) utils.bu(2);
+    margin-bottom: utils.bu(5.5);
+
+    > p {
+      display: flex;
+      align-items: center;
+      gap: utils.bu(2);
+    }
+  }
+
+  &__tracks {
+    width: 100%;
+  }
+}
+
+.track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: utils.bu(2);
+  border-bottom: 1px solid rgba(#fff, 0.2);
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: utils.bu(2);
+    text-transform: uppercase;
+
+    > svg {
+      height: 42px;
+      width: 42px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    > p {
+      margin-top: utils.bu(0.5);
+      color: #aaaaaa;
+    }
+  }
+
+  &__player {
+    display: flex;
+    align-items: center;
+
+    > p {
+      color: #aaaaaa;
+    }
+
+    svg {
+      color: #e0e1e3;
+      @include mixins.svg-hover;
+    }
+  }
 }
