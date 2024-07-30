@@ -60,6 +60,7 @@
         top: 22px;
         left: 30px;
         @include svg;
+        @include mixins.svg-hover
       }
     }
 
@@ -68,6 +69,7 @@
         top: 22px;
         right: 30px;
         @include svg;
+        @include mixins.svg-hover
       }
     }
   }

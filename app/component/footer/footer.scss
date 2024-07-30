@@ -1,0 +1,68 @@
+@use '../../style/00_settings/color' as colors;
+@use '../../style/00_settings/util' as utils;
+@use '../../style/03_elements/typography' as typography;
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: map-get(colors.$base-color, white);
+  padding-top: utils.rem(248px);
+
+  > h1 {
+    text-transform: uppercase;
+    margin-bottom: utils.bu(2);
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    margin: utils.bu(8) 0;
+    padding: utils.bu(2);
+    width: 434px;
+    height: 70px;
+    border-bottom: 1px solid map-get(colors.$base-color, white);
+
+    > input {
+      color: map-get(colors.$base-color, white);
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      font-size: utils.rem(16);
+      font-weight: 400;
+      line-height: utils.rem(19);
+
+      &::placeholder {
+        text-transform: uppercase;
+        color: #505050;
+      }
+    }
+  }
+
+  &__icon {
+    padding: utils.bu(1.5) utils.rem(10);
+    border: 1px solid rgba(#FFF, .2);
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(#FFF, .2);
+    }
+  }
+
+  > p {
+    text-transform: uppercase;
+
+    &:last-of-type {
+      margin-bottom: utils.rem(248px);
+    }
+  }
+
+  > div:last-of-type {
+    width: 100%;
+    padding: utils.bu(2.5) utils.rem(30);
+    background-color: map-get(colors.$base-color, primary);
+    color: map-get(colors.$base-color, black);
+    text-transform: uppercase;
+  }
+}

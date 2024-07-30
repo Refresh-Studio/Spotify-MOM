@@ -59,3 +59,9 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+@mixin svg-hover {
+  &:hover {
+    opacity: .7;
+  }
+}
