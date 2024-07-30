@@ -1,2 +1,14 @@
-# spotify-mom
-Next.JS site for Spotify MOM
+# Spotify MOM
+
+Spotify MOM teaser.
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+yarn start
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+

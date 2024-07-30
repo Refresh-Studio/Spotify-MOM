@@ -1,0 +1,58 @@
+@use '../00_settings/config' as config;
+@use '../00_settings/util' as utils;
+@use '../00_settings/color' as colors;
+@use '../00_settings/font' as font;
+
+/// Single mixin to change font families
+@mixin set-font-family($font-family: default) {
+  @if $font-family == default {
+    font-family: 'SpotifyMix', sans-serif;
+  } @else {
+    font-family: $font-family, serif;
+  }
+}
+
+///  breakpoint mixins based on breakpoint definitions, accepting content blocks
+///  to be used for responsive design
+@mixin breakpoint($bp-name) {
+  $min-width: '';
+
+  @if map-has-key(config.$breakpoints, $bp-name) {
+    $min-width: map-get(config.$breakpoints, $bp-name);
+  } @else if (type_of($bp-name) == number) {
+    $min-width: $bp-name;
+  }
+
+  $min-width-ems: ($min-width / config.$base-font-size) * 1em;
+
+  @media screen and (min-width: $min-width-ems) {
+    @content;
+  }
+}
+
+/// helper mixin to center the content of an element using the flexbox
+@mixin center-content() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// helper mixin to center the element using the flexbox
+@mixin center-self() {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+@mixin no-scrollbar($class) {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .#{$class}::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .#{$class} {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

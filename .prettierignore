@@ -1,0 +1,15 @@
+node_modules
+__deprecated__
+tmp
+log
+public
+storage
+spec
+*.json
+*.yml
+*.md
+*.css
+coverage
+dist
+build
+rollup-report.html

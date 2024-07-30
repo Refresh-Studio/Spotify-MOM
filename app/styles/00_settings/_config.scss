@@ -1,0 +1,20 @@
+/// Base font size set on the html node, declaring value of 1rem
+$base-font-size: 16;
+$base-font-size-px: $base-font-size * 1px;
+
+/// Base unit value (set to half $base-font-size), used
+/// as standard unit with which to calculate gaps and margins.
+$base-unit: 8;
+
+/// Standardised transition duration for all transitions
+$transition-duration: 0.2s;
+
+$breakpoints: (
+  xs: 475,
+  sm: 640,
+  md: 768,
+  lg: 1100,
+  xl: 1280,
+  xxl: 1536,
+  mxl: 1900
+);

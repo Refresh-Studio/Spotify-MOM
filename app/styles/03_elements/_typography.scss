@@ -1,0 +1,26 @@
+@use '../00_settings/util' as utils;
+@use '../01_tools/mixin' as mixins;
+
+.h1 {
+  font-size: utils.rem(40);
+  line-height: utils.rem(88);
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: utils.rem(32);
+  line-height: utils.rem(52);
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: utils.rem(24);
+}
+
+.h4 {
+  font-size: utils.rem(20);
+}
+
+.h5 {
+  font-size: utils.rem(18);
+}

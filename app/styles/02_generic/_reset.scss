@@ -1,0 +1,97 @@
+@use '../00_settings/config' as config;
+@use '../00_settings/color' as colors;
+@use '../01_tools/mixin' as mixins;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  @include mixins.set-font-family();
+  font-size: config.$base-font-size-px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: map-get(colors.$page-background-color, default);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+}
+
+/// remove browser native input styling
+
+textarea,
+select,
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: none;
+}
+
+input[type='radio'] {
+  appearance: auto;
+  cursor: pointer;
+}
+
+/// turn off browser default focus outlines
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  background: inherit;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+iframe {
+  border: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+#root {
+  height: 100%;
+}
