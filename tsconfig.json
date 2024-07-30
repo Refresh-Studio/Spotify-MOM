@@ -18,9 +18,10 @@
       }
     ],
     "paths": {
-      "@spotify/*": ["./*"]
+      "@spotify/component": ["./app/component"],
+      "@spotify/style": ["./app/style"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "svgr.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

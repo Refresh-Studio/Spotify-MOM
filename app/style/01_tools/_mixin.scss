@@ -1,3 +1,7 @@
+@use 'sass:math';
+
+@use 'sass:map';
+@use 'sass:meta';
 @use '../00_settings/config' as config;
 @use '../00_settings/util' as utils;
 @use '../00_settings/color' as colors;
@@ -6,7 +10,7 @@
 /// Single mixin to change font families
 @mixin set-font-family($font-family: default) {
   @if $font-family == default {
-    font-family: 'SpotifyMix', sans-serif;
+    font-family: SpotifyMix, sans-serif;
   } @else {
     font-family: $font-family, serif;
   }
@@ -17,13 +21,13 @@
 @mixin breakpoint($bp-name) {
   $min-width: '';
 
-  @if map-has-key(config.$breakpoints, $bp-name) {
-    $min-width: map-get(config.$breakpoints, $bp-name);
-  } @else if (type_of($bp-name) == number) {
+  @if map.has-key(config.$breakpoints, $bp-name) {
+    $min-width: map.get(config.$breakpoints, $bp-name);
+  } @else if meta.type_of($bp-name) == number {
     $min-width: $bp-name;
   }
 
-  $min-width-ems: ($min-width / config.$base-font-size) * 1em;
+  $min-width-ems: math.div($min-width, config.$base-font-size) * 1em;
 
   @media screen and (min-width: $min-width-ems) {
     @content;
@@ -40,8 +44,7 @@
 /// helper mixin to center the element using the flexbox
 @mixin center-self() {
   display: flex;
-  align-self: center;
-  justify-self: center;
+  place-self: center center;
 }
 
 @mixin no-scrollbar($class) {

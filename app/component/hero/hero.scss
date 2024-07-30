@@ -1,0 +1,74 @@
+@use 'sass:map';
+@use '../../style/00_settings/color' as colors;
+@use '../../style/00_settings/util' as utils;
+@use '../../style/01_tools/mixin' as mixins;
+
+@mixin svg {
+  position: absolute;
+  color: map.get(colors.$base-color, black);
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  background-color: map.get(colors.$base-color, primary);
+  height: 100vh;
+  padding-bottom: utils.bu(7.5);
+
+  > div {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    @include mixins.center-content;
+
+    > h1 {
+      text-transform: uppercase;
+      margin-bottom: utils.bu(3);
+
+      > span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  > footer {
+    padding: 0 utils.rem(30);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    > div {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      > span {
+        &:first-of-type {
+          @include mixins.set-font-family('SpotifyMixWide');
+        }
+
+        &:last-of-type {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  > a {
+    &:first-of-type {
+      > svg {
+        top: 22px;
+        left: 30px;
+        @include svg;
+      }
+    }
+
+    &:last-of-type {
+      > svg {
+        top: 22px;
+        right: 30px;
+        @include svg;
+      }
+    }
+  }
+}

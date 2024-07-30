@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../00_settings/config' as config;
 @use '../00_settings/color' as colors;
 @use '../01_tools/mixin' as mixins;
@@ -9,7 +10,8 @@
 }
 
 html {
-  @include mixins.set-font-family();
+  @include mixins.set-font-family;
+
   font-size: config.$base-font-size-px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,7 +22,7 @@ body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  background-color: map-get(colors.$page-background-color, default);
+  background-color: map.get(colors.$base-color, black);
 }
 
 h1,
@@ -51,8 +53,6 @@ svg {
 textarea,
 select,
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   padding: 0;
   border: none;

@@ -6,10 +6,10 @@
 /// The config needs to be loaded in this order to ensure style rules are applied
 ///  correctly and predictably.
 
-@import '00_settings/util';
-@import '00_settings/config';
-@import '00_settings/color';
-@import '00_settings/font';
-@import '01_tools/mixin';
-@import '02_generic/reset';
-@import '03_elements/typography';
+@use '00_settings/util';
+@use '00_settings/config';
+@use '00_settings/color';
+@use '00_settings/font';
+@use '01_tools/mixin';
+@use '02_generic/reset';
+@use '03_elements/typography';
