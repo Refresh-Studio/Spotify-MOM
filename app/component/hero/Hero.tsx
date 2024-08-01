@@ -16,10 +16,12 @@ export const Hero = () => (
       <InstagramIcon />
     </Link>
     <div>
-      <h1 className="typescale-8">
+      <p className="typescale-6">9.24</p>
+      <h1 className="typescale-9">
         <span>Mom</span> is coming home
       </h1>
       <BannerIcon />
+      <p className="typescale-6">Cape Town</p>
     </div>
     <footer>
       <div>

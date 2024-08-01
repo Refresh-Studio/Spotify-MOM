@@ -1,1 +1,9 @@
 @use 'style/app';
+
+#embed-iframe {
+  position: absolute;
+  width: 500px;
+  height: 125px;
+  bottom: 0;
+  right: 20px;
+}

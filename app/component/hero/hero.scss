@@ -21,6 +21,17 @@
     flex-direction: column;
     @include mixins.center-content;
 
+    > p {
+      &:first-of-type {
+        margin-bottom: utils.bu(3);
+      }
+
+      &:last-of-type {
+        text-transform: uppercase;
+        margin-top: utils.bu(3);
+      }
+    }
+
     > h1 {
       text-transform: uppercase;
       margin-bottom: utils.bu(3);
@@ -35,12 +46,13 @@
     padding: 0 utils.rem(30);
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
     > div {
       display: flex;
       align-items: center;
       flex-direction: column;
+      width: 276px;
 
       > span {
         &:first-of-type {

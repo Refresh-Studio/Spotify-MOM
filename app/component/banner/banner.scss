@@ -6,11 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: map.get(colors.$base-color, secondary);
-  padding: utils.rem(121) 0;
+  background-color: map.get(colors.$base-color, black);
+  padding: utils.rem(121) 0 utils.bu(7.5);
+  text-align: center;
 
   > h1 {
     font-weight: 500;
     text-transform: uppercase;
+    color: map.get(colors.$base-color, secondary);
   }
 }

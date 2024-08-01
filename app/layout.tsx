@@ -10,7 +10,13 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">
-    <body>{children}</body>
+    <body>
+      <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+      {children}
+      <div id="embed-iframe">
+        <div id="playback"></div>
+      </div>
+    </body>
   </html>
 );
 

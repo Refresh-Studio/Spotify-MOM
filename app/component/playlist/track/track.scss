@@ -1,4 +1,5 @@
 @use '../../../style/00_settings/util' as utils;
+@use '../../../style/00_settings/color' as colors;
 @use '../../../style/01_tools/mixin' as mixins;
 
 .track {
@@ -8,6 +9,7 @@
   justify-content: space-between;
   padding: utils.bu(2);
   border-bottom: 1px solid rgba(#fff, 0.2);
+  $block: &;
 
   &__player {
     display: flex;
@@ -17,9 +19,18 @@
       color: #aaa;
     }
 
-    > svg {
-      color: #e0e1e3;
-      @include mixins.svg-hover;
+    > span {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(#fff, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > svg {
+        color: #e0e1e3;
+        @include mixins.svg-hover;
+      }
     }
   }
 
@@ -42,6 +53,33 @@
     > svg {
       height: 42px;
       width: 42px;
+    }
+  }
+
+  &--playing {
+    background-color: map-get(colors.$base-color, secondary);
+    color: map-get(colors.$base-color, black);
+
+    #{$block}__details {
+      > p {
+        color: map-get(colors.$base-color, black);
+      }
+    }
+
+    #{$block}__player {
+      color: map-get(colors.$base-color, black);
+
+      > p {
+        color: map-get(colors.$base-color, black);
+      }
+
+      > span {
+        border-color: map-get(colors.$base-color, black);
+
+        > svg {
+          color: map-get(colors.$base-color, black);
+        }
+      }
     }
   }
 }

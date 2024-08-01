@@ -9,7 +9,7 @@
   justify-content: center;
   flex-direction: column;
   color: map.get(colors.$base-color, white);
-  padding: utils.rem(121) utils.rem(30);
+  padding: 0 utils.rem(30) utils.rem(121);
 
   > header {
     width: 100%;
@@ -30,5 +30,27 @@
 
   &__tracks {
     width: 100%;
+  }
+
+  > footer {
+    margin-top: utils.bu(7.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > button {
+      background-color: map-get(colors.$base-color, primary);
+      color: map-get(colors.$base-color, black);
+      width: 231px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: utils.bu(1);
+
+      &:hover {
+        background-color: map-get(colors.$base-color, secondary);
+      }
+    }
   }
 }
