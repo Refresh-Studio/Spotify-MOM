@@ -7,6 +7,7 @@ import { Banner } from './component/banner/Banner';
 import { Footer } from './component/footer/Footer';
 import { Hero } from './component/hero/Hero';
 import { Playlist } from './component/playlist/Playlist';
+import { Subscription } from './component/subscription/Subscription';
 
 const getData = async () => {
   const authToken = Buffer.from(
@@ -43,7 +44,7 @@ const Home = () => {
       <Hero />
       <Banner />
       <Playlist accessToken={accessToken} />
-      <Footer />
+      <Subscription />
     </main>
   );
 };

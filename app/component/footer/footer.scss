@@ -5,135 +5,22 @@
 @use '../../style/03_elements/typography' as typography;
 
 .footer {
+  width: 100%;
+  padding: utils.bu(2.5) utils.bu(3) utils.bu(2.5) utils.bu(2);
+  background-color: map.get(colors.$base-color, primary);
+  color: map.get(colors.$base-color, black);
+  text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: map.get(colors.$base-color, black);
-  background-color: map.get(colors.$base-color, secondary);
-  padding-top: utils.rem(248px);
-  padding-bottom: utils.rem(248px);
-  position: relative;
+  justify-content: space-between;
 
-  > h1 {
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: utils.bu(2);
+  > a {
+    position: relative;
+    z-index: 1;
   }
 
-  &__input {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: utils.bu(8) 0;
-    padding: utils.bu(2);
-    width: 434px;
-    height: 70px;
-    border-bottom: 1px solid map.get(colors.$base-color, black);
-
-    &:focus-within {
-      border-bottom-width: 2px;
-
-      > div > label {
-        text-transform: uppercase;
-        display: block;
-        margin-bottom: utils.bu(1);
-        color: #505050;
-      }
-    }
-
-    > div {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-
-      > label {
-        display: none;
-      }
-
-      > input {
-        color: map.get(colors.$base-color, black);
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        text-transform: uppercase;
-        font-size: utils.rem(16);
-        font-weight: 400;
-        line-height: utils.rem(19);
-
-        &::placeholder {
-          text-transform: uppercase;
-          color: #505050;
-        }
-      }
-    }
-
-    &-label {
-      display: block !important;
-      text-transform: uppercase;
-      margin-bottom: utils.bu(1);
-      color: #505050;
-    }
-  }
-
-  &__subscribed {
-    margin-top: utils.bu(8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    > span {
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 358px;
-      background-color: map.get(colors.$base-color, primary);
-      color: map.get(colors.$base-color, black);
-      text-transform: uppercase;
-    }
-  }
-
-  &__icon {
-    padding: utils.bu(1.5) utils.rem(10);
-    border: 1px solid map.get(colors.$base-color, black);
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    &:hover {
-      cursor: pointer;
-      background-color: map.get(colors.$base-color, primary);
-    }
-  }
-
-  > p {
-    text-transform: uppercase;
-  }
-
-  &__copyright {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: utils.bu(2.5) utils.rem(30);
-    background-color: map.get(colors.$base-color, primary);
-    color: map.get(colors.$base-color, black);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > a {
-      position: relative;
-      z-index: 1;
-    }
-
-    svg {
-      cursor: pointer;
-      @include mixins.svg-hover;
-    }
+  svg {
+    cursor: pointer;
+    @include mixins.svg-hover;
   }
 }

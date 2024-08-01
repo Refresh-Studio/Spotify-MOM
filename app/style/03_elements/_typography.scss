@@ -38,9 +38,21 @@
 }
 
 .typescale-11 {
-  font-size: utils.rem(80);
+  font-size: utils.rem(27);
   font-weight: 400;
-  line-height: utils.rem(96);
+  line-height: utils.rem(32);
+
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(47);
+    font-weight: 400;
+    line-height: utils.rem(56);
+  }
+
+  @include mixins.breakpoint(lg) {
+    font-size: utils.rem(80);
+    font-weight: 400;
+    line-height: utils.rem(96);
+  }
 }
 
 .typescale-10 {
@@ -104,9 +116,9 @@
 }
 
 .typescale-4 {
-  font-size: utils.rem(12);
+  font-size: utils.rem(14);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: utils.rem(19.2);
 
   @include mixins.breakpoint(lg) {
     font-size: utils.rem(16);

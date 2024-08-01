@@ -1,7 +1,8 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 
+import { Footer } from './component/footer/Footer';
 import { Header } from './component/header/Header';
 
 import { defaultFont } from './constant';
@@ -14,6 +15,7 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
       <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
       <Header />
       {children}
+      <Footer />
     </body>
   </html>
 );
