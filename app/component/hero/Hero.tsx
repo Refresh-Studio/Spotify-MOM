@@ -5,6 +5,8 @@ import { ReactComponent as BannerIcon } from '../../asset/banner.svg';
 import { ReactComponent as InstagramIcon } from '../../asset/instagram.svg';
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
+import { wideFont } from '../../layout';
+
 import './hero.scss';
 
 export const Hero = () => (
@@ -16,29 +18,29 @@ export const Hero = () => (
       <InstagramIcon />
     </Link>
     <div>
-      <p className="typescale-6">9.24</p>
-      <h1 className="typescale-9">
+      <p className={`typescale-6 ${wideFont.className}`}>9.24</p>
+      <h1 className={`typescale-9 ${wideFont.className}`}>
         <span>Mom</span> is coming home
       </h1>
       <BannerIcon />
-      <p className="typescale-6">Cape Town</p>
+      <p className={`typescale-6 ${wideFont.className}`}>Cape Town</p>
     </div>
     <footer>
       <div>
-        <span className="typescale-12">09</span>
-        <span>Days</span>
+        <span className={`typescale-12 ${wideFont.className}`}>09</span>
+        <span className="typescale-4">Days</span>
       </div>
       <div>
-        <span className="typescale-12">09</span>
-        <span>Hours</span>
+        <span className={`typescale-12 ${wideFont.className}`}>01</span>
+        <span className="typescale-4">Hours</span>
       </div>
       <div>
-        <span className="typescale-12">09</span>
-        <span>Minutes</span>
+        <span className={`typescale-12 ${wideFont.className}`}>04</span>
+        <span className="typescale-4">Minutes</span>
       </div>
       <div>
-        <span className="typescale-12">09</span>
-        <span>Seconds</span>
+        <span className={`typescale-12 ${wideFont.className}`}>22</span>
+        <span className="typescale-4">Seconds</span>
       </div>
     </footer>
   </section>

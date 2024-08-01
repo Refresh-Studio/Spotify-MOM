@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../../../style/00_settings/util' as utils;
 @use '../../../style/00_settings/color' as colors;
 @use '../../../style/01_tools/mixin' as mixins;
@@ -57,27 +58,27 @@
   }
 
   &--playing {
-    background-color: map-get(colors.$base-color, secondary);
-    color: map-get(colors.$base-color, black);
+    background-color: map.get(colors.$base-color, secondary);
+    color: map.get(colors.$base-color, black);
 
     #{$block}__details {
       > p {
-        color: map-get(colors.$base-color, black);
+        color: map.get(colors.$base-color, black);
       }
     }
 
     #{$block}__player {
-      color: map-get(colors.$base-color, black);
+      color: map.get(colors.$base-color, black);
 
       > p {
-        color: map-get(colors.$base-color, black);
+        color: map.get(colors.$base-color, black);
       }
 
       > span {
-        border-color: map-get(colors.$base-color, black);
+        border-color: map.get(colors.$base-color, black);
 
         > svg {
-          color: map-get(colors.$base-color, black);
+          color: map.get(colors.$base-color, black);
         }
       }
     }

@@ -55,10 +55,6 @@
       width: 276px;
 
       > span {
-        &:first-of-type {
-          @include mixins.set-font-family('SpotifyMixWide');
-        }
-
         &:last-of-type {
           text-transform: uppercase;
         }

@@ -16,7 +16,7 @@ declare const window: any;
 
 const getPlaylist = async (accessToken: string) => {
   const { data } = await axios.get(
-    'https://api.spotify.com/v1/playlists/3cEYpjA9oz9GiPac4AsH4n?market=ZA',
+    'https://api.spotify.com/v1/playlists/37i9dQZF1DWWuGghJUW6Hp?market=ZA',
     {
       headers: { Authorization: `Bearer ${accessToken}` }
     }
@@ -80,13 +80,6 @@ export const Playlist = ({ accessToken }: Props) => {
 
   return (
     <section className="playlist">
-      <header>
-        <p className="typescale-3">
-          <GlobeIcon />
-          Get to know the artists
-        </p>
-        <p className="typescale-3">Mom Playlist</p>
-      </header>
       <div className="playlist__tracks">
         {(tracks ?? []).map(({ track }: TrackDetails) => (
           <Track
@@ -99,9 +92,13 @@ export const Playlist = ({ accessToken }: Props) => {
         ))}
       </div>
       <footer>
-        <button className="typescale-4">
+        <a
+          className="typescale-4"
+          href="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
+          target="_blank"
+        >
           View Playlist <ViewIcon />
-        </button>
+        </a>
       </footer>
     </section>
   );

@@ -13,6 +13,7 @@
   padding-top: utils.rem(248px);
 
   > h1 {
+    text-align: center;
     text-transform: uppercase;
     margin-bottom: utils.bu(2);
   }
@@ -31,6 +32,7 @@
       width: 100%;
       height: 100%;
       background-color: transparent;
+      text-transform: uppercase;
       font-size: utils.rem(16);
       font-weight: 400;
       line-height: utils.rem(19);
@@ -44,11 +46,11 @@
 
   &__icon {
     padding: utils.bu(1.5) utils.rem(10);
-    border: 1px solid map-get(colors.$base-color, black);
+    border: 1px solid map.get(colors.$base-color, black);
 
     &:hover {
       cursor: pointer;
-      background-color: map-get(colors.$base-color, primary);
+      background-color: map.get(colors.$base-color, primary);
     }
   }
 

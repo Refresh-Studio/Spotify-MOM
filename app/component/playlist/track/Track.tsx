@@ -38,7 +38,7 @@ export const Track = ({ track, onPlay, onStop, playing }: Props) => {
       <div>
         <Image src={track.album.images[0].url} alt={track?.name} width={42} height={42} />
         <div className="track__details">
-          <h1 className="typescale-3">{track?.name}</h1>
+          <h1 className="typescale-4">{track?.name}</h1>
           <p className="typescale-2">{track?.artists?.length > 0 ? track?.artists[0].name : ''}</p>
         </div>
       </div>
