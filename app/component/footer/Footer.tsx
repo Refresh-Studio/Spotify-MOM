@@ -6,7 +6,7 @@ import React, { FormEvent, FormEventHandler, useState } from 'react';
 
 import { ReactComponent as InputIcon } from '../../asset/input.svg';
 
-import { wideFont } from '../../layout';
+import { wideFont } from '../../constant';
 import { Loader } from '../loader/Loader';
 
 import './footer.scss';

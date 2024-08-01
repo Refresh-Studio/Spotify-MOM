@@ -1,29 +1,10 @@
 'use client';
 
-import localFont from 'next/font/local';
 import { PropsWithChildren } from 'react';
 
+import { defaultFont } from './constant';
+
 import './index.scss';
-
-export const defaultFont = localFont({
-  src: [
-    {
-      path: './style/fonts/SpotifyMix-Regular.otf',
-      weight: '400',
-      style: 'normal'
-    }
-  ]
-});
-
-export const wideFont = localFont({
-  src: [
-    {
-      path: './style/fonts/SpotifyMixWide-Regular.otf',
-      weight: '400',
-      style: 'normal'
-    }
-  ]
-});
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">

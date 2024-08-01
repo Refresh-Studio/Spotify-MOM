@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useMemo } from 'react';
-import { Simulate } from 'react-dom/test-utils';
 
 import { TrackObject } from '../track.interface';
 
@@ -26,11 +25,11 @@ export const Track = ({ track, onPlay, onStop, playing }: Props) => {
   };
 
   const duration = useMemo(() => {
-    const totalSeconds = Math.floor(track?.duration_ms / 1000); // Convert milliseconds to seconds
-    const minutes = Math.floor(totalSeconds / 60); // Calculate the number of minutes
-    const seconds = totalSeconds % 60; // Calculate the remaining seconds
+    const totalSeconds = Math.floor(track?.duration_ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
 
-    return `${minutes}:${seconds}`;
+    return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   }, [track?.duration_ms]);
 
   return (

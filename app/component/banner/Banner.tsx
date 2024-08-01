@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { wideFont } from '../../layout';
+import { wideFont } from '../../constant';
 
 import './banner.scss';
 

@@ -7,14 +7,13 @@ import { ReactComponent as BannerIcon } from '../../asset/banner.svg';
 import { ReactComponent as InstagramIcon } from '../../asset/instagram.svg';
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
-import { wideFont } from '../../layout';
+import { wideFont } from '../../constant';
 
 import './hero.scss';
 
 export const Hero = () => {
   const targetDate = new Date('August 13, 2024 00:00:00 GMT+0200').getTime();
 
-  // State to hold the countdown time
   const [timeRemaining, setTimeRemaining] = useState(targetDate - new Date().getTime());
 
   useEffect(() => {
@@ -30,11 +29,9 @@ export const Hero = () => {
       }
     }, 1000);
 
-    // Clear interval on component unmount
     return () => clearInterval(interval);
   }, [targetDate]);
 
-  // Calculate the time components
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
@@ -45,7 +42,7 @@ export const Hero = () => {
       <Link href="https://spotify.com" target="_blank" rel="noreferrer">
         <SpotifyIcon />
       </Link>
-      <Link href="https://instagram.com" target="_blank" rel="noreferrer">
+      <Link href="https://www.instagram.com/spotifyafrica/?hl=en" target="_blank" rel="noreferrer">
         <InstagramIcon />
       </Link>
       <div>
