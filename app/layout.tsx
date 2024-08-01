@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+'use client';
+
 import localFont from 'next/font/local';
 import { PropsWithChildren } from 'react';
 
@@ -23,11 +24,6 @@ export const wideFont = localFont({
     }
   ]
 });
-
-export const metadata: Metadata = {
-  title: 'Spotify MOM',
-  description: 'Spotify MOM'
-};
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">

@@ -1,5 +1,7 @@
+'use client';
+
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Banner } from './component/banner/Banner';
 import { Footer } from './component/footer/Footer';
@@ -8,7 +10,7 @@ import { Playlist } from './component/playlist/Playlist';
 
 const getData = async () => {
   const authToken = Buffer.from(
-    `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+    `${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`
   ).toString('base64');
   const { data } = await axios.post<{ access_token: string }>(
     'https://accounts.spotify.com/api/token?scope=web-playback',
@@ -24,8 +26,17 @@ const getData = async () => {
   return { accessToken: data.access_token };
 };
 
-const Home = async () => {
-  const { accessToken } = await getData();
+const Home = () => {
+  const [accessToken, setAccessToken] = useState<string>();
+
+  useEffect(() => {
+    const callApi = async () => {
+      const { accessToken } = await getData();
+      setAccessToken(accessToken);
+    };
+
+    callApi();
+  }, []);
 
   return (
     <main>

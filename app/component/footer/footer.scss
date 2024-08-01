@@ -11,6 +11,8 @@
   color: map.get(colors.$base-color, black);
   background-color: map.get(colors.$base-color, secondary);
   padding-top: utils.rem(248px);
+  padding-bottom: utils.rem(248px);
+  position: relative;
 
   > h1 {
     text-align: center;
@@ -44,9 +46,32 @@
     }
   }
 
+  &__subscribed {
+    margin-top: utils.bu(8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 358px;
+      background-color: map.get(colors.$base-color, primary);
+      color: map.get(colors.$base-color, black);
+      text-transform: uppercase;
+    }
+  }
+
   &__icon {
     padding: utils.bu(1.5) utils.rem(10);
     border: 1px solid map.get(colors.$base-color, black);
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -56,13 +81,12 @@
 
   > p {
     text-transform: uppercase;
-
-    &:last-of-type {
-      margin-bottom: utils.rem(248px);
-    }
   }
 
-  > div:last-of-type {
+  &__copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     padding: utils.bu(2.5) utils.rem(30);
     background-color: map.get(colors.$base-color, primary);

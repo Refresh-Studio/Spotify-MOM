@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 import { TrackDetails } from './track.interface';
 
-import { ReactComponent as GlobeIcon } from '../../asset/globe.svg';
 import { ReactComponent as ViewIcon } from '../../asset/view.svg';
 
 import { Track } from './track/Track';
@@ -47,7 +46,9 @@ export const Playlist = ({ accessToken }: Props) => {
       setTracks(tracks);
     };
 
-    callApi();
+    if (accessToken) {
+      callApi();
+    }
   }, [accessToken]);
 
   const handlePlay = (uri: string) => {

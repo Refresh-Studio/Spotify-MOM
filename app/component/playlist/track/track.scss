@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 @use '../../../style/00_settings/util' as utils;
 @use '../../../style/00_settings/color' as colors;
 @use '../../../style/01_tools/mixin' as mixins;
@@ -10,6 +10,7 @@
   justify-content: space-between;
   padding: utils.bu(2);
   border-bottom: 1px solid rgba(#fff, 0.2);
+
   $block: &;
 
   &__player {
