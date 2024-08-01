@@ -48,6 +48,12 @@
   font-weight: 400;
   line-height: utils.rem(32);
 
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(27);
+    font-weight: 400;
+    line-height: utils.rem(32);
+  }
+
   @include mixins.breakpoint(lg) {
     font-size: utils.rem(61);
     font-weight: 400;

@@ -82,17 +82,16 @@ export const Playlist = ({ accessToken }: Props) => {
   return (
     <section className="playlist">
       <div className="playlist__tracks">
-        {(tracks ?? [])
-          .filter((_, index: number) => index < 9)
-          .map(({ track }: TrackDetails) => (
-            <Track
-              key={track.id}
-              track={track}
-              onPlay={handlePlay}
-              onStop={handleStop}
-              playing={playingTrack === track?.uri}
-            />
-          ))}
+        <iframe
+          style={{ borderRadius: 12 }}
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWuGghJUW6Hp?utm_source=generator&theme=0"
+          width="100%"
+          height="746"
+          frameBorder="0"
+          allowFullScreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
       </div>
       <footer>
         <a

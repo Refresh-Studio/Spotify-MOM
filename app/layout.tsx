@@ -14,9 +14,6 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
       <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
       <Header />
       {children}
-      <div id="embed-iframe">
-        <div id="playback"></div>
-      </div>
     </body>
   </html>
 );

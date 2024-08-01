@@ -11,6 +11,18 @@
   text-align: center;
   padding: utils.bu(10) utils.bu(2) utils.bu(7.5);
 
+  > br {
+    display: none;
+  }
+
+  @include mixins.breakpoint(md) {
+    padding: utils.rem(104) utils.rem(30) utils.bu(7.5);
+
+    > br {
+      display: block;
+    }
+  }
+
   @include mixins.breakpoint(lg) {
     padding: utils.rem(121) 0 utils.bu(7.5);
   }
