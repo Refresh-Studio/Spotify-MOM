@@ -2,9 +2,11 @@
 
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
+import Link from 'next/link';
 import React, { FormEvent, FormEventHandler, useState } from 'react';
 
 import { ReactComponent as InputIcon } from '../../asset/input.svg';
+import { ReactComponent as InstagramIcon } from '../../asset/instagram.svg';
 
 import { wideFont } from '../../constant';
 import { Loader } from '../loader/Loader';
@@ -12,7 +14,7 @@ import { Loader } from '../loader/Loader';
 import './footer.scss';
 
 export const Footer = () => {
-  const [email, setEmail] = useState<string>();
+  const [email, setEmail] = useState<string>('');
   const [subscribed, setSubscribed] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -34,6 +36,7 @@ export const Footer = () => {
       })
       .then(() => {
         setSubscribed(true);
+        setTimeout(() => setSubscribed(false), 5000);
       })
       .catch(() => {
         setSubscribed(false);
@@ -57,12 +60,21 @@ export const Footer = () => {
       {!subscribed && (
         <>
           <form className="footer__input" onSubmit={handleSendEmail}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div>
+              <label
+                className={`typescale-2 ${email?.length > 0 ? 'footer__input-label' : ''}`}
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
             <span className="footer__icon" onClick={handleSendEmail}>
               {!loading && <InputIcon />}
               {loading && <Loader />}
@@ -73,6 +85,14 @@ export const Footer = () => {
       )}
       <div className="footer__copyright">
         <p className="typescale-2">Copyright &copy; Spotify</p>
+
+        <Link
+          href="https://www.instagram.com/spotifyafrica/?hl=en"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <InstagramIcon />
+        </Link>
       </div>
     </footer>
   );

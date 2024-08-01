@@ -47,6 +47,7 @@
       align-items: center;
       justify-content: center;
       gap: utils.bu(1);
+      text-transform: uppercase;
 
       &:hover {
         background-color: map.get(colors.$base-color, secondary);

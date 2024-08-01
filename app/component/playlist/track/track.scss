@@ -29,9 +29,13 @@
       align-items: center;
       justify-content: center;
 
+      &:hover {
+        cursor: pointer;
+        background-color: map.get(colors.$base-color, primary);
+      }
+
       > svg {
         color: #e0e1e3;
-        @include mixins.svg-hover;
       }
     }
   }

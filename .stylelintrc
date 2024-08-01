@@ -10,6 +10,7 @@
     "selector-pseudo-element-no-unknown": null,
     "selector-pseudo-class-no-unknown": null,
     "selector-class-pattern": null,
+    "no-descending-specificity": null,
     "at-rule-empty-line-before": [
       "always",
       {

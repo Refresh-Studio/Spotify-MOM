@@ -82,15 +82,17 @@ export const Playlist = ({ accessToken }: Props) => {
   return (
     <section className="playlist">
       <div className="playlist__tracks">
-        {(tracks ?? []).map(({ track }: TrackDetails) => (
-          <Track
-            key={track.id}
-            track={track}
-            onPlay={handlePlay}
-            onStop={handleStop}
-            playing={playingTrack === track?.uri}
-          />
-        ))}
+        {(tracks ?? [])
+          .filter((_, index: number) => index < 9)
+          .map(({ track }: TrackDetails) => (
+            <Track
+              key={track.id}
+              track={track}
+              onPlay={handlePlay}
+              onStop={handleStop}
+              playing={playingTrack === track?.uri}
+            />
+          ))}
       </div>
       <footer>
         <a

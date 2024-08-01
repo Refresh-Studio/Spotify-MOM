@@ -6,4 +6,10 @@
   height: 125px;
   bottom: 0;
   right: 20px;
+  z-index: 0;
+
+  > #playback {
+    width: 100%;
+    height: calc(100% - 45px);
+  }
 }
