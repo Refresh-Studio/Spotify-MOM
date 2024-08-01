@@ -16,6 +16,16 @@ export const wideFont = localFont({
       path: '../style/fonts/SpotifyMixWide-Regular.otf',
       weight: '400',
       style: 'normal'
+    },
+    {
+      path: '../style/fonts/SpotifyMixWide-Medium.otf',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../style/fonts/SpotifyMixWide-Bold.otf',
+      weight: '700',
+      style: 'normal'
     }
   ]
 });

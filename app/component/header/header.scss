@@ -1,0 +1,10 @@
+@use '../../style/00_settings/util' as utils;
+@use '../../style/00_settings/color' as colors;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: utils.bu(3.5) utils.bu(3) 0;
+  background-color: map-get(colors.$base-color, primary);
+}

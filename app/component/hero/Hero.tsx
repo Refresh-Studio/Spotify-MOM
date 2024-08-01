@@ -39,16 +39,10 @@ export const Hero = () => {
 
   return (
     <section className="hero">
-      <Link href="https://spotify.com" target="_blank" rel="noreferrer">
-        <SpotifyIcon />
-      </Link>
-      <Link href="https://www.instagram.com/spotifyafrica/?hl=en" target="_blank" rel="noreferrer">
-        <InstagramIcon />
-      </Link>
       <div>
         <p className={`typescale-6 ${wideFont.className}`}>9.24</p>
         <h1 className={`typescale-9 ${wideFont.className}`}>
-          <span>Mom</span> is coming home
+          <span>Mom</span> is <br /> coming home
         </h1>
         <BannerIcon />
         <p className={`typescale-6 ${wideFont.className}`}>Cape Town</p>

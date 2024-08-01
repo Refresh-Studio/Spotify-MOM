@@ -1,14 +1,19 @@
 @use 'sass:map';
 @use '../../style/00_settings/color' as colors;
 @use '../../style/00_settings/util' as utils;
+@use '../../style/01_tools/mixin' as mixins;
 
 .banner {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: map.get(colors.$base-color, black);
-  padding: utils.rem(121) 0 utils.bu(7.5);
   text-align: center;
+  padding: utils.bu(10) utils.bu(2) utils.bu(7.5);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.rem(121) 0 utils.bu(7.5);
+  }
 
   > h1 {
     font-weight: 500;
