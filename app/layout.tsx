@@ -17,7 +17,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Spotify | MOM',
-  description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'."
+  description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+  openGraph: {
+    title: 'Spotify | MOM',
+    description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+    images: [
+      {
+        url: './opengraph-image.jpg'
+      }
+    ]
+  }
 };
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
