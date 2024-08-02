@@ -1,11 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { hotjar } from 'react-hotjar';
 
 import { ReactComponent as BannerIcon } from '../../asset/banner.svg';
-import { ReactComponent as InstagramIcon } from '../../asset/instagram.svg';
-import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
 import { wideFont } from '../../constant';
 
@@ -31,6 +29,10 @@ export const Hero = () => {
 
     return () => clearInterval(interval);
   }, [targetDate]);
+
+  useEffect(() => {
+    hotjar.initialize({ id: 5081246, sv: 6 });
+  }, []);
 
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

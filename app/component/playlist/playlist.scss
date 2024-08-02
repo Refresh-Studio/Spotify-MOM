@@ -38,6 +38,20 @@
 
   &__tracks {
     width: 100%;
+
+    > iframe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include mixins.breakpoint(lg) {
+        width: 75%;
+        max-width: 1106px;
+      }
+    }
   }
 
   > footer {

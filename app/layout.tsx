@@ -1,5 +1,5 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata, Viewport } from 'next';
-import Head from 'next/head';
 import React, { PropsWithChildren } from 'react';
 
 import { Footer } from './component/footer/Footer';
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">
+    <GoogleAnalytics gaId="G-8YT65EB5MC" />
     <body className={defaultFont.className}>
       <Header />
       {children}
