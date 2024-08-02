@@ -5,6 +5,8 @@ import React, { PropsWithChildren } from 'react';
 import { Footer } from './component/footer/Footer';
 import { Header } from './component/header/Header';
 
+import openGraphImage from './opengraph-image.jpg';
+
 import { defaultFont } from './constant';
 
 import './index.scss';
@@ -18,15 +20,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Spotify | MOM',
   description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
-  openGraph: {
-    title: 'Spotify | MOM',
-    description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
-    images: [
-      {
-        url: './opengraph-image.jpg'
-      }
-    ]
-  }
+    openGraph: {
+      title: 'Spotify | MOM',
+        description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+        images: [
+            {
+                url: openGraphImage.src
+            }
+        ]
+    }
 };
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
