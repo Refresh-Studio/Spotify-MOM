@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
         images: [
             {
-                url: openGraphImage.src
+                url: 'https://ibb.co/fdJTFtJ'
             }
         ]
     }
