@@ -17,6 +17,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.spotifymom.com'),
   title: 'Spotify | MOM',
   description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
   openGraph: {
