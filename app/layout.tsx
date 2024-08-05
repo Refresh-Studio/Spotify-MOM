@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Spotify | MOM',
     description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+    url: 'https://www.spotifymom.com',
     images: [
       {
         url: 'https://i.ibb.co/MkdJSpd/Open-graph-image.jpg',
