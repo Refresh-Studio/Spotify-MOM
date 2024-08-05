@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
     images: [
       {
-        url: 'https://ibb.co/fdJTFtJ',
+        url: 'https://i.ibb.co/MkdJSpd/Open-graph-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Spotify | MOM',
