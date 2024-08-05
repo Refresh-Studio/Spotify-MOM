@@ -29,8 +29,7 @@ export const metadata: Metadata = {
         url: 'https://i.ibb.co/MkdJSpd/Open-graph-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Spotify | MOM',
-        href: 'https://www.spotifymom.com'
+        alt: 'Spotify | MOM'
       }
     ]
   }
