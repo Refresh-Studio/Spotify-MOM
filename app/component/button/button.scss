@@ -1,7 +1,7 @@
-@use "sass:map";
-@use "../../style/00_settings/color" as colors;
-@use "../../style/00_settings/util" as utils;
-@use "../../style/01_tools/mixin" as mixins;
+@use 'sass:map';
+@use '../../style/00_settings/color' as colors;
+@use '../../style/00_settings/util' as utils;
+@use '../../style/01_tools/mixin' as mixins;
 
 .button {
   background-color: map.get(colors.$base-color, primary);
