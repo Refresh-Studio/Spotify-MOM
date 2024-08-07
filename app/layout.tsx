@@ -6,7 +6,6 @@ import { Footer } from './component/footer/Footer';
 import { Header } from './component/header/Header';
 
 import { defaultFont } from './constant';
-import openGraphImage from './opengraph-image.jpg';
 
 import './index.scss';
 
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">
     <GoogleAnalytics gaId="G-8YT65EB5MC" />
-    <body className={defaultFont.className}>
+    <body className={`${defaultFont.className} layout`}>
       <Header />
       {children}
       <Footer />

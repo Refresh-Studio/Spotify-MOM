@@ -119,12 +119,6 @@
   font-size: utils.rem(14);
   font-weight: 400;
   line-height: utils.rem(19.2);
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(16);
-    font-weight: 400;
-    line-height: utils.rem(19);
-  }
 }
 
 .typescale-3 {

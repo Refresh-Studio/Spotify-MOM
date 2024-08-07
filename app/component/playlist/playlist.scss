@@ -64,25 +64,5 @@
     @include mixins.breakpoint(md) {
       margin-top: utils.bu(7.5);
     }
-
-    > a {
-      background-color: map.get(colors.$base-color, primary);
-      color: map.get(colors.$base-color, black);
-      width: 100%;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: utils.bu(1);
-      text-transform: uppercase;
-
-      @include mixins.breakpoint(md) {
-        width: 231px;
-      }
-
-      &:hover {
-        background-color: map.get(colors.$base-color, secondary);
-      }
-    }
   }
 }

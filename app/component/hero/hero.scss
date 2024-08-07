@@ -11,52 +11,44 @@
 
 .hero {
   position: relative;
-  background-color: map.get(colors.$base-color, primary);
-  height: calc(100vh - 62px);
-  padding: 0 utils.bu(2) utils.bu(7.5);
+  height: 100%;
+  min-height: 100vh;
+  background: url("/images/hero-rotation.gif") no-repeat;
+  background-size: contain;
+  padding: 0 utils.bu(13);
 
-  @include mixins.breakpoint(md) {
-    padding-left: utils.bu(4);
-    padding-right: utils.bu(4);
-    padding-bottom: utils.rem(104);
-  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center;
+    flex-direction: column;
+    width: 1126px;
+    margin: auto;
+    gap: utils.bu(7.5);
 
-  @include mixins.breakpoint(xl) {
-    padding-left: utils.rem(310);
-    padding-right: utils.rem(310);
-    padding-bottom: utils.rem(121);
+    > p {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+    }
   }
 
   > div {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    height: 80%;
-    gap: utils.bu(3);
-    @include mixins.center-content;
+    justify-content: space-between;
+    padding-top: utils.bu(48);
 
-    @include mixins.breakpoint(md) {
+    > span {
       display: flex;
       align-items: center;
-      flex-direction: column;
-    }
-
-    > p {
       text-transform: uppercase;
-    }
+      gap: utils.bu(1.5);
+      color: map.get(colors.$base-color, white);
 
-    > h1 {
-      text-align: center;
-      text-transform: uppercase;
-
-      @include mixins.breakpoint(md) {
-        > br {
-          display: none;
-        }
-      }
-
-      > span {
-        font-weight: bold;
+      > svg {
+        width: 24px;
+        height: 24px;
       }
     }
   }
@@ -64,33 +56,15 @@
   > footer {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    color: map.get(colors.$base-color, white);
+    padding-bottom: utils.bu(11);
+    margin-top: utils.bu(20);
+    text-transform: uppercase;
 
-    @include mixins.breakpoint(lg) {
-      padding: 0 utils.rem(30);
-      justify-content: center;
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      width: 276px;
-      padding: utils.bu(0.5);
-
-      @include mixins.breakpoint(md) {
-        padding: utils.bu(1) utils.bu(1.5);
-      }
-
-      @include mixins.breakpoint(lg) {
-        padding: utils.bu(2) utils.bu(4.5);
-      }
-
-      > span {
-        &:last-of-type {
-          text-transform: uppercase;
-        }
-      }
+    > svg {
+      max-width: 548px;
+      height: 56px;
     }
   }
 }

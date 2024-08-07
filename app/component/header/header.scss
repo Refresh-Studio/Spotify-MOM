@@ -6,6 +6,33 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: utils.bu(3.5) utils.bu(3) 0;
-  background-color: map.get(colors.$base-color, primary);
+  padding: utils.bu(4) utils.bu(7.5);
+  background-color: map.get(colors.$base-color, transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &__social {
+
+    > svg {
+      color: map.get(colors.$base-color, white);
+    }
+  }
+
+  > .mom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  > nav {
+    display: flex;
+    align-items: center;
+    gap: utils.bu(4);
+
+    > a:not(.button) {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+    }
+  }
 }
