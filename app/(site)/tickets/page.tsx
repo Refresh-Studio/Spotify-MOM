@@ -11,7 +11,7 @@ const TicketsPage = async () => {
   return (
     <Suspense>
       <main>
-        <Hero />
+        <Hero ticketCount={events.length} />
         <Tickets events={events} />
       </main>
     </Suspense>

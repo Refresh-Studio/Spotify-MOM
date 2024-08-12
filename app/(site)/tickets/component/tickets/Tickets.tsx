@@ -71,7 +71,7 @@ export const Tickets = ({ events }: Props) => {
               onCancel={() => setPurchasingEvent(undefined)}
               action={
                 event.free ? (
-                  <Button hollow large icon={<PlusIcon />} link="" label="Add to Calendar" />
+                  <Button hollow large icon={<PlusIcon />} label="Add to Calendar" />
                 ) : (
                   <Button
                     clickable
