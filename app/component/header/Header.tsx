@@ -23,7 +23,6 @@ export const Header = () => {
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        console.log(rect, section);
         if (rect.top <= 40 && rect.bottom >= 40) {
           if (section.classList.contains('light-section')) {
             setInverted(true);

@@ -3,68 +3,27 @@
 @use '../../style/00_settings/util' as utils;
 @use '../../style/01_tools/mixin' as mixins;
 
-@mixin svg {
-  position: absolute;
-  color: map.get(colors.$base-color, black);
-  cursor: pointer;
-}
-
 .hero {
   position: relative;
   height: 100%;
   min-height: 100vh;
-  background: url('/images/hero-rotation.gif') no-repeat;
+  background: url('/images/hero-rotation.gif') no-repeat center;
   background-size: contain;
-  padding: 0 utils.bu(13);
+  padding: 0 utils.bu(8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &__content {
+  > span {
     display: flex;
     align-items: center;
-    justify-content: center !important;
-    text-align: center;
-    flex-direction: column;
-    width: 1126px;
-    gap: utils.bu(7.5);
-    margin: utils.bu(20) auto auto;
-
-    > p {
-      color: map.get(colors.$base-color, white);
-      text-transform: uppercase;
-    }
-  }
-
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: utils.bu(48);
-
-    > span {
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      gap: utils.bu(1.5);
-      color: map.get(colors.$base-color, white);
-
-      > svg {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  }
-
-  > footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: map.get(colors.$base-color, white);
-    padding-bottom: utils.bu(11);
-    margin-top: utils.bu(20);
     text-transform: uppercase;
+    gap: utils.bu(1.5);
+    color: map.get(colors.$base-color, white);
 
     > svg {
-      max-width: 548px;
-      height: 56px;
+      width: 24px;
+      height: 24px;
     }
   }
 }
