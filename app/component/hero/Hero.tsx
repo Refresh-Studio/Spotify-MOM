@@ -3,7 +3,6 @@
 import React from 'react';
 
 import { ReactComponent as BannerIcon } from '../../asset/banner.svg';
-import { ReactComponent as DownIcon } from '../../asset/down.svg';
 
 import './hero.scss';
 
