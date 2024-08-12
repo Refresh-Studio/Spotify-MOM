@@ -15,7 +15,7 @@ const Home = () => (
     <Hero />
     <Message />
     <Events />
-    <Ticker>
+    <Ticker path="/tickets">
       <GetTickets />
     </Ticker>
     <Banner />

@@ -11,9 +11,12 @@
     border: none;
   }
 
-  svg {
+  img {
     margin-left: utils.rem(10);
     margin-right: utils.rem(10);
     height: 597px;
+    max-width: 683px;
+    width: 100% !important;
+    object-fit: contain;
   }
 }

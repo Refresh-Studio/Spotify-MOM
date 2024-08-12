@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../../../style/00_settings/util' as utils;
 @use '../../../style/00_settings/color' as colors;
+@use '../../../style/01_tools/mixin' as mixins;
 
 .header {
   display: flex;
@@ -22,16 +23,24 @@
   }
 
   > .mom {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     color: map.get(colors.$base-color, white);
+
+    @include mixins.breakpoint(lg) {
+      transform: translateX(-50%);
+      left: 50%;
+      position: absolute;
+    }
   }
 
   > nav {
-    display: flex;
+    display: none;
     align-items: center;
     gap: utils.bu(4);
+
+    @include mixins.breakpoint(lg) {
+      display: flex;
+    }
 
     > a:not(.button) {
       color: map.get(colors.$base-color, white);

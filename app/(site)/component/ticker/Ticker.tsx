@@ -1,3 +1,6 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import React, { PropsWithChildren, useEffect, useRef } from 'react';
 import Marquee from 'react-fast-marquee';
 
@@ -8,6 +11,7 @@ interface Props extends PropsWithChildren {
   height?: number;
   speed?: number;
   hollow?: boolean;
+  path?: string;
 }
 
 export const Ticker = ({
@@ -15,11 +19,26 @@ export const Ticker = ({
   right = false,
   height = 40,
   hollow = false,
-  speed = 100
-}: Props) => (
-  <section className={`ticker ${hollow ? 'ticker--hollow' : ''}`} style={{ height }}>
-    <Marquee autoFill speed={speed} direction={right ? 'right' : 'left'}>
-      {children}
-    </Marquee>
-  </section>
-);
+  speed = 100,
+  path
+}: Props) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (path) {
+      void router.push(path);
+    }
+  };
+
+  return (
+    <section
+      className={`ticker ${hollow ? 'ticker--hollow' : ''}`}
+      style={{ height }}
+      onClick={handleClick}
+    >
+      <Marquee autoFill speed={speed} direction={right ? 'right' : 'left'}>
+        {children}
+      </Marquee>
+    </section>
+  );
+};

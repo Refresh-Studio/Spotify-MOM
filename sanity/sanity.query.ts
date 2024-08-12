@@ -56,3 +56,14 @@ export async function getArtists() {
 }`
   );
 }
+
+export async function getImages() {
+  return client.fetch(
+    groq`*[_type == "galleryImage"] {
+    _id,
+    name,
+    tags,
+    "src": image.asset->url
+}`
+  );
+}
