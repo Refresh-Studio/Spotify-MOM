@@ -6,8 +6,10 @@ import './banner.scss';
 
 export const Banner = () => (
   <section className="banner">
-    <h1 className={`typescale-10 ${wideFont.className}`}>
-      Listen to <br /> your mother
-    </h1>
+    <div>
+      <h1 className={`typescale-9 ${wideFont.className}`}>
+        DISCOVER. EMERGING. <br /> COMMUNITY.
+      </h1>
+    </div>
   </section>
 );

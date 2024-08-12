@@ -4,12 +4,14 @@ import Marquee from 'react-fast-marquee';
 import './ticker.scss';
 
 interface Props extends PropsWithChildren {
-  speed?: number;
+  right?: boolean;
+  height?: number;
+  hollow?: boolean;
 }
 
-export const Ticker = ({ children, speed = 1 }: Props) => (
-  <section className="ticker">
-    <Marquee autoFill speed={100}>
+export const Ticker = ({ children, right = false, height = 40, hollow = false }: Props) => (
+  <section className={`ticker ${hollow ? 'ticker--hollow' : ''}`} style={{ height }}>
+    <Marquee autoFill speed={100} direction={right ? 'right' : 'left'}>
       {children}
     </Marquee>
   </section>

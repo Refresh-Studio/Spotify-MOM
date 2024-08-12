@@ -7,29 +7,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: map.get(colors.$base-color, black);
+  background: linear-gradient(0deg, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url('/images/banner.jpeg');
+  background-size: cover;
+  background-position-y: -500px;
   text-align: center;
   padding: utils.bu(10) utils.bu(2) utils.bu(7.5);
+  height: 100vh;
 
-  > br {
-    display: none;
-  }
+  > div {
+    background: url('/images/banner_artwork.png') no-repeat;
+    background-size: contain;
+    height: 525px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  @include mixins.breakpoint(md) {
-    padding: utils.rem(104) utils.rem(30) utils.bu(7.5);
-
-    > br {
-      display: block;
+    > h1 {
+      text-transform: uppercase;
+      color: map.get(colors.$base-color, white);
     }
-  }
-
-  @include mixins.breakpoint(lg) {
-    padding: utils.rem(121) 0 utils.bu(7.5);
-  }
-
-  > h1 {
-    font-weight: 500;
-    text-transform: uppercase;
-    color: map.get(colors.$base-color, secondary);
   }
 }

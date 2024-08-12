@@ -9,4 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+  &--hollow {
+    background-color: map.get(colors.$base-color, transparent);
+  }
 }
