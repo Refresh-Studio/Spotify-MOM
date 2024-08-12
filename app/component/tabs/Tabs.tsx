@@ -6,7 +6,17 @@ import React, { useMemo } from 'react';
 
 import './tabs.scss';
 
-export const Tabs = () => {
+export interface TabItem {
+  name: string;
+  path: string;
+}
+
+interface Props {
+  tabs: readonly TabItem[];
+  hollow?: boolean;
+}
+
+export const Tabs = ({ tabs = [], hollow = false }: Props) => {
   const searchParams = useSearchParams();
 
   const query = useMemo(() => {
@@ -14,25 +24,12 @@ export const Tabs = () => {
   }, [searchParams]);
 
   return (
-    <nav className="tabs">
-      <li className={`tabs__tab ${!query || query === 'all' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=all">All</Link>
-      </li>
-      <li className={`tabs__tab ${query === 'build-up' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=build-up">Build Up</Link>
-      </li>
-      <li className={`tabs__tab ${query === 'thursday' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=thursday">First Thursdays</Link>
-      </li>
-      <li className={`tabs__tab ${query === 'friday' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=friday">Friday</Link>
-      </li>
-      <li className={`tabs__tab ${query === 'saturday' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=saturday">Saturday</Link>
-      </li>
-      <li className={`tabs__tab ${query === 'sunday' ? 'tabs__tab--active' : ''}`}>
-        <Link href="?query=sunday">Sunday</Link>
-      </li>
+    <nav className={`tabs ${hollow ? 'tabs--hollow' : ''}`}>
+      {tabs.map((tab: TabItem) => (
+        <li key={tab.path} className={`tabs__tab ${query === tab.path ? 'tabs__tab--active' : ''}`}>
+          <Link href={`?query=${tab.path}`}>{tab.name}</Link>
+        </li>
+      ))}
     </nav>
   );
 };

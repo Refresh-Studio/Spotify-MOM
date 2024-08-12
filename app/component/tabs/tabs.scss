@@ -8,6 +8,8 @@
   align-items: center;
   gap: utils.bu(0.5);
 
+  $block: &;
+
   &__tab {
     cursor: pointer;
     text-transform: uppercase;
@@ -24,6 +26,25 @@
     &--active {
       > a {
         background-color: map.get(colors.$base-color, primary);
+      }
+    }
+  }
+
+  &--hollow {
+    #{$block}__tab {
+      > a {
+        border: 1px solid rgba(map.get(colors.$base-color, white), 0.2);
+        color: map.get(colors.$base-color, white);
+
+        &:hover {
+          color: map.get(colors.$base-color, black);
+        }
+      }
+
+      &--active {
+        > a {
+          color: map.get(colors.$base-color, black);
+        }
       }
     }
   }

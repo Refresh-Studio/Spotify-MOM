@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.tickets {
+  padding: utils.bu(15) utils.bu(7.5);
+  background-color: map.get(colors.$base-color, black);
+
+  > main {
+    margin-top: utils.bu(7.5);
+  }
+}

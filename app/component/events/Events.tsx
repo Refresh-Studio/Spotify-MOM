@@ -2,10 +2,22 @@ import React, { Fragment } from 'react';
 
 import { wideFont } from '../../constant';
 import { Button } from '../button/Button';
+import { Event } from './event/Event';
 
 import './events.scss';
 
-const MOCK_EVENT = {
+export interface EventItem {
+  id: number;
+  name: string;
+  address: string;
+  startTime: string;
+  endTime: string;
+  price: number;
+  date: Date;
+  description?: string;
+}
+
+const MOCK_EVENT: EventItem = {
   id: 1,
   name: 'Moms test event',
   address: 'At some awesome venue',
@@ -38,19 +50,9 @@ export const Events = () => (
   </section>
 );
 
-interface Event {
-  id: number;
-  name: string;
-  address: string;
-  price: number;
-  startTime: string;
-  endTime: string;
-  date: Date;
-}
-
 interface EventListProps {
   title: string;
-  events?: Event[];
+  events?: EventItem[];
 }
 
 const EventList = ({ title, events }: EventListProps) => (
@@ -59,24 +61,12 @@ const EventList = ({ title, events }: EventListProps) => (
       <h1 className={`typescale-8 ${wideFont.className}`}>{title}</h1>
     </header>
     <section>
-      {(events ?? []).map((event: Event, index: number) => (
+      {(events ?? []).map((event: EventItem, index: number) => (
         <Fragment key={event.id}>
-          <div className="event-list__event">
-            <h2 className={`typescale-6 ${wideFont.className}`}>{event.name}</h2>
-            <h3 className={`typescale-6 ${wideFont.className}`}>{event.address}</h3>
-            <small className="typescale-4">
-              {event.price === 0 ? 'Free Ticket' : `R${event.price.toFixed(2)}`}
-            </small>
-            <footer>
-              <div>
-                <small className="typescale-4">
-                  {event.startTime} - {event.endTime}
-                </small>
-                <small className="typescale-4">{event.date.toLocaleDateString()}</small>
-              </div>
-              <Button small link={`/events/${event.id}`} label="Learn More" />
-            </footer>
-          </div>
+          <Event
+            event={event}
+            action={<Button small link={`/events/${event.id}`} label="Learn More" />}
+          />
           {index % 2 === 0 && (
             <div>
               <hr />

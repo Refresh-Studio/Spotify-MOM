@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Acts } from './component/acts/Acts';
 import { Banner } from './component/banner/Banner';
-import { Events } from './component/event/Events';
+import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
 import { Playlist } from './component/playlist/Playlist';
 import { Ticker } from './component/ticker/Ticker';

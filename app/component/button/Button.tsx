@@ -10,6 +10,7 @@ interface Props {
   Icon?: ElementType;
   small?: boolean;
   medium?: boolean;
+  large?: boolean;
   hollow?: boolean;
 }
 
@@ -20,10 +21,11 @@ export const Button = ({
   Icon,
   small = false,
   medium = false,
+  large = false,
   hollow = false
 }: Props) => (
   <Link
-    className={`button ${small ? 'button--small' : ''} ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
+    className={`button ${small ? 'button--small' : ''} ${large ? 'button--large' : ''}  ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
     href={link}
     target={target}
   >
