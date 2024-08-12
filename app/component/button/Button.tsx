@@ -6,7 +6,7 @@ import React, { ReactElement } from 'react';
 import './button.scss';
 
 interface Props {
-  link: string;
+  link?: string;
   target?: '_blank' | '_self';
   label: string;
   icon?: ReactElement;
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const Button = ({
-  link,
+  link = '',
   target = '_self',
   label,
   icon,

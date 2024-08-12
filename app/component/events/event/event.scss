@@ -26,7 +26,6 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 
       > iframe {
         max-width: 1000px;
-        margin-top: utils.bu(5);
         border-radius: 8px;
       }
 
@@ -46,7 +45,11 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     > svg {
       cursor: pointer;
       color: map.get(colors.$base-color, white);
-      @include mixins.svg-hover;
+
+      &:hover {
+        color: map.get(colors.$base-color, black);
+        fill: map.get(colors.$base-color, primary);
+      }
     }
 
     > div {
@@ -60,7 +63,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
         text-transform: uppercase;
       }
 
-      > small {
+      > p {
         color: map.get(colors.$base-color, silver);
         text-transform: uppercase;
         margin-top: utils.bu(1);

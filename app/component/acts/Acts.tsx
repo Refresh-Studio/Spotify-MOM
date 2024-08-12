@@ -25,13 +25,13 @@ export const Acts = () => (
       <Button small link="/artists" label="View All Artists" />
     </header>
     <main>
-      <Ticker hollow height={77}>
+      <Ticker hollow height={77} speed={10}>
         <Artist />
       </Ticker>
-      <Ticker hollow height={77} right>
+      <Ticker hollow height={77} right speed={10}>
         <Artist />
       </Ticker>
-      <Ticker hollow height={77}>
+      <Ticker hollow height={77} speed={10}>
         <Artist />
       </Ticker>
     </main>

@@ -20,7 +20,7 @@ const TicketsPage = () => (
   <Suspense>
     <main>
       <Hero />
-      <Tickets events={[MOCK_EVENT, MOCK_EVENT]} />
+      <Tickets events={[MOCK_EVENT, { ...MOCK_EVENT, id: 2, free: true }]} />
     </main>
   </Suspense>
 );

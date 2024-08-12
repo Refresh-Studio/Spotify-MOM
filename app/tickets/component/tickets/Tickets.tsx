@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 
 import { Button } from '../../../component/button/Button';
 import { EventItem } from '../../../component/events/Events';
@@ -22,23 +24,41 @@ interface Props {
   events: EventItem[];
 }
 
-export const Tickets = ({ events }: Props) => (
-  <section className="tickets">
-    <header id="tickets-tabs">
-      <Tabs hollow tabs={TABS} />
-    </header>
-    <main>
-      <ul>
-        {events.map((event: EventItem) => (
-          <Event
-            expandable
-            filled
-            key={event.id}
-            event={event}
-            action={<Button hollow large icon={<PlusIcon />} link="" label="Add to Calendar" />}
-          />
-        ))}
-      </ul>
-    </main>
-  </section>
-);
+export const Tickets = ({ events }: Props) => {
+  const [purchasingEvent, setPurchasingEvent] = useState<number>();
+
+  return (
+    <section className="tickets">
+      <header id="tickets-tabs">
+        <Tabs hollow tabs={TABS} />
+      </header>
+      <main>
+        <ul>
+          {events.map((event: EventItem) => (
+            <Event
+              key={event.id}
+              registering={purchasingEvent === event.id}
+              expandable
+              filled
+              event={event}
+              onCancel={() => setPurchasingEvent(undefined)}
+              action={
+                event.free ? (
+                  <Button hollow large icon={<PlusIcon />} link="" label="Add to Calendar" />
+                ) : (
+                  <Button
+                    clickable
+                    hollow
+                    large
+                    label="Register for Tickets"
+                    onClick={() => setPurchasingEvent(event.id)}
+                  />
+                )
+              }
+            />
+          ))}
+        </ul>
+      </main>
+    </section>
+  );
+};

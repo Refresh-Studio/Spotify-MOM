@@ -69,6 +69,12 @@ input[type='radio'] {
 a {
   text-decoration: none;
   color: inherit;
+
+  &:not(.button) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 button {

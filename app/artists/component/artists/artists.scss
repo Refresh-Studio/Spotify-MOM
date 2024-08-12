@@ -9,6 +9,7 @@
   display: flex;
 
   &__list {
+    height: fit-content;
     width: 64%;
     border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
   }
@@ -53,13 +54,17 @@
 
   &__artist {
     cursor: pointer;
-    padding: utils.bu(1.5) utils.bu(1);
+    padding: utils.bu(1.5) utils.bu(2.5) utils.bu(1.5) utils.bu(1);
     color: map.get(colors.$base-color, white);
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     &:hover {
       background-color: map.get(colors.$base-color, secondary);

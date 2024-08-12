@@ -2,8 +2,6 @@
 
 import React, { ReactElement, useState } from 'react';
 
-import { scrollIntoView } from '../../../util';
-
 import { ReactComponent as CollapsedIcon } from '../../../asset/collapsed.svg';
 import { ReactComponent as ExpandedIcon } from '../../../asset/expanded.svg';
 
@@ -17,17 +15,23 @@ interface Props {
   event: EventItem;
   filled?: boolean;
   expandable?: boolean;
+  registering?: boolean;
   action?: ReactElement;
+  onCancel?: () => void;
 }
 
-export const Event = ({ event, filled = false, action, expandable = false }: Props) => {
+export const Event = ({
+  event,
+  filled = false,
+  action,
+  expandable = false,
+  registering = false,
+  onCancel
+}: Props) => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
-  const toggleExpanded = (scroll = false) => {
+  const toggleExpanded = () => {
     setExpanded(!expanded);
-    if (scroll) {
-      scrollIntoView('tickets-tabs');
-    }
   };
 
   return (
@@ -39,48 +43,54 @@ export const Event = ({ event, filled = false, action, expandable = false }: Pro
         <div>
           <h2 className={`typescale-6 ${wideFont.className}`}>{event.name}</h2>
           <h3 className={`typescale-6 ${wideFont.className}`}>{event.address}</h3>
-          <small className="typescale-4">{event.free ? 'Free Ticket' : 'Ticketed Event'}</small>
+          <p className="typescale-4">{event.free ? 'Free Ticket' : 'Ticketed Event'}</p>
         </div>
         {expandable &&
           (expanded ? (
-            <ExpandedIcon onClick={() => toggleExpanded(false)} />
+            <ExpandedIcon className="event__icon" onClick={toggleExpanded} />
           ) : (
-            <CollapsedIcon onClick={() => toggleExpanded(false)} />
+            <CollapsedIcon className="event__icon" onClick={toggleExpanded} />
           ))}
       </header>
-      {expanded && (
+      {expanded && !registering && (
         <main>
           <p className="typescale-4">{event.description}</p>
+        </main>
+      )}
+      {registering && (
+        <main>
           {!event.free && (
             <div>
               <iframe
                 src="https://www.quicket.co.za/event/272960/widget#/registration"
-                frameBorder="0"
-                scrolling="yes"
                 width="100%"
                 height="464px"
               ></iframe>
               <Button
                 clickable
-                onClick={() => toggleExpanded(true)}
+                onClick={() => {
+                  setExpanded(false);
+                  onCancel!();
+                }}
                 hollow
                 small
-                link="/"
                 label="Cancel"
               />
             </div>
           )}
         </main>
       )}
-      <footer>
-        <div>
-          <small className="typescale-4">
-            {event.startTime} - {event.endTime}
-          </small>
-          <small className="typescale-4">{event.date.toDateString()}</small>
-        </div>
-        {action}
-      </footer>
+      {!registering && (
+        <footer>
+          <div>
+            <small className="typescale-4">
+              {event.startTime} - {event.endTime}
+            </small>
+            <small className="typescale-4">{event.date.toDateString()}</small>
+          </div>
+          {action}
+        </footer>
+      )}
     </div>
   );
 };
