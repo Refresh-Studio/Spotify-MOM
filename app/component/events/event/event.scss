@@ -15,7 +15,27 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     margin: utils.bu(5) 0;
     color: map.get(colors.$base-color, white);
     text-transform: uppercase;
-    width: 613px;
+    width: 100%;
+
+    > p {
+      width: 613px;
+    }
+
+    > div {
+      display: flex;
+
+      > iframe {
+        max-width: 1000px;
+        margin-top: utils.bu(5);
+        border-radius: 8px;
+      }
+
+      > .button {
+        margin-bottom: utils.bu(2.5);
+        margin-left: auto;
+        margin-top: auto;
+      }
+    }
   }
 
   > header {

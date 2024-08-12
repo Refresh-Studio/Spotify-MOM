@@ -24,7 +24,7 @@ interface Props {
 
 export const Tickets = ({ events }: Props) => (
   <section className="tickets">
-    <header>
+    <header id="tickets-tabs">
       <Tabs hollow tabs={TABS} />
     </header>
     <main>
@@ -35,7 +35,7 @@ export const Tickets = ({ events }: Props) => (
             filled
             key={event.id}
             event={event}
-            action={<Button hollow large Icon={PlusIcon} link="" label="Add to Calendar" />}
+            action={<Button hollow large icon={<PlusIcon />} link="" label="Add to Calendar" />}
           />
         ))}
       </ul>

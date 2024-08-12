@@ -18,7 +18,7 @@ export const Playlist = () => (
         link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
         target="_blank"
         label="View Playlist"
-        Icon={ViewIcon}
+        icon={<ViewIcon />}
       />
     </header>
     <div className="playlist__tracks">

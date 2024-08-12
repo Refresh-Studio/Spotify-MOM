@@ -60,7 +60,7 @@ export const Artists = ({ artists = [] }: Props) => {
             small
             link={activeArtist.url}
             label="View Profile"
-            Icon={ViewIcon}
+            icon={<ViewIcon />}
           />
           <div className="artists__details-image">
             <Image objectFit="contain" fill src={activeArtist.image} alt={activeArtist.name} />

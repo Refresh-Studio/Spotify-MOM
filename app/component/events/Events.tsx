@@ -12,7 +12,7 @@ export interface EventItem {
   address: string;
   startTime: string;
   endTime: string;
-  price: number;
+  free: boolean;
   date: Date;
   description?: string;
 }
@@ -23,7 +23,7 @@ const MOCK_EVENT: EventItem = {
   address: 'At some awesome venue',
   startTime: '10:00',
   endTime: '22:00',
-  price: 200.0,
+  free: false,
   date: new Date()
 };
 
