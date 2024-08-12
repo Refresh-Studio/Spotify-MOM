@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+
+.get-tickets {
+  display: flex;
+  align-items: center;
+  color: map.get(colors.$base-color, black);
+  margin: 0 utils.rem(30);
+  gap: utils.bu(4);
+  text-transform: uppercase;
+}
