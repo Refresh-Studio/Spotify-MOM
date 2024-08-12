@@ -9,11 +9,21 @@ interface Props {
   label: string;
   Icon?: ElementType;
   small?: boolean;
+  medium?: boolean;
+  hollow?: boolean;
 }
 
-export const Button = ({ link, target = '_self', label, Icon, small = false }: Props) => (
+export const Button = ({
+  link,
+  target = '_self',
+  label,
+  Icon,
+  small = false,
+  medium = false,
+  hollow = false
+}: Props) => (
   <Link
-    className={`button ${small ? 'button--small' : ''} typescale-4`}
+    className={`button ${small ? 'button--small' : ''} ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
     href={link}
     target={target}
   >

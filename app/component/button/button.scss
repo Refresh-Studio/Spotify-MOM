@@ -27,8 +27,24 @@
     height: 44px;
   }
 
+  &--medium {
+    width: 181px;
+    height: 48px;
+  }
+
+  &--hollow {
+    background-color: map.get(colors.$base-color, transparent);
+    color: map.get(colors.$base-color, primary);
+    border: 1px solid map.get(colors.$base-color, primary);
+
+    &:hover {
+      border-color: map.get(colors.$base-color, secondary);
+      color: map.get(colors.$base-color, black);
+    }
+  }
+
   > svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }

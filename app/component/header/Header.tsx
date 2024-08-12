@@ -11,14 +11,13 @@ import './header.scss';
 
 export const Header = () => (
   <header className="header">
-    <MomIcon className="mom" />
+    <Link className="mom" href="/">
+      <MomIcon />
+    </Link>
     <Link href="https://spotify.com" target="_blank" rel="noreferrer" className="header__social">
       <SpotifyIcon />
     </Link>
     <nav>
-      <Link className="typescale-3" href="/">
-        Home
-      </Link>
       <Link className="typescale-3" href="/artists">
         Discover the Artists
       </Link>
