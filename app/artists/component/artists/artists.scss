@@ -11,28 +11,6 @@
   &__list {
     width: 64%;
     border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
-
-    > li {
-      cursor: pointer;
-      padding: utils.bu(1.5) utils.bu(1);
-      color: map.get(colors.$base-color, white);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
-
-      &:hover {
-        background-color: map.get(colors.$base-color, secondary);
-        color: map.get(colors.$base-color, black);
-      }
-
-      > div {
-        display: flex;
-        align-items: center;
-        gap: utils.bu(3.5);
-      }
-    }
   }
 
   &__details {
@@ -71,6 +49,33 @@
     display: flex;
     align-items: center;
     gap: utils.bu(1);
+  }
+
+  &__artist {
+    cursor: pointer;
+    padding: utils.bu(1.5) utils.bu(1);
+    color: map.get(colors.$base-color, white);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+    &:hover {
+      background-color: map.get(colors.$base-color, secondary);
+      color: map.get(colors.$base-color, black);
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: utils.bu(3.5);
+    }
+
+    &--active {
+      background-color: map.get(colors.$base-color, primary);
+      color: map.get(colors.$base-color, black);
+    }
   }
 }
 
