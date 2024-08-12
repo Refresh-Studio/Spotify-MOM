@@ -24,8 +24,8 @@
     text-align: center;
     flex-direction: column;
     width: 1126px;
-    margin: auto;
     gap: utils.bu(7.5);
+    margin: utils.bu(20) auto auto;
 
     > p {
       color: map.get(colors.$base-color, white);
@@ -56,7 +56,7 @@
   > footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: map.get(colors.$base-color, white);
     padding-bottom: utils.bu(11);
     margin-top: utils.bu(20);
