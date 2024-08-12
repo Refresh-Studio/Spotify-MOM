@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { EventItem } from '../component/events/Events';
 import { Hero } from './component/hero/Hero';
@@ -10,17 +10,19 @@ const MOCK_EVENT: EventItem = {
   address: 'At some awesome venue',
   startTime: '10:00',
   endTime: '22:00',
-  price: 200.0,
+  free: false,
   date: new Date(),
   description:
     'Lorem ipsum dolor sit amet consectetur. Suspendisse cursus magna tempor gravida at molestie rhoncus. Est in pretium phasellus ullamcorper ut enim. At feugiat sollicitudin at elit pretium.'
 };
 
 const TicketsPage = () => (
-  <main>
-    <Hero />
-    <Tickets events={[MOCK_EVENT, MOCK_EVENT]} />
-  </main>
+  <Suspense>
+    <main>
+      <Hero />
+      <Tickets events={[MOCK_EVENT, MOCK_EVENT]} />
+    </main>
+  </Suspense>
 );
 
 export default TicketsPage;

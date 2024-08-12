@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Artists } from './component/artists/Artists';
 import { Hero } from './component/hero/Hero';
@@ -43,10 +43,12 @@ const MOCK_ARTISTS = [
 ];
 
 const ArtistsPage = () => (
-  <main>
-    <Hero />
-    <Artists artists={MOCK_ARTISTS} />
-  </main>
+  <Suspense>
+    <main>
+      <Hero />
+      <Artists artists={MOCK_ARTISTS} />
+    </main>
+  </Suspense>
 );
 
 export default ArtistsPage;
