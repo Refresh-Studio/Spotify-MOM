@@ -40,10 +40,20 @@ const artist = {
       validation: (rule) => rule.required()
     }),
     defineField({
-      name: 'tags',
+      name: 'musicTags',
       title: 'Tags',
       type: 'array',
       of: [{ type: 'string' }]
+    }),
+    defineField({
+      name: 'filterTags',
+      title: 'Filter Tags',
+      type: 'array',
+      validation: (rule) => rule.required(),
+      of: [{ type: 'string' }],
+      options: {
+        list: ['build-up', 'thursday', 'friday', 'saturday', 'sunday']
+      }
     })
   ]
 };

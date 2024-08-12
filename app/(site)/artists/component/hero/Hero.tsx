@@ -15,10 +15,14 @@ const TABS = Object.freeze([
   { path: 'sunday', name: 'Sunday' }
 ]);
 
-export const Hero = () => (
+interface Props {
+  artistCount: number;
+}
+
+export const Hero = ({ artistCount }: Props) => (
   <section className="artists-hero light-section">
     <h1 className={`typescale-11 ${wideFont.className}`}>
-      The Artists <span className="typescale-6">51</span>
+      The Artists <span className="typescale-6">{artistCount}</span>
     </h1>
     <Tabs tabs={TABS} />
   </section>

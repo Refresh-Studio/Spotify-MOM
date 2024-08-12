@@ -41,3 +41,18 @@ export async function getEvents() {
 }`
   );
 }
+
+export async function getArtists() {
+  return client.fetch(
+    groq`*[_type == "artist"] {
+    _id,
+    "slug": slug.current,
+    name,
+    followers,
+    musicTags,
+    filterTags,
+    url,
+    "image": image.asset->url
+}`
+  );
+}
