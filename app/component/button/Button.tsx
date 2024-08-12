@@ -7,7 +7,7 @@ interface Props {
   link: string;
   target?: '_blank' | '_self';
   label: string;
-  Icon: ElementType;
+  Icon?: ElementType;
   small?: boolean;
 }
 
