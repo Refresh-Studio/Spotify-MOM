@@ -7,7 +7,6 @@ import { Banner } from './component/banner/Banner';
 import { Events } from './component/event/Events';
 import { Hero } from './component/hero/Hero';
 import { Playlist } from './component/playlist/Playlist';
-import { Subscription } from './component/subscription/Subscription';
 import { Ticker } from './component/ticker/Ticker';
 import { GetTickets } from './component/ticker/tickets/GetTickets';
 
@@ -21,7 +20,6 @@ const Home = () => (
     <Banner />
     <Acts />
     <Playlist />
-    <Subscription />
   </main>
 );
 

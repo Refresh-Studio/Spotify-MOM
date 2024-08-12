@@ -4,12 +4,23 @@ import React from 'react';
 
 import { ReactComponent as ViewIcon } from '../../asset/view.svg';
 
+import { wideFont } from '../../constant';
 import { Button } from '../button/Button';
 
 import './playlist.scss';
 
 export const Playlist = () => (
   <section className="playlist">
+    <header>
+      <h1 className={`typescale-5 ${wideFont.className}`}>Listen to MOM</h1>
+      <Button
+        small
+        link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
+        target="_blank"
+        label="View Playlist"
+        Icon={ViewIcon}
+      />
+    </header>
     <div className="playlist__tracks">
       <iframe
         style={{ borderRadius: 12 }}
@@ -19,13 +30,5 @@ export const Playlist = () => (
         loading="lazy"
       ></iframe>
     </div>
-    <footer>
-      <Button
-        link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
-        target="_blank"
-        label="View Playlist"
-        Icon={ViewIcon}
-      />
-    </footer>
   </section>
 );

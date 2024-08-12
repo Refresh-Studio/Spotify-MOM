@@ -8,31 +8,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: map.get(colors.$base-color, white);
-  padding: 0 utils.bu(2) utils.bu(10);
-
-  @include mixins.breakpoint(md) {
-    padding: 0 utils.rem(30) utils.rem(104);
-  }
-
-  @include mixins.breakpoint(lg) {
-    padding: 0 utils.rem(30) utils.rem(121);
-  }
+  background-color: map.get(colors.$base-color, black);
+  padding: utils.bu(15) utils.bu(7.5);
 
   > header {
     width: 100%;
     text-transform: uppercase;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     border-top: 1px solid rgba(#fff, 0.2);
-    padding: utils.bu(2) utils.bu(2);
+    padding: utils.bu(3) 0;
     margin-bottom: utils.bu(5.5);
 
-    > p {
-      display: flex;
-      align-items: center;
-      gap: utils.bu(2);
+    > h1 {
+      text-transform: uppercase;
+      color: map.get(colors.$base-color, white);
     }
   }
 
@@ -51,18 +42,6 @@
         width: 75%;
         max-width: 1106px;
       }
-    }
-  }
-
-  > footer {
-    margin-top: utils.bu(5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    @include mixins.breakpoint(md) {
-      margin-top: utils.bu(7.5);
     }
   }
 }
