@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../../../../style/00_settings/color' as colors;
+@use '../../../../style/00_settings/util' as utils;
+@use '../../../../style/01_tools/mixin' as mixins;
+
+.artists-hero {
+  padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
+  background-color: map.get(colors.$base-color, secondary);
+
+  > h1 {
+    text-transform: uppercase;
+    display: flex;
+    font-weight: 500;
+
+    > span {
+      margin-left: utils.bu(3);
+      border: 1px solid map.get(colors.$base-color, black);
+      height: 48px;
+      width: 61px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  > .tabs {
+    margin-top: utils.bu(7.5);
+  }
+}

@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+$border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
+
+.events {
+  background-color: map.get(colors.$base-color, black);
+  padding: utils.bu(20) utils.bu(7.5);
+  color: map.get(colors.$base-color, white);
+
+  > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: utils.bu(3);
+    border-top: $border;
+
+    > h1 {
+      text-transform: uppercase;
+    }
+
+    > p {
+      text-transform: uppercase;
+      max-width: 788px;
+    }
+  }
+
+  > main {
+    margin-top: utils.bu(22.5);
+    display: flex;
+    flex-direction: column;
+    gap: utils.bu(15);
+  }
+}
+
+.event-list {
+  > header {
+    margin-bottom: utils.bu(7.5);
+
+    > h1 {
+      text-transform: uppercase;
+    }
+  }
+
+  > section {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: utils.bu(3) utils.bu(7.5);
+
+    > div:not(.event-list__event) {
+      padding: utils.rem(30) 0;
+    }
+
+    hr {
+      height: 100%;
+      border-color: rgba(map.get(colors.$base-color, white), 0.4);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__event {
+    width: 45%;
+    padding: utils.bu(3) 0;
+    border-bottom: $border;
+    position: relative;
+
+    > h2 {
+      text-transform: uppercase;
+      color: map.get(colors.$base-color, primary);
+    }
+
+    > h3 {
+      text-transform: uppercase;
+    }
+
+    > small {
+      color: map.get(colors.$base-color, silver);
+      text-transform: uppercase;
+      margin-top: utils.bu(1);
+    }
+
+    > footer {
+      margin-top: utils.bu(10);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+
+        > small {
+          text-transform: uppercase;
+
+          &:first-child {
+            color: map.get(colors.$base-color, silver);
+          }
+        }
+      }
+    }
+  }
+}

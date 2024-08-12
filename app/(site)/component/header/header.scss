@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/00_settings/color' as colors;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: utils.bu(4) utils.bu(7.5);
+  background-color: map.get(colors.$base-color, transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  $block: &;
+
+  &__social {
+    > svg {
+      color: map.get(colors.$base-color, white);
+    }
+  }
+
+  > .mom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: map.get(colors.$base-color, white);
+  }
+
+  > nav {
+    display: flex;
+    align-items: center;
+    gap: utils.bu(4);
+
+    > a:not(.button) {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+    }
+  }
+
+  &--inverted {
+    > .mom {
+      color: map.get(colors.$base-color, black);
+    }
+
+    #{$block}__social {
+      > svg {
+        color: map.get(colors.$base-color, black);
+      }
+    }
+
+    > nav {
+      > a:not(.button) {
+        color: map.get(colors.$base-color, black);
+      }
+    }
+  }
+}

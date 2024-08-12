@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.hero {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  background: url('/images/hero-rotation.gif') no-repeat center;
+  background-size: contain;
+  padding: 0 utils.bu(8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > span {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    gap: utils.bu(1.5);
+    color: map.get(colors.$base-color, white);
+
+    > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

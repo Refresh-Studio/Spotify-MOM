@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: utils.bu(20);
+  color: map.get(colors.$base-color, white);
+  text-transform: uppercase;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center;
+    flex-direction: column;
+    width: 1126px;
+    gap: utils.bu(7.5);
+  }
+
+  > p {
+    color: map.get(colors.$base-color, white);
+    text-transform: uppercase;
+  }
+
+  > footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: map.get(colors.$base-color, white);
+    padding-bottom: utils.bu(11);
+    margin-top: utils.bu(20);
+    text-transform: uppercase;
+
+    > svg {
+      max-width: 548px;
+      height: 56px;
+    }
+  }
+}
