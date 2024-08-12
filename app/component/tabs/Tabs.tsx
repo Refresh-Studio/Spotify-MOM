@@ -27,7 +27,7 @@ export const Tabs = ({ tabs = [], hollow = false }: Props) => {
     <nav className={`tabs ${hollow ? 'tabs--hollow' : ''}`}>
       {tabs.map((tab: TabItem) => (
         <li key={tab.path} className={`tabs__tab ${query === tab.path ? 'tabs__tab--active' : ''}`}>
-          <Link href={`?query=${tab.path}`} className="typescale-4">
+          <Link href={`?query=${tab.path}`} className="typescale-4 tabs__link">
             {tab.name}
           </Link>
         </li>

@@ -13,6 +13,8 @@
   width: 100%;
   z-index: 10;
 
+  $block: &;
+
   &__social {
     > svg {
       color: map.get(colors.$base-color, white);
@@ -23,6 +25,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    color: map.get(colors.$base-color, white);
   }
 
   > nav {
@@ -33,6 +36,24 @@
     > a:not(.button) {
       color: map.get(colors.$base-color, white);
       text-transform: uppercase;
+    }
+  }
+
+  &--inverted {
+    > .mom {
+      color: map.get(colors.$base-color, black);
+    }
+
+    #{$block}__social {
+      > svg {
+        color: map.get(colors.$base-color, black);
+      }
+    }
+
+    > nav {
+      > a:not(.button) {
+        color: map.get(colors.$base-color, black);
+      }
     }
   }
 }

@@ -28,7 +28,7 @@ export const Tickets = ({ events }: Props) => {
   const [purchasingEvent, setPurchasingEvent] = useState<number>();
 
   return (
-    <section className="tickets">
+    <section className="tickets dark-section">
       <header id="tickets-tabs">
         <Tabs hollow tabs={TABS} />
       </header>

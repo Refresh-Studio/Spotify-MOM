@@ -7,7 +7,7 @@ import { wideFont } from '../../../constant';
 import './hero.scss';
 
 export const Hero = () => (
-  <section className="tickets-hero">
+  <section className="tickets-hero light-section">
     <h1 className={`typescale-11 ${wideFont.className}`}>
       Tickets <span className="typescale-6">6</span>
     </h1>

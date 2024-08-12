@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 import { Tabs } from '../../../component/tabs/Tabs';
@@ -17,7 +16,7 @@ const TABS = Object.freeze([
 ]);
 
 export const Hero = () => (
-  <section className="artists-hero">
+  <section className="artists-hero light-section">
     <h1 className={`typescale-11 ${wideFont.className}`}>
       The Artists <span className="typescale-6">51</span>
     </h1>

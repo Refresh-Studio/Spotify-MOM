@@ -29,7 +29,7 @@ export const Artists = ({ artists = [] }: Props) => {
   const [activeArtist, setActiveArtist] = useState(artists[0]);
 
   return (
-    <section className="artists">
+    <section className="artists dark-section">
       <nav className="artists__list">
         {(artists ?? []).map((artist: Artist) => (
           <li

@@ -7,7 +7,7 @@ import { ReactComponent as BannerIcon } from '../../asset/banner.svg';
 import './hero.scss';
 
 export const Hero = () => (
-  <section className="hero">
+  <section className="hero dark-section">
     <div>
       <span>MOM: Mother of Music</span>
       <span>5,8 Sep, Cape Town</span>
