@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { ReactComponent as InputIcon } from '../../asset/input.svg';
+import { ReactComponent as ViewIcon } from '../../asset/view.svg';
 import { ReactComponent as MomIcon } from '../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
@@ -21,7 +21,7 @@ export const Header = () => (
       <Link className="typescale-3" href="/artists">
         Discover the Artists
       </Link>
-      <Button small link="/tickets" label="Get Tickets" Icon={InputIcon} />
+      <Button small link="/tickets" label="Get Tickets" Icon={ViewIcon} />
     </nav>
   </header>
 );
