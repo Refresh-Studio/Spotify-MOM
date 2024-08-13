@@ -69,7 +69,9 @@ export const Artists = ({ artists = [] }: Props) => {
                 <h1 className={`typescale-8 ${wideFont.className}`}>{activeArtist?.name}</h1>
                 <p className="typescale-4">{activeArtist?.followers.toLocaleString()} followers</p>
                 <div className="artists__tags">
-                  {activeArtist?.musicTags.map((tag: string) => <Tag key={tag} title={tag} />)}
+                  {(activeArtist?.musicTags ?? []).map((tag: string) => (
+                    <Tag key={tag} title={tag} />
+                  ))}
                 </div>
                 <Button
                   target="_blank"
@@ -97,7 +99,9 @@ export const Artists = ({ artists = [] }: Props) => {
           <h1 className={`typescale-8 ${wideFont.className}`}>{activeArtist?.name}</h1>
           <p className="typescale-4">{activeArtist?.followers.toLocaleString()} followers</p>
           <div className="artists__tags">
-            {activeArtist?.musicTags.map((tag: string) => <Tag key={tag} title={tag} />)}
+            {(activeArtist?.musicTags ?? []).map((tag: string) => (
+              <Tag key={tag} title={tag} />
+            ))}
           </div>
           <Button
             target="_blank"
