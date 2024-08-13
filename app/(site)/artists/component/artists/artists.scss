@@ -8,6 +8,8 @@
   background-color: map.get(colors.$base-color, black);
   display: flex;
 
+  $block: &;
+
   @include mixins.breakpoint(lg) {
     padding: utils.bu(15) utils.bu(7.5);
   }
@@ -139,6 +141,26 @@
 
       @include mixins.breakpoint(lg) {
         gap: utils.bu(3.5);
+      }
+    }
+
+    #{$block}__icon {
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      @include mixins.breakpoint(lg) {
+        display: flex;
+      }
+
+      &--mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mixins.breakpoint(lg) {
+          display: none;
+        }
       }
     }
 

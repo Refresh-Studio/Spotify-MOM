@@ -51,7 +51,12 @@ export const Header = () => {
       <Link className="mom" href="/">
         <MomIcon />
       </Link>
-      <Link href="https://spotify.com" target="_blank" rel="noreferrer" className="header__social">
+      <Link
+        href="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
+        target="_blank"
+        rel="noreferrer"
+        className="header__social"
+      >
         <SpotifyIcon />
       </Link>
       <nav>

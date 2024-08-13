@@ -54,15 +54,20 @@ export const Artists = ({ artists = [] }: Props) => {
                 <Image width={50} height={50} alt={artist.name} src={artist.image} />
                 <p>{artist.name}</p>
               </div>
-              {activeArtist?.slug === artist.slug && (
-                <CloseIcon
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveArtist(undefined);
-                  }}
-                />
-              )}
-              {activeArtist?.slug !== artist.slug && <RightIcon />}
+              <div className="artists__icon--mobile">
+                {activeArtist?.slug === artist.slug && (
+                  <CloseIcon
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveArtist(undefined);
+                    }}
+                  />
+                )}
+                {activeArtist?.slug !== artist.slug && <RightIcon />}
+              </div>
+              <div className="artists__icon">
+                <RightIcon />
+              </div>
             </li>
             {activeArtist?.slug === artist.slug && (
               <div className="artists__mobile-details">
