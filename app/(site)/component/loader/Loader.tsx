@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as LoaderIcon } from '../../asset/loader.svg';
+import { ReactComponent as LoaderIcon } from '../../../asset/loader.svg';
 
 import './loader.scss';
 

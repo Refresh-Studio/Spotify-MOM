@@ -44,7 +44,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main>
+    <main style={{ backgroundColor: 'transparent' }}>
       <Hero />
       <Message />
       <Events />

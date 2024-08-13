@@ -82,7 +82,7 @@ export const Acts = ({ accessToken }: Props) => {
         </Ticker>
       </main>
       <footer>
-        <Button small label="View All Artists" />
+        <Button small link="/artists" label="View All Artists" />
       </footer>
     </section>
   );

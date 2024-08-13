@@ -67,6 +67,7 @@ export const Tickets = ({ events }: Props) => {
               registering={purchasingEvent === event.slug}
               expandable
               filled
+              expanded={event.slug === eventSlug}
               event={event}
               onCancel={() => setPurchasingEvent(undefined)}
               action={

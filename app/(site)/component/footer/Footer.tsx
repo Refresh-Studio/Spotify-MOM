@@ -32,17 +32,17 @@ export const Footer = () => {
       <p className="typescale-4">All rights reserved</p>
       <nav className="footer__mobile-nav">
         <li
-          className={`footer__mobile-nav-item ${pathName === '/' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-4 footer__mobile-nav-item ${pathName === '/' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/">Home</Link>
         </li>
         <li
-          className={`footer__mobile-nav-item ${pathName === '/artists' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-4 footer__mobile-nav-item ${pathName === '/artists' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/artists">Artists</Link>
         </li>
         <li
-          className={`footer__mobile-nav-item ${pathName === '/tickets' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-4 footer__mobile-nav-item ${pathName === '/tickets' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/tickets">Tickets</Link>
         </li>

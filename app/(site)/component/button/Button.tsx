@@ -15,6 +15,7 @@ interface Props {
   large?: boolean;
   hollow?: boolean;
   clickable?: boolean;
+  inverted?: boolean;
   onClick?: () => void;
 }
 
@@ -28,6 +29,7 @@ export const Button = ({
   large = false,
   hollow = false,
   clickable = false,
+  inverted = false,
   onClick
 }: Props) => {
   const handleClick = (event: { preventDefault: () => void }) => {
@@ -40,7 +42,7 @@ export const Button = ({
 
   return (
     <Link
-      className={`button ${small ? 'button--small' : ''} ${large ? 'button--large' : ''}  ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
+      className={`button ${inverted ? 'button--inverted' : ''} ${small ? 'button--small' : ''} ${large ? 'button--large' : ''}  ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
       href={link}
       onClick={handleClick}
       target={target}

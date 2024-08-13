@@ -26,11 +26,11 @@
     max-width: 220px;
     height: 329px;
     width: 100% !important;
+    object-fit: cover;
 
     @include mixins.breakpoint(lg) {
       margin-left: utils.rem(10);
       margin-right: utils.rem(10);
-      object-fit: contain;
       height: 597px;
       max-width: 683px;
     }

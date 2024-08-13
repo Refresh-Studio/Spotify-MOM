@@ -11,6 +11,20 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   border-bottom: $border;
   position: relative;
 
+  &__icon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+
+    @include mixins.breakpoint(lg) {
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+      min-height: 42px;
+    }
+  }
+
   > main {
     margin: utils.bu(5) 0;
     color: map.get(colors.$base-color, white);
@@ -72,6 +86,8 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
       > h2 {
         text-transform: uppercase;
         color: map.get(colors.$base-color, primary);
+        font-size: utils.rem(14);
+        line-height: utils.rem(14);
       }
 
       > h3 {

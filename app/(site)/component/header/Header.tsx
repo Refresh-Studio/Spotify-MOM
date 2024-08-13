@@ -63,7 +63,7 @@ export const Header = () => {
         <Link className="typescale-3" href="/artists">
           Discover the Artists
         </Link>
-        <Button small link="/tickets" label="Get Tickets" icon={<ViewIcon />} />
+        <Button inverted={inverted} small link="/tickets" label="Get Tickets" icon={<ViewIcon />} />
       </nav>
     </header>
   );

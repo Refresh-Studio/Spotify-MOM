@@ -25,8 +25,11 @@ export const Tabs = ({ tabs = [], hollow = false }: Props) => {
 
   return (
     <nav className={`tabs ${hollow ? 'tabs--hollow' : ''}`}>
-      {tabs.map((tab: TabItem) => (
-        <li key={tab.path} className={`tabs__tab ${query === tab.path ? 'tabs__tab--active' : ''}`}>
+      {tabs.map((tab: TabItem, index: number) => (
+        <li
+          key={tab.path}
+          className={`tabs__tab ${query === tab.path || (!query && index === 0) ? 'tabs__tab--active' : ''}`}
+        >
           <Link scroll={false} href={`?query=${tab.path}`} className="typescale-4 tabs__link">
             {tab.name}
           </Link>

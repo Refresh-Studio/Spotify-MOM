@@ -17,6 +17,7 @@ interface Props {
   filled?: boolean;
   expandable?: boolean;
   registering?: boolean;
+  expanded?: boolean;
   action?: ReactElement;
   onCancel?: () => void;
 }
@@ -26,18 +27,19 @@ export const Event = ({
   filled = false,
   action,
   expandable = false,
+  expanded = false,
   registering = false,
   onCancel
 }: Props) => {
-  const [expanded, setExpanded] = useState<boolean>(false);
+  const [expandedDetails, setExpanded] = useState<boolean>(expanded);
 
   const toggleExpanded = () => {
-    setExpanded(!expanded);
+    setExpanded(!expandedDetails);
   };
 
   return (
     <div
-      className={`event ${filled ? 'event--filled' : ''} ${expanded ? 'event--expanded' : ''}`}
+      className={`event ${filled ? 'event--filled' : ''} ${expandedDetails ? 'event--expanded' : ''}`}
       id={event.slug}
     >
       <header>
@@ -47,13 +49,13 @@ export const Event = ({
           <p className="typescale-4">{event.free ? 'Free Ticket' : 'Ticketed Event'}</p>
         </div>
         {expandable &&
-          (expanded ? (
+          (expandedDetails ? (
             <ExpandedIcon className="event__icon" onClick={toggleExpanded} />
           ) : (
             <CollapsedIcon className="event__icon" onClick={toggleExpanded} />
           ))}
       </header>
-      {expanded && !registering && (
+      {expandedDetails && !registering && (
         <main>
           <p className="typescale-4">{event.description}</p>
         </main>

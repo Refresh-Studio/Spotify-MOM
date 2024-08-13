@@ -36,6 +36,7 @@
     margin-top: utils.bu(7.5);
     margin-bottom: utils.bu(10);
     border-color: map.get(colors.$base-color, black);
+    border-bottom: none;
 
     @include mixins.breakpoint(lg) {
       margin-top: utils.bu(15);

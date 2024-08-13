@@ -1,5 +1,7 @@
+@use 'sass:map';
 @use 'style/app';
 @use 'style/01_tools/mixin' as mixins;
+@use 'style/00_settings/color' as colors;
 
 .layout {
   background: linear-gradient(0deg, rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
@@ -10,6 +12,10 @@
 
   @include mixins.breakpoint(lg) {
     background-position: unset;
+  }
+
+  > main {
+    background-color: map.get(colors.$base-color, black);
   }
 }
 

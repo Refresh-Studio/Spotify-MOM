@@ -5,6 +5,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 
 import { Artist } from '../../interface/artist/artist.interface';
 
+import { Loader } from '../component/loader/Loader';
 import { Artists } from './component/artists/Artists';
 import { Hero } from './component/hero/Hero';
 
@@ -31,6 +32,7 @@ const getData = async () => {
 
 const ArtistsPage = () => {
   const [artists, setArtists] = useState<Artist[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const callApi = async () => {
@@ -54,6 +56,7 @@ const ArtistsPage = () => {
       }, []);
 
       setArtists(mappedArtists);
+      setLoading(false);
     };
 
     callApi();
@@ -63,7 +66,8 @@ const ArtistsPage = () => {
     <Suspense>
       <main>
         <Hero artistCount={artists.length} />
-        <Artists artists={artists} />
+        {!loading && <Artists artists={artists} />}
+        {loading && <Loader />}
       </main>
     </Suspense>
   );

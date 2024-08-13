@@ -22,7 +22,7 @@ interface Props {
 
 export const Artists = ({ artists = [] }: Props) => {
   const searchParams = useSearchParams();
-  const [activeArtist, setActiveArtist] = useState<Artist | undefined>(artists[0]);
+  const [activeArtist, setActiveArtist] = useState<Artist | undefined>();
 
   const query = useMemo(() => {
     return searchParams.get('query');
@@ -37,7 +37,9 @@ export const Artists = ({ artists = [] }: Props) => {
   }, [query, artists]);
 
   useEffect(() => {
-    setActiveArtist(filteredArtists[0]);
+    if (window.innerWidth >= 992) {
+      setActiveArtist(filteredArtists[0]);
+    }
   }, [filteredArtists]);
 
   return (
@@ -117,7 +119,7 @@ export const Artists = ({ artists = [] }: Props) => {
             icon={<ViewIcon />}
           />
           <div className="artists__details-image">
-            <Image objectFit="contain" fill src={activeArtist?.image} alt={activeArtist?.name} />
+            <Image objectFit="cover" fill src={activeArtist?.image} alt={activeArtist?.name} />
           </div>
         </div>
       )}

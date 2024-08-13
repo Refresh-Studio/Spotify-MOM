@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: utils.bu(8);
-    padding: 0 utils.bu(7.5);
+    padding: 0 utils.bu(2);
 
     @include mixins.breakpoint(lg) {
       justify-content: space-between;
@@ -44,6 +44,8 @@
         text-transform: uppercase;
         text-align: center;
         margin-top: utils.bu(1);
+        font-size: utils.rem(21);
+        line-height: utils.rem(25);
 
         @include mixins.breakpoint(lg) {
           margin-top: 0;
