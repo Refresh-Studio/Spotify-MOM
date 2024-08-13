@@ -9,7 +9,11 @@
   justify-content: center;
   flex-direction: column;
   background-color: map.get(colors.$base-color, black);
-  padding: utils.bu(15) utils.bu(7.5);
+  padding: utils.bu(10) utils.bu(2);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) utils.bu(7.5);
+  }
 
   > header {
     width: 100%;
@@ -18,8 +22,21 @@
     align-items: flex-start;
     justify-content: space-between;
     border-top: 1px solid rgba(#fff, 0.2);
-    padding: utils.bu(3) 0;
-    margin-bottom: utils.bu(5.5);
+    padding-top: utils.bu(3);
+    margin-bottom: utils.bu(5);
+
+    @include mixins.breakpoint(lg) {
+      padding: utils.bu(3) 0;
+      margin-bottom: utils.bu(5.5);
+    }
+
+    > a {
+      display: none;
+
+      @include mixins.breakpoint(lg) {
+        display: flex;
+      }
+    }
 
     > h1 {
       text-transform: uppercase;
@@ -42,6 +59,19 @@
         width: 75%;
         max-width: 1106px;
       }
+    }
+  }
+
+  > footer {
+    margin-top: utils.bu(5);
+
+    @include mixins.breakpoint(lg) {
+      display: none;
+    }
+
+    > .button {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

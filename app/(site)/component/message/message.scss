@@ -8,9 +8,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: utils.bu(20);
   color: map.get(colors.$base-color, white);
   text-transform: uppercase;
+  padding: 0 utils.bu(2.5) utils.bu(12.5);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(20) 0 0;
+  }
 
   &__content {
     display: flex;
@@ -18,13 +22,17 @@
     justify-content: center !important;
     text-align: center;
     flex-direction: column;
-    width: 1126px;
+    width: 100%;
     gap: utils.bu(7.5);
-  }
 
-  > p {
-    color: map.get(colors.$base-color, white);
-    text-transform: uppercase;
+    @include mixins.breakpoint(lg) {
+      width: 1126px;
+    }
+
+    > p {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+    }
   }
 
   > footer {
@@ -32,13 +40,23 @@
     align-items: center;
     justify-content: center;
     color: map.get(colors.$base-color, white);
-    padding-bottom: utils.bu(11);
-    margin-top: utils.bu(20);
+    margin-top: utils.bu(15);
     text-transform: uppercase;
 
     > svg {
-      max-width: 548px;
-      height: 56px;
+      width: 100%;
+      max-width: 100%;
+      height: 40px;
+    }
+
+    @include mixins.breakpoint(lg) {
+      margin-top: utils.bu(20);
+      padding: 0 0 utils.bu(11);
+
+      > svg {
+        max-width: 548px;
+        height: 56px;
+      }
     }
   }
 }

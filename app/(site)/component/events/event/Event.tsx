@@ -88,7 +88,8 @@ export const Event = ({
               {event.startTime} - {event.endTime}
             </small>
             <small className="typescale-4">
-              {new Date(event.startDate).toDateString()} - {new Date(event.endDate).toDateString()}
+              {new Date(event.startDate).toDateString()}{' '}
+              {filled && `- ${new Date(event.endDate).toDateString()}`}
             </small>
           </div>
           {action}

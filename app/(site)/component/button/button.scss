@@ -23,8 +23,13 @@
   }
 
   &--small {
-    width: 154px;
-    height: 44px;
+    width: 141px;
+    height: 36px;
+
+    @include mixins.breakpoint(lg) {
+      width: 154px;
+      height: 44px;
+    }
   }
 
   &--medium {
@@ -49,7 +54,12 @@
   }
 
   > svg {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 16px;
+    max-height: 16px;
+
+    @include mixins.breakpoint(lg) {
+      max-width: 24px;
+      max-height: 24px;
+    }
   }
 }

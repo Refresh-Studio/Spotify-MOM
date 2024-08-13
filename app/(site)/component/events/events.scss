@@ -7,15 +7,26 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 
 .events {
   background-color: map.get(colors.$base-color, black);
-  padding: utils.bu(20) utils.bu(7.5);
+  padding: utils.bu(7.5) utils.bu(2);
   color: map.get(colors.$base-color, white);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(20) utils.bu(7.5);
+  }
 
   > header {
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     justify-content: space-between;
+    gap: utils.bu(5);
     padding-top: utils.bu(3);
     border-top: $border;
+
+    @include mixins.breakpoint(lg) {
+      gap: 0;
+      flex-direction: row;
+    }
 
     > h1 {
       text-transform: uppercase;
@@ -28,16 +39,24 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   }
 
   > main {
-    margin-top: utils.bu(22.5);
+    margin-top: utils.bu(10);
     display: flex;
     flex-direction: column;
-    gap: utils.bu(15);
+    gap: utils.bu(10);
+
+    @include mixins.breakpoint(lg) {
+      margin-top: utils.bu(22.5);
+    }
   }
 }
 
 .event-list {
   > header {
-    margin-bottom: utils.bu(7.5);
+    margin-bottom: utils.bu(5);
+
+    @include mixins.breakpoint(lg) {
+      margin-bottom: utils.bu(7.5);
+    }
 
     > h1 {
       text-transform: uppercase;
@@ -48,10 +67,34 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    gap: utils.bu(3) utils.bu(7.5);
+    gap: utils.bu(3);
 
-    > div:not(.event-list__event) {
-      padding: utils.rem(30) 0;
+    @include mixins.breakpoint(lg) {
+      gap: utils.bu(3) utils.bu(7.5);
+    }
+
+    > div {
+      padding: utils.bu(3) 0;
+
+      @include mixins.breakpoint(lg) {
+        padding: utils.rem(30) 0;
+      }
+
+      &:not(.event) {
+        display: none;
+
+        @include mixins.breakpoint(lg) {
+          display: block;
+        }
+      }
+
+      &.event {
+        width: 100%;
+
+        @include mixins.breakpoint(lg) {
+          width: 45%;
+        }
+      }
     }
 
     hr {

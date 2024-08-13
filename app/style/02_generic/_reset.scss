@@ -72,7 +72,11 @@ a {
 
   &:not(.button, .tabs__link) {
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
+
+      @include mixins.breakpoint(lg) {
+        text-decoration: underline;
+      }
     }
   }
 }

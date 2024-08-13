@@ -5,18 +5,34 @@
 
 .carousel {
   background-color: map.get(colors.$base-color, black);
-  padding: utils.bu(15) 0;
+  padding: utils.bu(10) 0;
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) 0;
+  }
 
   .ticker {
+    height: 329px !important;
     border: none;
+
+    @include mixins.breakpoint(lg) {
+      height: 597px !important;
+    }
   }
 
   img {
-    margin-left: utils.rem(10);
-    margin-right: utils.rem(10);
-    height: 597px;
-    max-width: 683px;
+    margin-left: utils.rem(5);
+    margin-right: utils.rem(5);
+    max-width: 220px;
+    height: 329px;
     width: 100% !important;
-    object-fit: contain;
+
+    @include mixins.breakpoint(lg) {
+      margin-left: utils.rem(10);
+      margin-right: utils.rem(10);
+      object-fit: contain;
+      height: 597px;
+      max-width: 683px;
+    }
   }
 }

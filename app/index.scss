@@ -1,10 +1,16 @@
 @use 'style/app';
+@use 'style/01_tools/mixin' as mixins;
 
 .layout {
   background: linear-gradient(0deg, rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
     linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 48%) 77.44%, rgb(0 0 0 / 60%) 100%),
     url('/images/background.jpeg');
   background-size: cover;
+  background-position: center;
+
+  @include mixins.breakpoint(lg) {
+    background-position: unset;
+  }
 }
 
 #embed-iframe {

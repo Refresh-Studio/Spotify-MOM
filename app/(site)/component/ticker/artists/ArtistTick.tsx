@@ -13,6 +13,6 @@ export const ArtistTick = ({ name, image }: Props) => (
     <p>
       <small>{name}</small>
     </p>
-    <Image width={70} height={77} alt={name} src={image} />
+    <Image width={70} height={70} alt={name} src={image} />
   </article>
 );

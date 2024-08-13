@@ -46,6 +46,9 @@ export const Acts = async () => {
           ))}
         </Ticker>
       </main>
+      <footer>
+        <Button small label="View All Artists" />
+      </footer>
     </section>
   );
 };

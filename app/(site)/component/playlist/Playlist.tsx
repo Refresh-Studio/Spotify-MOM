@@ -30,5 +30,14 @@ export const Playlist = () => (
         loading="lazy"
       ></iframe>
     </div>
+    <footer>
+      <Button
+        medium
+        link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
+        target="_blank"
+        label="View Spotify Playlist"
+        icon={<ViewIcon />}
+      />
+    </footer>
   </section>
 );
