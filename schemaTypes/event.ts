@@ -53,8 +53,7 @@ const event = {
     defineField({
       name: 'endDate',
       title: 'End Date',
-      type: 'date',
-      validation: (rule) => rule.required()
+      type: 'date'
     }),
     defineField({
       name: 'description',
