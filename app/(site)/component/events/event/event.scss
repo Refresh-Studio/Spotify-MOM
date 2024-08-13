@@ -46,9 +46,8 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
         width: 100%;
 
         @include mixins.breakpoint(lg) {
-          margin-top: auto;
-          margin-right: 0;
-          margin-bottom: utils.bu(2.5);
+          width: 154px;
+          margin: auto 0 utils.bu(2.5) auto;
         }
       }
     }
