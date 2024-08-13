@@ -7,30 +7,8 @@ const artist = {
   fields: [
     defineField({
       name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      validation: (rule) => rule.required(),
-      options: {
-        source: 'name'
-      }
-    }),
-    defineField({
-      name: 'name',
-      title: 'Name',
+      title: 'Spotify Profile Slug',
       type: 'string',
-      validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'followers',
-      title: 'Followers',
-      type: 'number',
-      initialValue: 0,
       validation: (rule) => rule.required()
     }),
     defineField({
@@ -38,12 +16,6 @@ const artist = {
       title: 'Spotify Profile URL',
       type: 'url',
       validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'musicTags',
-      title: 'Tags',
-      type: 'array',
-      of: [{ type: 'string' }]
     }),
     defineField({
       name: 'filterTags',
