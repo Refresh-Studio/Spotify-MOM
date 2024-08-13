@@ -8,8 +8,8 @@ export interface EventItem extends ApiType {
   address: string;
   tag: string[];
   free: boolean;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   startTime: string;
   endTime: string;
   quicketEventId: number;

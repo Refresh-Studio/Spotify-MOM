@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 
-import { scrollIntoView } from '../../../../util';
+import { formatGoogleCalendarDate, scrollIntoView } from '../../../../util';
 
 import { EventItem } from '../../../../interface/event/event-item.interface';
 
@@ -72,7 +72,14 @@ export const Tickets = ({ events }: Props) => {
               onCancel={() => setPurchasingEvent(undefined)}
               action={
                 event.free ? (
-                  <Button hollow large icon={<PlusIcon />} label="Add to Calendar" />
+                  <Button
+                    hollow
+                    large
+                    icon={<PlusIcon />}
+                    target="_blank"
+                    link={`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.name)}&dates=${formatGoogleCalendarDate(event.startDate, event.startTime)}/${formatGoogleCalendarDate(event.startDate ?? event.endDate, event.endTime)}&details=${encodeURIComponent(event.description)}`}
+                    label="Add to Calendar"
+                  />
                 ) : (
                   <Button
                     clickable
