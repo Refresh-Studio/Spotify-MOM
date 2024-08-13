@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react';
+'use client';
+
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { EventItem } from '../../../interface/event/event-item.interface';
 import { EventList } from '../../../interface/event/event-list.interface';
@@ -10,8 +12,18 @@ import { Event } from './event/Event';
 
 import './events.scss';
 
-export const Events = async () => {
-  const eventsList = await getEventLists();
+export const Events = () => {
+  const [eventsList, setEventsList] = useState<EventList[]>([]);
+
+  useEffect(() => {
+    const callApi = async () => {
+      const eventsList = await getEventLists();
+      setEventsList(eventsList);
+    };
+
+    callApi();
+  }, []);
+
   return (
     <section className="events">
       <header>

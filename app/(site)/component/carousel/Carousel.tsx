@@ -1,5 +1,7 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { GalleryImage } from '../../../interface/gallery/gallery-image.interface';
 
@@ -8,8 +10,17 @@ import { Ticker } from '../ticker/Ticker';
 
 import './carousel.scss';
 
-export const Carousel = async () => {
-  const images = await getImages();
+export const Carousel = () => {
+  const [images, setImages] = useState<GalleryImage[]>([]);
+
+  useEffect(() => {
+    const callApi = async () => {
+      const images = await getImages();
+      setImages(images);
+    };
+
+    callApi();
+  }, []);
 
   return (
     <section className="carousel dark-section">
