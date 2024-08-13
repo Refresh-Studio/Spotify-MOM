@@ -9,7 +9,6 @@ const artist = {
       name: 'slug',
       title: 'Spotify Profile Slug',
       type: 'slug',
-      validation: (rule) => rule.required(),
       options: {
         source: 'url',
         slugify: (input) => {
