@@ -6,16 +6,29 @@
 .tabs {
   display: flex;
   align-items: center;
-  gap: utils.bu(0.5);
+  flex-wrap: wrap;
+  gap: utils.bu(1);
 
   $block: &;
 
+  @include mixins.breakpoint(lg) {
+    gap: utils.bu(0.5);
+    height: 34px;
+    flex-wrap: nowrap;
+  }
+
   &__tab {
+    height: 100%;
     cursor: pointer;
     text-transform: uppercase;
 
     > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: utils.bu(1) utils.bu(2);
+      height: 100%;
+      width: 100%;
       border: 1px solid map.get(colors.$base-color, black);
 
       &:hover {
