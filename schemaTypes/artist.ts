@@ -8,8 +8,16 @@ const artist = {
     defineField({
       name: 'slug',
       title: 'Spotify Profile Slug',
-      type: 'string',
-      validation: (rule) => rule.required()
+      type: 'slug',
+      validation: (rule) => rule.required(),
+      options: {
+        source: 'url',
+        slugify: (input) => {
+          const lastPart = input.split('/').filter(Boolean).pop();
+
+          return lastPart ?? ''.toLowerCase();
+        }
+      }
     }),
     defineField({
       name: 'url',
