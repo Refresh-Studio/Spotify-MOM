@@ -38,8 +38,21 @@
   }
 
   &--large {
-    width: 204px;
-    height: 44px;
+    width: 148px;
+    height: 36px;
+
+    > svg {
+      display: none;
+    }
+
+    @include mixins.breakpoint(lg) {
+      width: 204px;
+      height: 44px;
+
+      > svg {
+        display: block;
+      }
+    }
   }
 
   &--hollow {

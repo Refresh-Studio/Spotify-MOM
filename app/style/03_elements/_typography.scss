@@ -92,9 +92,15 @@
 }
 
 .typescale-8 {
-  font-size: utils.rem(27);
+  font-size: utils.rem(18);
   font-weight: 400;
-  line-height: utils.rem(32);
+  line-height: utils.rem(21);
+
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(27);
+    font-weight: 400;
+    line-height: utils.rem(32);
+  }
 
   @include mixins.breakpoint(lg) {
     font-size: utils.rem(36);

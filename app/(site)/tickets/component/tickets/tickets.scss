@@ -4,10 +4,18 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .tickets {
-  padding: utils.bu(15) utils.bu(7.5);
+  padding: utils.bu(7.5) utils.bu(2);
   background-color: map.get(colors.$base-color, black);
 
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) utils.bu(7.5);
+  }
+
   > main {
-    margin-top: utils.bu(7.5);
+    margin-top: utils.bu(5);
+
+    @include mixins.breakpoint(lg) {
+      margin-top: utils.bu(7.5);
+    }
   }
 }

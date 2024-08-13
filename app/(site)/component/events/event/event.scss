@@ -18,21 +18,38 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     width: 100%;
 
     > p {
-      width: 613px;
+      width: 100%;
+
+      @include mixins.breakpoint(lg) {
+        width: 613px;
+      }
     }
 
     > div {
       display: flex;
+      flex-direction: column;
+
+      @include mixins.breakpoint(lg) {
+        flex-direction: row;
+      }
 
       > iframe {
         max-width: 1000px;
-        border-radius: 8px;
+
+        @include mixins.breakpoint(lg) {
+          border-radius: 8px;
+        }
       }
 
       > .button {
-        margin-bottom: utils.bu(2.5);
-        margin-left: auto;
-        margin-top: auto;
+        margin-top: utils.bu(5);
+        width: 100%;
+
+        @include mixins.breakpoint(lg) {
+          margin-top: auto;
+          margin-right: 0;
+          margin-bottom: utils.bu(2.5);
+        }
       }
     }
   }
