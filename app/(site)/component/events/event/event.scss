@@ -10,6 +10,14 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   padding: utils.bu(3) 0;
   border-bottom: $border;
   position: relative;
+  min-height: 214px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mixins.breakpoint(lg) {
+    min-height: 315px;
+  }
 
   &__icon {
     width: 32px;
@@ -127,13 +135,12 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   }
 
   > footer {
-    margin-top: utils.bu(5);
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
 
     @include mixins.breakpoint(lg) {
-      margin-top: utils.bu(10);
+      margin-top: auto;
     }
 
     > small {
