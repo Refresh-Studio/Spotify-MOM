@@ -76,7 +76,7 @@ export async function getArtists() {
     name,
     followers,
     musicTags,
-    filterTags,
+    "filterTags": filterTags[]->slug.current,
     url,
     "image": image.asset->url
 }`
