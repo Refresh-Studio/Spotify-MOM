@@ -55,6 +55,7 @@ const ArtistsPage = () => {
         return accum;
       }, []);
 
+      mappedArtists.sort((a: Artist, b: Artist) => a.name.localeCompare(b.name));
       setArtists(mappedArtists);
       setLoading(false);
     };

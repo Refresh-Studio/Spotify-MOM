@@ -52,10 +52,10 @@ export const Acts = ({ accessToken }: Props) => {
   normalList.sort();
 
   const followersList = [...artists];
-  followersList.sort((a, b) => a.followers - b.followers);
+  followersList.sort((a: Artist, b: Artist) => a.followers - b.followers);
 
   const nameList = [...artists];
-  nameList.sort((a, b) => a.name.localeCompare(b.name));
+  nameList.sort((a: Artist, b: Artist) => a.name.localeCompare(b.name));
 
   return (
     <section className="acts">
