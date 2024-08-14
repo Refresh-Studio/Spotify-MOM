@@ -19,8 +19,8 @@ export const Hero = ({ ticketCount }: Props) => (
     <footer>
       <p className={`typescale-6 ${wideFont.className}`}>About</p>
       <p className="typescale-8">
-        Lorem ipsum dolor sit amet consectetur. Eget neque pharetra elementum pulvinar adipiscing.
-        Amet arcu porta velit tincidunt maecenas. Hac bibendum in scelerisque.
+        MOTHER OF MUSIC IS A 4-DAY DISCOVERY OF THE AFRICAN RENAISSANCE, SPOTLIGHTING EMERGING
+        SOUNDS AND ART IN THE MOTHER CITY.
       </p>
     </footer>
   </section>

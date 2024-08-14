@@ -16,6 +16,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     min-width: 32px;
     height: 32px;
     min-height: 32px;
+    margin-left: utils.bu(3);
 
     @include mixins.breakpoint(lg) {
       width: 42px;
@@ -25,19 +26,24 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     }
   }
 
+  &__description-block {
+    width: 100%;
+    margin-bottom: utils.bu(1.5);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mixins.breakpoint(lg) {
+      width: 830px;
+    }
+  }
+
   > main {
     margin: utils.bu(5) 0;
     color: map.get(colors.$base-color, white);
     text-transform: uppercase;
     width: 100%;
-
-    > p {
-      width: 100%;
-
-      @include mixins.breakpoint(lg) {
-        width: 613px;
-      }
-    }
 
     > div {
       display: flex;

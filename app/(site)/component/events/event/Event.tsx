@@ -60,7 +60,7 @@ export const Event = ({
           {(event.description ?? [])
             .flatMap((block) => block.children)
             .map((block) => (
-              <p key={block._key} className="typescale-4">
+              <p key={block._key} className="event__description-block typescale-4">
                 {block.text}
               </p>
             ))}
@@ -97,7 +97,7 @@ export const Event = ({
             </small>
             <small className="typescale-4">
               {new Date(event.startDate).toDateString()}{' '}
-              {filled && `- ${new Date(event.endDate).toDateString()}`}
+              {filled && event.endDate && `- ${new Date(event.endDate).toDateString()}`}
             </small>
           </div>
           {action}

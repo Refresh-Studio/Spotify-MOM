@@ -27,10 +27,12 @@ export const Events = () => {
   return (
     <section className="events">
       <header>
-        <h1 className={`typescale-5 ${wideFont.className}`}>Event Program</h1>
-        <p className="typescale-7">
-          Lorem ipsum dolor sit amet consectetur. Sed purus mi risus proin iaculis id. Sem sed
-          laoreet massa nunc cursus.
+        <h1 className={`typescale-5 ${wideFont.className}`}>How mom tickets work</h1>
+        <p className="typescale-4">
+          Some events are free and for some we need to keep a head count! Events that require
+          registration go through a randomised process which automatically releases tickets in
+          batches every day. A successful registration DOES NOT equal a ticket. Check your inbox
+          daily to see if you’ve been issued tickets for MOM.
         </p>
       </header>
       <main>

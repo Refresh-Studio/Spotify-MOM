@@ -131,4 +131,4 @@ interface TagProps {
   title: string;
 }
 
-const Tag = ({ title }: TagProps) => <div className="tag typescale-3">{title}</div>;
+const Tag = ({ title }: TagProps) => <div className="tag typescale-2">{title}</div>;

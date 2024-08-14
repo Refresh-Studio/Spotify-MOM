@@ -7,6 +7,7 @@ import { GalleryImage } from '../../../interface/gallery/gallery-image.interface
 
 import { getImages } from '../../../../sanity/sanity.query';
 import { Ticker } from '../ticker/Ticker';
+import ResponsiveImage from './ResponsiveImage';
 
 import './carousel.scss';
 
@@ -26,14 +27,7 @@ export const Carousel = () => {
     <section className="carousel dark-section">
       <Ticker hollow height={597} speed={50}>
         {images.map((image: GalleryImage) => (
-          <Image
-            key={image._id}
-            height={597}
-            width={403}
-            objectFit="contain"
-            src={image.src}
-            alt={image.name}
-          />
+          <ResponsiveImage key={image._id} src={image.src} alt={image.name} />
         ))}
       </Ticker>
     </section>

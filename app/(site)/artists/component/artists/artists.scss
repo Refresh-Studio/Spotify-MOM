@@ -65,10 +65,12 @@
 
   &__details {
     display: none;
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 36%;
     border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
     padding: utils.rem(30);
+    height: fit-content;
 
     @include mixins.breakpoint(lg) {
       display: block;
@@ -97,6 +99,7 @@
       }
 
       > img {
+        max-height: 336px;
         position: relative !important;
       }
     }

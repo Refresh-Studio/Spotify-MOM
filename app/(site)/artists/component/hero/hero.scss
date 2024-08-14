@@ -25,14 +25,18 @@
       margin-left: utils.bu(3);
       border: 1px solid map.get(colors.$base-color, black);
       height: 35px;
+      min-height: 35px;
       width: 38px;
+      min-width: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       @include mixins.breakpoint(lg) {
         height: 48px;
+        min-height: 48px;
         width: 61px;
+        min-width: 61px;
       }
     }
   }
