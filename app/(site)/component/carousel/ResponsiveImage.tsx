@@ -8,7 +8,7 @@ interface Props {
   alt: string;
 }
 
-const ResponsiveImage = ({ src, alt }: Props) => {
+export const ResponsiveImage = ({ src, alt }: Props) => {
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -45,5 +45,3 @@ const ResponsiveImage = ({ src, alt }: Props) => {
     />
   );
 };
-
-export default ResponsiveImage;

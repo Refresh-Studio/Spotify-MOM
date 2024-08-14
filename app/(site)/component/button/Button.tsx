@@ -40,13 +40,29 @@ export const Button = ({
     }
   };
 
+  const classNames = ['button', 'typescale-4'];
+  if (inverted) {
+    classNames.push('button--inverted');
+  }
+
+  if (small) {
+    classNames.push('button--small');
+  }
+
+  if (medium) {
+    classNames.push('button--medium');
+  }
+
+  if (large) {
+    classNames.push('button--large');
+  }
+
+  if (hollow) {
+    classNames.push('button--hollow');
+  }
+
   return (
-    <Link
-      className={`button ${inverted ? 'button--inverted' : ''} ${small ? 'button--small' : ''} ${large ? 'button--large' : ''}  ${medium ? 'button--medium' : ''} ${hollow ? 'button--hollow' : ''} typescale-4`}
-      href={link}
-      onClick={handleClick}
-      target={target}
-    >
+    <Link className={classNames.join(' ')} href={link} onClick={handleClick} target={target}>
       {label}
       {icon && icon}
     </Link>

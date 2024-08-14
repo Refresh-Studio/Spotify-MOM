@@ -147,7 +147,7 @@ export const Event = ({
                 src={`https://www.quicket.co.za/event/${event.quicketEventId}/widget#/registration`}
                 width="100%"
                 height="464px"
-              ></iframe>
+              />
               <Button
                 clickable
                 onClick={() => {

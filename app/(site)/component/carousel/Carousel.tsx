@@ -1,13 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 import { GalleryImage } from '../../../interface/gallery/gallery-image.interface';
 
 import { getImages } from '../../../../sanity/sanity.query';
 import { Ticker } from '../ticker/Ticker';
-import ResponsiveImage from './ResponsiveImage';
+import { ResponsiveImage } from './ResponsiveImage';
 
 import './carousel.scss';
 

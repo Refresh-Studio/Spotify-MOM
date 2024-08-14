@@ -11,11 +11,7 @@ import { wideFont } from '../../../../constant';
 
 import './hero.scss';
 
-interface Props {
-  ticketCount: number;
-}
-
-export const Hero = ({ ticketCount }: Props) => {
+export const Hero = () => {
   const [filters, setFilters] = useState<TabItem[]>([]);
 
   useEffect(() => {
