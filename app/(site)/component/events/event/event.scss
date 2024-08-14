@@ -88,6 +88,11 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
         color: map.get(colors.$base-color, primary);
         font-size: utils.rem(14);
         line-height: utils.rem(14);
+
+        @include mixins.breakpoint(lg) {
+          line-height: utils.rem(25);
+          font-size: utils.rem(21);
+        }
       }
 
       > h3 {

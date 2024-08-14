@@ -5,14 +5,11 @@
 
 .layout {
   background: linear-gradient(0deg, rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
-    linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 48%) 77.44%, rgb(0 0 0 / 60%) 100%),
+    linear-gradient(90deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 48%) 77.44%, rgb(0 0 0 / 60%) 100%),
     url('/images/background.jpeg');
+  background-position-x: center;
+  background-position-y: -300px;
   background-size: cover;
-  background-position: center;
-
-  @include mixins.breakpoint(lg) {
-    background-position: unset;
-  }
 
   > main {
     background-color: map.get(colors.$base-color, black);

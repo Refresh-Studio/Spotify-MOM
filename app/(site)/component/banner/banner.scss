@@ -14,7 +14,6 @@
   height: 425px;
 
   @include mixins.breakpoint(lg) {
-    background-position-y: -500px;
     padding: utils.bu(10) utils.bu(2) utils.bu(7.5);
     height: 100vh;
   }
