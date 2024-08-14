@@ -58,8 +58,8 @@ const event = {
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-      rows: 4
+      type: 'array',
+      of: [{ type: 'block' }]
     }),
     defineField({
       name: 'quicketEventId',
