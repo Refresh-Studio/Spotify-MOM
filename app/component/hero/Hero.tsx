@@ -10,7 +10,7 @@ import { wideFont } from '../../constant';
 import './hero.scss';
 
 export const Hero = () => {
-  const targetDate = new Date('August 14, 2024 16:00:00 GMT+0200').getTime();
+  const targetDate = new Date('August 15, 2024 10:00:00 GMT+0200').getTime();
 
   const [timeRemaining, setTimeRemaining] = useState(targetDate - new Date().getTime());
 
