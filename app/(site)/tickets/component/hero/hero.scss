@@ -60,4 +60,8 @@
       flex-direction: row;
     }
   }
+
+  > .tabs {
+    margin-top: utils.bu(7.5);
+  }
 }

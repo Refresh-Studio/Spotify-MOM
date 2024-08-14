@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState } from 'react';
 
 import { Artist } from '../../../../interface/artist/artist.interface';
 
@@ -46,7 +46,7 @@ export const Artists = ({ artists = [] }: Props) => {
     <section className="artists dark-section">
       <nav className="artists__list">
         {(filteredArtists ?? []).map((artist: Artist) => (
-          <>
+          <Fragment key={artist._id}>
             <li
               key={artist.slug}
               className={`artists__artist ${artist.slug === activeArtist?.slug ? 'artists__artist--active' : ''}`}
@@ -98,7 +98,7 @@ export const Artists = ({ artists = [] }: Props) => {
                 </div>
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </nav>
       {activeArtist && (

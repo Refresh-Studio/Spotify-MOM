@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Tabs } from '../../../component/tabs/Tabs';
+import { Filter } from '../../../../interface/filter/filter.interface';
 
+import { TabItem, Tabs } from '../../../component/tabs/Tabs';
+
+import { getArtistFilters } from '../../../../../sanity/sanity.query';
 import { wideFont } from '../../../../constant';
 
 import './hero.scss';
 
-const TABS = Object.freeze([
-  { path: 'all', name: 'All' },
-  { path: 'build-up', name: 'Build Up' },
-  { path: 'thursday', name: 'First Thursdays' },
-  { path: 'friday', name: 'Friday' },
-  { path: 'saturday', name: 'Saturday' },
-  { path: 'sunday', name: 'Sunday' }
-]);
+export const Hero = () => {
+  const [filters, setFilters] = useState<TabItem[]>([]);
 
-interface Props {
-  artistCount: number;
-}
+  useEffect(() => {
+    const callApi = async () => {
+      const artistFilters = await getArtistFilters();
+      setFilters([
+        ...[
+          {
+            path: 'all',
+            name: 'All'
+          }
+        ],
+        ...artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
+      ]);
+    };
 
-export const Hero = ({ artistCount }: Props) => (
-  <section className="artists-hero light-section">
-    <h1 className={`typescale-11 ${wideFont.className}`}>
-      The Artists <span className="typescale-6">{artistCount}</span>
-    </h1>
-    <Tabs tabs={TABS} />
-  </section>
-);
+    callApi();
+  }, []);
+
+  return (
+    <section className="artists-hero light-section">
+      <h1 className={`typescale-11 ${wideFont.className}`}>The Artists</h1>
+      <Tabs tabs={filters} />
+    </section>
+  );
+};

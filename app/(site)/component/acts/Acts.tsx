@@ -56,10 +56,7 @@ export const Acts = ({ accessToken }: Props) => {
             <span>More than 50</span> acts
           </p>
           <p className={`typescale-6 ${wideFont.className}`}>
-            <span>4</span> venues
-          </p>
-          <p className={`typescale-6 ${wideFont.className}`}>
-            <span>4</span> days
+            <span>More</span> being announced
           </p>
         </div>
         <Button small link="/artists" label="View All Artists" />

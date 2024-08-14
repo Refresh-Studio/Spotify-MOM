@@ -8,8 +8,11 @@
     linear-gradient(90deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 48%) 77.44%, rgb(0 0 0 / 60%) 100%),
     url('/images/background.jpeg');
   background-position-x: center;
-  background-position-y: -300px;
   background-size: cover;
+
+  @include mixins.breakpoint(lg) {
+    background-position-y: -300px;
+  }
 
   > main {
     background-color: map.get(colors.$base-color, black);

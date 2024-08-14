@@ -32,6 +32,13 @@
     > p {
       color: map.get(colors.$base-color, white);
       text-transform: uppercase;
+      line-height: utils.rem(19.2);
+      font-size: utils.rem(14);
+
+      @include mixins.breakpoint(lg) {
+        line-height: utils.rem(32);
+        font-size: utils.rem(27);
+      }
     }
   }
 
@@ -54,8 +61,8 @@
       padding: 0 0 utils.bu(11);
 
       > svg {
-        max-width: 548px;
-        height: 56px;
+        max-width: 658px;
+        height: 68px;
       }
     }
   }

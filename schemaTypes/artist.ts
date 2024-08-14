@@ -29,10 +29,7 @@ const artist = {
       title: 'Filter Tags',
       type: 'array',
       validation: (rule) => rule.required(),
-      of: [{ type: 'string' }],
-      options: {
-        list: ['build-up', 'thursday', 'friday', 'saturday', 'sunday']
-      }
+      of: [{ type: 'reference', to: [{ type: 'artistFilter' }] }]
     })
   ]
 };

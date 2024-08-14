@@ -21,6 +21,8 @@
     @include mixins.breakpoint(lg) {
       justify-content: space-between;
       align-items: flex-start;
+      padding-left: utils.bu(7.5);
+      padding-right: utils.bu(7.5);
     }
 
     > a {
@@ -44,8 +46,8 @@
         text-transform: uppercase;
         text-align: center;
         margin-top: utils.bu(1);
-        font-size: utils.rem(21);
-        line-height: utils.rem(25);
+        font-size: utils.rem(18);
+        line-height: utils.rem(21);
 
         @include mixins.breakpoint(lg) {
           margin-top: 0;

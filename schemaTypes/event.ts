@@ -33,16 +33,20 @@ const event = {
       initialValue: false
     }),
     defineField({
+      name: 'lineup',
+      title: 'Lineup',
+      type: 'array',
+      of: [{ type: 'string' }]
+    }),
+    defineField({
       name: 'startTime',
       title: 'Start Time',
-      type: 'string',
-      validation: (rule) => rule.required()
+      type: 'string'
     }),
     defineField({
       name: 'endTime',
       title: 'End Time',
-      type: 'string',
-      validation: (rule) => rule.required()
+      type: 'string'
     }),
     defineField({
       name: 'startDate',
@@ -67,14 +71,11 @@ const event = {
       type: 'number'
     }),
     defineField({
-      name: 'tag',
-      title: 'Tag',
+      name: 'tags',
+      title: 'Filter Tags',
       type: 'array',
       validation: (rule) => rule.required(),
-      of: [{ type: 'string' }],
-      options: {
-        list: ['build-up', 'thursday', 'friday', 'saturday', 'sunday']
-      }
+      of: [{ type: 'reference', to: [{ type: 'eventFilter' }] }]
     })
   ]
 };

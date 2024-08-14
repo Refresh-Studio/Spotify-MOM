@@ -65,7 +65,7 @@ const ArtistsPage = () => {
   return (
     <Suspense>
       <main>
-        <Hero artistCount={artists.length} />
+        <Hero />
         {!loading && <Artists artists={artists} />}
         {loading && <Loader />}
       </main>

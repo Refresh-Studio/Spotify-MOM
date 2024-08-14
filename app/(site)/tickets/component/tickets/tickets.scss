@@ -10,12 +10,4 @@
   @include mixins.breakpoint(lg) {
     padding: utils.bu(15) utils.bu(7.5);
   }
-
-  > main {
-    margin-top: utils.bu(5);
-
-    @include mixins.breakpoint(lg) {
-      margin-top: utils.bu(7.5);
-    }
-  }
 }

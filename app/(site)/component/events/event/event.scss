@@ -29,6 +29,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   &__description-block {
     width: 100%;
     margin-bottom: utils.bu(1.5);
+    display: block;
 
     &:last-child {
       margin-bottom: 0;
@@ -37,6 +38,10 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     @include mixins.breakpoint(lg) {
       width: 830px;
     }
+  }
+
+  strong.event__description-block {
+    font-weight: bold;
   }
 
   > main {
@@ -110,6 +115,13 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
         color: map.get(colors.$base-color, silver);
         text-transform: uppercase;
         margin-top: utils.bu(1);
+
+        &:first-of-type {
+          color: map.get(colors.$base-color, white);
+          text-transform: uppercase;
+          margin-top: 0;
+          margin-bottom: utils.bu(1);
+        }
       }
     }
   }
@@ -117,30 +129,16 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   > footer {
     margin-top: utils.bu(5);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 
     @include mixins.breakpoint(lg) {
       margin-top: utils.bu(10);
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-
-      > small {
-        color: map.get(colors.$base-color, white);
-        text-transform: uppercase;
-
-        &:first-child {
-          color: map.get(colors.$base-color, silver);
-          margin-bottom: utils.bu(0.5);
-
-          @include mixins.breakpoint(lg) {
-            margin-bottom: 0;
-          }
-        }
-      }
+    > small {
+      color: map.get(colors.$base-color, silver);
+      text-transform: uppercase;
     }
   }
 

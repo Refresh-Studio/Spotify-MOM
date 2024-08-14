@@ -9,20 +9,10 @@ import { EventItem } from '../../../../interface/event/event-item.interface';
 
 import { Button } from '../../../component/button/Button';
 import { Event } from '../../../component/events/event/Event';
-import { Tabs } from '../../../component/tabs/Tabs';
 
 import { ReactComponent as PlusIcon } from '../../../../asset/plus.svg';
 
 import './tickets.scss';
-
-const TABS = Object.freeze([
-  { path: 'all', name: 'All' },
-  { path: 'build-up', name: 'Build Up' },
-  { path: 'thursday', name: 'First Thursdays' },
-  { path: 'friday', name: 'Friday' },
-  { path: 'saturday', name: 'Saturday' },
-  { path: 'sunday', name: 'Sunday' }
-]);
 
 interface Props {
   events: EventItem[];
@@ -51,14 +41,11 @@ export const Tickets = ({ events }: Props) => {
       return events;
     }
 
-    return events.filter((event: EventItem) => event.tag.includes(query!));
+    return events.filter((event: EventItem) => event.tags.includes(query!));
   }, [query, events]);
 
   return (
     <section className="tickets dark-section">
-      <header id="tickets-tabs">
-        <Tabs hollow tabs={TABS} />
-      </header>
       <main>
         <ul>
           {filteredEvents.map((event: EventItem) => (

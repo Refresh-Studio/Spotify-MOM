@@ -17,9 +17,30 @@ export async function getEventLists() {
     startTime,
     endTime,
     free,
-    address
+    address,
+    lineup
   }
 }`
+  );
+}
+
+export async function getArtistFilters() {
+  return client.fetch(
+    groq`*[_type == "artistFilter"] {
+  _id,
+  "slug": slug.current,
+  title
+} | order(title asc)`
+  );
+}
+
+export async function getEventFilters() {
+  return client.fetch(
+    groq`*[_type == "eventFilter"] {
+  _id,
+  "slug": slug.current,
+  title
+} | order(title asc)`
   );
 }
 
@@ -33,11 +54,12 @@ export async function getEvents() {
     endDate,
     startTime,
     endTime,
-    tag,
+    "tags": tags[]->slug.current,
     free,
     address,
     description,
-    quicketEventId
+    quicketEventId,
+    lineup
 }`
   );
 }

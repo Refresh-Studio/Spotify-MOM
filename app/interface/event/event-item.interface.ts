@@ -1,7 +1,8 @@
 import { ApiType } from '../api-type.interface';
 
-interface TextBlock {
-  children: { _key: string; text: string };
+export interface TextBlock {
+  style: string;
+  children: { _key: string; text: string; marks: string[] }[];
 }
 
 export interface EventItem extends ApiType {
@@ -10,7 +11,8 @@ export interface EventItem extends ApiType {
   name: string;
   description: TextBlock[];
   address: string;
-  tag: string[];
+  lineup: string[];
+  tags: string[];
   free: boolean;
   startDate: string;
   endDate: string;
