@@ -57,7 +57,11 @@ export const Event = ({
       </header>
       {expandedDetails && !registering && (
         <main>
-          <p className="typescale-4">{event.description}</p>
+          {(event.description ?? [])
+            .flatMap((block) => block.children)
+            .map((block) => (
+              <p className="typescale-4">{block.text}</p>
+            ))}
         </main>
       )}
       {registering && (
