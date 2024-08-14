@@ -51,7 +51,9 @@ export const Event = ({
           <h2 className={`typescale-6 ${wideFont.className}`}>{event.name}</h2>
           <h3 className={`typescale-6 ${wideFont.className}`}>{event.address}</h3>
           <p className="typescale-4">
-            {(event.lineup ?? []).length === 0 ? '' : `Ft. ${(event.lineup ?? []).join(' // ')}`}
+            {(event.lineup ?? []).filter(Boolean).length === 0
+              ? ''
+              : `Ft. ${(event.lineup ?? []).join(' // ')}`}
           </p>
         </div>
         {!registering &&

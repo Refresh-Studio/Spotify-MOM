@@ -12,14 +12,16 @@ export async function getEventLists() {
     _id,
     "slug": slug.current,
     name,
+    calendarStartDate,
     startDate,
+    calendarEndDate,
     endDate,
     startTime,
     endTime,
     free,
     address,
     lineup
-  }
+  } | order(calendarStartDate asc)
 }`
   );
 }
@@ -51,7 +53,9 @@ export async function getEvents() {
     "slug": slug.current,
     name,
     startDate,
+    calendarStartDate,
     endDate,
+    calendarEndDate,
     startTime,
     endTime,
     "tags": tags[]->slug.current,
@@ -60,7 +64,7 @@ export async function getEvents() {
     description,
     quicketEventId,
     lineup
-}`
+} | order(calendarStartDate asc)`
   );
 }
 
