@@ -6,7 +6,7 @@ export const scrollIntoView = (id: string): void => {
 };
 
 export const formatGoogleCalendarDate = (date: string, time: string): string => {
-  const combinedDate: Date = new Date(`${date}T${time}+02:00`);
+  const combinedDate: Date = new Date(`${date}T${time ?? '18:00'}+02:00`);
 
   const pad = (number: number) => (number < 10 ? '0' + number : number);
 
