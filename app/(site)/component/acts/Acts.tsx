@@ -48,6 +48,15 @@ export const Acts = ({ accessToken }: Props) => {
     }
   }, [accessToken]);
 
+  const normalList = [...artists];
+  normalList.sort();
+
+  const followersList = [...artists];
+  followersList.sort((a, b) => a.followers - b.followers);
+
+  const nameList = [...artists];
+  nameList.sort((a, b) => a.name.localeCompare(b.name));
+
   return (
     <section className="acts">
       <header>
@@ -63,17 +72,17 @@ export const Acts = ({ accessToken }: Props) => {
       </header>
       <main>
         <Ticker hollow height={77} speed={10}>
-          {artists.map((artist: Artist) => (
+          {normalList.map((artist: Artist) => (
             <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
           ))}
         </Ticker>
         <Ticker hollow height={77} right speed={10}>
-          {artists.map((artist: Artist) => (
+          {followersList.map((artist: Artist) => (
             <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
           ))}
         </Ticker>
         <Ticker hollow height={77} speed={10}>
-          {artists.map((artist: Artist) => (
+          {nameList.map((artist: Artist) => (
             <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
           ))}
         </Ticker>

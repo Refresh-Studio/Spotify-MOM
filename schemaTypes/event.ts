@@ -51,13 +51,13 @@ const event = {
     defineField({
       name: 'startDate',
       title: 'Start Date',
-      type: 'date',
+      type: 'string',
       validation: (rule) => rule.required()
     }),
     defineField({
       name: 'endDate',
       title: 'End Date',
-      type: 'date'
+      type: 'string'
     }),
     defineField({
       name: 'description',
