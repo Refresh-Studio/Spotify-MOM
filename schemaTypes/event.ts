@@ -49,10 +49,21 @@ const event = {
       type: 'string'
     }),
     defineField({
+      name: 'calendarStartDate',
+      title: 'Calendar Start Date',
+      type: 'date',
+      validation: (rule) => rule.required()
+    }),
+    defineField({
       name: 'startDate',
       title: 'Start Date',
       type: 'string',
       validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: 'calendarEndDate',
+      title: 'Calendar End Date',
+      type: 'date'
     }),
     defineField({
       name: 'endDate',

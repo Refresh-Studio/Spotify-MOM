@@ -14,7 +14,9 @@ export interface EventItem extends ApiType {
   lineup: string[];
   tags: string[];
   free: boolean;
+  calendarStartDate: string;
   startDate: string;
+  calendarEndDate: string;
   endDate: string;
   startTime: string;
   endTime: string;

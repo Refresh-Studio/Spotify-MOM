@@ -45,8 +45,8 @@ export const Event = ({
       <header>
         <div>
           <p className="typescale-4">
-            {new Date(event.startDate).toDateString()}{' '}
-            {filled && event.endDate && `- ${new Date(event.endDate).toDateString()}`}
+            {event.startDate}&nbsp;
+            {filled && event.endDate && `- ${event.endDate}`}
           </p>
           <h2 className={`typescale-6 ${wideFont.className}`}>{event.name}</h2>
           <h3 className={`typescale-6 ${wideFont.className}`}>{event.address}</h3>
