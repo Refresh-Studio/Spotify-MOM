@@ -60,7 +60,9 @@ export const Event = ({
           {(event.description ?? [])
             .flatMap((block) => block.children)
             .map((block) => (
-              <p className="typescale-4">{block.text}</p>
+              <p key={block._key} className="typescale-4">
+                {block.text}
+              </p>
             ))}
         </main>
       )}

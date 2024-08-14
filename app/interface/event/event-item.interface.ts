@@ -1,7 +1,7 @@
 import { ApiType } from '../api-type.interface';
 
 interface TextBlock {
-  children: { text: string };
+  children: { _key: string; text: string };
 }
 
 export interface EventItem extends ApiType {

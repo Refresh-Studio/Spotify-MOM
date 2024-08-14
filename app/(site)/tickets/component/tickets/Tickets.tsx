@@ -77,7 +77,12 @@ export const Tickets = ({ events }: Props) => {
                     large
                     icon={<PlusIcon />}
                     target="_blank"
-                    link={`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.name)}&dates=${formatGoogleCalendarDate(event.startDate, event.startTime)}/${formatGoogleCalendarDate(event.startDate ?? event.endDate, event.endTime)}&details=${encodeURIComponent(event.description)}`}
+                    link={`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.name)}&dates=${formatGoogleCalendarDate(event.startDate, event.startTime)}/${formatGoogleCalendarDate(event.startDate ?? event.endDate, event.endTime)}&details=${encodeURIComponent(
+                      (event.description ?? [])
+                        .flatMap((block) => block?.children)
+                        .map((block) => block?.text)
+                        .join('\n')
+                    )}`}
                     label="Add to Calendar"
                   />
                 ) : (
