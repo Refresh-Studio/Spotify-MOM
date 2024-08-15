@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: 'https://www.spotifymom.com',
     images: [
       {
-        url: 'https://i.ibb.co/MkdJSpd/Open-graph-image.jpg',
+        url: 'https://i.ibb.co/j9Cs8Kk/IMG-1929.jpg',
         width: 1200,
         height: 630,
         alt: 'Spotify | MOM'
