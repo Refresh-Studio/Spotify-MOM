@@ -78,7 +78,6 @@ export const Tickets = ({ events }: Props) => {
                     />
                   ) : (
                     <Button
-                      clickable
                       hollow
                       large
                       label="Register for Tickets"
