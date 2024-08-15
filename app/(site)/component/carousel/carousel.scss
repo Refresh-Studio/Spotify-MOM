@@ -14,6 +14,7 @@
   .ticker {
     height: 329px !important;
     border: none;
+    cursor: default;
 
     @include mixins.breakpoint(lg) {
       height: 597px !important;

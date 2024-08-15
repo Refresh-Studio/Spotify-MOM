@@ -75,6 +75,10 @@
     display: flex;
     flex-direction: column;
     gap: utils.bu(1);
+
+    > .ticker {
+      cursor: default;
+    }
   }
 
   > footer {
