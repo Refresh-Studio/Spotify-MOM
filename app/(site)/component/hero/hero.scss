@@ -42,7 +42,7 @@
     }
 
     &:first-of-type {
-      margin-top: utils.bu(20.5);
+      margin-top: utils.bu(20);
 
       @include mixins.breakpoint(lg) {
         left: 60px;

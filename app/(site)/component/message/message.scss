@@ -10,7 +10,7 @@
   justify-content: space-between;
   color: map.get(colors.$base-color, white);
   text-transform: uppercase;
-  padding: 0 utils.bu(2.5) utils.bu(12.5);
+  padding: 0 utils.bu(2.5) utils.bu(4.5);
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(20) 0 0;
@@ -47,7 +47,7 @@
     align-items: center;
     justify-content: center;
     color: map.get(colors.$base-color, white);
-    margin-top: utils.bu(15);
+    margin-top: utils.bu(4);
     text-transform: uppercase;
 
     > svg {
