@@ -83,6 +83,7 @@ export const Tickets = ({ events }: Props) => {
                       large
                       label="Register for Tickets"
                       link={event.quicketEventId}
+                      target="_blank"
                     />
                   )
                 }
