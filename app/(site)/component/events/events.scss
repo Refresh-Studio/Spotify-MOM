@@ -65,6 +65,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 
   > section {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
     gap: utils.bu(3);
