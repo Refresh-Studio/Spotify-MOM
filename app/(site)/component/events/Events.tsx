@@ -31,8 +31,8 @@ export const Events = () => {
         <p className="typescale-4">
           Some events are free and for some we need to keep a head count! Events that require
           registration go through a randomised process which automatically releases tickets in
-          batches every day. A successful registration DOES NOT equal a ticket. Check your inbox
-          daily to see if you’ve been issued tickets for MOM.
+          batches every day.{' '}
+          <strong>Check your inbox daily to see if you’ve been issued tickets for MOM.</strong>
         </p>
       </header>
       <main>

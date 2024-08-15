@@ -31,8 +31,9 @@ export async function getArtistFilters() {
     groq`*[_type == "artistFilter"] {
   _id,
   "slug": slug.current,
-  title
-} | order(title asc)`
+  title,
+  order
+} | order(order asc)`
   );
 }
 
@@ -41,8 +42,9 @@ export async function getEventFilters() {
     groq`*[_type == "eventFilter"] {
   _id,
   "slug": slug.current,
-  title
-} | order(title asc)`
+  title,
+  order
+} | order(order asc)`
   );
 }
 

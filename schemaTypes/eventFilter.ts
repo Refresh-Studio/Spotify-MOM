@@ -19,6 +19,13 @@ const eventFilter = {
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      initialValue: 0,
+      validation: (rule) => rule.required()
     })
   ]
 };

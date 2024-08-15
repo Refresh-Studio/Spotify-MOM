@@ -38,6 +38,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     width: 100%;
     margin-bottom: utils.bu(1.5);
     display: block;
+    white-space: pre-wrap;
 
     &:last-child {
       margin-bottom: 0;
@@ -125,7 +126,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
         margin-top: utils.bu(1);
 
         &:first-of-type {
-          color: map.get(colors.$base-color, white);
+          color: map.get(colors.$base-color, secondary);
           text-transform: uppercase;
           margin-top: 0;
           margin-bottom: utils.bu(1);

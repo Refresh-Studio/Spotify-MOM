@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.spotifymom.com'),
   title: 'Spotify | MOM',
   // eslint-disable-next-line quotes
-  description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+  description:
+    'MOTHER OF MUSIC IS A 4-DAY DISCOVERY OF THE AFRICAN RENAISSANCE, SPOTLIGHTING EMERGING SOUNDS AND ART IN THE MOTHER CITY.',
   keywords: [
     'Spotify',
     'Mom',
@@ -42,7 +43,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Spotify | MOM',
     // eslint-disable-next-line quotes
-    description: "Get ready for a special announcement from Spotify Africa: 'Mom is Coming Home'.",
+    description:
+      'MOTHER OF MUSIC IS A 4-DAY DISCOVERY OF THE AFRICAN RENAISSANCE, SPOTLIGHTING EMERGING SOUNDS AND ART IN THE MOTHER CITY.',
     url: 'https://www.spotifymom.com',
     images: [
       {
