@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+
+.ticker {
+  width: 100%;
+  background-color: map.get(colors.$base-color, grey);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+  &--hollow {
+    background-color: map.get(colors.$base-color, transparent);
+  }
+}

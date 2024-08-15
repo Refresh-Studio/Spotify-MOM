@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.carousel {
+  background-color: map.get(colors.$base-color, black);
+  padding: utils.bu(10) 0;
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) 0;
+  }
+
+  .ticker {
+    height: 329px !important;
+    border: none;
+    cursor: default;
+
+    @include mixins.breakpoint(lg) {
+      height: 597px !important;
+    }
+  }
+
+  img {
+    margin-left: utils.rem(5);
+    margin-right: utils.rem(5);
+    height: 329px !important;
+    object-fit: cover;
+
+    &.portrait {
+      max-width: 220px !important;
+    }
+
+    &.landscape {
+      max-width: 396px !important;
+    }
+
+    @include mixins.breakpoint(lg) {
+      margin-left: utils.rem(10);
+      margin-right: utils.rem(10);
+      height: 597px !important;
+
+      &.portrait {
+        max-width: 604px !important;
+      }
+
+      &.landscape {
+        max-width: 906px !important;
+      }
+    }
+  }
+}

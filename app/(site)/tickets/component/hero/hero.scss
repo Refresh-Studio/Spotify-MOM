@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use '../../../../style/00_settings/color' as colors;
+@use '../../../../style/00_settings/util' as utils;
+@use '../../../../style/01_tools/mixin' as mixins;
+
+.tickets-hero {
+  padding: utils.bu(18.25) utils.bu(2) utils.bu(7.5);
+  background-color: map.get(colors.$base-color, secondary);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
+  }
+
+  > h1 {
+    text-transform: uppercase;
+    display: flex;
+    font-weight: 500;
+
+    > span {
+      margin-left: utils.bu(3);
+      border: 1px solid map.get(colors.$base-color, black);
+      height: 35px;
+      min-height: 35px;
+      width: 38px;
+      min-width: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include mixins.breakpoint(lg) {
+        height: 48px;
+        min-height: 48px;
+        width: 61px;
+        min-width: 61px;
+      }
+    }
+  }
+
+  > hr {
+    margin-top: utils.bu(7.5);
+    margin-bottom: utils.bu(10);
+    border-color: map.get(colors.$base-color, black);
+    border-bottom: none;
+
+    @include mixins.breakpoint(lg) {
+      margin-top: utils.bu(15);
+      margin-bottom: utils.bu(15);
+    }
+  }
+
+  > footer {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    gap: utils.bu(3);
+
+    @include mixins.breakpoint(lg) {
+      gap: utils.bu(35);
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  > .tabs {
+    margin-top: utils.bu(7.5);
+  }
+}

@@ -1,0 +1,162 @@
+@use 'sass:map';
+@use '../../../../style/00_settings/color' as colors;
+@use '../../../../style/00_settings/util' as utils;
+@use '../../../../style/01_tools/mixin' as mixins;
+
+$border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
+
+.event {
+  width: 45%;
+  padding: utils.bu(3) 0;
+  border-bottom: $border;
+  position: relative;
+  min-height: 214px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mixins.breakpoint(lg) {
+    min-height: 315px;
+  }
+
+  &__icon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    margin-left: utils.bu(3);
+
+    @include mixins.breakpoint(lg) {
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+      min-height: 42px;
+    }
+  }
+
+  &__description-block {
+    width: 100%;
+    margin-bottom: utils.bu(1.5);
+    display: block;
+    white-space: pre-wrap;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mixins.breakpoint(lg) {
+      width: 830px;
+    }
+  }
+
+  strong.event__description-block {
+    font-weight: bold;
+  }
+
+  > main {
+    margin: utils.bu(5) 0;
+    color: map.get(colors.$base-color, white);
+    text-transform: uppercase;
+    width: 100%;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      @include mixins.breakpoint(lg) {
+        flex-direction: row;
+      }
+
+      > iframe {
+        max-width: 1000px;
+
+        @include mixins.breakpoint(lg) {
+          border-radius: 8px;
+        }
+      }
+
+      > .button {
+        margin-top: utils.bu(5);
+        width: 100%;
+
+        @include mixins.breakpoint(lg) {
+          width: 154px;
+          margin: auto 0 utils.bu(2.5) auto;
+        }
+      }
+    }
+  }
+
+  > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    > svg {
+      cursor: pointer;
+      color: map.get(colors.$base-color, white);
+
+      &:hover {
+        color: map.get(colors.$base-color, black);
+        fill: map.get(colors.$base-color, primary);
+      }
+    }
+
+    > div {
+      > h2 {
+        text-transform: uppercase;
+        color: map.get(colors.$base-color, primary);
+        font-size: utils.rem(14);
+        line-height: utils.rem(14);
+
+        @include mixins.breakpoint(lg) {
+          line-height: utils.rem(25);
+          font-size: utils.rem(21);
+        }
+      }
+
+      > h3 {
+        color: map.get(colors.$base-color, white);
+        text-transform: uppercase;
+      }
+
+      > p {
+        color: map.get(colors.$base-color, silver);
+        text-transform: uppercase;
+        margin-top: utils.bu(1);
+
+        &:first-of-type {
+          color: map.get(colors.$base-color, secondary);
+          text-transform: uppercase;
+          margin-top: 0;
+          margin-bottom: utils.bu(1);
+        }
+      }
+    }
+  }
+
+  > footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include mixins.breakpoint(lg) {
+      margin-top: auto;
+    }
+
+    > small {
+      color: map.get(colors.$base-color, silver);
+      text-transform: uppercase;
+    }
+  }
+
+  &--filled {
+    width: 100%;
+  }
+
+  &--expanded {
+    > footer {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,3 +1,74 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "semi": "error",
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "comma-spacing": [
+          "error",
+          {
+            "after": true
+          }
+        ],
+        "comma-dangle": [
+          "error",
+          "never"
+        ],
+        "max-len": [
+          "error",
+          {
+            "code": 140
+          }
+        ],
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "no-unused-vars": "error",
+        "no-duplicate-imports": "error",
+        "no-debugger": "error",
+        "no-delete-var": "error",
+        "no-const-assign": "error",
+        "no-else-return": "error",
+        "no-extra-semi": "error",
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": "error",
+        "no-param-reassign": "error",
+        "no-trailing-spaces": "error",
+        "dot-notation": "error",
+        "react/self-closing-comp": "error",
+        "react/jsx-tag-spacing": [
+          "error",
+          {
+            "beforeSelfClosing": "always"
+          }
+        ],
+        "jsx-quotes": [
+          "error",
+          "prefer-double"
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {}
+    }
+  ]
 }

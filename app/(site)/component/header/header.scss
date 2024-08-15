@@ -1,0 +1,74 @@
+@use 'sass:map';
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: utils.bu(3);
+  background-color: map.get(colors.$base-color, transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  $block: &;
+
+  @include mixins.breakpoint(lg) {
+    flex-direction: row;
+    padding: utils.bu(4) utils.bu(7.5);
+  }
+
+  &__social {
+    > svg {
+      color: map.get(colors.$base-color, white);
+    }
+  }
+
+  > .mom {
+    position: relative;
+    color: map.get(colors.$base-color, white);
+
+    @include mixins.breakpoint(lg) {
+      transform: translateX(-50%);
+      left: 50%;
+      position: absolute;
+    }
+  }
+
+  > nav {
+    display: none;
+    align-items: center;
+    gap: utils.bu(4);
+
+    @include mixins.breakpoint(lg) {
+      display: flex;
+    }
+
+    > a:not(.button) {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+    }
+  }
+
+  &--inverted {
+    > .mom {
+      color: map.get(colors.$base-color, black);
+    }
+
+    #{$block}__social {
+      > svg {
+        color: map.get(colors.$base-color, black);
+      }
+    }
+
+    > nav {
+      > a:not(.button) {
+        color: map.get(colors.$base-color, black);
+      }
+    }
+  }
+}

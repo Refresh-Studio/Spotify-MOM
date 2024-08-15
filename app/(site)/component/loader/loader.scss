@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/00_settings/util' as utils;
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: utils.bu(10);
+
+  > svg {
+    width: 40px;
+    height: 40px;
+    color: map.get(colors.$base-color, primary);
+    animation: spin 2s linear infinite;
+  }
+}
