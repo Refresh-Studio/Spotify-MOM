@@ -20,5 +20,5 @@ export interface EventItem extends ApiType {
   endDate: string;
   startTime: string;
   endTime: string;
-  quicketEventId: number;
+  quicketEventId: string;
 }

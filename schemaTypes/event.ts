@@ -79,7 +79,7 @@ const event = {
     defineField({
       name: 'quicketEventId',
       title: 'Quicket Event ID',
-      type: 'number'
+      type: 'string'
     }),
     defineField({
       name: 'tags',

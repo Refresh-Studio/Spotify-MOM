@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 
 import { formatGoogleCalendarDate, scrollIntoView } from '../../../../util';
 
@@ -20,7 +20,6 @@ interface Props {
 
 export const Tickets = ({ events }: Props) => {
   const searchParams = useSearchParams();
-  const [purchasingEvent, setPurchasingEvent] = useState<string>();
 
   const eventSlug = useMemo(() => {
     return searchParams.get('event');
@@ -63,12 +62,10 @@ export const Tickets = ({ events }: Props) => {
             return (
               <Event
                 key={event.slug}
-                registering={purchasingEvent === event.slug}
                 expandable
                 filled
                 expanded={event.slug === eventSlug}
                 event={event}
-                onCancel={() => setPurchasingEvent(undefined)}
                 action={
                   event.free ? (
                     <Button
@@ -85,7 +82,7 @@ export const Tickets = ({ events }: Props) => {
                       hollow
                       large
                       label="Register for Tickets"
-                      onClick={() => setPurchasingEvent(event.slug)}
+                      link={event.quicketEventId}
                     />
                   )
                 }

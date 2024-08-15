@@ -8,7 +8,6 @@ import { ReactComponent as CollapsedIcon } from '../../../../asset/collapsed.svg
 import { ReactComponent as ExpandedIcon } from '../../../../asset/expanded.svg';
 
 import { wideFont } from '../../../../constant';
-import { Button } from '../../button/Button';
 
 import './event.scss';
 
@@ -16,7 +15,6 @@ interface Props {
   event: EventItem;
   filled?: boolean;
   expandable?: boolean;
-  registering?: boolean;
   expanded?: boolean;
   action?: ReactElement;
   onCancel?: () => void;
@@ -27,9 +25,7 @@ export const Event = ({
   filled = false,
   action,
   expandable = false,
-  expanded = false,
-  registering = false,
-  onCancel
+  expanded = false
 }: Props) => {
   const [expandedDetails, setExpanded] = useState<boolean>(expanded);
 
@@ -56,15 +52,14 @@ export const Event = ({
               : `Ft. ${(event.lineup ?? []).join(' // ')}`}
           </p>
         </div>
-        {!registering &&
-          expandable &&
+        {expandable &&
           (expandedDetails ? (
             <ExpandedIcon className="event__icon" onClick={toggleExpanded} />
           ) : (
             <CollapsedIcon className="event__icon" onClick={toggleExpanded} />
           ))}
       </header>
-      {expandedDetails && !registering && (
+      {expandedDetails && (
         <main>
           {(event.description ?? [])
             .flatMap((block: TextBlock) =>
@@ -139,37 +134,12 @@ export const Event = ({
             })}
         </main>
       )}
-      {registering && (
-        <main>
-          {!event.free && (
-            <div>
-              <iframe
-                src={`https://www.quicket.co.za/event/${event.quicketEventId}/widget#/registration`}
-                width="100%"
-                height="464px"
-              />
-              <Button
-                clickable
-                onClick={() => {
-                  setExpanded(false);
-                  onCancel!();
-                }}
-                hollow
-                small
-                label="Cancel"
-              />
-            </div>
-          )}
-        </main>
-      )}
-      {!registering && (
-        <footer>
-          <small className="typescale-4">
-            {[event.startTime, event.endTime].filter(Boolean).join(' - ')}
-          </small>
-          {action}
-        </footer>
-      )}
+      <footer>
+        <small className="typescale-4">
+          {[event.startTime, event.endTime].filter(Boolean).join(' - ')}
+        </small>
+        {action}
+      </footer>
     </div>
   );
 };
