@@ -8,5 +8,6 @@ export interface Artist extends ApiType {
   url: string;
   image: string;
   musicTags: string[];
+  genres: string[];
   filterTags: string[];
 }

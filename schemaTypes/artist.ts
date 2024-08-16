@@ -25,6 +25,27 @@ const artist = {
       validation: (rule) => rule.required()
     }),
     defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string'
+    }),
+    defineField({
+      name: 'followers',
+      title: 'Followers',
+      type: 'number'
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image URL',
+      type: 'string'
+    }),
+    defineField({
+      name: 'genres',
+      title: 'Genres',
+      type: 'array',
+      of: [{ type: 'string' }]
+    }),
+    defineField({
       name: 'filterTags',
       title: 'Filter Tags',
       type: 'array',

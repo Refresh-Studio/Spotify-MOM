@@ -10,7 +10,7 @@ import { Artists } from './component/artists/Artists';
 import { Hero } from './component/hero/Hero';
 
 import { getArtists } from '../../../sanity/sanity.query';
-import { retrieveArtist } from '../../../spotify/spotify.client';
+import { retrieveArtists } from '../../../spotify/spotify.client';
 
 const getData = async () => {
   const authToken = Buffer.from(
@@ -36,27 +36,28 @@ const ArtistsPage = () => {
 
   useEffect(() => {
     const callApi = async () => {
-      const { accessToken } = await getData();
+      // const { accessToken } = await getData();
       const artists = await getArtists();
-      const artistPromises = artists.map(
-        async (artist: Artist) => await retrieveArtist(accessToken, artist.slug)
-      );
+      // const spotifyArtists = await retrieveArtists(
+      //   accessToken,
+      //   artists.map((artist: Artist) => artist.slug)
+      // );
+      // const mappedArtists = artists.reduce((accum: Artist[], item: Artist) => {
+      //   const spotifyArtist = spotifyArtists.find(
+      //     (artist: { slug: string }) => artist.slug === item.slug
+      //   );
+      //   if (spotifyArtist) {
+      //     accum.push({
+      //       ...item,
+      //       ...spotifyArtist
+      //     });
+      //   }
+      //
+      //   return accum;
+      // }, []);
 
-      const spotifyArtists = await Promise.all(artistPromises);
-      const mappedArtists = artists.reduce((accum: Artist[], item: Artist) => {
-        const spotifyArtist = spotifyArtists.find((artist) => artist.slug === item.slug);
-        if (spotifyArtist) {
-          accum.push({
-            ...item,
-            ...spotifyArtist
-          });
-        }
-
-        return accum;
-      }, []);
-
-      mappedArtists.sort((a: Artist, b: Artist) => a.name.localeCompare(b.name));
-      setArtists(mappedArtists);
+      artists.sort((a: Artist, b: Artist) => a.name.localeCompare(b.name));
+      setArtists(artists);
       setLoading(false);
     };
 

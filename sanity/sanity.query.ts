@@ -77,10 +77,10 @@ export async function getArtists() {
     "slug": slug.current,
     name,
     followers,
-    musicTags,
+    genres,
     "filterTags": filterTags[]->slug.current,
     url,
-    "image": image.asset->url
+    image
 }`
   );
 }
