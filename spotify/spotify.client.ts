@@ -19,7 +19,7 @@ export const retrieveArtists = async (token: string, ids: string[]) => {
       }
     });
   } catch (error: any) {
-    console.error(`Failed to retrieve artist with ID: ${id}`, error?.message);
+    console.error(`Failed to retrieve artist with IDs: ${ids}`, error?.message);
     return [];
   }
 };

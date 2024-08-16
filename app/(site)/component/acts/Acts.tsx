@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { Artist } from '../../../interface/artist/artist.interface';
 
 import { getArtists } from '../../../../sanity/sanity.query';
-import { retrieveArtists } from '../../../../spotify/spotify.client';
 import { wideFont } from '../../../constant';
 import { Button } from '../button/Button';
 import { Ticker } from '../ticker/Ticker';
