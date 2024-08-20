@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { hotjar } from 'react-hotjar';
 
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
@@ -15,6 +16,10 @@ import './header.scss';
 export const Header = () => {
   const pathname = usePathname();
   const [inverted, setInverted] = useState<boolean>(false);
+
+  useEffect(() => {
+    hotjar.initialize({ id: 5081246, sv: 6 });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
