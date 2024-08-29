@@ -7,7 +7,6 @@ import { hotjar } from 'react-hotjar';
 
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
-import { ReactComponent as ViewIcon } from '../../../asset/view.svg';
 
 import { Button } from '../button/Button';
 import { Ticker } from '../ticker/Ticker';
