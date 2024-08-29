@@ -8,7 +8,6 @@
   height: 100%;
   min-height: 100vh;
   background: url('/images/hero-rotation.gif') no-repeat center;
-  background-size: 650px;
   padding: 0 utils.bu(3);
   background-position-y: 288px;
   display: flex;
@@ -19,8 +18,7 @@
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
-    background-size: contain;
-    background-position-y: 50%;
+    background-position-y: 210px;
   }
 
   > span {
@@ -34,14 +32,14 @@
     line-height: utils.rem(19.2);
 
     @include mixins.breakpoint(lg) {
-      margin: 0;
+      margin-top: utils.bu(26.25);
     }
 
     &:first-of-type {
       margin-top: utils.bu(26);
 
       @include mixins.breakpoint(lg) {
-        margin: 0;
+        margin-top: utils.bu(26.25);
       }
     }
 

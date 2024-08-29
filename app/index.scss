@@ -11,7 +11,12 @@
   background-size: cover;
 
   @include mixins.breakpoint(lg) {
-    background-position-y: -300px;
+    background-position-y: -580px;
+  }
+
+  > .ticker {
+    position: fixed;
+    z-index: 10;
   }
 
   > main {

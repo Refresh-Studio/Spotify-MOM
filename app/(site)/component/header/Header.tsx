@@ -10,6 +10,8 @@ import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
 import { ReactComponent as ViewIcon } from '../../../asset/view.svg';
 
 import { Button } from '../button/Button';
+import { Ticker } from '../ticker/Ticker';
+import { GetTickets } from '../ticker/tickets/GetTickets';
 
 import './header.scss';
 
@@ -52,19 +54,24 @@ export const Header = () => {
   }, [pathname]);
 
   return (
-    <header className={`header ${inverted ? 'header--inverted' : ''}`}>
-      <Link className="mom" href="/">
-        <MomIcon />
-      </Link>
-      <Link href="/" className="header__social">
-        <SpotifyIcon />
-      </Link>
-      <nav>
-        <Link className="typescale-3" href="/artists">
-          Discover the Artists
+    <>
+      <Ticker path="/tickets" speed={75}>
+        <GetTickets />
+      </Ticker>
+      <header className={`header ${inverted ? 'header--inverted' : ''}`}>
+        <Link className="mom" href="/">
+          <MomIcon />
         </Link>
-        <Button inverted={inverted} small link="/tickets" label="Get Tickets" icon={<ViewIcon />} />
-      </nav>
-    </header>
+        <Link href="/" className="header__social">
+          <SpotifyIcon />
+        </Link>
+        <nav>
+          <Link className="typescale-2" href="/artists">
+            Discover the Artists
+          </Link>
+          <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
+        </nav>
+      </header>
+    </>
   );
 };

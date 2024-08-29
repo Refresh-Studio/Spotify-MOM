@@ -48,9 +48,6 @@ const Home = () => {
       <Hero />
       <Message />
       <Events />
-      <Ticker path="/tickets" speed={75}>
-        <GetTickets />
-      </Ticker>
       <Banner />
       <Acts accessToken={accessToken!} />
       <Carousel />
