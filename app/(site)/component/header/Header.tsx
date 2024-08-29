@@ -30,7 +30,7 @@ export const Header = () => {
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 40 && rect.bottom >= 40) {
+        if (rect.top <= 80 && rect.bottom >= 80) {
           if (section.classList.contains('light-section')) {
             setInverted(true);
           } else if (section.classList.contains('dark-section')) {
