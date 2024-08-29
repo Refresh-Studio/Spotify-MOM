@@ -139,6 +139,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-top: utils.bu(2);
 
     @include mixins.breakpoint(lg) {
       margin-top: auto;

@@ -47,10 +47,10 @@ const Home = () => {
     <main style={{ backgroundColor: 'transparent' }}>
       <Hero />
       <Message />
-      <Events />
-      <Banner />
       <Acts accessToken={accessToken!} />
       <Carousel />
+      <Events />
+      <Banner />
       <Playlist />
     </main>
   );

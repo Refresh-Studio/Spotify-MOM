@@ -6,16 +6,17 @@
 .button {
   background-color: map.get(colors.$base-color, primary);
   color: map.get(colors.$base-color, black);
-  width: 100%;
+  width: fit-content;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: utils.bu(1);
   text-transform: uppercase;
+  padding: 0 utils.rem(18);
 
   @include mixins.breakpoint(md) {
-    width: 231px;
+    padding: 0 utils.bu(2.5);
   }
 
   &:hover {
@@ -23,22 +24,18 @@
   }
 
   &--small {
-    width: 141px;
     height: 36px;
 
     @include mixins.breakpoint(lg) {
-      width: 126px;
       height: 44px;
     }
   }
 
   &--medium {
-    width: 181px;
     height: 48px;
   }
 
   &--large {
-    width: 148px;
     height: 36px;
 
     > svg {
@@ -46,7 +43,6 @@
     }
 
     @include mixins.breakpoint(lg) {
-      width: 204px;
       height: 44px;
 
       > svg {

@@ -6,19 +6,22 @@
 .hero {
   position: relative;
   height: 100%;
-  min-height: 100vh;
+  min-height: 75vh;
   background: url('/images/hero-rotation.gif') no-repeat center;
   padding: 0 utils.bu(3);
-  background-position-y: 288px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-position-y: 250px;
+  background-size: 670px;
 
   @include mixins.breakpoint(lg) {
+    min-height: 100vh;
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
     background-position-y: 210px;
+    background-size: unset;
   }
 
   > span {
@@ -36,7 +39,7 @@
     }
 
     &:first-of-type {
-      margin-top: utils.bu(26);
+      margin-top: utils.bu(22.75);
 
       @include mixins.breakpoint(lg) {
         margin-top: utils.bu(26.25);

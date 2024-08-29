@@ -41,6 +41,7 @@
       height: 597px !important;
 
       &.portrait {
+        object-fit: fill;
         max-width: 604px !important;
       }
 
