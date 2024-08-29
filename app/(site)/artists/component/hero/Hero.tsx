@@ -31,7 +31,7 @@ export const Hero = () => {
 
   return (
     <section className="artists-hero light-section">
-      <h1 className={`typescale-11 ${wideFont.className}`}>The Artists</h1>
+      <h1 className={`typescale-10 ${wideFont.className}`}>The Artists</h1>
       <Tabs tabs={filters} />
     </section>
   );
