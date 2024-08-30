@@ -54,7 +54,7 @@ export const Artists = ({ artists = [] }: Props) => {
             >
               <div>
                 <Image width={50} height={50} alt={artist.name} src={artist.image} />
-                <p>{artist.name}</p>
+                <p className="typescale-5">{artist.name}</p>
               </div>
               <div className="artists__icon--mobile">
                 {activeArtist?.slug === artist.slug && (
@@ -73,8 +73,8 @@ export const Artists = ({ artists = [] }: Props) => {
             </li>
             {activeArtist?.slug === artist.slug && (
               <div className="artists__mobile-details">
-                <h1 className={`typescale-8 ${wideFont.className}`}>{activeArtist?.name}</h1>
-                <p className="typescale-4">{activeArtist?.followers.toLocaleString()} followers</p>
+                <h1 className={`typescale-7 ${wideFont.className}`}>{activeArtist?.name}</h1>
+                <p className="typescale-3">{activeArtist?.followers.toLocaleString()} followers</p>
                 <div className="artists__tags">
                   {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
                     <Tag key={tag} title={tag} />
@@ -103,8 +103,8 @@ export const Artists = ({ artists = [] }: Props) => {
       </nav>
       {activeArtist && (
         <div className="artists__details">
-          <h1 className={`typescale-8 ${wideFont.className}`}>{activeArtist?.name}</h1>
-          <p className="typescale-4">{activeArtist?.followers.toLocaleString()} followers</p>
+          <h1 className={`typescale-7 ${wideFont.className}`}>{activeArtist?.name}</h1>
+          <p className="typescale-3">{activeArtist?.followers.toLocaleString()} followers</p>
           <div className="artists__tags">
             {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
               <Tag key={tag} title={tag} />

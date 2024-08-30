@@ -28,21 +28,21 @@ export const Footer = () => {
       <Link href="https://www.instagram.com/spotifyafrica/?hl=en" target="_blank" rel="noreferrer">
         <InstagramIcon />
       </Link>
-      <p className="typescale-4">Copyright 2024 &copy; Spotify</p>
-      <p className="typescale-4">All rights reserved</p>
+      <p className="typescale-2">Copyright 2024 &copy; Spotify</p>
+      <p className="typescale-2">All rights reserved</p>
       <nav className="footer__mobile-nav">
         <li
-          className={`typescale-4 footer__mobile-nav-item ${pathName === '/' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-2 footer__mobile-nav-item ${pathName === '/' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/">Home</Link>
         </li>
         <li
-          className={`typescale-4 footer__mobile-nav-item ${pathName === '/artists' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-2 footer__mobile-nav-item ${pathName === '/artists' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/artists">Artists</Link>
         </li>
         <li
-          className={`typescale-4 footer__mobile-nav-item ${pathName === '/tickets' ? 'footer__mobile-nav-item--active' : ''}`}
+          className={`typescale-2 footer__mobile-nav-item ${pathName === '/tickets' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/tickets">Tickets</Link>
         </li>

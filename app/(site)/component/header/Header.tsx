@@ -9,14 +9,13 @@ import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
 
 import { Button } from '../button/Button';
-import { Ticker } from '../ticker/Ticker';
-import { GetTickets } from '../ticker/tickets/GetTickets';
 
 import './header.scss';
 
 export const Header = () => {
   const pathname = usePathname();
   const [inverted, setInverted] = useState<boolean>(false);
+  const [pushed, setPushed] = useState<boolean>(false);
 
   useEffect(() => {
     hotjar.initialize({ id: 5081246, sv: 6 });
@@ -26,9 +25,17 @@ export const Header = () => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       let found = false;
+      let foundPush = false;
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
+        if (rect.top <= 40 && rect.bottom >= 40) {
+          if (section.classList.contains('ticker-initial')) {
+            setPushed(true);
+            foundPush = true;
+          }
+        }
+
         if (rect.top <= 80 && rect.bottom >= 80) {
           if (section.classList.contains('light-section')) {
             setInverted(true);
@@ -38,6 +45,10 @@ export const Header = () => {
           found = true;
         }
       });
+
+      if (!foundPush) {
+        setPushed(false);
+      }
 
       if (!found) {
         setInverted(true);
@@ -53,24 +64,21 @@ export const Header = () => {
   }, [pathname]);
 
   return (
-    <>
-      <Ticker path="/tickets" speed={75}>
-        <GetTickets />
-      </Ticker>
-      <header className={`header ${inverted ? 'header--inverted' : ''}`}>
-        <Link className="mom" href="/">
-          <MomIcon />
+    <header
+      className={`header ${inverted ? 'header--inverted' : ''} ${pushed ? 'header--pushed' : ''}`}
+    >
+      <Link className="mom" href="/">
+        <MomIcon />
+      </Link>
+      <Link href="/" className="header__social">
+        <SpotifyIcon />
+      </Link>
+      <nav>
+        <Link className="typescale-2" href="/artists">
+          Discover the Artists
         </Link>
-        <Link href="/" className="header__social">
-          <SpotifyIcon />
-        </Link>
-        <nav>
-          <Link className="typescale-2" href="/artists">
-            Discover the Artists
-          </Link>
-          <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
-        </nav>
-      </header>
-    </>
+        <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
+      </nav>
+    </header>
   );
 };

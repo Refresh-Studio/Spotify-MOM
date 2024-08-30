@@ -38,16 +38,8 @@
   &--large {
     height: 36px;
 
-    > svg {
-      display: none;
-    }
-
     @include mixins.breakpoint(lg) {
       height: 44px;
-
-      > svg {
-        display: block;
-      }
     }
   }
 
@@ -75,12 +67,7 @@
   }
 
   > svg {
-    max-width: 16px;
-    max-height: 16px;
-
-    @include mixins.breakpoint(lg) {
-      max-width: 24px;
-      max-height: 24px;
-    }
+    max-width: 24px;
+    max-height: 24px;
   }
 }

@@ -32,13 +32,6 @@
     > p {
       color: map.get(colors.$base-color, white);
       text-transform: uppercase;
-      line-height: utils.rem(19.2);
-      font-size: utils.rem(14);
-
-      @include mixins.breakpoint(lg) {
-        line-height: utils.rem(32);
-        font-size: utils.rem(27);
-      }
     }
   }
 

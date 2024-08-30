@@ -8,19 +8,18 @@
   height: 100%;
   min-height: 75vh;
   background: url('/images/hero-rotation.gif') no-repeat center;
-  padding: 0 utils.bu(3);
   display: flex;
   align-items: center;
   flex-direction: column;
   background-position-y: 250px;
   background-size: 670px;
+  padding: 0 utils.bu(3) utils.bu(2);
 
   @include mixins.breakpoint(lg) {
-    min-height: 100vh;
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
-    background-position-y: 210px;
+    background-position-y: 100%;
     background-size: unset;
   }
 
@@ -31,24 +30,22 @@
     gap: utils.bu(1.5);
     color: map.get(colors.$base-color, white);
     margin-top: utils.bu(1);
-    font-size: utils.rem(14);
-    line-height: utils.rem(19.2);
 
     @include mixins.breakpoint(lg) {
-      margin-top: utils.bu(26.25);
+      margin: 0;
     }
 
     &:first-of-type {
       margin-top: utils.bu(22.75);
 
       @include mixins.breakpoint(lg) {
-        margin-top: utils.bu(26.25);
+        margin: 0;
       }
     }
 
     &:last-of-type {
       @include mixins.breakpoint(lg) {
-        max-width: 162px;
+        max-width: 215px;
         text-align: right;
       }
     }

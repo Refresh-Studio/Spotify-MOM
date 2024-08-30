@@ -71,6 +71,7 @@ export const Acts = ({ accessToken }: Props) => {
         <Ticker hollow height={90} speed={10}>
           {normalList.map((artist: Artist) => (
             <ArtistTick
+              priortiy
               key={artist.slug}
               name={artist.name}
               image={artist.image}
