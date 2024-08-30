@@ -25,6 +25,29 @@ export async function getEventLists() {
 }`
   );
 }
+export async function getPromotion() {
+  return client.fetch(
+    groq`*[_type == "promotion"] {
+  _id,
+  "image": image.asset->url,
+  event->{
+    _id,
+    "slug": slug.current,
+    name,
+    calendarStartDate,
+    startDate,
+    calendarEndDate,
+    endDate,
+    startTime,
+    endTime,
+    free,
+    address,
+    lineup,
+    quicketEventId
+  }
+}`
+  );
+}
 
 export async function getArtistFilters() {
   return client.fetch(

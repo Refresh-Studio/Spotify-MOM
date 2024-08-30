@@ -5,10 +5,14 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { hotjar } from 'react-hotjar';
 
+import { Promotion } from '../../../interface/promotion.interface';
+
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
 
+import { getPromotion } from '../../../../sanity/sanity.query';
 import { Button } from '../button/Button';
+import { Modal } from '../modal/Modal';
 
 import './header.scss';
 
@@ -16,9 +20,19 @@ export const Header = () => {
   const pathname = usePathname();
   const [inverted, setInverted] = useState<boolean>(false);
   const [pushed, setPushed] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [promotion, setPromotion] = useState<Promotion>();
 
   useEffect(() => {
+    setOpen(true);
     hotjar.initialize({ id: 5081246, sv: 6 });
+
+    const callApi = async () => {
+      const promotion = await getPromotion();
+      setPromotion(promotion.length > 0 ? promotion[0] : undefined);
+    };
+
+    callApi();
   }, []);
 
   useEffect(() => {
@@ -64,21 +78,24 @@ export const Header = () => {
   }, [pathname]);
 
   return (
-    <header
-      className={`header ${inverted ? 'header--inverted' : ''} ${pushed ? 'header--pushed' : ''}`}
-    >
-      <Link className="mom" href="/">
-        <MomIcon />
-      </Link>
-      <Link href="/" className="header__social">
-        <SpotifyIcon />
-      </Link>
-      <nav>
-        <Link className="typescale-2" href="/artists">
-          Discover the Artists
+    <>
+      <header
+        className={`header ${inverted ? 'header--inverted' : ''} ${pushed ? 'header--pushed' : ''}`}
+      >
+        <Link className="mom" href="/">
+          <MomIcon />
         </Link>
-        <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
-      </nav>
-    </header>
+        <Link href="/" className="header__social">
+          <SpotifyIcon />
+        </Link>
+        <nav>
+          <Link className="typescale-2" href="/artists">
+            Discover the Artists
+          </Link>
+          <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
+        </nav>
+      </header>
+      {promotion && <Modal open={open} setOpen={setOpen} promotion={promotion} />}
+    </>
   );
 };
