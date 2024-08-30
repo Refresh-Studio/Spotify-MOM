@@ -80,7 +80,8 @@ export async function getArtists() {
     genres,
     "filterTags": filterTags[]->slug.current,
     url,
-    image
+    image,
+    spotlight
 }`
   );
 }

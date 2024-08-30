@@ -40,6 +40,11 @@ const artist = {
       type: 'string'
     }),
     defineField({
+      name: 'spotlight',
+      title: 'Spotlight',
+      type: 'boolean'
+    }),
+    defineField({
       name: 'genres',
       title: 'Genres',
       type: 'array',

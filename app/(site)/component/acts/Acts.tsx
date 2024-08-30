@@ -49,8 +49,8 @@ export const Acts = ({ accessToken }: Props) => {
     }
   }, [accessToken]);
 
-  const normalList = [...artists];
-  normalList.sort();
+  const spotlightList = artists.filter((artist: Artist) => artist.spotlight);
+  spotlightList.sort();
 
   const followersList = [...artists];
   followersList.sort((a: Artist, b: Artist) => a.followers - b.followers);
@@ -69,7 +69,7 @@ export const Acts = ({ accessToken }: Props) => {
       </header>
       <main>
         <Ticker hollow height={90} speed={10}>
-          {normalList.map((artist: Artist) => (
+          {spotlightList.map((artist: Artist) => (
             <ArtistTick
               priortiy
               key={artist.slug}
