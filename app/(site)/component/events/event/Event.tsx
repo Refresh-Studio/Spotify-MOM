@@ -40,13 +40,13 @@ export const Event = ({
     >
       <header>
         <div>
-          <p className="typescale-4">
+          <p className="typescale-3">
             {event.startDate}&nbsp;
             {filled && event.endDate && `- ${event.endDate}`}
           </p>
-          <h2 className={`typescale-6 ${wideFont.className}`}>{event.name}</h2>
-          <h3 className={`typescale-6 ${wideFont.className}`}>{event.address}</h3>
-          <p className="typescale-4">
+          <h2 className={`typescale-5 ${wideFont.className}`}>{event.name}</h2>
+          <h3 className={`typescale-5 ${wideFont.className}`}>{event.address}</h3>
+          <p className="typescale-2">
             {(event.lineup ?? []).filter(Boolean).length === 0
               ? ''
               : `Ft. ${(event.lineup ?? []).join(' // ')}`}
@@ -111,7 +111,7 @@ export const Event = ({
                 default:
                   if (block.marks.includes('strong')) {
                     return (
-                      <strong key={block._key} className="event__description-block typescale-4">
+                      <strong key={block._key} className="event__description-block typescale-3">
                         {block.text}
                       </strong>
                     );
@@ -119,14 +119,14 @@ export const Event = ({
 
                   if (block.marks.includes('em')) {
                     return (
-                      <em key={block._key} className="event__description-block typescale-4">
+                      <em key={block._key} className="event__description-block typescale-3">
                         {block.text}
                       </em>
                     );
                   }
 
                   return (
-                    <p key={block._key} className="event__description-block typescale-4">
+                    <p key={block._key} className="event__description-block typescale-3">
                       {block.text}
                     </p>
                   );
@@ -135,7 +135,7 @@ export const Event = ({
         </main>
       )}
       <footer>
-        <small className="typescale-4">
+        <small className="typescale-2">
           {[event.startTime, event.endTime].filter(Boolean).join(' - ')}
         </small>
         {action}

@@ -11,7 +11,7 @@
   background-size: cover;
 
   @include mixins.breakpoint(lg) {
-    background-position-y: -300px;
+    background-position-y: -580px;
   }
 
   > main {

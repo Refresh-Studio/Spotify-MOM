@@ -30,7 +30,7 @@ export const Tabs = ({ tabs = [], hollow = false }: Props) => {
           key={tab.path}
           className={`tabs__tab ${query === tab.path || (!query && index === 0) ? 'tabs__tab--active' : ''}`}
         >
-          <Link scroll={false} href={`?query=${tab.path}`} className="typescale-4 tabs__link">
+          <Link scroll={false} href={`?query=${tab.path}`} className="typescale-2 tabs__link">
             {tab.name}
           </Link>
         </li>

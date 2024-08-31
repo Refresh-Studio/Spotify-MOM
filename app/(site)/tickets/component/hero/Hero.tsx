@@ -33,7 +33,7 @@ export const Hero = () => {
 
   return (
     <section className="tickets-hero light-section">
-      <h1 className={`typescale-11 ${wideFont.className}`}>Tickets</h1>
+      <h1 className={`typescale-10 ${wideFont.className}`}>Tickets</h1>
       <Tabs tabs={filters} />
     </section>
   );

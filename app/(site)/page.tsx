@@ -11,6 +11,7 @@ import { Hero } from './component/hero/Hero';
 import { Message } from './component/message/Message';
 import { Playlist } from './component/playlist/Playlist';
 import { Ticker } from './component/ticker/Ticker';
+import { Details } from './component/ticker/details/Details';
 import { GetTickets } from './component/ticker/tickets/GetTickets';
 
 const getData = async () => {
@@ -45,15 +46,18 @@ const Home = () => {
 
   return (
     <main style={{ backgroundColor: 'transparent' }}>
+      <Ticker path="/tickets" speed={75} id="initial">
+        <Details />
+      </Ticker>
       <Hero />
       <Message />
+      <Acts accessToken={accessToken!} />
+      <Carousel />
       <Events />
       <Ticker path="/tickets" speed={75}>
         <GetTickets />
       </Ticker>
       <Banner />
-      <Acts accessToken={accessToken!} />
-      <Carousel />
       <Playlist />
     </main>
   );

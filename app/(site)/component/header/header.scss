@@ -14,6 +14,7 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  transition: 0.2s top;
 
   $block: &;
 
@@ -52,6 +53,10 @@
       color: map.get(colors.$base-color, white);
       text-transform: uppercase;
     }
+  }
+
+  &--pushed {
+    top: 40px;
   }
 
   &--inverted {

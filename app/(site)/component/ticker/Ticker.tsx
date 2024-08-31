@@ -7,6 +7,7 @@ import Marquee from 'react-fast-marquee';
 import './ticker.scss';
 
 interface Props extends PropsWithChildren {
+  id?: string;
   right?: boolean;
   height?: number;
   speed?: number;
@@ -15,6 +16,7 @@ interface Props extends PropsWithChildren {
 }
 
 export const Ticker = ({
+  id,
   children,
   right = false,
   height = 40,
@@ -32,7 +34,7 @@ export const Ticker = ({
 
   return (
     <section
-      className={`ticker ${hollow ? 'ticker--hollow' : ''}`}
+      className={`ticker ticker-${id} ${hollow ? 'ticker--hollow' : ''}`}
       style={{ height }}
       onClick={handleClick}
     >

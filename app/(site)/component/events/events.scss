@@ -39,14 +39,9 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
   }
 
   > main {
-    margin-top: utils.bu(10);
     display: flex;
     flex-direction: column;
     gap: utils.bu(10);
-
-    @include mixins.breakpoint(lg) {
-      margin-top: utils.bu(15);
-    }
   }
 }
 

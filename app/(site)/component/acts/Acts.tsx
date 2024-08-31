@@ -49,8 +49,8 @@ export const Acts = ({ accessToken }: Props) => {
     }
   }, [accessToken]);
 
-  const normalList = [...artists];
-  normalList.sort();
+  const spotlightList = artists.filter((artist: Artist) => artist.spotlight);
+  spotlightList.sort();
 
   const followersList = [...artists];
   followersList.sort((a: Artist, b: Artist) => a.followers - b.followers);
@@ -62,29 +62,44 @@ export const Acts = ({ accessToken }: Props) => {
     <section className="acts">
       <header>
         <div>
-          <p className={`typescale-6 ${wideFont.className}`}>
-            <span>More than 50</span> acts
-          </p>
-          <p className={`typescale-6 ${wideFont.className}`}>
-            <span>More</span> being announced
-          </p>
+          <p className={`typescale-5 ${wideFont.className}`}>Discover the artists</p>
+          <p className={`typescale-5 ${wideFont.className}`}>More being announced</p>
         </div>
         <Button small link="/artists" label="View All Artists" />
       </header>
       <main>
-        <Ticker hollow height={77} speed={10}>
-          {normalList.map((artist: Artist) => (
-            <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
+        <Ticker hollow height={90} speed={10}>
+          {spotlightList.map((artist: Artist) => (
+            <ArtistTick
+              priortiy
+              key={artist.slug}
+              name={artist.name}
+              image={artist.image}
+              height={90}
+              width={88}
+            />
           ))}
         </Ticker>
-        <Ticker hollow height={77} right speed={10}>
+        <Ticker hollow height={73} right speed={10}>
           {followersList.map((artist: Artist) => (
-            <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
+            <ArtistTick
+              key={artist.slug}
+              name={artist.name}
+              image={artist.image}
+              height={73}
+              width={70}
+            />
           ))}
         </Ticker>
-        <Ticker hollow height={77} speed={10}>
+        <Ticker hollow height={73} speed={10}>
           {nameList.map((artist: Artist) => (
-            <ArtistTick key={artist.slug} name={artist.name} image={artist.image} />
+            <ArtistTick
+              key={artist.slug}
+              name={artist.name}
+              image={artist.image}
+              height={73}
+              width={70}
+            />
           ))}
         </Ticker>
       </main>

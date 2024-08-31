@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowTopRightIcon } from '@sanity/icons';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo } from 'react';
 
@@ -80,6 +81,7 @@ export const Tickets = ({ events }: Props) => {
                     <Button
                       hollow
                       large
+                      icon={<ArrowTopRightIcon width={20} height={20} />}
                       label="Register for Tickets"
                       link={event.quicketEventId}
                       target="_blank"

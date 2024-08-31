@@ -24,7 +24,7 @@ export const Carousel = () => {
 
   return (
     <section className="carousel dark-section">
-      <Ticker hollow height={597} speed={50}>
+      <Ticker hollow height={604} speed={50}>
         {images.map((image: GalleryImage) => (
           <ResponsiveImage key={image._id} src={image.src} alt={image.name} />
         ))}

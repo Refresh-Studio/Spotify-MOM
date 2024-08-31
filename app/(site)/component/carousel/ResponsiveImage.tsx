@@ -40,7 +40,7 @@ export const ResponsiveImage = ({ src, alt }: Props) => {
       alt={alt}
       className="responsive-image"
       objectFit="contain"
-      width={906}
+      width={403}
       height={604}
     />
   );

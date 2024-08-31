@@ -1,182 +1,147 @@
 @use '../00_settings/util' as utils;
 @use '../01_tools/mixin' as mixins;
 
-.typescale-15 {
-  font-size: utils.rem(236);
-  font-weight: 400;
-  line-height: utils.rem(283);
-}
-
 .typescale-14 {
-  font-size: utils.rem(181);
+  font-size: utils.rem(76);
   font-weight: 400;
-  line-height: utils.rem(217);
+  line-height: 120%;
+
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(236);
+    line-height: 100%;
+  }
 }
 
 .typescale-13 {
-  font-size: utils.rem(138);
+  font-size: utils.rem(61);
   font-weight: 400;
-  line-height: utils.rem(165);
+  line-height: 120%;
+
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(181);
+    line-height: 110%;
+  }
 }
 
 .typescale-12 {
-  font-size: utils.rem(36);
+  font-size: utils.rem(49);
   font-weight: 400;
-  line-height: utils.rem(43);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(80);
-    font-weight: 400;
-    line-height: utils.rem(96);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(105);
-    font-weight: 400;
-    line-height: utils.rem(126);
+    font-size: utils.rem(138);
+    line-height: 110%;
   }
 }
 
 .typescale-11 {
-  font-size: utils.rem(36);
+  font-size: utils.rem(39);
   font-weight: 400;
-  line-height: utils.rem(32);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(47);
-    font-weight: 400;
-    line-height: utils.rem(56);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(80);
-    font-weight: 400;
-    line-height: utils.rem(96);
+    font-size: utils.rem(105);
+    line-height: 110%;
   }
 }
 
 .typescale-10 {
-  font-size: utils.rem(27);
+  font-size: utils.rem(31);
   font-weight: 400;
-  line-height: utils.rem(32);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(27);
-    font-weight: 400;
-    line-height: utils.rem(32);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(61);
-    font-weight: 400;
-    line-height: utils.rem(73);
+    font-size: utils.rem(80);
   }
 }
 
 .typescale-9 {
-  font-size: utils.rem(21);
+  font-size: utils.rem(27);
   font-weight: 400;
-  line-height: utils.rem(25);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(36);
-    font-weight: 400;
-    line-height: utils.rem(43);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(47);
-    font-weight: 400;
-    line-height: utils.rem(56);
+    font-size: utils.rem(61);
   }
 }
 
 .typescale-8 {
-  font-size: utils.rem(18);
+  font-size: utils.rem(25);
   font-weight: 400;
-  line-height: utils.rem(21);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(27);
-    font-weight: 400;
-    line-height: utils.rem(32);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(36);
-    font-weight: 400;
-    line-height: utils.rem(43);
+    font-size: utils.rem(47);
   }
 }
 
 .typescale-7 {
-  font-size: utils.rem(18);
+  font-size: utils.rem(20);
   font-weight: 400;
-  line-height: utils.rem(21);
+  line-height: 120%;
 
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(27);
-    font-weight: 400;
-    line-height: utils.rem(32);
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(36);
   }
 }
 
 .typescale-6 {
-  font-size: utils.rem(12);
+  font-size: utils.rem(18);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: 120%;
 
   @include mixins.breakpoint(md) {
-    font-size: utils.rem(18);
-    font-weight: 400;
-    line-height: utils.rem(21);
-  }
-
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(21);
-    font-weight: 400;
-    line-height: utils.rem(25);
+    font-size: utils.rem(27);
   }
 }
 
 .typescale-5 {
-  font-size: utils.rem(12);
+  font-size: utils.rem(16);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: 120%;
 
-  @include mixins.breakpoint(lg) {
-    font-size: utils.rem(18);
-    font-weight: 400;
-    line-height: utils.rem(21);
+  @include mixins.breakpoint(md) {
+    font-size: utils.rem(21);
   }
 }
 
 .typescale-4 {
-  font-size: utils.rem(12);
+  font-size: utils.rem(14);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: 150%;
 
   @include mixins.breakpoint(lg) {
-    font-size: utils.rem(14);
-    font-weight: 400;
-    line-height: utils.rem(19.2);
+    font-size: utils.rem(18);
+    line-height: 120%;
   }
 }
 
 .typescale-3 {
-  font-size: utils.rem(14);
+  font-size: utils.rem(12);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: 150%;
+
+  @include mixins.breakpoint(lg) {
+    font-size: utils.rem(16);
+  }
 }
 
 .typescale-2 {
-  font-size: utils.rem(12);
+  font-size: utils.rem(10);
   font-weight: 400;
-  line-height: utils.rem(14);
+  line-height: 150%;
+
+  @include mixins.breakpoint(lg) {
+    font-size: utils.rem(14);
+  }
 }
 
 .typescale-1 {
-  font-size: utils.rem(9);
+  font-size: utils.rem(8);
   font-weight: 400;
-  line-height: utils.rem(11);
+  line-height: 150%;
+
+  @include mixins.breakpoint(lg) {
+    font-size: utils.rem(12);
+  }
 }

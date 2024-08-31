@@ -84,12 +84,6 @@
         background-color: transparent;
         text-transform: uppercase;
         font-weight: 400;
-        line-height: utils.rem(19);
-        font-size: utils.rem(14);
-
-        @include mixins.breakpoint(md) {
-          font-size: utils.rem(16);
-        }
 
         &::placeholder {
           text-transform: uppercase;

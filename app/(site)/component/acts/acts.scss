@@ -46,8 +46,6 @@
         text-transform: uppercase;
         text-align: center;
         margin-top: utils.bu(1);
-        font-size: utils.rem(18);
-        line-height: utils.rem(21);
 
         @include mixins.breakpoint(lg) {
           margin-top: 0;

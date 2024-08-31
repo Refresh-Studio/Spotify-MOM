@@ -40,7 +40,7 @@ export const Button = ({
     }
   };
 
-  const classNames = ['button', 'typescale-4'];
+  const classNames = ['button', 'typescale-2'];
   if (inverted) {
     classNames.push('button--inverted');
   }
