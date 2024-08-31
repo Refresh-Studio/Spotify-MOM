@@ -19,7 +19,7 @@
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
-    background-position-y: 100%;
+    background-position-y: 125%;
     background-size: unset;
   }
 
@@ -33,7 +33,7 @@
     margin-top: utils.bu(1);
 
     @include mixins.breakpoint(md) {
-      margin: 0;
+      margin-top: 10%;
       text-align: left;
     }
 
@@ -41,7 +41,7 @@
       margin-top: utils.bu(18);
 
       @include mixins.breakpoint(md) {
-        margin: 0;
+        margin-top: 10%;
       }
     }
 
