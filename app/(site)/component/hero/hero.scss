@@ -11,11 +11,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-position-y: 250px;
-  background-size: 670px;
+  background-position-y: 200px;
+  background-size: 550px;
   padding: 0 utils.bu(3) utils.bu(2);
 
-  @include mixins.breakpoint(lg) {
+  @include mixins.breakpoint(md) {
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
@@ -27,24 +27,26 @@
     display: flex;
     align-items: center;
     text-transform: uppercase;
+    text-align: center;
     gap: utils.bu(1.5);
     color: map.get(colors.$base-color, white);
     margin-top: utils.bu(1);
 
-    @include mixins.breakpoint(lg) {
+    @include mixins.breakpoint(md) {
       margin: 0;
+      text-align: left;
     }
 
     &:first-of-type {
-      margin-top: utils.bu(22.75);
+      margin-top: utils.bu(18);
 
-      @include mixins.breakpoint(lg) {
+      @include mixins.breakpoint(md) {
         margin: 0;
       }
     }
 
     &:last-of-type {
-      @include mixins.breakpoint(lg) {
+      @include mixins.breakpoint(md) {
         max-width: 215px;
         text-align: right;
       }
