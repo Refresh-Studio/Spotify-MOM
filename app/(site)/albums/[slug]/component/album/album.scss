@@ -4,7 +4,15 @@
 @use '../../../../../style/01_tools/mixin' as mixins;
 
 .album-section {
-  padding: utils.rem(190) utils.bu(7.5) utils.bu(12);
+  padding: utils.rem(130) utils.bu(2) utils.bu(7.5);
+
+  @include mixins.breakpoint(md) {
+    padding: utils.rem(150) utils.rem(30) utils.bu(10);
+  }
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.rem(190) utils.bu(7.5) utils.bu(12);
+  }
 
   > div {
     width: fit-content;
