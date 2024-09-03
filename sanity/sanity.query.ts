@@ -25,6 +25,7 @@ export async function getEventLists() {
 }`
   );
 }
+
 export async function getPromotion() {
   return client.fetch(
     groq`*[_type == "promotion"] {
@@ -60,6 +61,17 @@ export async function getArtistFilters() {
   );
 }
 
+export async function getGalleryFilters() {
+  return client.fetch(
+    groq`*[_type == "galleryFilter"] {
+  _id,
+  "slug": slug.current,
+  title,
+  order
+} | order(order asc)`
+  );
+}
+
 export async function getEventFilters() {
   return client.fetch(
     groq`*[_type == "eventFilter"] {
@@ -68,6 +80,48 @@ export async function getEventFilters() {
   title,
   order
 } | order(order asc)`
+  );
+}
+
+export async function getAlbums() {
+  return client.fetch(
+    groq`*[_type == "album"] {
+    _id,
+    "slug": slug.current,
+    name,
+    event->{
+    _id,
+    "slug": slug.current,
+    name,
+    address
+  },
+  images[]->{
+    _id,
+    name,
+    "src": image.asset->url
+  }
+}`
+  );
+}
+
+export async function getAlbum(slug: string) {
+  return client.fetch(
+    groq`*[_type == "album" && slug.current == "${slug}"] {
+    _id,
+    "slug": slug.current,
+    name,
+    event->{
+    _id,
+    "slug": slug.current,
+    name,
+    address
+  },
+  images[]->{
+    _id,
+    name,
+    "src": image.asset->url
+  }
+}[0]`
   );
 }
 
@@ -114,7 +168,6 @@ export async function getImages() {
     groq`*[_type == "galleryImage"] {
     _id,
     name,
-    tags,
     "src": image.asset->url
 }`
   );

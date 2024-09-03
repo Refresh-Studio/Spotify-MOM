@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../../../style/00_settings/color' as colors;
+@use '../../../../style/00_settings/util' as utils;
+@use '../../../../style/01_tools/mixin' as mixins;
+
+.albums {
+  padding: utils.bu(15) utils.bu(7.5);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.album {
+  > a {
+    display: block;
+    margin-top: utils.bu(2.5);
+
+    > p {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+
+      &:first-of-type {
+        color: map.get(colors.$base-color, primary);
+      }
+    }
+
+    &:hover {
+      > p {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  > small {
+    display: block;
+    color: map.get(colors.$base-color, silver);
+    text-transform: uppercase;
+    margin-top: utils.bu(1);
+  }
+}
