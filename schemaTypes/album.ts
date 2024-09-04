@@ -27,10 +27,16 @@ const album = {
       to: [{ type: 'event' }]
     }),
     defineField({
+      name: 'coverImage',
+      title: 'Album Cover Image',
+      type: 'reference',
+      to: [{ type: 'galleryImage' }]
+    }),
+    defineField({
       name: 'images',
       title: 'Album Images',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'galleryImage' }] }]
+      of: [{ type: 'reference', to: [{ type: 'albumImage' }] }]
     }),
     defineField({
       name: 'filterTags',
