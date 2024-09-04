@@ -24,6 +24,9 @@ export const Footer = () => {
         <li className="typescale-4">
           <Link href="/artists">Discover the Artists</Link>
         </li>
+        <li className="typescale-4">
+          <Link href="/albums">Gallery</Link>
+        </li>
       </nav>
       <Link href="https://www.instagram.com/spotifyafrica/?hl=en" target="_blank" rel="noreferrer">
         <InstagramIcon />
@@ -45,6 +48,11 @@ export const Footer = () => {
           className={`typescale-2 footer__mobile-nav-item ${pathName === '/tickets' ? 'footer__mobile-nav-item--active' : ''}`}
         >
           <Link href="/tickets">Tickets</Link>
+        </li>
+        <li
+          className={`typescale-2 footer__mobile-nav-item ${pathName === '/albums' ? 'footer__mobile-nav-item--active' : ''}`}
+        >
+          <Link href="/albums">Gallery</Link>
         </li>
       </nav>
     </footer>

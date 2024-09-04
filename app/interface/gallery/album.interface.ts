@@ -10,4 +10,5 @@ export interface Album extends ApiType {
   event: EventItem;
   coverImage: string;
   images: GalleryImage[];
+  filterTags: string[];
 }

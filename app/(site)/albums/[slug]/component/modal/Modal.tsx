@@ -1,6 +1,5 @@
 import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
@@ -21,14 +20,20 @@ interface Props {
 
 export const Modal = ({ open, setOpen, image }: Props) => (
   <Dialog open={open} onClose={() => setOpen(false)} className="image-modal">
-    <div>
+    <div onClick={() => setOpen(false)}>
       <div className="image-modal__content">
-        <Image src={image.src} alt={image.name} fill objectFit="contain" />
+        <Image
+          src={image.src}
+          alt={image.name}
+          fill
+          objectFit="contain"
+          onClick={(e) => e.stopPropagation()}
+        />
         <div className="image-modal__actions">
           <Share image={image} />
-          <Link href={image.src} target="_blank" download>
+          <a href={`/api/download/${encodeURIComponent(image.src)}`} download="file.jpg">
             <DownloadIcon />
-          </Link>
+          </a>
           <div onClick={() => setOpen(false)}>
             <FullscreenIcon />
           </div>

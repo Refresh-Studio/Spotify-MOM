@@ -29,7 +29,7 @@ const AlbumPage = ({ params: { slug } }: Props) => {
   }, [slug]);
 
   return (
-    <main className="dark-section">
+    <main className="dark-section" style={{ textAlign: 'center' }}>
       <Suspense>
         {loading && <Loader />}
         {!loading && album && <AlbumComponent album={album} />}

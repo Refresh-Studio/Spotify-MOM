@@ -33,11 +33,6 @@ export const Header = () => {
     };
 
     callApi();
-
-    if (pathname.includes('/albums/')) {
-      setInverted(false);
-    }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,6 +43,10 @@ export const Header = () => {
       let foundPush = false;
 
       if (sections.length === 0) {
+        if (pathname.includes('/albums/')) {
+          setInverted(false);
+        }
+
         return;
       }
 

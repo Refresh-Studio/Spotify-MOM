@@ -4,6 +4,7 @@
 @use '../../../../../style/01_tools/mixin' as mixins;
 
 .album-section {
+  text-align: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -42,6 +43,7 @@
     }
 
     > img {
+      opacity: 0.8;
       width: 100% !important;
       height: auto !important;
 
@@ -50,16 +52,21 @@
       }
 
       @include mixins.breakpoint(lg) {
+        opacity: 1;
         padding: utils.bu(0.75);
       }
     }
 
     > footer {
-      display: none;
+      display: flex;
       position: absolute;
-      bottom: 32px;
-      right: 32px;
+      bottom: 16px;
+      right: 16px;
       gap: utils.bu(3);
+
+      @include mixins.breakpoint(lg) {
+        display: none;
+      }
 
       > a,
       > div:not(:first-of-type) {
@@ -72,6 +79,10 @@
         align-items: center;
         justify-content: center;
         color: map.get(colors.$base-color, black);
+
+        &:hover {
+          background-color: map.get(colors.$base-color, secondary);
+        }
       }
     }
   }

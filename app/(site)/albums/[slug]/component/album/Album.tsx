@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
 
 import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
@@ -27,14 +26,13 @@ export const Album = ({ album }: Props) => {
           <ResponsiveImage src={image.src} alt={image.name} key={image._id} />
           <footer>
             <Share image={image} />
-            <Link
-              href={image.src}
-              target="_blank"
-              download
+            <a
+              href={`/api/download/${encodeURIComponent(image.src)}`}
+              download="file.jpg"
               onClick={(event) => event.stopPropagation()}
             >
               <DownloadIcon />
-            </Link>
+            </a>
           </footer>
         </div>
       ))}

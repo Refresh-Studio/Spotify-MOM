@@ -89,6 +89,7 @@ export async function getAlbums() {
     _id,
     "slug": slug.current,
     name,
+    "filterTags": filterTags[]->slug.current,
     event->{
     _id,
     "slug": slug.current,
