@@ -95,7 +95,7 @@ export async function getAlbums() {
     name,
     address
   },
-  "coverImage": coverImage.asset->url,
+  "coverImage": coverImage->image.asset->url,
   images[]->{
     _id,
     name,
@@ -117,7 +117,7 @@ export async function getAlbum(slug: string) {
     name,
     address
   },
-  "coverImage": coverImage.asset->url,
+  "coverImage": coverImage->image.asset->url,
   images[]->{
     _id,
     name,
