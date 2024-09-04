@@ -20,7 +20,7 @@ interface Props {
 }
 
 export const Modal = ({ open, setOpen, image }: Props) => (
-  <Dialog open={open} onClose={() => {}} className="image-modal">
+  <Dialog open={open} onClose={() => setOpen(false)} className="image-modal">
     <div>
       <div className="image-modal__content">
         <Image src={image.src} alt={image.name} fill objectFit="contain" />

@@ -4,13 +4,30 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .albums {
-  padding: utils.bu(15) utils.bu(7.5);
+  padding: utils.bu(7.5) utils.bu(2);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: utils.bu(2.5);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) utils.bu(7.5);
+  }
 }
 
 .album {
+  max-width: 100%;
+
+  @include mixins.breakpoint(md) {
+    height: 615px;
+    max-width: 48%;
+  }
+
+  @include mixins.breakpoint(lg) {
+    height: 665px;
+    max-width: 387px;
+  }
+
   > a {
     display: block;
     margin-top: utils.bu(2.5);
@@ -29,6 +46,12 @@
         text-decoration: underline;
       }
     }
+  }
+
+  img {
+    width: 100%;
+    height: 462px;
+    object-fit: fill;
   }
 
   > small {
