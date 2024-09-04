@@ -6,20 +6,18 @@
 .album-section {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   align-items: center;
   gap: utils.bu(2.5);
   padding: utils.rem(130) utils.bu(2) utils.bu(7.5);
 
   @include mixins.breakpoint(md) {
     padding: utils.rem(150) utils.rem(30) utils.bu(10);
-    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin-right: auto;
     margin-left: auto;
-    line-height: 0;
-    column-count: 3;
-    column-gap: 0;
+    gap: 0;
   }
 
   @include mixins.breakpoint(lg) {
