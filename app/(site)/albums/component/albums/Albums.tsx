@@ -26,7 +26,7 @@ interface AlbumProps {
 
 const AlbumItem = ({ album }: AlbumProps) => (
   <div className="album">
-    <Image src={album.images[0]?.src} alt="" height="480" width={387} />
+    <Image src={album.coverImage} alt={album.name} height="480" width={387} />
     <Link href={`/albums/${album.slug}`}>
       <p className={`typescale-5 ${wideFont.className}`}>{album.event?.name}</p>
       <p className={`typescale-5 ${wideFont.className}`}>{album.event?.address}</p>

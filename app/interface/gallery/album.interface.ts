@@ -8,5 +8,6 @@ export interface Album extends ApiType {
   slug: string;
   name: string;
   event: EventItem;
+  coverImage: string;
   images: GalleryImage[];
 }
