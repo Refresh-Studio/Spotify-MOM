@@ -8,7 +8,7 @@
   padding: utils.bu(10) 0;
 
   @include mixins.breakpoint(lg) {
-    padding: utils.bu(15) 0;
+    padding: utils.bu(13) 0;
   }
 
   .ticker {
@@ -41,7 +41,7 @@
       height: 597px !important;
 
       &.portrait {
-        object-fit: fill;
+        object-fit: scale-down;
         max-width: 604px !important;
       }
 

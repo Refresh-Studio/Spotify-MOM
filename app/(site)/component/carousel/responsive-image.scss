@@ -1,7 +1,18 @@
+@use '../../../style/01_tools/mixin' as mixins;
+
 .responsive-image.landscape {
-  max-width: 403px;
+  max-width: 100%;
+  object-fit: contain;
+
+  @include mixins.breakpoint(lg) {
+    max-width: 403px;
+  }
 }
 
 .responsive-image.portrait {
-  max-width: 403px;
+  max-width: 100%;
+
+  @include mixins.breakpoint(lg) {
+    max-width: 403px;
+  }
 }

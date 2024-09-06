@@ -1,6 +1,6 @@
 import { defineField } from 'sanity';
 
-const gallery = {
+const galleryImage = {
   name: 'galleryImage',
   title: 'Gallery Image',
   type: 'document',
@@ -16,18 +16,8 @@ const gallery = {
       title: 'Image',
       type: 'image',
       validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      validation: (rule) => rule.required(),
-      of: [{ type: 'string' }],
-      options: {
-        list: ['build-up', 'thursday', 'friday', 'saturday', 'sunday']
-      }
     })
   ]
 };
 
-export default gallery;
+export default galleryImage;

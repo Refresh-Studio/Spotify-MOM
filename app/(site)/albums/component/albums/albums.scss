@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../../../../style/00_settings/color' as colors;
+@use '../../../../style/00_settings/util' as utils;
+@use '../../../../style/01_tools/mixin' as mixins;
+
+.albums {
+  padding: utils.bu(7.5) utils.bu(2);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: utils.bu(2.5);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) utils.bu(7.5);
+  }
+}
+
+.album {
+  max-width: 100%;
+
+  @include mixins.breakpoint(md) {
+    height: 615px;
+    max-width: 48%;
+  }
+
+  @include mixins.breakpoint(lg) {
+    height: 665px;
+    max-width: 387px;
+  }
+
+  > p {
+    color: map.get(colors.$base-color, white);
+    text-transform: uppercase;
+
+    &:first-of-type {
+      margin-top: utils.bu(2.5);
+      color: map.get(colors.$base-color, primary);
+    }
+  }
+
+  &:hover {
+    > p {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 462px;
+    object-fit: fill;
+  }
+
+  > small {
+    display: block;
+    color: map.get(colors.$base-color, silver);
+    text-transform: uppercase;
+    margin-top: utils.bu(1);
+  }
+}

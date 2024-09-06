@@ -1,0 +1,88 @@
+@use 'sass:map';
+@use '../../../../../style/00_settings/color' as colors;
+@use '../../../../../style/00_settings/util' as utils;
+@use '../../../../../style/01_tools/mixin' as mixins;
+
+.album-section {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  min-height: 100vh;
+  gap: utils.bu(2.5);
+  padding: utils.rem(130) utils.bu(2) utils.bu(7.5);
+
+  @include mixins.breakpoint(md) {
+    padding: utils.rem(150) utils.rem(30) utils.bu(10);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: auto;
+    margin-left: auto;
+    gap: 0;
+  }
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.rem(190) utils.bu(7.5) utils.bu(12);
+  }
+
+  > div {
+    width: fit-content;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      > img {
+        opacity: 0.5;
+      }
+
+      > footer {
+        display: flex;
+        align-items: end;
+      }
+    }
+
+    > img {
+      opacity: 0.8;
+      width: 100% !important;
+      height: auto !important;
+
+      @include mixins.breakpoint(md) {
+        padding: utils.bu(0.5);
+      }
+
+      @include mixins.breakpoint(lg) {
+        opacity: 1;
+        padding: utils.bu(0.75);
+      }
+    }
+
+    > footer {
+      display: flex;
+      position: absolute;
+      bottom: 22px;
+      right: 22px;
+      gap: utils.bu(3);
+
+      @include mixins.breakpoint(lg) {
+        display: none;
+      }
+
+      > a,
+      > div:not(:first-of-type) {
+        opacity: 1 !important;
+        width: 32px;
+        height: 32px;
+        background-color: map.get(colors.$base-color, primary);
+        border: 1px solid map.get(colors.$base-color, black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: map.get(colors.$base-color, black);
+
+        &:hover {
+          background-color: map.get(colors.$base-color, secondary);
+        }
+      }
+    }
+  }
+}

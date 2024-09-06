@@ -33,6 +33,7 @@ export const Header = () => {
     };
 
     callApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -40,6 +41,14 @@ export const Header = () => {
       const sections = document.querySelectorAll('section');
       let found = false;
       let foundPush = false;
+
+      if (sections.length === 0) {
+        if (pathname.includes('/albums/')) {
+          setInverted(false);
+        }
+
+        return;
+      }
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
@@ -91,6 +100,9 @@ export const Header = () => {
         <nav>
           <Link className="typescale-2" href="/artists">
             Discover the Artists
+          </Link>
+          <Link className="typescale-2" href="/albums">
+            Gallery
           </Link>
           <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
         </nav>

@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '../../../../../style/00_settings/color' as colors;
+@use '../../../../../style/00_settings/util' as utils;
+@use '../../../../../style/01_tools/mixin' as mixins;
+
+.share {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: relative;
+
+  > div:first-of-type {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background-color: map.get(colors.$base-color, primary);
+    border: 1px solid map.get(colors.$base-color, black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: map.get(colors.$base-color, black);
+
+    &:hover {
+      background-color: map.get(colors.$base-color, secondary);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    height: 0;
+    max-height: 0;
+    gap: utils.bu(3);
+
+    &--show {
+      visibility: visible;
+      height: fit-content;
+      max-height: fit-content;
+      margin-bottom: utils.bu(3);
+    }
+
+    > a,
+    > div {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid map.get(colors.$base-color, white);
+      color: map.get(colors.$base-color, white);
+
+      &:hover {
+        background-color: map.get(colors.$base-color, white);
+
+        > svg {
+          color: rgba(map.get(colors.$base-color, black), 0.5);
+        }
+      }
+    }
+  }
+}
