@@ -28,23 +28,19 @@
     max-width: 387px;
   }
 
-  > a {
-    display: block;
-    margin-top: utils.bu(2.5);
+  > p {
+    color: map.get(colors.$base-color, white);
+    text-transform: uppercase;
 
-    > p {
-      color: map.get(colors.$base-color, white);
-      text-transform: uppercase;
-
-      &:first-of-type {
-        color: map.get(colors.$base-color, primary);
-      }
+    &:first-of-type {
+      margin-top: utils.bu(2.5);
+      color: map.get(colors.$base-color, primary);
     }
+  }
 
-    &:hover {
-      > p {
-        text-decoration: underline;
-      }
+  &:hover {
+    > p {
+      text-decoration: underline;
     }
   }
 

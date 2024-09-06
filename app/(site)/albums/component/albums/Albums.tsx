@@ -41,12 +41,10 @@ interface AlbumProps {
 }
 
 const AlbumItem = ({ album }: AlbumProps) => (
-  <div className="album">
+  <Link href={`/albums/${album.slug}`} className="album">
     <Image src={album.coverImage} alt={album.name} height="480" width={387} />
-    <Link href={`/albums/${album.slug}`}>
-      <p className={`typescale-5 ${wideFont.className}`}>{album.event?.name}</p>
-      <p className={`typescale-5 ${wideFont.className}`}>{album.event?.address}</p>
-    </Link>
+    <p className={`typescale-5 ${wideFont.className}`}>{album.event?.name}</p>
+    <p className={`typescale-5 ${wideFont.className}`}>{album.event?.address}</p>
     <small className="typescale-2">{album.images?.length ?? 0} images</small>
-  </div>
+  </Link>
 );

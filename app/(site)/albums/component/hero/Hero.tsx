@@ -32,7 +32,7 @@ export const Hero = () => {
   return (
     <section className="gallery-hero light-section">
       <h1 className={`typescale-10 ${wideFont.className}`}>Gallery</h1>
-      <p className="typescale-3">Check soon as we fill the album with precious memories.</p>
+      <p className="typescale-3">Relive the magic of MOM through her lens.</p>
       <Tabs tabs={filters} />
     </section>
   );
