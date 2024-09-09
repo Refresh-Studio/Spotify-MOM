@@ -4,24 +4,24 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .artists-hero {
-  padding-top: utils.bu(18.25);
+  padding-top: utils.bu(18.5);
   padding-bottom: utils.bu(7.5);
   background-color: map.get(colors.$base-color, black);
-  border-bottom: utils.rem(1) solid map.get(colors.$border-color, primary);
+  border-bottom: 1px solid rgba(map.get(colors.$base-color, grey), .4);
   margin-right: utils.bu(2);
   margin-left: utils.bu(2);
   display: flex;
 
   @include mixins.breakpoint(md) {
-    margin-right: utils.rem(30);
-    margin-left: utils.rem(30);
+    margin-right: utils.bu(4);
+    margin-left: utils.bu(4);
   }
 
   @include mixins.breakpoint(lg) {
     padding-top: utils.bu(21.5);
     padding-bottom: utils.bu(15);
-    margin-right: utils.rem(60);
-    margin-left: utils.rem(60);
+    margin-right: utils.bu(7.5);
+    margin-left: utils.bu(7.5);
   }
 
   > h1 {
@@ -62,7 +62,7 @@
   align-items: center;
   height: 40px;
   width: 40px;
-  border: utils.rem(1) solid map.get(colors.$border-color, primary);
+  border: 1px solid rgba(map.get(colors.$base-color, grey), .4);
   margin-left: utils.bu(3);
 
   @include mixins.breakpoint(lg) {
