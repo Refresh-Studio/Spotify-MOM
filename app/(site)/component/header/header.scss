@@ -61,12 +61,12 @@
 
   &--inverted {
     > .mom {
-      color: map.get(colors.$base-color, white);
+      color: map.get(colors.$base-color, black);
     }
 
     #{$block}__social {
       > svg {
-        color: map.get(colors.$base-color, white);
+        color: map.get(colors.$base-color, black);
       }
     }
 
