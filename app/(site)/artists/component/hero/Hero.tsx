@@ -1,38 +1,17 @@
-import React, { useEffect, useState } from 'react';
-
-import { Filter } from '../../../../interface/filter/filter.interface';
-
-import { TabItem, Tabs } from '../../../component/tabs/Tabs';
-
-import { getArtistFilters } from '../../../../../sanity/sanity.query';
+import React from 'react';
 import { wideFont } from '../../../../constant';
 
 import './hero.scss';
 
-export const Hero = () => {
-  const [filters, setFilters] = useState<TabItem[]>([]);
+interface Props {
+    artistAmount: number;
+}
 
-  useEffect(() => {
-    const callApi = async () => {
-      const artistFilters = await getArtistFilters();
-      setFilters([
-        ...[
-          {
-            path: 'all',
-            name: 'All'
-          }
-        ],
-        ...artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
-      ]);
-    };
-
-    callApi();
-  }, []);
-
-  return (
+export const Hero = ({ artistAmount }: Props) => (
     <section className="artists-hero light-section">
-      <h1 className={`typescale-10 ${wideFont.className}`}>The Artists</h1>
-      <Tabs tabs={filters} />
+        <h1 className={`typescale-10 ${wideFont.className}`}>Artists</h1>
+        <div className="counter">
+            <span className="typescale-5">{artistAmount}</span>
+        </div>
     </section>
-  );
-};
+);
