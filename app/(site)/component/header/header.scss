@@ -60,7 +60,6 @@
   }
 
   &--inverted {
-
     > nav {
       > a:not(.button) {
         color: map.get(colors.$base-color, black);
