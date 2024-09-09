@@ -7,7 +7,7 @@
 .footer {
   width: 100%;
   padding: utils.bu(13) utils.bu(2) utils.bu(10);
-  background-color: map.get(colors.$base-color, primary);
+  background-color: map.get(colors.$base-color, secondary);
   color: map.get(colors.$base-color, black);
   text-transform: uppercase;
   display: flex;
