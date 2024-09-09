@@ -1,0 +1,7 @@
+@use '../../style/00_settings/util' as utils;
+
+.tickets {
+  > hr {
+    margin: 0 utils.bu(7.5);
+  }
+}

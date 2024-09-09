@@ -6,8 +6,16 @@ import { wideFont } from '../../../../constant';
 
 import './hero.scss';
 
-export const Hero = () => (
+interface Props {
+  eventCount: number;
+}
+
+export const Hero = ({ eventCount }: Props) => (
   <section className="tickets-hero light-section">
-    <h1 className={`typescale-10 ${wideFont.className}`}>Tickets</h1>
+    <h1 className={`typescale-10 ${wideFont.className}`}>
+      Tickets
+      <span className="typescale-5">{eventCount}</span>
+    </h1>
+    <hr />
   </section>
 );
