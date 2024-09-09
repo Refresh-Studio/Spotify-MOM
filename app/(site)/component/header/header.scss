@@ -60,6 +60,16 @@
   }
 
   &--inverted {
+    > .mom {
+      color: map.get(colors.$base-color, white);
+    }
+
+    #{$block}__social {
+      > svg {
+        color: map.get(colors.$base-color, white);
+      }
+    }
+
     > nav {
       > a:not(.button) {
         color: map.get(colors.$base-color, black);

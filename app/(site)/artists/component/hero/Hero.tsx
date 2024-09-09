@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Hero = ({ artistAmount }: Props) => (
-  <section className="artists-hero light-section">
+  <section className="artists-hero dark-section">
     <h1 className={`typescale-10 ${wideFont.className}`}>Artists</h1>
     <div className="counter">
       <span className="typescale-5">{artistAmount}</span>
