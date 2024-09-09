@@ -2,16 +2,21 @@
 
 import { ArrowTopRightIcon } from '@sanity/icons';
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { formatGoogleCalendarDate, scrollIntoView } from '../../../../util';
 
 import { EventItem } from '../../../../interface/event/event-item.interface';
+import { Filter } from '../../../../interface/filter/filter.interface';
+import { Album } from '../../../../interface/gallery/album.interface';
 
 import { Button } from '../../../component/button/Button';
 import { Event } from '../../../component/events/event/Event';
+import { TabItem, Tabs } from '../../../component/tabs/Tabs';
 
 import { ReactComponent as PlusIcon } from '../../../../asset/plus.svg';
+
+import { getAlbums, getEventFilters } from '../../../../../sanity/sanity.query';
 
 import './tickets.scss';
 
@@ -30,6 +35,29 @@ export const Tickets = ({ events }: Props) => {
     return searchParams.get('query');
   }, [searchParams]);
 
+  const [filters, setFilters] = useState<TabItem[]>([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
+
+  useEffect(() => {
+    const callApi = async () => {
+      const eventFilters = await getEventFilters();
+      setFilters([
+        ...[
+          {
+            path: 'all',
+            name: 'All'
+          }
+        ],
+        ...eventFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
+      ]);
+
+      const albums = await getAlbums();
+      setAlbums(albums);
+    };
+
+    callApi();
+  }, []);
+
   useEffect(() => {
     if (eventSlug) {
       scrollIntoView(eventSlug);
@@ -46,6 +74,7 @@ export const Tickets = ({ events }: Props) => {
 
   return (
     <section className="tickets dark-section">
+      <Tabs tabs={filters} hollow />
       <main>
         <ul>
           {filteredEvents.map((event: EventItem) => {
@@ -60,6 +89,8 @@ export const Tickets = ({ events }: Props) => {
                 .join('\n')
             )}`;
 
+            const albumSlug = albums.find((album) => album.event.slug === event.slug)?.slug;
+
             return (
               <Event
                 key={event.slug}
@@ -68,9 +99,11 @@ export const Tickets = ({ events }: Props) => {
                 expanded={event.slug === eventSlug}
                 event={event}
                 action={
-                  event.free ? (
+                  albumSlug ? (
+                    <Button light large link={`/albums/${albumSlug}`} label="View Gallery" />
+                  ) : event.free ? (
                     <Button
-                      hollow
+                      light
                       large
                       icon={<PlusIcon />}
                       target="_blank"
@@ -79,7 +112,7 @@ export const Tickets = ({ events }: Props) => {
                     />
                   ) : (
                     <Button
-                      hollow
+                      light
                       large
                       icon={<ArrowTopRightIcon width={20} height={20} />}
                       label="Register for Tickets"

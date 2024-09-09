@@ -16,6 +16,7 @@ interface Props {
   hollow?: boolean;
   clickable?: boolean;
   inverted?: boolean;
+  light?: boolean;
   onClick?: () => void;
 }
 
@@ -30,6 +31,7 @@ export const Button = ({
   hollow = false,
   clickable = false,
   inverted = false,
+  light,
   onClick
 }: Props) => {
   const handleClick = (event: { preventDefault: () => void }) => {
@@ -59,6 +61,10 @@ export const Button = ({
 
   if (hollow) {
     classNames.push('button--hollow');
+  }
+
+  if (light) {
+    classNames.push('button--light');
   }
 
   return (
