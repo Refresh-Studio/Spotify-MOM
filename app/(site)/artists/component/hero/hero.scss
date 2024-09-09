@@ -7,7 +7,7 @@
   padding-top: utils.bu(18.5);
   padding-bottom: utils.bu(7.5);
   background-color: map.get(colors.$base-color, black);
-  border-bottom: 1px solid rgba(map.get(colors.$base-color, grey), .4);
+  border-bottom: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
   margin-right: utils.bu(2);
   margin-left: utils.bu(2);
   display: flex;
@@ -62,7 +62,7 @@
   align-items: center;
   height: 40px;
   width: 40px;
-  border: 1px solid rgba(map.get(colors.$base-color, grey), .4);
+  border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
   margin-left: utils.bu(3);
 
   @include mixins.breakpoint(lg) {
