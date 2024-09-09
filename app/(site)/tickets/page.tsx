@@ -10,6 +10,8 @@ import { Tickets } from './component/tickets/Tickets';
 
 import { getEvents } from '../../../sanity/sanity.query';
 
+import './page.scss';
+
 const TicketsPage = () => {
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -26,8 +28,9 @@ const TicketsPage = () => {
 
   return (
     <Suspense>
-      <main>
-        <Hero />
+      <main className="tickets">
+        <Hero eventCount={events.length} />
+        {/* <hr /> */}
         {!loading && <Tickets events={events} />}
         {loading && <Loader />}
       </main>
