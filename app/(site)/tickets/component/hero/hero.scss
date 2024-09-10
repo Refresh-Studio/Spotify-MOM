@@ -5,20 +5,24 @@
 
 .tickets-hero {
   padding: utils.bu(18.25) utils.bu(2) utils.bu(7.5);
-  background-color: map.get(colors.$base-color, secondary);
+  background-color: map.get(colors.$base-color, black);
+  padding-bottom: 0;
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
+    padding-bottom: 0;
   }
 
   > h1 {
     text-transform: uppercase;
     display: flex;
     font-weight: 500;
+    position: relative;
+    color: map-get(colors.$base-color, grey);
 
     > span {
       margin-left: utils.bu(3);
-      border: 1px solid map.get(colors.$base-color, black);
+      border: 1px solid map.get(colors.$base-color, grey);
       height: 35px;
       min-height: 35px;
       width: 38px;
@@ -38,13 +42,11 @@
 
   > hr {
     margin-top: utils.bu(7.5);
-    margin-bottom: utils.bu(10);
-    border-color: map.get(colors.$base-color, black);
+    border-color: map.get(colors.$base-color, grey);
     border-bottom: none;
 
     @include mixins.breakpoint(lg) {
       margin-top: utils.bu(15);
-      margin-bottom: utils.bu(15);
     }
   }
 

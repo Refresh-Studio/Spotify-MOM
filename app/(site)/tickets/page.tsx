@@ -26,8 +26,8 @@ const TicketsPage = () => {
 
   return (
     <Suspense>
-      <main>
-        <Hero />
+      <main className="tickets">
+        <Hero eventCount={events.length} />
         {!loading && <Tickets events={events} />}
         {loading && <Loader />}
       </main>

@@ -28,7 +28,7 @@ const GalleryPage = () => {
   return (
     <Suspense>
       <main>
-        <Hero />
+        <Hero albumCount={albums.length} />
         {!loading && <Albums albums={albums} />}
         {loading && <Loader />}
       </main>

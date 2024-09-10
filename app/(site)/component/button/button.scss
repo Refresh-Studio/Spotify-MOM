@@ -66,6 +66,18 @@
     }
   }
 
+  &--light {
+    background-color: map-get(colors.$base-color, transparent);
+    border: 1px solid map-get(colors.$base-color, grey);
+    color: map-get(colors.$base-color, grey);
+
+    &:hover {
+      background-color: map.get(colors.$base-color, secondary);
+      border-color: map.get(colors.$base-color, black);
+      color: map.get(colors.$base-color, black);
+    }
+  }
+
   > svg {
     max-width: 24px;
     max-height: 24px;
