@@ -10,9 +10,11 @@ import { Hero } from './component/hero/Hero';
 
 import { getAlbums } from '../../../sanity/sanity.query';
 
+type DisplayState = 'grid' | 'list';
 const GalleryPage = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [displayState, setDisplayState] = useState<DisplayState>('grid');
 
   useEffect(() => {
     const callApi = async () => {
@@ -25,11 +27,19 @@ const GalleryPage = () => {
     callApi();
   }, []);
 
+  const handleDisplayState = (state: DisplayState) => {
+    setDisplayState(state);
+  };
+
   return (
     <Suspense>
       <main>
-        <Hero albumCount={albums.length} />
-        {!loading && <Albums albums={albums} />}
+        <Hero
+          displayState={displayState}
+          handleDisplayState={handleDisplayState}
+          albumCount={albums.length}
+        />
+        {!loading && <Albums displayState={displayState} albums={albums} />}
         {loading && <Loader />}
       </main>
     </Suspense>
