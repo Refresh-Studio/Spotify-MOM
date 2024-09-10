@@ -32,13 +32,13 @@ export const Artists = ({ artists = [] }: Props) => {
     const callApi = async () => {
       const artistFilters = await getArtistFilters();
       setFilters([
-        ...[
+        [
           {
             path: 'all',
             name: 'All'
           }
         ],
-        artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
+        ...artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
       ]);
     };
 
