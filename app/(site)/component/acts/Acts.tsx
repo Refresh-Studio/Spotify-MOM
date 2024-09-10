@@ -68,40 +68,20 @@ export const Acts = ({ accessToken }: Props) => {
         <Button small link="/artists" label="View All Artists" />
       </header>
       <main>
-        <Ticker hollow height={90} speed={10}>
-          {spotlightList.map((artist: Artist) => (
-            <ArtistTick
-              priortiy
-              key={artist.slug}
-              name={artist.name}
-              image={artist.image}
-              height={90}
-              width={88}
-            />
-          ))}
-        </Ticker>
-        <Ticker hollow height={73} right speed={10}>
-          {followersList.map((artist: Artist) => (
-            <ArtistTick
-              key={artist.slug}
-              name={artist.name}
-              image={artist.image}
-              height={73}
-              width={70}
-            />
-          ))}
-        </Ticker>
-        <Ticker hollow height={73} speed={10}>
-          {nameList.map((artist: Artist) => (
-            <ArtistTick
-              key={artist.slug}
-              name={artist.name}
-              image={artist.image}
-              height={73}
-              width={70}
-            />
-          ))}
-        </Ticker>
+        {[spotlightList, followersList, nameList].map((list: Artist[], index: number) => (
+          <Ticker hollow height={70} speed={10} key={index}>
+            {list.map((artist: Artist) => (
+              <ArtistTick
+                priortiy
+                key={artist.slug}
+                name={artist.name}
+                image={artist.image}
+                height={70}
+                width={88}
+              />
+            ))}
+          </Ticker>
+        ))}
       </main>
       <footer>
         <Button small link="/artists" label="View All Artists" />
