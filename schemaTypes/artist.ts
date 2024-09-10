@@ -47,7 +47,7 @@ const artist = {
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'string'
+      type: 'text'
     }),
     defineField({
       name: 'genres',

@@ -56,8 +56,7 @@ export async function getArtistFilters() {
   _id,
   "slug": slug.current,
   title,
-  order,
-  description
+  order
 } | order(order asc)`
   );
 }

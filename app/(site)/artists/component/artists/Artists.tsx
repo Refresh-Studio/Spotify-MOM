@@ -38,7 +38,7 @@ export const Artists = ({ artists = [] }: Props) => {
             name: 'All'
           }
         ],
-        ...artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
+        artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
       ]);
     };
 
