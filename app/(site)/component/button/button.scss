@@ -32,7 +32,11 @@
   }
 
   &--medium {
-    height: 48px;
+    height: 40px;
+
+    @include mixins.breakpoint(sm) {
+      height: 48px;
+    }
   }
 
   &--large {
