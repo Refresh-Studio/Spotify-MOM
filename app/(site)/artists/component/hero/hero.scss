@@ -4,11 +4,24 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .artists-hero {
-  padding: utils.bu(18.25) utils.bu(2) utils.bu(7.5);
-  background-color: map.get(colors.$base-color, secondary);
+  padding-top: utils.bu(18.5);
+  padding-bottom: utils.bu(7.5);
+  background-color: map.get(colors.$base-color, black);
+  border-bottom: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+  margin-right: utils.bu(2);
+  margin-left: utils.bu(2);
+  display: flex;
+
+  @include mixins.breakpoint(md) {
+    margin-right: utils.bu(4);
+    margin-left: utils.bu(4);
+  }
 
   @include mixins.breakpoint(lg) {
-    padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
+    padding-top: utils.bu(21.5);
+    padding-bottom: utils.bu(15);
+    margin-right: utils.bu(7.5);
+    margin-left: utils.bu(7.5);
   }
 
   > h1 {
@@ -16,6 +29,7 @@
     display: flex;
     font-weight: 500;
     max-width: 210px;
+    color: map.get(colors.$base-color, white);
 
     @include mixins.breakpoint(lg) {
       max-width: 100%;
@@ -40,8 +54,23 @@
       }
     }
   }
+}
 
-  > .tabs {
-    margin-top: utils.bu(7.5);
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+  margin-left: utils.bu(3);
+
+  @include mixins.breakpoint(lg) {
+    height: 48px;
+    width: 48px;
+  }
+
+  > span {
+    color: map.get(colors.$base-color, white);
   }
 }
