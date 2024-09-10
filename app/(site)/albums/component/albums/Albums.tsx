@@ -8,12 +8,14 @@ import { Album } from '../../../../interface/gallery/album.interface';
 import { wideFont } from '../../../../constant';
 
 import './albums.scss';
+import { TabItem, Tabs } from '../../../component/tabs/Tabs';
 
 interface Props {
   albums: Album[];
+  filters: TabItem[];
 }
 
-export const Albums = ({ albums = [] }: Props) => {
+export const Albums = ({ albums = [], filters }: Props) => {
   const searchParams = useSearchParams();
   const query = useMemo(() => {
     return searchParams.get('query');
@@ -29,9 +31,12 @@ export const Albums = ({ albums = [] }: Props) => {
 
   return (
     <section className="albums dark-section">
-      {filteredAlbums.map((album: Album) => (
-        <AlbumItem key={album.slug} album={album} />
-      ))}
+      <Tabs hollow tabs={filters} />
+      <div>
+        {filteredAlbums.map((album: Album) => (
+          <AlbumItem key={album.slug} album={album} />
+        ))}
+      </div>
     </section>
   );
 };
