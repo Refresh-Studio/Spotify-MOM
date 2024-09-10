@@ -105,9 +105,12 @@ export const Artists = ({ artists = [] }: Props) => {
                       <Tag key={tag} title={tag} />
                     ))}
                   </div>
+                  <div className="artists__description">
+                    <p className="typescale-3">{activeArtist.description}</p>
+                  </div>
                   <Button
                     target="_blank"
-                    hollow
+                    greyHollow
                     small
                     link={activeArtist?.url}
                     label="View Profile"

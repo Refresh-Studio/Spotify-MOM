@@ -120,9 +120,13 @@
   }
 
   &__description {
-    margin-bottom: utils.bu(8);
+    margin-bottom: utils.bu(5);
     color: map.get(colors.$base-color, grey);
     text-transform: uppercase;
+
+    @include mixins.breakpoint(md) {
+      margin-bottom: utils.bu(8);
+    }
   }
 
   &__artist {
