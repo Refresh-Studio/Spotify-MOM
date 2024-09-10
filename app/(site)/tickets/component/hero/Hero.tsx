@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const Hero = ({ eventCount }: Props) => (
-  <section className="tickets-hero light-section">
+  <section className="tickets-hero dark-section">
     <h1 className={`typescale-10 ${wideFont.className}`}>
       Tickets
       <span className="typescale-5">{eventCount}</span>

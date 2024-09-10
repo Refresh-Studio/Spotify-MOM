@@ -28,7 +28,6 @@ const TicketsPage = () => {
     <Suspense>
       <main className="tickets">
         <Hero eventCount={events.length} />
-        {/* <hr /> */}
         {!loading && <Tickets events={events} />}
         {loading && <Loader />}
       </main>
