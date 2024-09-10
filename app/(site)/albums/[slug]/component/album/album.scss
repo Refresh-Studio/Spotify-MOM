@@ -44,7 +44,6 @@
 
         > footer {
           display: flex;
-          align-items: end;
         }
       }
 
@@ -69,6 +68,7 @@
         bottom: 22px;
         right: 22px;
         gap: utils.bu(3);
+        align-items: end;
 
         @include mixins.breakpoint(lg) {
           display: none;
@@ -79,15 +79,28 @@
           opacity: 1 !important;
           width: 32px;
           height: 32px;
-          background-color: map.get(colors.$base-color, primary);
-          border: 1px solid map.get(colors.$base-color, black);
+          background-color: map.get(colors.$base-color, transparent);
+          border: 1px solid map.get(colors.$base-color, white);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: map.get(colors.$base-color, black);
+          color: map.get(colors.$base-color, white);
 
           &:hover {
             background-color: map.get(colors.$base-color, secondary);
+            color: map.get(colors.$base-color, black);
+            border: 1px solid map.get(colors.$base-color, black);
+          }
+
+          @include mixins.breakpoint(lg) {
+            background-color: map.get(colors.$base-color, primary);
+            border: 1px solid map.get(colors.$base-color, black);
+            color: map.get(colors.$base-color, black);
+
+            &:hover {
+              color: map.get(colors.$base-color, black);
+              border: 1px solid map.get(colors.$base-color, black);
+            }
           }
         }
       }
