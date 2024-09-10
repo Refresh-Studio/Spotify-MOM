@@ -1,40 +1,21 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { Filter } from '../../../../interface/filter/filter.interface';
-
-import { TabItem, Tabs } from '../../../component/tabs/Tabs';
-
-import { getEventFilters } from '../../../../../sanity/sanity.query';
 import { wideFont } from '../../../../constant';
 
 import './hero.scss';
 
-export const Hero = () => {
-  const [filters, setFilters] = useState<TabItem[]>([]);
+interface Props {
+  eventCount: number;
+}
 
-  useEffect(() => {
-    const callApi = async () => {
-      const eventFilters = await getEventFilters();
-      setFilters([
-        ...[
-          {
-            path: 'all',
-            name: 'All'
-          }
-        ],
-        ...eventFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
-      ]);
-    };
-
-    callApi();
-  }, []);
-
-  return (
-    <section className="tickets-hero light-section">
-      <h1 className={`typescale-10 ${wideFont.className}`}>Tickets</h1>
-      <Tabs tabs={filters} />
-    </section>
-  );
-};
+export const Hero = ({ eventCount }: Props) => (
+  <section className="tickets-hero dark-section">
+    <h1 className={`typescale-10 ${wideFont.className}`}>
+      Tickets
+      <span className="typescale-5">{eventCount}</span>
+    </h1>
+    <hr />
+  </section>
+);

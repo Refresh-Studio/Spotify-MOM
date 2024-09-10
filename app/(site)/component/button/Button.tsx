@@ -17,6 +17,7 @@ interface Props {
   greyHollow?: boolean;
   clickable?: boolean;
   inverted?: boolean;
+  light?: boolean;
   onClick?: () => void;
 }
 
@@ -32,6 +33,7 @@ export const Button = ({
   clickable = false,
   inverted = false,
   greyHollow = false,
+  light,
   onClick
 }: Props) => {
   const handleClick = (event: { preventDefault: () => void }) => {
@@ -65,6 +67,10 @@ export const Button = ({
 
   if (greyHollow) {
     classNames.push('button--grey-hollow');
+  }
+
+  if (light) {
+    classNames.push('button--light');
   }
 
   return (

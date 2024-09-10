@@ -18,7 +18,7 @@ import './header.scss';
 
 export const Header = () => {
   const pathname = usePathname();
-  const [inverted, setInverted] = useState<boolean>(false);
+  const [, setInverted] = useState<boolean>(false);
   const [pushed, setPushed] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [promotion, setPromotion] = useState<Promotion>();
@@ -88,9 +88,7 @@ export const Header = () => {
 
   return (
     <>
-      <header
-        className={`header ${inverted ? 'header--inverted' : ''} ${pushed ? 'header--pushed' : ''}`}
-      >
+      <header className={`header ${pushed ? 'header--pushed' : ''}`}>
         <Link className="mom" href="/">
           <MomIcon />
         </Link>
@@ -99,12 +97,12 @@ export const Header = () => {
         </Link>
         <nav>
           <Link className="typescale-2" href="/artists">
-            Discover the Artists
+            Discover Artists
           </Link>
           <Link className="typescale-2" href="/albums">
             Gallery
           </Link>
-          <Button inverted={inverted} small link="/tickets" label="Get Tickets" />
+          <Button light small link="/tickets" label="Get Tickets" />
         </nav>
       </header>
       {promotion && <Modal open={open} setOpen={setOpen} promotion={promotion} />}
