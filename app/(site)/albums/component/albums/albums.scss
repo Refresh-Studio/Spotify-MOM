@@ -5,13 +5,20 @@
 
 .albums {
   padding: utils.bu(7.5) utils.bu(2);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: utils.bu(2.5);
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(15) utils.bu(7.5);
+  }
+  
+  > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: utils.bu(2.5);
+  }
+
+  > .tabs {
+    margin-bottom: utils.bu(7);
   }
 }
 
