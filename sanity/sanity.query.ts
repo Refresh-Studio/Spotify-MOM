@@ -56,7 +56,8 @@ export async function getArtistFilters() {
   _id,
   "slug": slug.current,
   title,
-  order
+  order,
+  description
 } | order(order asc)`
   );
 }
@@ -161,7 +162,8 @@ export async function getArtists() {
     "filterTags": filterTags[]->slug.current,
     url,
     image,
-    spotlight
+    spotlight,
+    description
 }`
   );
 }

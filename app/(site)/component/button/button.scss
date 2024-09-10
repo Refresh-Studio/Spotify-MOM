@@ -54,6 +54,17 @@
     }
   }
 
+  &--grey-hollow {
+    background-color: map.get(colors.$base-color, transparent);
+    color: map.get(colors.$base-color, grey);
+    border: 1px solid map.get(colors.$base-color, grey);
+
+    &:hover {
+      border-color: map.get(colors.$base-color, secondary);
+      color: map.get(colors.$base-color, black);
+    }
+  }
+
   &--inverted {
     background-color: map.get(colors.$base-color, transparent);
     color: map.get(colors.$base-color, black);
