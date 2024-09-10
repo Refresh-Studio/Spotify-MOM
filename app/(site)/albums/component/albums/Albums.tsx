@@ -29,11 +29,9 @@ export const Albums = ({ albums = [] }: Props) => {
 
   return (
     <section className="albums dark-section">
-      <div>
-        {filteredAlbums.map((album: Album) => (
-          <AlbumItem key={album.slug} album={album} />
-        ))}
-      </div>
+      {filteredAlbums.map((album: Album) => (
+        <AlbumItem key={album.slug} album={album} />
+      ))}
     </section>
   );
 };
