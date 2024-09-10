@@ -42,10 +42,10 @@ export const Tickets = ({ events }: Props) => {
     const callApi = async () => {
       const eventFilters = await getEventFilters();
       setFilters([
-          {
-            path: 'all',
-            name: 'All'
-          },
+        {
+          path: 'all',
+          name: 'All'
+        },
         ...eventFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
       ]);
 

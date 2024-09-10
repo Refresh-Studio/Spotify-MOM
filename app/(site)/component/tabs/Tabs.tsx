@@ -14,9 +14,10 @@ export interface TabItem {
 interface Props {
   tabs: readonly TabItem[];
   hollow?: boolean;
+  secondary?: boolean;
 }
 
-export const Tabs = ({ tabs = [], hollow = false }: Props) => {
+export const Tabs = ({ tabs = [], hollow = false, secondary = false }: Props) => {
   const searchParams = useSearchParams();
 
   const query = useMemo(() => {
@@ -24,7 +25,7 @@ export const Tabs = ({ tabs = [], hollow = false }: Props) => {
   }, [searchParams]);
 
   return (
-    <nav className={`tabs ${hollow ? 'tabs--hollow' : ''}`}>
+    <nav className={`tabs ${hollow ? 'tabs--hollow' : ''} ${secondary ? 'tabs--secondary' : ''}`}>
       {tabs.map((tab: TabItem, index: number) => (
         <li
           key={tab.path}
