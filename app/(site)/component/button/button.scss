@@ -72,8 +72,8 @@
     color: map-get(colors.$base-color, grey);
 
     &:hover {
-      background-color: map.get(colors.$base-color, primary);
-      border-color: map.get(colors.$base-color, primary);
+      background-color: map.get(colors.$base-color, secondary);
+      border-color: map.get(colors.$base-color, black);
       color: map.get(colors.$base-color, black);
     }
   }
