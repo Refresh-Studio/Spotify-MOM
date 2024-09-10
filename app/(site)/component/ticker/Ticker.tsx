@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 
 import './ticker.scss';
@@ -38,7 +38,7 @@ export const Ticker = ({
       className={`ticker ticker-${id} ${hollow ? 'ticker--hollow' : ''}`}
       style={{ height }}
       onClick={handleClick}
-      onMouseEnter={() => setCurrentSpeed(speed - 0.005)}
+      onMouseEnter={() => setCurrentSpeed(speed - 3)}
       onMouseLeave={() => setCurrentSpeed(speed)}
     >
       <Marquee autoFill speed={currentSpeed} direction={right ? 'right' : 'left'}>
