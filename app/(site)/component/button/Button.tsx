@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
+import { noOp } from '../../../util';
+
 import './button.scss';
 
 interface Props {
@@ -10,6 +12,7 @@ interface Props {
   target?: '_blank' | '_self';
   label: string;
   icon?: ReactElement;
+  iconPosition?: 'left' | 'right';
   small?: boolean;
   medium?: boolean;
   large?: boolean;
@@ -25,6 +28,7 @@ export const Button = ({
   target = '_self',
   label,
   icon,
+  iconPosition = 'right',
   small = false,
   medium = false,
   large = false,
@@ -32,7 +36,7 @@ export const Button = ({
   clickable = false,
   inverted = false,
   light,
-  onClick
+  onClick = noOp
 }: Props) => {
   const handleClick = (event: { preventDefault: () => void }) => {
     if (clickable) {
@@ -67,10 +71,14 @@ export const Button = ({
     classNames.push('button--light');
   }
 
+  const isIconPositionLeft = iconPosition && iconPosition === 'left';
+  const isIconPositionRight = iconPosition && iconPosition === 'right';
+
   return (
     <Link className={classNames.join(' ')} href={link} onClick={handleClick} target={target}>
+      {icon && isIconPositionLeft && icon}
       {label}
-      {icon && icon}
+      {icon && isIconPositionRight && icon}
     </Link>
   );
 };
