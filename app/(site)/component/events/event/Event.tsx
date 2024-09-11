@@ -1,6 +1,7 @@
 'use client';
 
-import React, { ReactElement, useState } from 'react';
+import gsap from 'gsap';
+import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
 import { EventItem, TextBlock } from '../../../../interface/event/event-item.interface';
 
@@ -33,8 +34,37 @@ export const Event = ({
     setExpanded(!expandedDetails);
   };
 
+  const underlineRef = useRef(null);
+  const timeline = useMemo(() => {
+    return gsap.timeline({ paused: true });
+  }, []);
+
+  useEffect(() => {
+    timeline
+      .fromTo(
+        underlineRef.current,
+        { width: '0%', opacity: 0 },
+        { width: '100%', duration: 0.4, opacity: 1 }
+      )
+      .to(underlineRef.current, {
+        duration: 0.4,
+        ease: 'power2.inOut'
+      });
+  }, [timeline, underlineRef]);
+
+  const animate = (reverse?: boolean) => {
+    if (reverse) {
+      timeline.reverse(100, true);
+      return;
+    }
+
+    timeline.play(0, true);
+  };
+
   return (
     <div
+      onMouseEnter={() => animate()}
+      onMouseLeave={() => animate(true)}
       className={`event ${filled ? 'event--filled' : ''} ${expandedDetails ? 'event--expanded' : ''}`}
       id={event.slug}
     >
@@ -140,6 +170,7 @@ export const Event = ({
         </small>
         {action}
       </footer>
+      <span className="underline" ref={underlineRef} />
     </div>
   );
 };

@@ -47,10 +47,23 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 
 .event-list {
   > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: utils.bu(5);
 
     @include mixins.breakpoint(lg) {
       margin-bottom: utils.bu(7.5);
+    }
+
+    .button {
+      display: none;
+
+      @include mixins.breakpoint(lg) {
+        display: flex;
+        height: 48px;
+        width: 121px;
+      }
     }
 
     > h1 {

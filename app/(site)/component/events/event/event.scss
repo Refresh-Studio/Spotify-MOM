@@ -8,7 +8,7 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 .event {
   width: 45%;
   padding: utils.bu(3) 0;
-  border-bottom: $border;
+  //border-bottom: $border;
   position: relative;
   min-height: 214px;
   display: flex;
@@ -153,4 +153,21 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
       margin-top: 0;
     }
   }
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    map.get(colors.$base-color, primary),
+    map.get(colors.$base-color, white)
+  );
+  opacity: 0;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
 }
