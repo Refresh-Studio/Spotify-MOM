@@ -19,3 +19,5 @@ export const formatGoogleCalendarDate = (date: string, time: string): string => 
 
   return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
 };
+
+export const noOp = (): void => {};

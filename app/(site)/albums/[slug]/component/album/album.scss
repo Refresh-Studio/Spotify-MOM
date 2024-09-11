@@ -4,21 +4,10 @@
 @use '../../../../../style/01_tools/mixin' as mixins;
 
 .album-section {
-  text-align: center;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  min-height: 100vh;
-  gap: utils.bu(2.5);
   padding: utils.rem(130) utils.bu(2) utils.bu(7.5);
 
   @include mixins.breakpoint(md) {
     padding: utils.rem(150) utils.rem(30) utils.bu(10);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-right: auto;
-    margin-left: auto;
-    gap: 0;
   }
 
   @include mixins.breakpoint(lg) {
@@ -26,61 +15,93 @@
   }
 
   > div {
-    width: fit-content;
-    position: relative;
-    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    min-height: 100vh;
+    gap: utils.bu(2.5);
+    margin-top: utils.bu(3);
 
-    &:hover {
+    @include mixins.breakpoint(md) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-right: auto;
+      margin-left: auto;
+      gap: 0;
+      align-items: start;
+    }
+
+    > div {
+      width: fit-content;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        > img {
+          opacity: 0.5;
+        }
+
+        > footer {
+          display: flex;
+        }
+      }
+
       > img {
-        opacity: 0.5;
+        opacity: 0.8;
+        width: 100% !important;
+        height: auto !important;
+
+        @include mixins.breakpoint(md) {
+          padding: utils.bu(0.5);
+        }
+
+        @include mixins.breakpoint(lg) {
+          opacity: 1;
+          padding: utils.bu(0.75);
+        }
       }
 
       > footer {
         display: flex;
+        position: absolute;
+        bottom: 22px;
+        right: 22px;
+        gap: utils.bu(3);
         align-items: end;
-      }
-    }
 
-    > img {
-      opacity: 0.8;
-      width: 100% !important;
-      height: auto !important;
+        @include mixins.breakpoint(lg) {
+          display: none;
+        }
 
-      @include mixins.breakpoint(md) {
-        padding: utils.bu(0.5);
-      }
+        > a,
+        > div:not(:first-of-type) {
+          opacity: 1 !important;
+          width: 32px;
+          height: 32px;
+          background-color: map.get(colors.$base-color, transparent);
+          border: 1px solid map.get(colors.$base-color, white);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: map.get(colors.$base-color, white);
 
-      @include mixins.breakpoint(lg) {
-        opacity: 1;
-        padding: utils.bu(0.75);
-      }
-    }
+          &:hover {
+            background-color: map.get(colors.$base-color, secondary);
+            color: map.get(colors.$base-color, black);
+            border: 1px solid map.get(colors.$base-color, black);
+          }
 
-    > footer {
-      display: flex;
-      position: absolute;
-      bottom: 22px;
-      right: 22px;
-      gap: utils.bu(3);
+          @include mixins.breakpoint(lg) {
+            background-color: map.get(colors.$base-color, primary);
+            border: 1px solid map.get(colors.$base-color, black);
+            color: map.get(colors.$base-color, black);
 
-      @include mixins.breakpoint(lg) {
-        display: none;
-      }
-
-      > a,
-      > div:not(:first-of-type) {
-        opacity: 1 !important;
-        width: 32px;
-        height: 32px;
-        background-color: map.get(colors.$base-color, primary);
-        border: 1px solid map.get(colors.$base-color, black);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: map.get(colors.$base-color, black);
-
-        &:hover {
-          background-color: map.get(colors.$base-color, secondary);
+            &:hover {
+              color: map.get(colors.$base-color, black);
+              border: 1px solid map.get(colors.$base-color, black);
+            }
+          }
         }
       }
     }

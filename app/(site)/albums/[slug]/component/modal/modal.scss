@@ -64,15 +64,17 @@
       cursor: pointer;
       width: 32px;
       height: 32px;
-      background-color: map.get(colors.$base-color, primary);
-      border: 1px solid map.get(colors.$base-color, black);
+      background-color: map.get(colors.$base-color, transparent);
+      border: 1px solid map.get(colors.$base-color, white);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: map.get(colors.$base-color, black);
+      color: map.get(colors.$base-color, white);
 
       &:hover {
         background-color: map.get(colors.$base-color, secondary);
+        color: map.get(colors.$base-color, black);
+        border: 1px solid map.get(colors.$base-color, black);
       }
     }
   }
