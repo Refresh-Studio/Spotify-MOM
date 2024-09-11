@@ -8,7 +8,7 @@ import { Album } from '../../../../interface/gallery/album.interface';
 
 import { TabItem, Tabs } from '../../../component/tabs/Tabs';
 
-import { ReactComponent as ChevronRightIcon } from './../../../../asset/chevron-right.svg';
+import { ReactComponent as ChevronRightIcon } from './../../../../asset/right.svg';
 
 import { getGalleryFilters } from '../../../../../sanity/sanity.query';
 import { wideFont } from '../../../../constant';
@@ -31,12 +31,7 @@ export const Albums = ({ albums = [], displayState }: Props) => {
     const callApi = async () => {
       const galleryFilters = await getGalleryFilters();
       setFilters([
-        ...[
-          {
-            path: 'all',
-            name: 'All'
-          }
-        ],
+        { path: 'all', name: 'All' },
         ...galleryFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
       ]);
     };
