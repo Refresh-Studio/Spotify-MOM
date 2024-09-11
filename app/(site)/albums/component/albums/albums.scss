@@ -39,7 +39,7 @@
 
 .album {
   max-width: 100%;
-  opacity: 40%;
+  opacity: 50%;
 
   @include mixins.breakpoint(md) {
     height: 615px;
