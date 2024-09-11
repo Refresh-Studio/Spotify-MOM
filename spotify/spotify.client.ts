@@ -12,6 +12,7 @@ export const retrieveArtists = async (token: string, ids: string[]) => {
         acc.push({
           slug: item.id,
           name: data.name,
+          description: data.description,
           followers: data.followers.total,
           musicTags: data.genres,
           image: data.images[0].url

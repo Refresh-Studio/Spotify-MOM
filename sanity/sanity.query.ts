@@ -147,7 +147,8 @@ export async function getArtists() {
     "filterTags": filterTags[]->slug.current,
     url,
     image,
-    spotlight
+    spotlight,
+    description
 }`
   );
 }
