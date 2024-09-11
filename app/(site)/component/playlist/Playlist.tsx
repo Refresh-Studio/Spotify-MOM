@@ -14,6 +14,7 @@ export const Playlist = () => (
     <header>
       <h1 className={`typescale-5 ${wideFont.className}`}>Listen to MOM</h1>
       <Button
+        light
         small
         link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
         target="_blank"
