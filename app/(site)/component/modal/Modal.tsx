@@ -27,15 +27,13 @@ export const Modal = ({ open, setOpen, promotion }: Props) => (
           <Image src={promotion?.image} alt={promotion?.event?.name} width={184} height={230} />
           <div>
             <div className="modal__details-event">
-              <p className="typescale-2">Register for free tickets</p>
-              <h1 className={`typescale-5 ${wideFont.className}`}>{promotion?.event?.name}</h1>
-              <h2 className={`typescale-5 ${wideFont.className}`}>{promotion?.event?.address}</h2>
+              <p className="typescale-2">Gallery</p>
+              <h1 className={`typescale-5 ${wideFont.className}`}>
+                RELIVE YOUR FAVOURITE MOMENTS ON THE MOM GALLERY
+              </h1>
             </div>
             <div className="modal__times">
-              <p className="typescale-2">{promotion?.event?.startDate}</p>
-              <p className="typescale-2">
-                {promotion?.event?.startTime} - {promotion?.event?.endTime}
-              </p>
+              <p className="typescale-2">05/09 – 08/09</p>
             </div>
           </div>
         </div>
@@ -44,11 +42,7 @@ export const Modal = ({ open, setOpen, promotion }: Props) => (
             <CloseIcon />
           </div>
           {promotion?.event?.quicketEventId && (
-            <Link
-              href={promotion?.event?.quicketEventId}
-              target="_blank"
-              onClick={() => setOpen(false)}
-            >
+            <Link href="/albums" onClick={() => setOpen(false)}>
               <RightIcon />
             </Link>
           )}
