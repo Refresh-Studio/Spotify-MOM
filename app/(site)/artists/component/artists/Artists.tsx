@@ -3,7 +3,7 @@
 import gsap from 'gsap';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Artist } from '../../../../interface/artist/artist.interface';
 
