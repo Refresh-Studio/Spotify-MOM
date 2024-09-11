@@ -59,7 +59,7 @@ const ListOfEvents = ({ title, events }: EventListProps) => (
         <Fragment key={event._id}>
           <Event
             event={event}
-            action={<Button small link={`/tickets?event=${event.slug}`} label="Learn More" />}
+            action={<Button light small link={`/tickets?event=${event.slug}`} label="Learn More" />}
           />
           {index % 2 === 0 && (
             <div>
