@@ -65,7 +65,7 @@ export const Acts = ({ accessToken }: Props) => {
           <p className={`typescale-5 ${wideFont.className}`}>Discover the artists</p>
           <p className={`typescale-5 ${wideFont.className}`}>More being announced</p>
         </div>
-        <Button small link="/artists" label="View All Artists" />
+        <Button light small link="/artists" label="View All Artists" />
       </header>
       <main>
         {[spotlightList, followersList, nameList].map((list: Artist[], index: number) => (

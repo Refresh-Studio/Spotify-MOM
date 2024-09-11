@@ -119,18 +119,18 @@ const NavItem = ({ title, path }: ItemProps) => {
   useEffect(() => {
     timeline.fromTo(
       underlineRef.current,
-      { width: '0%', left: '0%' },
-      { width: '100%', duration: 0.3 }
+      { duration: 0.3, width: '0%', left: '0%' },
+      { duration: 0.3, width: '100%' }
     );
-  }, [timeline, underlineRef]);
+  }, [timeline]);
 
   const animate = (reverse?: boolean) => {
     if (reverse) {
-      timeline.reverse(100, true);
+      timeline.reverse();
       return;
     }
 
-    timeline.play(0, true);
+    timeline.play();
   };
 
   return (
