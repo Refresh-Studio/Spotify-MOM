@@ -130,32 +130,38 @@
   }
 
   &__artist {
+    position: relative;
     cursor: pointer;
-    padding: utils.bu(1.5) utils.bu(2.5) utils.bu(1.5) utils.bu(1);
-    color: map.get(colors.$base-color, white);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+    .artist-bg {
+      left: 0;
+      position: absolute;
+      width: 100%;
+      background-color: map.get(colors.$base-color, secondary);
+    }
+
+    > li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: utils.bu(1.5) utils.bu(2.5) utils.bu(1.5) utils.bu(1);
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: utils.bu(2);
+
+        @include mixins.breakpoint(lg) {
+          gap: utils.bu(3.5);
+        }
+      }
+    }
 
     &:last-child {
       border-bottom: none;
-    }
-
-    &:hover {
-      background-color: map.get(colors.$base-color, secondary);
-      color: map.get(colors.$base-color, black);
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-      gap: utils.bu(2);
-
-      @include mixins.breakpoint(lg) {
-        gap: utils.bu(3.5);
-      }
     }
 
     #{$block}__icon {

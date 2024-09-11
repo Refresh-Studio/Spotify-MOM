@@ -13,14 +13,35 @@
   justify-content: center;
   gap: utils.bu(1);
   text-transform: uppercase;
+  position: relative;
   padding: 0 utils.rem(18);
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: utils.bu(1);
+  }
+
+  .button-bg {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background-color: map.get(colors.$base-color, secondary);
+  }
 
   @include mixins.breakpoint(md) {
     padding: 0 utils.bu(2.5);
   }
 
   &:hover {
-    background-color: map.get(colors.$base-color, secondary);
+    > div {
+      color: map.get(colors.$base-color, black);
+    }
+
+    > .button-bg {
+      border-color: map.get(colors.$base-color, black);
+      background-color: map.get(colors.$base-color, secondary);
+    }
   }
 
   &--small {
@@ -32,7 +53,11 @@
   }
 
   &--medium {
-    height: 48px;
+    height: 40px;
+
+    @include mixins.breakpoint(sm) {
+      height: 48px;
+    }
   }
 
   &--large {
@@ -50,7 +75,15 @@
 
     &:hover {
       border-color: map.get(colors.$base-color, secondary);
-      color: map.get(colors.$base-color, black);
+
+      > div {
+        color: map.get(colors.$base-color, black);
+      }
+
+      > .button-bg {
+        border-color: map.get(colors.$base-color, secondary);
+        background-color: map.get(colors.$base-color, transparent);
+      }
     }
   }
 
@@ -71,9 +104,16 @@
     border: 1px solid map.get(colors.$base-color, black);
 
     &:hover {
-      background-color: map.get(colors.$base-color, primary);
       border-color: map.get(colors.$base-color, primary);
-      color: map.get(colors.$base-color, black);
+
+      > div {
+        color: map.get(colors.$base-color, black);
+      }
+
+      > .button-bg {
+        border-color: map.get(colors.$base-color, primary);
+        background-color: map.get(colors.$base-color, primary);
+      }
     }
   }
 
@@ -83,9 +123,16 @@
     color: map-get(colors.$base-color, grey);
 
     &:hover {
-      background-color: map.get(colors.$base-color, secondary);
       border-color: map.get(colors.$base-color, black);
-      color: map.get(colors.$base-color, black);
+
+      > div {
+        color: map.get(colors.$base-color, black);
+      }
+
+      > .button-bg {
+        border-color: map.get(colors.$base-color, black);
+        background-color: map.get(colors.$base-color, secondary);
+      }
     }
   }
 

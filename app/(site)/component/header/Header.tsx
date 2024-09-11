@@ -1,8 +1,9 @@
 'use client';
 
+import gsap from 'gsap';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { hotjar } from 'react-hotjar';
 
 import { Promotion } from '../../../interface/promotion.interface';
@@ -96,16 +97,51 @@ export const Header = () => {
           <SpotifyIcon />
         </Link>
         <nav>
-          <Link className="typescale-2" href="/artists">
-            Discover Artists
-          </Link>
-          <Link className="typescale-2" href="/albums">
-            Gallery
-          </Link>
+          <NavItem title="Discover Artists" path="/artists" />
+          <NavItem title="Gallery" path="/albums" />
           <Button light small link="/tickets" label="Get Tickets" />
         </nav>
       </header>
       {promotion && <Modal open={open} setOpen={setOpen} promotion={promotion} />}
     </>
+  );
+};
+
+interface ItemProps {
+  title: string;
+  path: string;
+}
+
+const NavItem = ({ title, path }: ItemProps) => {
+  const underlineRef = useRef(null);
+  const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
+
+  useEffect(() => {
+    timeline.fromTo(
+      underlineRef.current,
+      { duration: 0.3, width: '0%', left: '0%' },
+      { duration: 0.3, width: '100%' }
+    );
+  }, [timeline]);
+
+  const animate = (reverse?: boolean) => {
+    if (reverse) {
+      timeline.reverse();
+      return;
+    }
+
+    timeline.play();
+  };
+
+  return (
+    <Link
+      className="typescale-2"
+      href={path}
+      onMouseEnter={() => animate()}
+      onMouseLeave={() => animate(true)}
+    >
+      {title}
+      <span className="nav-underline" ref={underlineRef} />
+    </Link>
   );
 };

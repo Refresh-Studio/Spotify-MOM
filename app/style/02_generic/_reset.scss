@@ -69,16 +69,6 @@ input[type='radio'] {
 a {
   text-decoration: none;
   color: inherit;
-
-  &:not(.button, .tabs__link) {
-    &:hover {
-      text-decoration: none;
-
-      @include mixins.breakpoint(lg) {
-        text-decoration: underline;
-      }
-    }
-  }
 }
 
 button {
