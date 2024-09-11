@@ -8,9 +8,14 @@
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   cursor: pointer;
   border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
+
+  > div {
+    display: flex;
+    justify-content: center;
+  }
 
   &--hollow {
     background-color: map.get(colors.$base-color, transparent);

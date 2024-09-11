@@ -1,10 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { PropsWithChildren, useState } from 'react';
-import Marquee from 'react-fast-marquee';
+import React, { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
+// import Marquee from 'react-fast-marquee';
+import Tickrr from 'react-ticker';
 
 import './ticker.scss';
+import gsap, { Power0 } from 'gsap';
 
 interface Props extends PropsWithChildren {
   id?: string;
@@ -25,7 +27,37 @@ export const Ticker = ({
   path
 }: Props) => {
   const router = useRouter();
-  const [currentSpeed, setCurrentSpeed] = useState<number>(speed);
+  const [currentSpeed, setCurrentSpeed] = useState<number>(3);
+
+  const tickerRef = useRef<HTMLDivElement>(null);
+  const tickerWrapperRef = useRef<HTMLDivElement>(null);
+  const tickerItemsRef = useRef<HTMLDivElement>(null);
+
+  const timeline = useMemo(() => gsap.timeline({ repeat: -1 }), []);
+
+  useEffect(() => {
+    if(tickerRef.current && tickerWrapperRef.current){
+      const tickerWidth = tickerRef.current.offsetWidth;
+      const tickerWrapperWidth = tickerWrapperRef.current.offsetWidth;
+
+      // const tickerItemsClone = tickerItemsRef.current.cloneNode(true);
+      // console.log(tickerItemsClone)
+      // tickerRef.current.appendChild(tickerItemsClone as Node);
+
+
+
+      timeline.to(tickerWrapperRef.current, {
+        duration: tickerWidth / tickerWrapperWidth,
+        x: -tickerWrapperWidth,
+        ease: 'none',
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % tickerWrapperWidth) // Ensure smooth reset of position
+        }
+      });
+
+      // right && timeline.reverse();
+    }
+  }, [timeline, tickerRef, tickerWrapperRef, right]);
 
   const handleClick = () => {
     if (path) {
@@ -38,12 +70,19 @@ export const Ticker = ({
       className={`ticker ticker-${id} ${hollow ? 'ticker--hollow' : ''}`}
       style={{ height }}
       onClick={handleClick}
-      onMouseEnter={() => setCurrentSpeed(speed - 3)}
-      onMouseLeave={() => setCurrentSpeed(speed)}
+      ref={tickerRef}
+      onMouseEnter={() => timeline.duration(10)}
+      onMouseLeave={() => timeline.duration(5)}
     >
-      <Marquee autoFill speed={currentSpeed} direction={right ? 'right' : 'left'}>
+      {/* <Marquee autoFill speed={currentSpeed} direction={right ? 'right' : 'left'}>
         {children}
-      </Marquee>
+      </Marquee> */}
+      <div ref={tickerWrapperRef}>
+        {/* <div ref={tickerItemsRef}> */}
+          {children}
+        {/* </div> */}
+      </div>
+
     </section>
   );
 };
