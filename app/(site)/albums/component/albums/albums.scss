@@ -4,19 +4,42 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .albums {
-  padding: utils.bu(7.5) utils.bu(2);
+  padding-left: utils.bu(2);
+  padding-left: utils.bu(2);
+  padding-bottom: utils.bu(7.5);
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: utils.bu(2.5);
+  align-items: start;
+  flex-direction: column;
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(15) utils.bu(7.5);
   }
+
+  &__items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: utils.bu(2.5);
+  }
+
+  &__tabs {
+    margin-bottom: utils.bu(4);
+
+    @include mixins.breakpoint(md) {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.albums {
+  padding-right: utils.bu(2);
 }
 
 .album {
   max-width: 100%;
+  opacity: 50%;
 
   @include mixins.breakpoint(md) {
     height: 615px;
@@ -39,6 +62,8 @@
   }
 
   &:hover {
+    opacity: 100%;
+
     > p {
       text-decoration: underline;
     }
@@ -55,5 +80,95 @@
     color: map.get(colors.$base-color, silver);
     text-transform: uppercase;
     margin-top: utils.bu(1);
+  }
+}
+
+.list-albums {
+  display: flex;
+  flex-direction: column;
+  padding-left: utils.bu(2);
+  padding-bottom: utils.bu(7.5);
+  padding-right: utils.bu(2);
+
+  @include mixins.breakpoint(lg) {
+    padding: utils.bu(15) utils.bu(7.5);
+  }
+
+  &__items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: utils.bu(4);
+  }
+}
+
+.list-album {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 92px;
+  border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+  border-bottom: none;
+  align-items: center;
+  padding-left: utils.bu(2.5);
+  padding-right: utils.bu(2.5);
+
+  &:last-child {
+    border-bottom: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+  }
+
+  &:hover {
+    background-color: map.get(colors.$base-color, secondary);
+
+    &,
+    & * {
+      color: map.get(colors.$base-color, black);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+
+    @include mixins.breakpoint(md) {
+      width: 40%;
+    }
+
+    > p {
+      color: map.get(colors.$base-color, white);
+      text-transform: uppercase;
+
+      &:first-of-type {
+        color: map.get(colors.$base-color, primary);
+      }
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+
+    @include mixins.breakpoint(md) {
+      width: 40%;
+    }
+
+    > svg {
+      color: map.get(colors.$base-color, white);
+    }
+
+    > small {
+      display: block;
+      color: map.get(colors.$base-color, silver);
+      text-transform: uppercase;
+    }
   }
 }
