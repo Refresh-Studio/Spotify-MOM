@@ -31,21 +31,7 @@ export async function getPromotion() {
     groq`*[_type == "promotion"] {
   _id,
   "image": image.asset->url,
-  event->{
-    _id,
-    "slug": slug.current,
-    name,
-    calendarStartDate,
-    startDate,
-    calendarEndDate,
-    endDate,
-    startTime,
-    endTime,
-    free,
-    address,
-    lineup,
-    quicketEventId
-  }
+  title
 }`
   );
 }
