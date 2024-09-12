@@ -45,6 +45,11 @@ const artist = {
       type: 'boolean'
     }),
     defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text'
+    }),
+    defineField({
       name: 'genres',
       title: 'Genres',
       type: 'array',

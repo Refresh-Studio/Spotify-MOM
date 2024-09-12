@@ -24,18 +24,14 @@ export const Modal = ({ open, setOpen, promotion }: Props) => (
     <div>
       <DialogPanel className="modal__panel">
         <div className="modal__details">
-          <Image src={promotion?.image} alt={promotion?.event?.name} width={184} height={230} />
+          <Image src={promotion?.image} alt={promotion?.title} width={184} height={230} />
           <div>
             <div className="modal__details-event">
-              <p className="typescale-2">Register for free tickets</p>
-              <h1 className={`typescale-5 ${wideFont.className}`}>{promotion?.event?.name}</h1>
-              <h2 className={`typescale-5 ${wideFont.className}`}>{promotion?.event?.address}</h2>
+              <p className="typescale-2">Gallery</p>
+              <h1 className={`typescale-5 ${wideFont.className}`}>{promotion?.title}</h1>
             </div>
             <div className="modal__times">
-              <p className="typescale-2">{promotion?.event?.startDate}</p>
-              <p className="typescale-2">
-                {promotion?.event?.startTime} - {promotion?.event?.endTime}
-              </p>
+              <p className="typescale-2">05/09 – 08/09</p>
             </div>
           </div>
         </div>
@@ -43,15 +39,9 @@ export const Modal = ({ open, setOpen, promotion }: Props) => (
           <div onClick={() => setOpen(false)}>
             <CloseIcon />
           </div>
-          {promotion?.event?.quicketEventId && (
-            <Link
-              href={promotion?.event?.quicketEventId}
-              target="_blank"
-              onClick={() => setOpen(false)}
-            >
-              <RightIcon />
-            </Link>
-          )}
+          <Link href="/albums" onClick={() => setOpen(false)}>
+            <RightIcon />
+          </Link>
         </div>
       </DialogPanel>
     </div>

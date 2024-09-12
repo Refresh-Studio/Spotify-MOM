@@ -6,15 +6,14 @@ const promotion = {
   type: 'document',
   fields: [
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string'
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image'
-    }),
-    defineField({
-      name: 'event',
-      title: 'Event',
-      type: 'reference',
-      to: [{ type: 'event' }]
     })
   ]
 };

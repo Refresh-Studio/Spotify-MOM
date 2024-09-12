@@ -6,13 +6,16 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Artist } from '../../../../interface/artist/artist.interface';
+import { Filter } from '../../../../interface/filter/filter.interface';
 
 import { Button } from '../../../component/button/Button';
+import { TabItem, Tabs } from '../../../component/tabs/Tabs';
 
 import { ReactComponent as CloseIcon } from '../../../../asset/close.svg';
 import { ReactComponent as RightIcon } from '../../../../asset/right.svg';
 import { ReactComponent as ViewIcon } from '../../../../asset/view.svg';
 
+import { getArtistFilters } from '../../../../../sanity/sanity.query';
 import { wideFont } from '../../../../constant';
 
 import './artists.scss';
@@ -24,6 +27,19 @@ interface Props {
 export const Artists = ({ artists = [] }: Props) => {
   const searchParams = useSearchParams();
   const [activeArtist, setActiveArtist] = useState<Artist | undefined>();
+  const [filters, setFilters] = useState<TabItem[]>([]);
+
+  useEffect(() => {
+    const callApi = async () => {
+      const artistFilters = await getArtistFilters();
+      setFilters([
+        { path: 'all', name: 'All' },
+        ...artistFilters.map((filter: Filter) => ({ path: filter.slug, name: filter.title }))
+      ]);
+    };
+
+    callApi();
+  }, []);
 
   const query = useMemo(() => {
     return searchParams.get('query');
@@ -45,6 +61,7 @@ export const Artists = ({ artists = [] }: Props) => {
 
   return (
     <section className="artists dark-section">
+      <Tabs tabs={filters} hollow />
       <nav className="artists__list">
         {(filteredArtists ?? []).map((artist: Artist) => (
           <ArtistRow
@@ -63,6 +80,9 @@ export const Artists = ({ artists = [] }: Props) => {
             {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
               <Tag key={tag} title={tag} />
             ))}
+          </div>
+          <div className="artists__description">
+            <p className="typescale-3">{activeArtist.description}</p>
           </div>
           <Button
             target="_blank"
@@ -160,6 +180,9 @@ const ArtistRow = ({ artist, activeArtist, setActiveArtist }: RowProps) => {
             {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
               <Tag key={tag} title={tag} />
             ))}
+          </div>
+          <div className="artists__description">
+            <p className="typescale-3">{activeArtist.description}</p>
           </div>
           <Button
             target="_blank"
