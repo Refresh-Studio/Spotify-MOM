@@ -78,6 +78,7 @@
       &--active {
         background-color: map.get(colors.$base-color, primary);
         color: map.get(colors.$base-color, black);
+        border: none;
       }
 
       &:first-child {
