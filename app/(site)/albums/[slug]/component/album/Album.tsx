@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Album as AlbumItem } from '../../../../../interface/gallery/album.interface';
-import { AlbumImage } from '../../../../../interface/gallery/carousel-image.interface';
+import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
 
 import { ResponsiveImage } from '../../../../component/carousel/ResponsiveImage';
 
@@ -23,7 +23,7 @@ export const Album = ({ album }: Props) => {
     <section className="album-section dark-section">
       {album.images.map((image: AlbumImage) => (
         <div key={image._id} onClick={() => setSelectedImage(image)}>
-          <ResponsiveImage src={image.src} alt={image.name} key={image._id} />
+          <ResponsiveImage src={image.src} alt={image._id} key={image._id} />
           <footer>
             <Share image={image} />
             <a

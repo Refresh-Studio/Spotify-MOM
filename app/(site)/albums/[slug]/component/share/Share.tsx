@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import { AlbumImage } from '../../../../../interface/gallery/carousel-image.interface';
+import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
 
 import { ReactComponent as CloseIcon } from '../../../../../asset/close.svg';
 import { ReactComponent as FacebookIcon } from '../../../../../asset/facebook.svg';
