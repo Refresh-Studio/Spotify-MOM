@@ -26,6 +26,8 @@ export const Modal = ({ open, setOpen, image }: Props) => (
           src={image.src}
           alt={image.src}
           fill
+          priority
+          loading="eager"
           objectFit="contain"
           onClick={(e) => e.stopPropagation()}
         />
