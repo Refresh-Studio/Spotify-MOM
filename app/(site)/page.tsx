@@ -8,7 +8,6 @@ import { Banner } from './component/banner/Banner';
 import { Carousel } from './component/carousel/Carousel';
 import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
-import { Message } from './component/message/Message';
 import { Playlist } from './component/playlist/Playlist';
 import { Ticker } from './component/ticker/Ticker';
 import { Details } from './component/ticker/details/Details';
@@ -50,7 +49,6 @@ const Home = () => {
         <Details />
       </Ticker>
       <Hero />
-      <Message />
       <Acts accessToken={accessToken!} />
       <Carousel />
       <Events />
