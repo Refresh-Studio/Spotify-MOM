@@ -12,9 +12,13 @@
   cursor: pointer;
   border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
 
-  > div > div {
-    display: flex;
-    justify-content: center;
+  // > div > div {
+  //   display: flex;
+  //   justify-content: center;
+  // }
+
+  > div {
+    min-width: unset !important;
   }
 
   &--hollow {
