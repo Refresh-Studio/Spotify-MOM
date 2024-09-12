@@ -26,6 +26,11 @@
       align-items: center;
       position: relative;
       cursor: pointer;
+      transition: border-color 1.8s linear;
+
+      &:hover {
+        border-color: rgba(map-get(colors.$base-color, grey), 0);
+      }
 
       > a {
         color: map-get(colors.$base-color, white);
@@ -33,7 +38,6 @@
 
       > span {
         position: absolute;
-        background-color: map-get(colors.$base-color, grey);
 
         &:first-of-type {
           top: 0;

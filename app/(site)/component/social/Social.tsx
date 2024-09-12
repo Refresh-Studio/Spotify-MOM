@@ -17,44 +17,52 @@ export const Social = () => {
         topBorderRef.current,
         {
           duration: 0.5,
-          width: '0%'
+          width: '0%',
+          backgroundColor: '#f036a4'
         },
         {
           duration: 0.5,
-          width: '100%'
+          width: '100%',
+          backgroundColor: '#f036a4'
         }
       )
       .fromTo(
         rightBorderRef.current,
         {
           duration: 0.5,
-          height: '0%'
+          height: '0%',
+          backgroundColor: '#f036a4'
         },
         {
           duration: 0.5,
-          height: '100%'
+          height: '100%',
+          backgroundColor: '#f0c4d9'
         }
       )
       .fromTo(
         bottomBorderRef.current,
         {
           duration: 0.5,
-          width: '0%'
+          width: '0%',
+          backgroundColor: '#f0c4d9'
         },
         {
           duration: 0.5,
-          width: '100%'
+          width: '100%',
+          backgroundColor: '#f0c4d9'
         }
       )
       .fromTo(
         leftBorderRef.current,
         {
           duration: 0.5,
-          height: '0%'
+          height: '0%',
+          backgroundColor: '#f0c4d9'
         },
         {
           duration: 0.5,
-          height: '100%'
+          height: '100%',
+          backgroundColor: '#f036a4'
         }
       );
   }, [timeline]);
