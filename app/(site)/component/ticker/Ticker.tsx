@@ -36,28 +36,30 @@ export const Ticker = ({
   const timeline = useMemo(() => gsap.timeline({ repeat: -1 }), []);
 
   useEffect(() => {
-    if(tickerRef.current && tickerWrapperRef.current){
+    if(tickerRef.current && tickerWrapperRef.current && tickerItemsRef.current){
       const tickerWidth = tickerRef.current.offsetWidth;
-      const tickerWrapperWidth = tickerWrapperRef.current.offsetWidth;
+      const tickerItemsWidth = tickerItemsRef.current.offsetWidth;
 
-      // const tickerItemsClone = tickerItemsRef.current.cloneNode(true);
-      // console.log(tickerItemsClone)
-      // tickerRef.current.appendChild(tickerItemsClone as Node);
+      const tickerItemsClone = tickerItemsRef.current.cloneNode(true);
+      tickerRef.current.appendChild(tickerItemsClone as Node);
 
+      const speed = 100;
 
-
-      timeline.to(tickerWrapperRef.current, {
-        duration: tickerWidth / tickerWrapperWidth,
-        x: -tickerWrapperWidth,
+      timeline.fromTo(tickerWrapperRef.current, {
+        xPercent: tickerWidth / tickerItemsWidth / 2 * 100
+      }, {
+        xPercent: 0,
+        duration: tickerWidth / speed,
+        ease: 'none'
+      }).to(tickerWrapperRef.current, {
+        xPercent: -50,
         ease: 'none',
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % tickerWrapperWidth) // Ensure smooth reset of position
-        }
+        duration: tickerItemsWidth / speed
       });
 
       // right && timeline.reverse();
     }
-  }, [timeline, tickerRef, tickerWrapperRef, right]);
+  }, [timeline, tickerRef, tickerWrapperRef, tickerItemsRef]);
 
   const handleClick = () => {
     if (path) {
@@ -71,16 +73,16 @@ export const Ticker = ({
       style={{ height }}
       onClick={handleClick}
       ref={tickerRef}
-      onMouseEnter={() => timeline.duration(10)}
-      onMouseLeave={() => timeline.duration(5)}
+      // onMouseEnter={() => timeline.duration(10)}
+      // onMouseLeave={() => timeline.duration(5)}
     >
       {/* <Marquee autoFill speed={currentSpeed} direction={right ? 'right' : 'left'}>
         {children}
       </Marquee> */}
       <div ref={tickerWrapperRef}>
-        {/* <div ref={tickerItemsRef}> */}
+        <div ref={tickerItemsRef}>
           {children}
-        {/* </div> */}
+        </div>
       </div>
 
     </section>
