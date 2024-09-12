@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
 import React from 'react';
 
-import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
+import { AlbumImage } from '../../../../../interface/gallery/carousel-image.interface';
 
 import { ReactComponent as DownloadIcon } from '../../../../../asset/download.svg';
 import { ReactComponent as FullscreenIcon } from '../../../../../asset/fullscreen.svg';

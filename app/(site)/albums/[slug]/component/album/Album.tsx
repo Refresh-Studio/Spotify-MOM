@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { AlbumImage } from '../../../../../interface/gallery/album-image.interface';
 import { Album as AlbumItem } from '../../../../../interface/gallery/album.interface';
+import { AlbumImage } from '../../../../../interface/gallery/carousel-image.interface';
 
 import { ResponsiveImage } from '../../../../component/carousel/ResponsiveImage';
 
