@@ -37,7 +37,7 @@ export const Ticker = ({
     drag: false,
     created: (s) => {
       console.log('slide changed')
-      s.moveToIdx(Children.map(children, child => child)?.length || 5, true, animation);
+      s.moveToIdx(Children.map(children, child => child)?.length - 1 || 5, true, animation);
     },
     updated: (s) => { 
       console.log('slide changed')
