@@ -40,25 +40,20 @@ export const Event = ({
   }, []);
 
   useEffect(() => {
-    timeline
-      .fromTo(
-        underlineRef.current,
-        { width: '0%', opacity: 0 },
-        { width: '100%', duration: 0.4, opacity: 1 }
-      )
-      .to(underlineRef.current, {
-        duration: 0.4,
-        ease: 'power2.inOut'
-      });
+    timeline.fromTo(
+      underlineRef.current,
+      { width: '0%', opacity: 0 },
+      { width: '100%', duration: 0.4, opacity: 1 }
+    );
   }, [timeline, underlineRef]);
 
   const animate = (reverse?: boolean) => {
     if (reverse) {
-      timeline.reverse(100, true);
+      timeline.reverse();
       return;
     }
 
-    timeline.play(0, true);
+    timeline.play();
   };
 
   return (
