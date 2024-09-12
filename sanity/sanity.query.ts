@@ -83,9 +83,8 @@ export async function getAlbums() {
     address
   },
   "coverImage": coverImage->image.asset->url,
-  images[]->{
-    _id,
-    "src": image.asset->url
+  images[]{
+    "src": asset->url
   }
 }`
   );
@@ -104,9 +103,8 @@ export async function getAlbum(slug: string) {
     address
   },
   "coverImage": coverImage->image.asset->url,
-  images[]->{
-    _id,
-    "src": image.asset->url
+  images[]{
+    "src": asset->url
   }
 }[0]`
   );
