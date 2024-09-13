@@ -50,7 +50,6 @@ export const Acts = ({ accessToken }: Props) => {
   }, [accessToken]);
 
   const spotlightList = artists.filter((artist: Artist) => artist.spotlight);
-
   spotlightList.sort();
 
   const followersList = [...artists];
