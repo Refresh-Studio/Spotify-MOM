@@ -9,6 +9,7 @@ import { Carousel } from './component/carousel/Carousel';
 import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
 import { Playlist } from './component/playlist/Playlist';
+import { Social } from './component/social/Social';
 import { Ticker } from './component/ticker/Ticker';
 import { Details } from './component/ticker/details/Details';
 import { GetTickets } from './component/ticker/tickets/GetTickets';
@@ -57,6 +58,7 @@ const Home = () => {
       </Ticker>
       <Banner />
       <Playlist />
+      <Social />
     </main>
   );
 };
