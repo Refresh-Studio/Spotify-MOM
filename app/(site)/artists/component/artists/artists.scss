@@ -185,7 +185,7 @@
     }
 
     &--active {
-      background-color: map.get(colors.$base-color, primary);
+      background-color: map.get(colors.$base-color, black);
       color: map.get(colors.$base-color, black);
     }
   }
