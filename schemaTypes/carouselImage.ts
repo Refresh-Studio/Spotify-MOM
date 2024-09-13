@@ -1,8 +1,8 @@
 import { defineField } from 'sanity';
 
-const albumImage = {
-  name: 'albumImage',
-  title: 'Album Image',
+const carouselImage = {
+  name: 'carouselImage',
+  title: 'Carousel Image',
   type: 'document',
   fields: [
     defineField({
@@ -20,4 +20,4 @@ const albumImage = {
   ]
 };
 
-export default albumImage;
+export default carouselImage;
