@@ -49,7 +49,10 @@ export const Acts = ({ accessToken }: Props) => {
     }
   }, [accessToken]);
 
-  const spotlightList = useMemo(() => artists.filter((artist: Artist) => artist.spotlight), [artists]);
+  const spotlightList = useMemo(
+    () => artists.filter((artist: Artist) => artist.spotlight),
+    [artists]
+  );
   spotlightList.sort();
 
   const followersList = [...artists];
@@ -69,7 +72,7 @@ export const Acts = ({ accessToken }: Props) => {
       </header>
       <main>
         {[spotlightList, followersList, nameList].map((list: Artist[], index: number) => (
-          <Ticker hollow height={70} speed={10} key={index}>
+          <Ticker pausedOnHover hollow height={70} speed={10} key={index}>
             {list.map((artist: Artist) => (
               <ArtistTick
                 priortiy
