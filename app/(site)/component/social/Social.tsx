@@ -70,7 +70,7 @@ export const Social = () => {
   return (
     <section className="social">
       <div>
-        <p>FOLLOW US ON INSTAGRAM</p>
+        <p className="typescale-3">FOLLOW US ON INSTAGRAM</p>
         <div onMouseEnter={() => timeline.play()} onMouseLeave={() => timeline.reverse()}>
           <a
             className="typescale-7"
