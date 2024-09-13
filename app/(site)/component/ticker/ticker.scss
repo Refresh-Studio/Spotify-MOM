@@ -12,10 +12,6 @@
   cursor: pointer;
   border: 1px solid rgba(map.get(colors.$base-color, white), 0.3);
 
-  > div {
-    min-width: unset !important;
-  }
-
   &--hollow {
     background-color: map.get(colors.$base-color, transparent);
   }
