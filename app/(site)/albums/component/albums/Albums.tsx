@@ -1,7 +1,8 @@
+import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Filter } from '../../../../interface/filter/filter.interface';
 import { Album } from '../../../../interface/gallery/album.interface';
@@ -26,6 +27,7 @@ export const Albums = ({ albums = [], displayState }: Props) => {
   const searchParams = useSearchParams();
 
   const [filters, setFilters] = useState<TabItem[]>([]);
+  const albumItemsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const callApi = async () => {
@@ -50,13 +52,24 @@ export const Albums = ({ albums = [], displayState }: Props) => {
 
     return albums.filter((album: Album) => album.filterTags.includes(query!));
   }, [query, albums]);
+
+  useEffect(() => {
+    if (albumItemsRef.current) {
+      gsap.fromTo(
+        albumItemsRef.current.children,
+        { opacity: 0 },
+        { opacity: 1, duration: 2, stagger: 0.1 }
+      );
+    }
+  }, [displayState, filteredAlbums]);
+
   if (displayState === 'grid') {
     return (
       <section className="albums dark-section">
         <div className="albums__tabs">
           <Tabs tabs={filters} hollow />
         </div>
-        <div className="albums__items">
+        <div className="albums__items" ref={albumItemsRef}>
           {filteredAlbums.map((album: Album) => (
             <AlbumGridItem key={album.slug} album={album} />
           ))}
@@ -71,7 +84,7 @@ export const Albums = ({ albums = [], displayState }: Props) => {
         <div className="albums__tabs">
           <Tabs tabs={filters} hollow />
         </div>
-        <div className="list-albums__items">
+        <div className="list-albums__items" ref={albumItemsRef}>
           {filteredAlbums.map((album: Album) => (
             <AlbumListItem key={album.slug} album={album} />
           ))}
