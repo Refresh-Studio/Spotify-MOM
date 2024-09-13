@@ -38,7 +38,7 @@ export const Album = ({ album }: Props) => {
       <div>
         {album.images.map((image: AlbumImage) => (
           <div key={image._id} onClick={() => setSelectedImage(image)}>
-            <ResponsiveImage src={image.src} alt={image.name} key={image._id} />
+            <ResponsiveImage src={image.src} alt={image.src} key={image._id} />
             <footer>
               <Share image={image} />
               <a

@@ -6,12 +6,11 @@
 .hero {
   position: relative;
   height: 100%;
-  min-height: 75vh;
+  min-height: calc(100vh - 40px);
   background: url('/images/hero-rotation.gif') no-repeat center;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-position-y: 200px;
   background-size: 550px;
   padding: 0 utils.bu(3) utils.bu(2);
 
@@ -19,8 +18,14 @@
     justify-content: space-between;
     flex-direction: row;
     padding: 0 utils.bu(7.5);
-    background-position-y: 100%;
+    padding-top: 10%;
     background-size: unset;
+    align-items: flex-start;
+  }
+
+  @include mixins.breakpoint(lg) {
+    padding-top: 0;
+    align-items: center;
   }
 
   > span {
@@ -33,7 +38,7 @@
     margin-top: utils.bu(1);
 
     @include mixins.breakpoint(md) {
-      margin-top: 10%;
+      margin-top: 0;
       text-align: left;
     }
 
@@ -41,7 +46,7 @@
       margin-top: utils.bu(18);
 
       @include mixins.breakpoint(md) {
-        margin-top: 10%;
+        margin-top: 0;
       }
     }
 

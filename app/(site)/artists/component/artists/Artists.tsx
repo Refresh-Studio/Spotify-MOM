@@ -62,41 +62,43 @@ export const Artists = ({ artists = [] }: Props) => {
   return (
     <section className="artists dark-section">
       <Tabs tabs={filters} hollow />
-      <nav className="artists__list">
-        {(filteredArtists ?? []).map((artist: Artist) => (
-          <ArtistRow
-            key={artist.slug}
-            artist={artist}
-            activeArtist={activeArtist}
-            setActiveArtist={setActiveArtist}
-          />
-        ))}
-      </nav>
-      {activeArtist && (
-        <div className="artists__details">
-          <h1 className={`typescale-7 ${wideFont.className}`}>{activeArtist?.name}</h1>
-          <p className="typescale-3">{activeArtist?.followers.toLocaleString()} followers</p>
-          <div className="artists__tags">
-            {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
-              <Tag key={tag} title={tag} />
-            ))}
+      <div className="artists__wrapper">
+        <nav className="artists__list">
+          {(filteredArtists ?? []).map((artist: Artist) => (
+            <ArtistRow
+              key={artist.slug}
+              artist={artist}
+              activeArtist={activeArtist}
+              setActiveArtist={setActiveArtist}
+            />
+          ))}
+        </nav>
+        {activeArtist && (
+          <div className="artists__details">
+            <h1 className={`typescale-7 ${wideFont.className}`}>{activeArtist?.name}</h1>
+            <p className="typescale-3">{activeArtist?.followers.toLocaleString()} followers</p>
+            <div className="artists__tags">
+              {(activeArtist?.genres ?? activeArtist?.musicTags ?? []).map((tag: string) => (
+                <Tag key={tag} title={tag} />
+              ))}
+            </div>
+            <div className="artists__description">
+              <p className="typescale-3">{activeArtist.description}</p>
+            </div>
+            <Button
+              target="_blank"
+              light
+              small
+              link={activeArtist?.url}
+              label="View Profile"
+              icon={<ViewIcon />}
+            />
+            <div className="artists__details-image">
+              <Image objectFit="cover" fill src={activeArtist?.image} alt={activeArtist?.name} />
+            </div>
           </div>
-          <div className="artists__description">
-            <p className="typescale-3">{activeArtist.description}</p>
-          </div>
-          <Button
-            target="_blank"
-            light
-            small
-            link={activeArtist?.url}
-            label="View Profile"
-            icon={<ViewIcon />}
-          />
-          <div className="artists__details-image">
-            <Image objectFit="cover" fill src={activeArtist?.image} alt={activeArtist?.name} />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 };

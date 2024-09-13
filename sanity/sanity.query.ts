@@ -83,10 +83,8 @@ export async function getAlbums() {
     address
   },
   "coverImage": coverImage->image.asset->url,
-  images[]->{
-    _id,
-    name,
-    "src": image.asset->url
+  images[]{
+    "src": asset->url
   }
 }`
   );
@@ -105,10 +103,8 @@ export async function getAlbum(slug: string) {
     address
   },
   "coverImage": coverImage->image.asset->url,
-  images[]->{
-    _id,
-    name,
-    "src": image.asset->url
+  images[]{
+    "src": asset->url
   }
 }[0]`
   );
@@ -153,9 +149,9 @@ export async function getArtists() {
   );
 }
 
-export async function getImages() {
+export async function getCarouselImages() {
   return client.fetch(
-    groq`*[_type == "galleryImage"] {
+    groq`*[_type == "carouselImage"] {
     _id,
     name,
     "src": image.asset->url
