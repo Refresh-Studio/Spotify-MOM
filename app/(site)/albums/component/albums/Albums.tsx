@@ -55,7 +55,11 @@ export const Albums = ({ albums = [], displayState }: Props) => {
 
   useEffect(() => {
     if (albumItemsRef.current) {
-      gsap.fromTo(albumItemsRef.current.children, { opacity: 0 }, { opacity: 1, duration: 2 });
+      gsap.fromTo(
+        albumItemsRef.current.children,
+        { opacity: 0 },
+        { opacity: 1, duration: 2, stagger: 0.1 }
+      );
     }
   }, [displayState, filteredAlbums]);
 
