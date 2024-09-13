@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren } from 'react';
 import Marquee from 'react-fast-marquee';
 
 import './ticker.scss';
@@ -13,6 +13,7 @@ interface Props extends PropsWithChildren {
   speed?: number;
   hollow?: boolean;
   path?: string;
+  pausedOnHover?: boolean;
 }
 
 export const Ticker = ({
@@ -22,10 +23,10 @@ export const Ticker = ({
   height = 40,
   hollow = false,
   speed = 100,
-  path
+  path,
+  pausedOnHover = false
 }: Props) => {
   const router = useRouter();
-  const [currentSpeed, setCurrentSpeed] = useState<number>(speed);
 
   const handleClick = () => {
     if (path) {
@@ -38,10 +39,13 @@ export const Ticker = ({
       className={`ticker ticker-${id} ${hollow ? 'ticker--hollow' : ''}`}
       style={{ height }}
       onClick={handleClick}
-      onMouseEnter={() => setCurrentSpeed(speed - 3)}
-      onMouseLeave={() => setCurrentSpeed(speed)}
     >
-      <Marquee autoFill speed={currentSpeed} direction={right ? 'right' : 'left'}>
+      <Marquee
+        pauseOnHover={pausedOnHover}
+        autoFill
+        speed={speed}
+        direction={right ? 'right' : 'left'}
+      >
         {children}
       </Marquee>
     </section>
