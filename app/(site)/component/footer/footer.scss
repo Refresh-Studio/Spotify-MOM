@@ -63,7 +63,8 @@
       height: 48px;
       background-color: map.get(colors.$base-color, black);
       color: map.get(colors.$base-color, white);
-      border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+      border-top: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+      border-left: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
       border-bottom: none;
       width: 100%;
 
