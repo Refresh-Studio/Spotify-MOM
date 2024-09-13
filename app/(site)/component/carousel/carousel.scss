@@ -11,21 +11,12 @@
     padding: utils.bu(13) 0;
   }
 
-  .ticker {
-    height: 329px !important;
-    border: none;
-    cursor: default;
-
-    @include mixins.breakpoint(lg) {
-      height: 597px !important;
-    }
-  }
-
   img {
     margin-left: utils.rem(5);
     margin-right: utils.rem(5);
     height: 329px !important;
     object-fit: cover;
+    pointer-events: none;
 
     &.portrait {
       max-width: 220px !important;
@@ -49,5 +40,9 @@
         max-width: 906px !important;
       }
     }
+  }
+
+  > div > ul {
+    display: flex;
   }
 }
