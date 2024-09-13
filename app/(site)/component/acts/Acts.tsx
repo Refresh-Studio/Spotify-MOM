@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Artist } from '../../../interface/artist/artist.interface';
 
@@ -49,10 +49,8 @@ export const Acts = ({ accessToken }: Props) => {
     }
   }, [accessToken]);
 
-  const spotlightList = useMemo(
-    () => artists.filter((artist: Artist) => artist.spotlight),
-    [artists]
-  );
+  const spotlightList = artists.filter((artist: Artist) => artist.spotlight);
+
   spotlightList.sort();
 
   const followersList = [...artists];
