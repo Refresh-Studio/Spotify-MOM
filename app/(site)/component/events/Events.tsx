@@ -53,6 +53,7 @@ const ListOfEvents = ({ title, events }: EventListProps) => (
   <article className="event-list">
     <header>
       <h1 className={`typescale-8 ${wideFont.className}`}>{title}</h1>
+      <Button light label="View All" link="/tickets" />
     </header>
     <section>
       {(events ?? []).map((event: EventItem, index: number) => (
