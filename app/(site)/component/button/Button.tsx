@@ -49,9 +49,9 @@ export const Button = ({
     timeline
       .fromTo(
         contentRef.current,
-        { duration: 0.1, z: 0, color: '#e0e1e3', borderColor: '#e0e1e3' },
+        { duration: 0.3, z: 0, color: '#e0e1e3', borderColor: '#e0e1e3' },
         {
-          duration: 0.1,
+          duration: 0.3,
           z: 1,
           color: '#000',
           borderColor: '#000'
@@ -59,8 +59,8 @@ export const Button = ({
       )
       .fromTo(
         buttonRef.current,
-        { duration: 0.2, height: 0, width: '100%', x: 0, y: '50%' },
-        { duration: 0.2, height: '100%', width: '100%', x: 0, y: 0 }
+        { duration: 0.4, height: 0, width: '100%', x: 0, y: '50%' },
+        { duration: 0.4, height: '100%', width: '100%', x: 0, y: 0 }
       );
   }, [timeline]);
 

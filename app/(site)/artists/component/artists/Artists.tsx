@@ -120,17 +120,17 @@ const ArtistRow = ({ artist, activeArtist, setActiveArtist }: RowProps) => {
     timeline
       .fromTo(
         contentRef.current,
-        { duration: 0.0001, z: 0, color: '#e0e1e3' },
+        { duration: 0.2, z: 0, color: '#e0e1e3' },
         {
-          duration: 0.0001,
+          duration: 0.2,
           z: 1,
           color: '#000'
         }
       )
       .fromTo(
         rowRef.current,
-        { duration: 0.2, height: 0, width: '100%', x: 0, y: 50 },
-        { duration: 0.2, height: '100%', width: '100%', x: 0, y: 0 }
+        { duration: 0.4, height: 0, width: '100%', x: 0, y: 35 },
+        { duration: 0.4, height: '100%', width: '100%', x: 0, y: 0 }
       );
   }, [timeline]);
 
