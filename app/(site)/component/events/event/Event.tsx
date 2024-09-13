@@ -40,11 +40,7 @@ export const Event = ({
   }, []);
 
   useEffect(() => {
-    timeline.fromTo(
-      underlineRef.current,
-      { width: '0%', opacity: 0 },
-      { width: '100%', duration: 0.4, opacity: 1 }
-    );
+    timeline.fromTo(underlineRef.current, { width: '0%' }, { width: '100%', duration: 0.4 });
   }, [timeline, underlineRef]);
 
   const animate = (reverse?: boolean) => {
