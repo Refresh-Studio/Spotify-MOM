@@ -35,11 +35,20 @@
 
 .albums {
   padding-right: utils.bu(2);
+
+  &:hover {
+    .album {
+      opacity: 50%;
+
+      &:hover {
+        opacity: 100%;
+      }
+    }
+  }
 }
 
 .album {
   max-width: 100%;
-  opacity: 50%;
 
   @include mixins.breakpoint(md) {
     height: 615px;
@@ -62,8 +71,6 @@
   }
 
   &:hover {
-    opacity: 100%;
-
     > p {
       text-decoration: underline;
     }
