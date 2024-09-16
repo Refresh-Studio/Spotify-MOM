@@ -28,34 +28,6 @@ export const Events = () => {
     callApi();
   }, []);
 
-  {
-    /*<header>*/
-  }
-  {
-    /*  <h1 className={`typescale-5 ${wideFont.className}`}>How mom tickets work</h1>*/
-  }
-  {
-    /*  <p className="typescale-4">*/
-  }
-  {
-    /*    Some events are free and for some we need to keep a head count! Events that require*/
-  }
-  {
-    /*    registration go through a randomised process which automatically releases tickets in*/
-  }
-  {
-    /*    batches every day.{' '}*/
-  }
-  {
-    /*    <strong>Check your inbox daily to see if you’ve been issued tickets for MOM.</strong>*/
-  }
-  {
-    /*  </p>*/
-  }
-  {
-    /*</header>*/
-  }
-
   return (
     <section className="events">
       <main>
