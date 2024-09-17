@@ -6,7 +6,7 @@
 $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
 
 .event {
-  width: 45%;
+  width: 100%;
   padding: utils.bu(3) 0;
   position: relative;
   min-height: 214px;
