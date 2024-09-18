@@ -7,18 +7,26 @@
   position: relative;
   height: 100%;
   min-height: calc(100vh - 40px);
-  background: url('/images/hero-rotation.gif') no-repeat center;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-size: 550px;
   padding: 0 utils.bu(3) utils.bu(2);
 
+  canvas {
+    height: 400px;
+    width: 366px;
+
+    @include mixins.breakpoint(lg) {
+      height: 100vh;
+      width: 100vw;
+    }
+  }
+
   @include mixins.breakpoint(md) {
     justify-content: space-between;
     flex-direction: row;
-    padding: 0 utils.bu(7.5);
-    padding-top: 10%;
+    padding: 10% utils.bu(7.5) 0;
     background-size: unset;
     align-items: flex-start;
   }
@@ -50,8 +58,19 @@
       }
     }
 
-    &:last-of-type {
+    &:nth-of-type(2n) {
+      display: block;
+
       @include mixins.breakpoint(md) {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      display: none;
+
+      @include mixins.breakpoint(md) {
+        display: block;
         max-width: 215px;
         text-align: right;
       }
