@@ -11,17 +11,19 @@ import { ResponsiveImage } from './ResponsiveImage';
 
 import './carousel.scss';
 
+gsap.registerPlugin(Draggable);
+
+type DragPositionType = { x: number; y: number };
+
 export const Carousel = () => {
   const [images, setImages] = useState<CarouselImage[]>([]);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [dragPosition, setDragPosition] = useState<{ x: number; y: number }>();
+  const [dragPosition, setDragPosition] = useState<DragPositionType>();
 
   const repeatedImages = Array.from(
     { length: images.length * 10 },
     (_, index) => images[index % images.length]
   );
-
-  gsap.registerPlugin(Draggable);
 
   useEffect(() => {
     const callApi = async () => {
