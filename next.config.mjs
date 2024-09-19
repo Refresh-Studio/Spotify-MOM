@@ -21,9 +21,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
         port: ''
+      },
+      {
+        hostname: 'dummyimage.com'
       }
-    ],
-    domains: ['dummyimage.com']
+    ]
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));

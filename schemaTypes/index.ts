@@ -1,7 +1,7 @@
 import album from './album';
-import albumImage from './albumImage';
 import artist from './artist';
 import artistFilter from './artistFilter';
+import carouselImage from './carouselImage';
 import event from './event';
 import eventFilter from './eventFilter';
 import eventList from './eventList';
@@ -11,7 +11,7 @@ import promotion from './promotion';
 
 export const schemaTypes = [
   album,
-  albumImage,
+  carouselImage,
   event,
   artist,
   eventList,

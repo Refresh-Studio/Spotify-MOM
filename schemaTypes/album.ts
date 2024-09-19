@@ -34,9 +34,9 @@ const album = {
     }),
     defineField({
       name: 'images',
-      title: 'Album Images',
+      title: 'Images',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'albumImage' }] }]
+      of: [{ type: 'image' }]
     }),
     defineField({
       name: 'filterTags',

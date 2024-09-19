@@ -42,6 +42,7 @@ export const ResponsiveImage = ({ src, alt }: Props) => {
       objectFit="contain"
       width={403}
       height={604}
+      priority
     />
   );
 };

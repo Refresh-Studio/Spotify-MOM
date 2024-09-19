@@ -1,10 +1,9 @@
 import gsap from 'gsap';
 import { useEffect, useMemo, useRef } from 'react';
 
-import './social.scss';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ResponsiveImage } from '../carousel/ResponsiveImage';
+
+import './social.scss';
 
 const images = [
   'https://dummyimage.com/400x300/00ff00/000',
@@ -23,28 +22,7 @@ export const Social = () => {
   const bottomBorderRef = useRef(null);
   const leftBorderRef = useRef(null);
 
-  const imagesRef = useRef<HTMLElement[]>([]);
-
   const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // ScrollTrigger.normalizeScroll(true);
-
-  useEffect(() => {
-    // ScrollSmoother.create({
-    //   smooth: 2,
-    //   effects: true,
-    //   normalizeScroll: true
-    // });
-
-    imagesRef.current.forEach((image: HTMLElement, index: number) => {
-      timeline.to(image, {
-        x: 2 * index,
-        duration: 0.5
-      });
-    });
-  }, [timeline]);
 
   useEffect(() => {
     timeline
@@ -52,44 +30,52 @@ export const Social = () => {
         topBorderRef.current,
         {
           duration: 0.5,
-          width: '0%'
+          width: '0%',
+          backgroundColor: '#f036a4'
         },
         {
           duration: 0.5,
-          width: '100%'
+          width: '100%',
+          backgroundColor: '#f036a4'
         }
       )
       .fromTo(
         rightBorderRef.current,
         {
           duration: 0.5,
-          height: '0%'
+          height: '0%',
+          backgroundColor: '#f036a4'
         },
         {
           duration: 0.5,
-          height: '100%'
+          height: '100%',
+          backgroundColor: '#f0c4d9'
         }
       )
       .fromTo(
         bottomBorderRef.current,
         {
           duration: 0.5,
-          width: '0%'
+          width: '0%',
+          backgroundColor: '#f0c4d9'
         },
         {
           duration: 0.5,
-          width: '100%'
+          width: '100%',
+          backgroundColor: '#f0c4d9'
         }
       )
       .fromTo(
         leftBorderRef.current,
         {
           duration: 0.5,
-          height: '0%'
+          height: '0%',
+          backgroundColor: '#f0c4d9'
         },
         {
           duration: 0.5,
-          height: '100%'
+          height: '100%',
+          backgroundColor: '#f036a4'
         }
       );
   }, [timeline]);
@@ -97,16 +83,12 @@ export const Social = () => {
   return (
     <section className="social">
       <div>
-        {
-          images.map((image, index) => (
-            <div key={image + index} ref={((el) => imagesRef.current[index] = el!)()}>
-              <ResponsiveImage src={image} alt={image + index} />
-            </div>
-          ))
-        }
+        {images.map((image, index) => (
+          <ResponsiveImage src={image} key={image + index} alt={image + index} />
+        ))}
       </div>
       <div>
-        <p>FOLLOW US ON INSTAGRAM</p>
+        <p className="typescale-3">FOLLOW US ON INSTAGRAM</p>
         <div onMouseEnter={() => timeline.play()} onMouseLeave={() => timeline.reverse()}>
           <a
             className="typescale-7"

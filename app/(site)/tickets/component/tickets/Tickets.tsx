@@ -1,7 +1,9 @@
 'use client';
 
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { scrollIntoView } from '../../../../util';
 
@@ -21,8 +23,11 @@ interface Props {
   events: EventItem[];
 }
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const Tickets = ({ events }: Props) => {
   const searchParams = useSearchParams();
+  const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const eventSlug = useMemo(() => {
     return searchParams.get('event');
@@ -67,29 +72,63 @@ export const Tickets = ({ events }: Props) => {
     return events.filter((event: EventItem) => event.tags.includes(query!));
   }, [query, events]);
 
+  useEffect(() => {
+    eventRefs.current.forEach((ref) => {
+      if (ref) {
+        gsap.fromTo(
+          ref,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [filteredEvents]);
+
+  const setRefs = (element: HTMLDivElement | null, index: number) => {
+    if (element) {
+      eventRefs.current[index] = element;
+    }
+  };
+
   return (
     <section className="tickets dark-section">
       <Tabs tabs={filters} hollow />
       <main>
         <ul>
-          {filteredEvents.map((event: EventItem) => {
+          {filteredEvents.map((event: EventItem, index: number) => {
             const albumSlug = albums.find((album) => album.event.slug === event.slug)?.slug;
 
             return (
-              <Event
-                key={event.slug}
-                expandable
-                filled
-                expanded={event.slug === eventSlug}
-                event={event}
-                action={
-                  albumSlug ? (
-                    <Button light large link={`/albums/${albumSlug}`} label="View Gallery" />
-                  ) : (
-                    <></>
-                  )
-                }
-              />
+              <div key={event.slug} ref={(element) => setRefs(element, index)}>
+                <Event
+                  key={event.slug}
+                  expandable
+                  filled
+                  expanded={event.slug === eventSlug}
+                  event={event}
+                  action={
+                    albumSlug ? (
+                      <Button light large link={`/albums/${albumSlug}`} label="View Gallery" />
+                    ) : (
+                      <></>
+                    )
+                  }
+                />
+              </div>
             );
           })}
         </ul>
