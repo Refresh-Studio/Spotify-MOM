@@ -65,7 +65,7 @@ export const Carousel = () => {
 
 interface DragItemProps {
   hover: boolean;
-  position?: { x: number; y: number };
+  position?: DragPositionType;
 }
 
 const DragItem = ({ hover, position }: DragItemProps) => (
