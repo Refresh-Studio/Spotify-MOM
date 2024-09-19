@@ -76,6 +76,6 @@ const DragItem = ({ hover, position }: DragItemProps) => (
       left: position?.x ?? 0
     }}
   >
-    <p className="typescale-2">DRAG</p>
+    <span className="typescale-2">DRAG</span>
   </div>
 );
