@@ -5,6 +5,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { Album } from '../../interface/gallery/album.interface';
 
 import { Loader } from '../component/loader/Loader';
+import { PageTransition } from '../component/page-slide/PageTransition';
 import { Albums } from './component/albums/Albums';
 import { Hero } from './component/hero/Hero';
 
@@ -19,11 +20,9 @@ const GalleryPage = () => {
   useEffect(() => {
     const callApi = async () => {
       const albums = await getAlbums();
-
       setAlbums(albums);
       setLoading(false);
     };
-
     callApi();
   }, []);
 
@@ -34,6 +33,7 @@ const GalleryPage = () => {
   return (
     <Suspense>
       <main>
+        <PageTransition />
         <Hero
           displayState={displayState}
           handleDisplayState={handleDisplayState}

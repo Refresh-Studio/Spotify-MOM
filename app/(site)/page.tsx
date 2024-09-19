@@ -8,6 +8,7 @@ import { Banner } from './component/banner/Banner';
 import { Carousel } from './component/carousel/Carousel';
 import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
+import { PageTransition } from './component/page-slide/PageTransition';
 import { Playlist } from './component/playlist/Playlist';
 import { Social } from './component/social/Social';
 import { Ticker } from './component/ticker/Ticker';
@@ -46,6 +47,7 @@ const Home = () => {
 
   return (
     <main style={{ backgroundColor: 'transparent' }}>
+      <PageTransition />
       <Ticker path="/tickets" speed={75} id="initial">
         <Details />
       </Ticker>
