@@ -41,7 +41,14 @@ export const Social = () => {
   const scrollTimeline = useMemo(
     () =>
       gsap.timeline({
-        defaults: { ease: 'none' }
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          trigger: scrollContainerRef.current,
+          start: 'top bottom+=5%',
+          end: 'bottom top-=5%',
+          scrub: true,
+          toggleActions: 'restart pause resume pause'
+        }
       }),
     []
   );
@@ -60,27 +67,13 @@ export const Social = () => {
           yPercent: () => gsap.utils.random(100, 1000),
           rotationY: -45,
           scale: 2,
-          filter: 'brightness(50%)',
-          scrollTrigger: {
-            trigger: scrollContainerRef.current,
-            start: 'top bottom+=5%',
-            end: 'bottom top-=5%',
-            scrub: true,
-            toggleActions: 'restart pause resume pause'
-          }
+          filter: 'brightness(50%)'
         },
         {
           yPercent: () => gsap.utils.random(-1000, -100),
           rotationY: 45,
           scale: 0.5,
-          filter: 'brightness(10%)',
-          scrollTrigger: {
-            trigger: scrollContainerRef.current,
-            start: 'top bottom+=5%',
-            end: 'bottom top-=5%',
-            scrub: true,
-            toggleActions: 'restart pause resume pause'
-          }
+          filter: 'brightness(10%)'
         },
         0
       )
@@ -92,14 +85,7 @@ export const Social = () => {
         {
           rotationX: -20,
           rotationZ: 10,
-          scale: 1.2,
-          scrollTrigger: {
-            trigger: scrollContainerRef.current,
-            start: 'top bottom+=5%',
-            end: 'bottom top-=5%',
-            scrub: true,
-            toggleActions: 'restart pause resume pause'
-          }
+          scale: 1.2
         },
         0
       )
@@ -109,14 +95,7 @@ export const Social = () => {
           scale: 2
         },
         {
-          scale: 0.5,
-          scrollTrigger: {
-            trigger: scrollContainerRef.current,
-            start: 'top bottom+=5%',
-            end: 'bottom top-=5%',
-            scrub: true,
-            toggleActions: 'restart pause resume pause'
-          }
+          scale: 0.5
         },
         0
       );
