@@ -1,4 +1,6 @@
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useMemo, useRef } from 'react';
 
 import { ResponsiveImage } from '../carousel/ResponsiveImage';
@@ -16,16 +18,112 @@ const images = [
   'https://dummyimage.com/800x600/ff0000/fff'
 ];
 
-export const Social = () => {
-  const topBorderRef = useRef(null);
-  const rightBorderRef = useRef(null);
-  const bottomBorderRef = useRef(null);
-  const leftBorderRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
 
-  const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
+export const Social = () => {
+  const topBorderRef = useRef<HTMLSpanElement>(null);
+  const rightBorderRef = useRef<HTMLSpanElement>(null);
+  const bottomBorderRef = useRef<HTMLSpanElement>(null);
+  const leftBorderRef = useRef<HTMLSpanElement>(null);
+
+  const hoverTimeline = useMemo(
+    () =>
+      gsap.timeline({
+        paused: true
+      }),
+    []
+  );
+
+  const scrollContainerRef = useRef<HTMLElement>(null);
+  const scrollWrapperRef = useRef<HTMLDivElement>(null);
+  const scrollItemRefs = useRef<HTMLDivElement[]>([]);
+
+  const scrollTimeline = useMemo(
+    () =>
+      gsap.timeline({
+        defaults: { ease: 'none' }
+      }),
+    []
+  );
+
+  useGSAP(() => {
+    scrollTimeline
+      .set(scrollWrapperRef.current, {
+        rotationX: 20
+      })
+      .set(scrollItemRefs.current, {
+        z: () => gsap.utils.random(-3000, -1000)
+      })
+      .fromTo(
+        scrollItemRefs.current,
+        {
+          yPercent: () => gsap.utils.random(100, 1000),
+          rotationY: -45,
+          scale: 2,
+          filter: 'brightness(50%)',
+          scrollTrigger: {
+            trigger: scrollContainerRef.current,
+            start: 'top bottom+=5%',
+            end: 'bottom top-=5%',
+            scrub: true,
+            toggleActions: 'restart pause resume pause'
+          }
+        },
+        {
+          yPercent: () => gsap.utils.random(-1000, -100),
+          rotationY: 45,
+          scale: 0.5,
+          filter: 'brightness(10%)',
+          scrollTrigger: {
+            trigger: scrollContainerRef.current,
+            start: 'top bottom+=5%',
+            end: 'bottom top-=5%',
+            scrub: true,
+            toggleActions: 'restart pause resume pause'
+          }
+        },
+        0
+      )
+      .fromTo(
+        scrollWrapperRef.current,
+        {
+          rotationZ: -5
+        },
+        {
+          rotationX: -20,
+          rotationZ: 10,
+          scale: 1.2,
+          scrollTrigger: {
+            trigger: scrollContainerRef.current,
+            start: 'top bottom+=5%',
+            end: 'bottom top-=5%',
+            scrub: true,
+            toggleActions: 'restart pause resume pause'
+          }
+        },
+        0
+      )
+      .fromTo(
+        scrollItemRefs.current,
+        {
+          scale: 2
+        },
+        {
+          scale: 0.5,
+          scrollTrigger: {
+            trigger: scrollContainerRef.current,
+            start: 'top bottom+=5%',
+            end: 'bottom top-=5%',
+            scrub: true,
+            toggleActions: 'restart pause resume pause'
+          }
+        },
+        0
+      );
+  }, [scrollTimeline]);
 
   useEffect(() => {
-    timeline
+    hoverTimeline
       .fromTo(
         topBorderRef.current,
         {
@@ -78,18 +176,27 @@ export const Social = () => {
           backgroundColor: '#f036a4'
         }
       );
-  }, [timeline]);
+  }, [hoverTimeline]);
 
   return (
-    <section className="social">
-      <div>
+    <section ref={scrollContainerRef} className="social">
+      <div ref={scrollWrapperRef}>
         {images.map((image, index) => (
-          <ResponsiveImage src={image} key={image + index} alt={image + index} />
+          <div
+            key={image + index}
+            ref={(element) => {
+              if (element && !scrollItemRefs.current.includes(element)) {
+                scrollItemRefs.current.push(element);
+              }
+            }}
+          >
+            <ResponsiveImage src={image} alt={image + index} />
+          </div>
         ))}
       </div>
       <div>
         <p className="typescale-3">FOLLOW US ON INSTAGRAM</p>
-        <div onMouseEnter={() => timeline.play()} onMouseLeave={() => timeline.reverse()}>
+        <div onMouseEnter={() => hoverTimeline.play()} onMouseLeave={() => hoverTimeline.reverse()}>
           <a
             className="typescale-7"
             href="https://www.instagram.com/spotifyafrica/"
