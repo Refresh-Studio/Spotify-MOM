@@ -5,8 +5,8 @@ import './page-transition.scss';
 
 export const PageTransition = () => {
   useEffect(() => {
-    gsap.set('.page-transition_block', { x: '0%' });
-    gsap.to('.page-transition_block', {
+    gsap.set('.page-transition__block', { x: '0%' });
+    gsap.to('.page-transition__block', {
       duration: 0.8,
       x: '100%',
       ease: 'power2.out',
@@ -22,7 +22,7 @@ export const PageTransition = () => {
   return (
     <div className="page-transition">
       {transitionBlocks.map((_, index) => (
-        <div className="page-transition_block" key={index} />
+        <div className="page-transition__block" key={index} />
       ))}
     </div>
   );
