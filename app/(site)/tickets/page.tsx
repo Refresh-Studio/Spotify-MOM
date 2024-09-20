@@ -5,6 +5,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { EventItem } from '../../interface/event/event-item.interface';
 
 import { Loader } from '../component/loader/Loader';
+import { PageTransition } from '../component/page-slide/PageTransition';
 import { Hero } from './component/hero/Hero';
 import { Tickets } from './component/tickets/Tickets';
 
@@ -26,6 +27,7 @@ const TicketsPage = () => {
 
   return (
     <Suspense>
+      <PageTransition />
       <main className="tickets">
         <Hero eventCount={events.length} />
         {!loading && <Tickets events={events} />}

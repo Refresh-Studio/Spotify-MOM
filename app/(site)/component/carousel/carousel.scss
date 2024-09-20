@@ -6,6 +6,7 @@
 .carousel {
   background-color: map.get(colors.$base-color, black);
   padding: utils.bu(10) 0;
+  display: flex;
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(13) 0;
@@ -42,7 +43,36 @@
     }
   }
 
-  > div > ul {
+  > div {
     display: flex;
+    position: relative;
+    // Moves 50 items to the left so that it's draggable to the left.
+    left: calc(-230px * 50);
+
+    @include mixins.breakpoint(lg) {
+      left: calc(-423px * 50);
+    }
+  }
+}
+
+.drag-item {
+  @include mixins.breakpoint(lg) {
+    position: absolute;
+    width: 77px;
+    height: 26px;
+    border-radius: 16px;
+    background-color: map-get(colors.$base-color, secondary);
+    border: 1px solid rgba(map-get(colors.$base-color, grey), 0.4);
+    z-index: 10000;
+    margin: utils.bu(2);
+    padding: utils.bu(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+
+    &--hover {
+      visibility: visible;
+    }
   }
 }
