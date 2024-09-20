@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.artist-details-modal {
+  position: absolute;
+  z-index: 50;
+
+  > div {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #0006 linear-gradient(#0000, #0000007a, #0009);
+  }
+
+  &--open > div {
+    backdrop-filter: blur(6px);
+  }
+
+  &__panel {
+    position: relative;
+    width: 849px;
+    height: 426px;
+  }
+
+  &__details {
+    > div:first-child {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-bottom: utils.bu(1.5);
+      cursor: pointer;
+      z-index: 60;
+
+      > svg {
+        color: map-get(colors.$base-color, grey);
+      }
+    }
+
+    > div:last-child {
+      border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+      background-color: rgba(map-get(colors.$base-color, white), .1);
+      display: flex;
+      align-items: center;
+      gap: utils.bu(4);
+      height: 372px;
+    }
+  }
+
+  img {
+    width: 204px;
+    height: 312px;
+  }
+}
