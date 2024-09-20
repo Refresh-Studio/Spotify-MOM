@@ -6,8 +6,23 @@ import { wideFont } from '../../../constant';
 import { ArtistDetailsModal } from '../artist-details-modal/ArtistDetailsModal';
 
 import './banner.scss';
+import { StaticImageData } from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
+
+type Artist = {
+  name: string;
+  description: string;
+  image: StaticImageData
+}
+
+const artists = [
+  {
+    name: '',
+    description: '',
+    image: 
+  }
+]
 
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
@@ -20,7 +35,7 @@ export const Banner = () => {
           trigger: bannerRef.current,
           start: 'top bottom',
           end: 'top top',
-          toggleActions: 'restart pause resume pause', 
+          toggleActions: 'restart pause resume pause',
           scrub: true
         }
       }),

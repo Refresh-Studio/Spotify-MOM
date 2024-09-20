@@ -28,36 +28,50 @@
     height: 426px;
   }
 
-  &__details {
-    > div:first-child {
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: auto;
-      margin-bottom: utils.bu(1.5);
-      cursor: pointer;
-      z-index: 60;
+  &__close {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-bottom: utils.bu(1.5);
+    cursor: pointer;
+    z-index: 60;
 
-      > svg {
-        color: map-get(colors.$base-color, grey);
-      }
-    }
-
-    > div:last-child {
-      border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
-      background-color: rgba(map-get(colors.$base-color, white), 0.1);
-      display: flex;
-      align-items: center;
-      gap: utils.bu(4);
-      height: 372px;
+    > svg {
+      color: map-get(colors.$base-color, grey);
     }
   }
 
-  img {
-    width: 204px;
-    height: 312px;
+  &__content {
+    border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+    background-color: rgba(map-get(colors.$base-color, white), 0.1);
+    display: flex;
+    align-items: center;
+    gap: utils.bu(4);
+    height: 372px;
+    padding: utils.bu(4);
+
+    > img {
+      width: 204px;
+      height: 312px;
+    }
+
+    > div {
+      > h3 {
+        margin-bottom: utils.bu(3);
+        color: map-get(colors.$base-color, secondary);
+      }
+
+      > h3, > p {
+        text-transform: uppercase;
+      }
+
+      > p {
+        color: map-get(colors.$base-color, white);
+      }
+    }
   }
 }

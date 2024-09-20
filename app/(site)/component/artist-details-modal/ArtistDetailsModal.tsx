@@ -2,9 +2,10 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 
 import { ReactComponent as CloseIcon } from '../../../asset/close.svg';
 
-import { ResponsiveImage } from '../carousel/ResponsiveImage';
-
 import './artist-details-modal.scss';
+
+import artistImage from '../../../../public/images/background.jpg';
+import Image from 'next/image';
 
 interface Props {
   open: boolean;
@@ -29,10 +30,15 @@ export const ArtistDetailsModal = ({ open, onClose }: Props) => (
             <CloseIcon />
           </div>
           <div className="artist-details-modal__content">
-            <ResponsiveImage src="/images/background.jpg" alt="" />
+            <Image
+              src={artistImage}
+              alt=""
+              width={204}
+              height={312}
+            />
             <div>
               <h3 className="typescale-6">{name}</h3>
-              <p className="typescale-5">{description}</p>
+              <p className="typescale-4">{description}</p>
             </div>
           </div>
         </div>
