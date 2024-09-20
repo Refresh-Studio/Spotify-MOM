@@ -1,26 +1,20 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
+import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
+
+import { getCarouselImages } from '../../../../sanity/sanity.query';
 import { ResponsiveImage } from '../carousel/ResponsiveImage';
 
 import './social.scss';
 
-const images = [
-  'https://dummyimage.com/400x300/00ff00/000',
-  'https://dummyimage.com/600x400/0000ff/fff',
-  'https://dummyimage.com/800x600/ff0000/fff',
-  'https://dummyimage.com/200x200/ff00ff/fff',
-  'https://dummyimage.com/600x400/0000ff/fff',
-  'https://dummyimage.com/800x600/ff0000/fff',
-  'https://dummyimage.com/600x400/0000ff/fff',
-  'https://dummyimage.com/800x600/ff0000/fff'
-];
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const Social = () => {
+  const [images, setImages] = useState<CarouselImage[]>([]);
+
   const topBorderRef = useRef<HTMLSpanElement>(null);
   const rightBorderRef = useRef<HTMLSpanElement>(null);
   const bottomBorderRef = useRef<HTMLSpanElement>(null);
@@ -37,6 +31,15 @@ export const Social = () => {
   const scrollContainerRef = useRef<HTMLElement>(null);
   const scrollWrapperRef = useRef<HTMLDivElement>(null);
   const scrollItemRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    const callApi = async () => {
+      const images = await getCarouselImages();
+      setImages(images);
+    };
+
+    callApi();
+  }, []);
 
   const scrollTimeline = useMemo(
     () =>
@@ -160,16 +163,16 @@ export const Social = () => {
   return (
     <section ref={scrollContainerRef} className="social">
       <div ref={scrollWrapperRef}>
-        {images.map((image, index) => (
+        {images.map((image) => (
           <div
-            key={image + index}
+            key={image._id}
             ref={(element) => {
               if (element && !scrollItemRefs.current.includes(element)) {
                 scrollItemRefs.current.push(element);
               }
             }}
           >
-            <ResponsiveImage src={image} alt={image + index} />
+            <ResponsiveImage src={image.src} alt={image.name} />
           </div>
         ))}
       </div>
