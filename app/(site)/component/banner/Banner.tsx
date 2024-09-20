@@ -6,26 +6,12 @@ import { wideFont } from '../../../constant';
 import { ArtistDetailsModal } from '../artist-details-modal/ArtistDetailsModal';
 
 import './banner.scss';
-import { StaticImageData } from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Artist = {
-  name: string;
-  description: string;
-  image: StaticImageData
-}
-
-const artists = [
-  {
-    name: '',
-    description: '',
-    image: 
-  }
-]
-
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
+  const [selectedArtist, setSelectedArtist] = useState<string>('');
 
   const timeline = useMemo(
     () =>
@@ -59,10 +45,24 @@ export const Banner = () => {
 
   // const isDesktop = useMemo(() => window.screen.width >= 1024, []);
 
+  const handleSelectArtist = (artist: string) => {
+    setOpen(true);
+    setSelectedArtist(artist);
+  };
+
   return (
-    <section ref={bannerRef} className="banner" onClick={true ? () => setOpen(true) : () => {}}>
-      {true && <ArtistDetailsModal open={open} onClose={() => setOpen(false)} />}
+    <section ref={bannerRef} className="banner">
+      <ArtistDetailsModal
+        open={open}
+        onClose={() => setOpen(false)}
+        selectedArtist={selectedArtist}
+      />
       <div>
+        <div className="banner__overlay">
+          <div onClick={() => handleSelectArtist('Dee Koala')} />
+          <div onClick={() => handleSelectArtist('Queezy')} />
+          <div onClick={() => handleSelectArtist('Lady Skollie')} />
+        </div>
         <h1 className={`typescale-8 ${wideFont.className}`}>
           DISCOVER. EMERGING. <br /> COMMUNITY.
         </h1>

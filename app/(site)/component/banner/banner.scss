@@ -35,4 +35,16 @@
       color: map.get(colors.$base-color, white);
     }
   }
+
+  &__overlay {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+
+    > div {
+      width: 250px;
+      height: 100%;
+    }
+  }
 }
