@@ -1,7 +1,7 @@
 'use client';
 
-import gsap from 'gsap';
-import { Draggable } from 'gsap/Draggable';
+import gsap from 'gsap-trial';
+import { Draggable } from 'gsap-trial/Draggable';
 import React, { MouseEvent, useEffect, useState } from 'react';
 
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
@@ -53,8 +53,8 @@ export const Carousel = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {repeatedImages.map((image: CarouselImage) => (
-          <div key={image._id} className="carousel__item">
+        {repeatedImages.map((image: CarouselImage, index: number) => (
+          <div key={`${image._id}_${index}`} className="carousel__item">
             <ResponsiveImage key={image._id} src={image.src} alt={image.name} />
           </div>
         ))}

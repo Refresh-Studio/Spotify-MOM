@@ -65,7 +65,8 @@
         color: map-get(colors.$base-color, secondary);
       }
 
-      > h3, > p {
+      > h3,
+      > p {
         text-transform: uppercase;
       }
 

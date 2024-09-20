@@ -17,11 +17,11 @@ export const FiligreeModel = ({ mousePosition }: Props) => {
   useFrame(() => {
     if (modelRef.current) {
       // Y-axis (horizontal) rotation with reduced sensitivity
-      modelRef.current.rotation.y = mousePosition.x * Math.PI * 0.05;
+      modelRef.current.rotation.y = mousePosition.x * Math.PI * 0.1;
 
       // X-axis (vertical) rotation with very minimal backward swivel and restricted forward tilt
       modelRef.current.rotation.x = MathUtils.clamp(
-        mousePosition.y * Math.PI * 0.05,
+        mousePosition.y * Math.PI * 0.1,
         -Math.PI / 12,
         Math.PI / 12
       );

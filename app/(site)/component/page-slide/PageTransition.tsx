@@ -1,4 +1,4 @@
-import { gsap } from 'gsap';
+import { gsap } from 'gsap-trial';
 import React, { useEffect } from 'react';
 
 import './page-transition.scss';
@@ -7,7 +7,7 @@ export const PageTransition = () => {
   useEffect(() => {
     gsap.set('.page-transition__block', { x: '0%' });
     gsap.to('.page-transition__block', {
-      duration: 0.8,
+      duration: 1,
       x: '100%',
       ease: 'power2.out',
       stagger: 0.3,
@@ -17,7 +17,7 @@ export const PageTransition = () => {
     });
   }, []);
 
-  const transitionBlocks = Array.from({ length: 5 });
+  const transitionBlocks = Array.from({ length: 8 });
 
   return (
     <div className="page-transition">

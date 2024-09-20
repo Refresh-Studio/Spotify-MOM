@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap';
+import gsap from 'gsap-trial';
 import Link from 'next/link';
 import React, { ReactElement, useEffect, useMemo, useRef } from 'react';
 

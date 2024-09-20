@@ -43,7 +43,7 @@
     }
   }
 
-  > div {
+  > div:last-of-type {
     display: flex;
     position: relative;
     // Moves 50 items to the left so that it's draggable to the left.

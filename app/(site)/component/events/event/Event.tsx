@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap';
+import gsap from 'gsap-trial';
 import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
 import { EventItem, TextBlock } from '../../../../interface/event/event-item.interface';
@@ -40,7 +40,7 @@ export const Event = ({
   }, []);
 
   useEffect(() => {
-    timeline.fromTo(underlineRef.current, { width: '0%' }, { width: '100%', duration: 0.4 });
+    timeline.fromTo(underlineRef.current, { width: '0%' }, { width: '100%', duration: 1 });
   }, [timeline, underlineRef]);
 
   const animate = (reverse?: boolean) => {

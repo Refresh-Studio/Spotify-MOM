@@ -27,6 +27,8 @@
 
   > div:last-of-type {
     > p {
+      position: relative;
+      z-index: 2;
       text-align: center;
       margin-bottom: utils.bu(2);
       color: map-get(colors.$base-color, white);
