@@ -1,7 +1,7 @@
 'use client';
 
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from 'gsap-trial';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 

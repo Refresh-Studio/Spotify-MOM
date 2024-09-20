@@ -1,7 +1,7 @@
 'use client';
 
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from 'gsap-trial';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { EventItem } from '../../../interface/event/event-item.interface';
@@ -13,8 +13,6 @@ import { Button } from '../button/Button';
 import { Event } from './event/Event';
 
 import './events.scss';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Events = () => {
   const [eventsList, setEventsList] = useState<EventList[]>([]);

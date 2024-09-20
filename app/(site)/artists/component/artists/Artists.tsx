@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap';
+import gsap from 'gsap-trial';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useRef, useState } from 'react';

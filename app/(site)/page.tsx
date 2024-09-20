@@ -1,6 +1,8 @@
 'use client';
 
 import axios from 'axios';
+import gsap from 'gsap-trial';
+import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
 import React, { useEffect, useState } from 'react';
 
 import { Acts } from './component/acts/Acts';
@@ -11,8 +13,6 @@ import { Hero } from './component/hero/Hero';
 import { PageTransition } from './component/page-slide/PageTransition';
 import { Playlist } from './component/playlist/Playlist';
 import { Social } from './component/social/Social';
-import { Ticker } from './component/ticker/Ticker';
-import { Details } from './component/ticker/details/Details';
 
 const getData = async () => {
   const authToken = Buffer.from(
@@ -32,6 +32,8 @@ const getData = async () => {
   return { accessToken: data.access_token };
 };
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Home = () => {
   const [accessToken, setAccessToken] = useState<string>();
 
@@ -47,9 +49,6 @@ const Home = () => {
   return (
     <main style={{ backgroundColor: 'transparent' }}>
       <PageTransition />
-      <Ticker path="/tickets" speed={75} id="initial">
-        <Details />
-      </Ticker>
       <Hero />
       <Acts accessToken={accessToken!} />
       <Carousel />

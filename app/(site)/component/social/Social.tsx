@@ -1,6 +1,5 @@
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap-trial';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
@@ -9,8 +8,6 @@ import { getCarouselImages } from '../../../../sanity/sanity.query';
 import { ResponsiveImage } from '../carousel/ResponsiveImage';
 
 import './social.scss';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Social = () => {
   const [images, setImages] = useState<CarouselImage[]>([]);

@@ -1,12 +1,9 @@
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap-trial';
 import React, { useEffect, useMemo, useRef } from 'react';
 
 import { wideFont } from '../../../constant';
 
 import './banner.scss';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
