@@ -13,7 +13,6 @@ import { Playlist } from './component/playlist/Playlist';
 import { Social } from './component/social/Social';
 import { Ticker } from './component/ticker/Ticker';
 import { Details } from './component/ticker/details/Details';
-import { GetTickets } from './component/ticker/tickets/GetTickets';
 
 const getData = async () => {
   const authToken = Buffer.from(
@@ -55,9 +54,6 @@ const Home = () => {
       <Acts accessToken={accessToken!} />
       <Carousel />
       <Events />
-      <Ticker path="/tickets" speed={75}>
-        <GetTickets />
-      </Ticker>
       <Banner />
       <Playlist />
       <Social />

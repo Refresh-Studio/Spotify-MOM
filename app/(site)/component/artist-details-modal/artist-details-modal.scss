@@ -48,7 +48,7 @@
 
     > div:last-child {
       border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
-      background-color: rgba(map-get(colors.$base-color, white), .1);
+      background-color: rgba(map-get(colors.$base-color, white), 0.1);
       display: flex;
       align-items: center;
       gap: utils.bu(4);

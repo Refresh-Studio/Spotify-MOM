@@ -1,19 +1,52 @@
-import React, { useMemo, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { wideFont } from '../../../constant';
-
-import './banner.scss';
 import { ArtistDetailsModal } from '../artist-details-modal/ArtistDetailsModal';
 
+import './banner.scss';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export const Banner = () => {
+  const bannerRef = useRef<HTMLElement>(null);
+
+  const timeline = useMemo(
+    () =>
+      gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          trigger: bannerRef.current,
+          start: 'top bottom',
+          end: 'top top',
+          toggleActions: 'restart pause resume pause', 
+          scrub: true
+        }
+      }),
+    []
+  );
+
+  useEffect(() => {
+    timeline.fromTo(
+      bannerRef.current,
+      {
+        transform: 'scale(1.3, 1.3)'
+      },
+      {
+        transform: 'scale(1, 1)'
+      },
+      0
+    );
+  }, [timeline]);
+
   const [open, setOpen] = useState<boolean>(false);
 
   // const isDesktop = useMemo(() => window.screen.width >= 1024, []);
 
   return (
-    <section className="banner" onClick={true ? (() => setOpen(true)) : () => {}}>
-      {true &&
-        <ArtistDetailsModal open={open} onClose={() => setOpen(false)} />}
+    <section ref={bannerRef} className="banner" onClick={true ? () => setOpen(true) : () => {}}>
+      {true && <ArtistDetailsModal open={open} onClose={() => setOpen(false)} />}
       <div>
         <h1 className={`typescale-8 ${wideFont.className}`}>
           DISCOVER. EMERGING. <br /> COMMUNITY.

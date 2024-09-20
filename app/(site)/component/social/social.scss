@@ -9,8 +9,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 2000px;
+  position: relative;
+  overflow: hidden;
 
-  > div {
+  > div:first-of-type {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transform-style: preserve-3d;
+    gap: 14vw;
+
+    > img {
+      opacity: 50%;
+    }
+  }
+
+  > div:last-of-type {
     > p {
       text-align: center;
       margin-bottom: utils.bu(2);
@@ -69,7 +84,7 @@
   @include mixins.breakpoint(sm) {
     aspect-ratio: 834 / 1439;
 
-    > div > div {
+    > div:last-of-type > div {
       height: 83px;
       width: 468px;
     }
