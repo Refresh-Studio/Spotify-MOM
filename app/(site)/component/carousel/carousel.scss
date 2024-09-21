@@ -43,7 +43,7 @@
     }
   }
 
-  > div {
+  > div:last-of-type {
     display: flex;
     position: relative;
     // Moves 50 items to the left so that it's draggable to the left.
@@ -57,7 +57,7 @@
 
 .drag-item {
   @include mixins.breakpoint(lg) {
-    position: absolute;
+    position: fixed;
     width: 77px;
     height: 26px;
     border-radius: 16px;
