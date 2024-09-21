@@ -1,19 +1,27 @@
 import gsap from 'gsap';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+
+import { DragPositionType } from '../../../interface/drag-position.interface';
 
 import { wideFont } from '../../../constant';
 import { ArtistDetailsModal } from '../artist-details-modal/ArtistDetailsModal';
+import { DragItem } from '../drag-item/DragItem';
 
 import './banner.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
   const [selectedArtist, setSelectedArtist] = useState<string>('');
 
+  const [dragPosition, setDragPosition] = useState<DragPositionType>();
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
   const timeline = useMemo(
     () =>
       gsap.timeline({
-        defaults: { ease: 'none' },
         scrollTrigger: {
           trigger: bannerRef.current,
           start: 'top bottom',
@@ -22,7 +30,8 @@ export const Banner = () => {
           scrub: true
         }
       }),
-    []
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [bannerRef.current]
   );
 
   useEffect(() => {
@@ -33,22 +42,24 @@ export const Banner = () => {
       },
       {
         transform: 'scale(1, 1)'
-      },
-      0
+      }
     );
   }, [timeline]);
 
   const [open, setOpen] = useState<boolean>(false);
 
-  // const isDesktop = useMemo(() => window.screen.width >= 1024, []);
+  const handleMouseMove = (event: MouseEvent<HTMLElement>) => {
+    setDragPosition({ x: event.pageX, y: event.pageY });
+  };
 
-  const handleSelectArtist = (artist: string) => {
-    setOpen(true);
+  const handleMouseEnter = (artist: string) => {
+    setIsHovered(true);
     setSelectedArtist(artist);
   };
 
   return (
     <section ref={bannerRef} className="banner">
+      <DragItem position={dragPosition} label={selectedArtist} visible={isHovered} />
       <ArtistDetailsModal
         open={open}
         onClose={() => setOpen(false)}
@@ -56,9 +67,24 @@ export const Banner = () => {
       />
       <div>
         <div className="banner__overlay">
-          <div onClick={() => handleSelectArtist('Dee Koala')} />
-          <div onClick={() => handleSelectArtist('Queezy')} />
-          <div onClick={() => handleSelectArtist('Lady Skollie')} />
+          <div
+            onClick={() => setOpen(true)}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => handleMouseEnter('Dee Koala')}
+            onMouseLeave={() => setIsHovered(false)}
+          />
+          <div
+            onClick={() => setOpen(true)}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => handleMouseEnter('Queezy')}
+            onMouseLeave={() => setIsHovered(false)}
+          />
+          <div
+            onClick={() => setOpen(true)}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => handleMouseEnter('Lady Skollie')}
+            onMouseLeave={() => setIsHovered(false)}
+          />
         </div>
         <h1 className={`typescale-8 ${wideFont.className}`}>
           DISCOVER. EMERGING. <br /> COMMUNITY.

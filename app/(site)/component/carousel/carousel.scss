@@ -54,25 +54,3 @@
     }
   }
 }
-
-.drag-item {
-  @include mixins.breakpoint(lg) {
-    position: fixed;
-    width: 77px;
-    height: 26px;
-    border-radius: 16px;
-    background-color: map-get(colors.$base-color, secondary);
-    border: 1px solid rgba(map-get(colors.$base-color, grey), 0.4);
-    z-index: 10000;
-    margin: utils.bu(2);
-    padding: utils.bu(1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-
-    &--hover {
-      visibility: visible;
-    }
-  }
-}

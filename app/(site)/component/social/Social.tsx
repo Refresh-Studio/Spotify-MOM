@@ -50,7 +50,8 @@ export const Social = () => {
           toggleActions: 'restart pause resume pause'
         }
       }),
-    []
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [scrollContainerRef.current]
   );
 
   useGSAP(() => {
