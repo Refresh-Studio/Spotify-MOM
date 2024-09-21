@@ -4,7 +4,9 @@ import { ReactElement, useMemo } from 'react';
 
 import { ReactComponent as CloseIcon } from '../../../asset/close.svg';
 
-import artistImage from '../../../../public/images/background.jpg';
+import Koala from '../../../asset/images/banner/Koala.jpg';
+import Queezy from '../../../asset/images/banner/Queezy.jpg';
+import Skollie from '../../../asset/images/banner/Skollie.jpg';
 
 import './artist-details-modal.scss';
 
@@ -25,13 +27,13 @@ const artists: Artist[] = [
     name: 'Dee Koala',
     description: (
       <div>
-        <p>
+        <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           Dee Koala is an acclaimed hip-hop artist, songwriter, and music executive. Dee’s rap style
           is characterised by its raw authenticity, and is heavily influenced by her childhood
           neighbourhood, Khayelitsha.
-        </p>
-        <p>
+        </p><br />
+        <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           MOM spotlights Dee, a woman constantly pushing boundaries and shattering stereotypes — a
           force to be reckoned within the industry. She is a MOM headliner with her 4The Kaltsha
@@ -39,17 +41,17 @@ const artists: Artist[] = [
         </p>
       </div>
     ),
-    image: artistImage
+    image: Koala
   },
   {
     name: 'Queezy',
     description: (
       <div>
-        <p>
+        <p className="typescale-4">
           Queezy is a multidisciplinary Capetonian artist bridging the intersections of fine art,
           fashion, performance, and music.
-        </p>
-        <p>
+        </p><br />
+        <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           Queezy created their first Solo Show Tapestry Pageant at Residency 28 and Lemkus, featured
           in the Boiler Room line-up, and performed with artists such as M.I.A. Queezy embodies the
@@ -58,27 +60,27 @@ const artists: Artist[] = [
         </p>
       </div>
     ),
-    image: artistImage
+    image: Queezy
   },
   {
     name: 'Lady Skollie',
     description: (
       <div>
-        <p>
+        <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           Lady Skollie is a feminist artist and activist from Cape Town. Her work focuses on
           concepts of gender, desire, sex and sexuality, intimacy, and consent in South Africa.
           Through her pseudonym and artistic persona, she creates an agency in which she
           communicates themes that are difficult to speak about directly, making her a cultural
           enabler for the arts to flourish and for people to express themselves freely.
-        </p>
-        <p>
+        </p><br />
+        <p className="typescale-4">
           MOM chooses Lady Skollie as she perfectly embodies fearless femme power, motherhood, and
           new ideas.
         </p>
       </div>
     ),
-    image: artistImage
+    image: Skollie
   }
 ];
 
@@ -104,7 +106,7 @@ export const ArtistDetailsModal = ({ open, onClose, selectedArtist }: Props) => 
               <Image src={artist?.image || ''} alt="" width={204} height={312} />
               <div>
                 <h3 className="typescale-6">{artist?.name}</h3>
-                <p className="typescale-4">{artist?.description}</p>
+                {artist?.description}
               </div>
             </div>
           </div>

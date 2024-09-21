@@ -63,15 +63,12 @@
       > h3 {
         margin-bottom: utils.bu(3);
         color: map-get(colors.$base-color, secondary);
-      }
-
-      > h3,
-      > p {
         text-transform: uppercase;
       }
 
-      > p {
+      > div > p {
         color: map-get(colors.$base-color, white);
+        text-transform: uppercase;
       }
     }
   }
