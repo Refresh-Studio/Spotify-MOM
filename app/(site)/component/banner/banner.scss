@@ -19,7 +19,7 @@
     height: 100vh;
   }
 
-  > div {
+  > div:not(.drag-item) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,6 +33,19 @@
     > h1 {
       text-transform: uppercase;
       color: map.get(colors.$base-color, white);
+    }
+  }
+
+  &__overlay {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    > div {
+      width: 250px;
+      height: 100%;
+      cursor: pointer;
     }
   }
 }

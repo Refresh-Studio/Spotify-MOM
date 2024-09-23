@@ -1,5 +1,5 @@
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
@@ -50,7 +50,8 @@ export const Social = () => {
           toggleActions: 'restart pause resume pause'
         }
       }),
-    []
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [scrollContainerRef.current]
   );
 
   useGSAP(() => {

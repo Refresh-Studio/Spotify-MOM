@@ -1,0 +1,75 @@
+@use 'sass:map';
+@use '../../../style/00_settings/util' as utils;
+@use '../../../style/00_settings/color' as colors;
+@use '../../../style/01_tools/mixin' as mixins;
+
+.artist-details-modal {
+  position: absolute;
+  z-index: 50;
+
+  > div {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #0006 linear-gradient(#0000, #0000007a, #0009);
+  }
+
+  &--open > div {
+    backdrop-filter: blur(6px);
+  }
+
+  &__panel {
+    position: relative;
+    width: 849px;
+    height: 426px;
+  }
+
+  &__close {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-bottom: utils.bu(1.5);
+    cursor: pointer;
+    z-index: 60;
+
+    > svg {
+      color: map-get(colors.$base-color, grey);
+    }
+  }
+
+  &__content {
+    border: 1px solid rgba(map-get(colors.$base-color, white), 0.4);
+    background-color: rgba(map-get(colors.$base-color, white), 0.1);
+    display: flex;
+    align-items: center;
+    gap: utils.bu(4);
+    height: 372px;
+    padding: utils.bu(4);
+
+    > img {
+      width: 204px;
+      height: 312px;
+    }
+
+    > div {
+      > h3 {
+        margin-bottom: utils.bu(3);
+        color: map-get(colors.$base-color, secondary);
+        text-transform: uppercase;
+      }
+
+      > div > p {
+        color: map-get(colors.$base-color, white);
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -4,16 +4,16 @@ import gsap from 'gsap-trial';
 import { Draggable } from 'gsap-trial/Draggable';
 import React, { MouseEvent, useEffect, useState } from 'react';
 
+import { DragPositionType } from '../../../interface/drag-position.interface';
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
 
 import { getCarouselImages } from '../../../../sanity/sanity.query';
+import { DragItem } from '../drag-item/DragItem';
 import { ResponsiveImage } from './ResponsiveImage';
 
 import './carousel.scss';
 
 gsap.registerPlugin(Draggable);
-
-type DragPositionType = { x: number; y: number };
 
 export const Carousel = () => {
   const [images, setImages] = useState<CarouselImage[]>([]);
@@ -47,7 +47,7 @@ export const Carousel = () => {
 
   return (
     <section className="carousel dark-section">
-      <DragItem hover={isHovered} position={dragPosition} />
+      <DragItem visible={isHovered} position={dragPosition} />
       <div
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
@@ -62,20 +62,3 @@ export const Carousel = () => {
     </section>
   );
 };
-
-interface DragItemProps {
-  hover: boolean;
-  position?: DragPositionType;
-}
-
-const DragItem = ({ hover, position }: DragItemProps) => (
-  <div
-    className={`drag-item ${hover ? 'drag-item--hover' : ''}`}
-    style={{
-      top: position?.y ?? 0,
-      left: position?.x ?? 0
-    }}
-  >
-    <span className="typescale-2">DRAG</span>
-  </div>
-);
