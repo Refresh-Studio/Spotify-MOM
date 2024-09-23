@@ -92,11 +92,6 @@ const ListOfEvents = ({ title, events }: EventListProps) => {
                 <Button light small link={`/tickets?event=${event.slug}`} label="Learn More" />
               }
             />
-            {index % 2 === 0 && (
-              <div>
-                <hr />
-              </div>
-            )}
           </div>
         ))}
       </section>
