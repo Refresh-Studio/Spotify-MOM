@@ -61,9 +61,13 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">
     <GoogleAnalytics gaId="G-8YT65EB5MC" />
     <body className={`${defaultFont.className} layout`}>
+      {/*<div id="smooth-wrapper">*/}
+      {/*    <div id="smooth-content">*/}
       <Header />
       {children}
       <Footer />
+      {/*    </div>*/}
+      {/*</div>*/}
     </body>
   </html>
 );
