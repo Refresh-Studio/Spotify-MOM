@@ -138,7 +138,7 @@
       left: 0;
       position: absolute;
       width: 100%;
-      background-color: map.get(colors.$base-color, secondary);
+      background-color: map.get(colors.$base-color, primary);
     }
 
     > li {
@@ -188,6 +188,24 @@
     &--active {
       background-color: map.get(colors.$base-color, black);
       color: map.get(colors.$base-color, black);
+
+      .artist-bg {
+        background-color: map.get(colors.$base-color, black);
+      }
+
+      & > li {
+        background-color: map.get(colors.$base-color, primary);
+
+        > div {
+          > p {
+            color: map.get(colors.$base-color, white);
+          }
+        }
+
+        > .artists__icon--mobile {
+          color: map.get(colors.$base-color, white);
+        }
+      }
     }
   }
 
