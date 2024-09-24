@@ -3,6 +3,7 @@
 import gsap from 'gsap-trial';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { hotjar } from 'react-hotjar';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
@@ -16,6 +17,10 @@ export const Header = () => {
   const pathname = usePathname();
   const [, setInverted] = useState<boolean>(false);
   const [pushed, setPushed] = useState<boolean>(false);
+
+  useEffect(() => {
+    hotjar.initialize({ id: 5081246, sv: 6 });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
