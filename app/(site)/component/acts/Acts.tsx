@@ -83,7 +83,7 @@ export const Acts = ({ accessToken }: Props) => {
         ))}
       </main>
       <footer>
-        <Button small link="/artists" label="View All Artists" />
+        <Button greyHollow small link="/artists" label="View All Artists" />
       </footer>
     </section>
   );
