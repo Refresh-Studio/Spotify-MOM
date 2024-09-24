@@ -8,7 +8,7 @@ import { DragPositionType } from '../../../interface/drag-position.interface';
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
 
 import { getCarouselImages } from '../../../../sanity/sanity.query';
-import { InertiaPlugin } from '../../../plugins/InertiaPlugin/InertiaPlugin';
+import { InertiaPlugin } from '../../../plugins/InertiaPlugin';
 import { DragItem } from '../drag-item/DragItem';
 import { ResponsiveImage } from './ResponsiveImage';
 
