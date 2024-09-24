@@ -95,7 +95,7 @@
       width: 100%;
 
       @include mixins.breakpoint(lg) {
-        width: utils.rem(179);
+        width: 179px;
       }
     }
   }
