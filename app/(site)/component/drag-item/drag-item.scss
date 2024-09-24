@@ -10,14 +10,18 @@
     height: 26px;
     border-radius: 16px;
     background-color: map-get(colors.$base-color, secondary);
-    border: 1px solid rgba(map-get(colors.$base-color, grey), 0.4);
+    border: 1px solid rgba(map-get(colors.$base-color, grey), 0.2);
     z-index: 10000;
     margin: utils.bu(2);
-    padding: utils.bu(1);
+    padding: utils.bu(1) utils.rem(18);
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
+
+    > span {
+      text-transform: uppercase;
+    }
 
     &--hover {
       visibility: visible;

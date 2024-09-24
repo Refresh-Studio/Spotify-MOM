@@ -32,7 +32,8 @@ const artists: Artist[] = [
           Dee Koala is an acclaimed hip-hop artist, songwriter, and music executive. Dee’s rap style
           is characterised by its raw authenticity, and is heavily influenced by her childhood
           neighbourhood, Khayelitsha.
-        </p><br />
+        </p>
+        <br />
         <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           MOM spotlights Dee, a woman constantly pushing boundaries and shattering stereotypes — a
@@ -50,7 +51,8 @@ const artists: Artist[] = [
         <p className="typescale-4">
           Queezy is a multidisciplinary Capetonian artist bridging the intersections of fine art,
           fashion, performance, and music.
-        </p><br />
+        </p>
+        <br />
         <p className="typescale-4">
           {/* eslint-disable-next-line max-len */}
           Queezy created their first Solo Show Tapestry Pageant at Residency 28 and Lemkus, featured
@@ -73,7 +75,8 @@ const artists: Artist[] = [
           Through her pseudonym and artistic persona, she creates an agency in which she
           communicates themes that are difficult to speak about directly, making her a cultural
           enabler for the arts to flourish and for people to express themselves freely.
-        </p><br />
+        </p>
+        <br />
         <p className="typescale-4">
           MOM chooses Lady Skollie as she perfectly embodies fearless femme power, motherhood, and
           new ideas.
