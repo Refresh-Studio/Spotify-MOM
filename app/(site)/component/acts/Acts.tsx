@@ -76,7 +76,7 @@ export const Acts = ({ accessToken }: Props) => {
                 name={artist.name}
                 image={artist.image}
                 height={70}
-                width={88}
+                width={70}
               />
             ))}
           </Ticker>
