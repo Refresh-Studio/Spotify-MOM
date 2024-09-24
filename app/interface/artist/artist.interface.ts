@@ -11,5 +11,5 @@ export interface Artist extends ApiType {
   genres: string[];
   filterTags: string[];
   spotlight: boolean;
-  description: string;
+  bio: string;
 }

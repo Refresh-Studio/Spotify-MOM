@@ -83,7 +83,7 @@ export const Artists = ({ artists = [] }: Props) => {
               ))}
             </div>
             <div className="artists__description">
-              <p className="typescale-3">{activeArtist.description}</p>
+              <p className="typescale-3">{activeArtist.bio}</p>
             </div>
             <Button
               target="_blank"
@@ -184,7 +184,7 @@ const ArtistRow = ({ artist, activeArtist, setActiveArtist }: RowProps) => {
             ))}
           </div>
           <div className="artists__description">
-            <p className="typescale-3">{activeArtist.description}</p>
+            <p className="typescale-3">{activeArtist.bio}</p>
           </div>
           <Button
             target="_blank"
