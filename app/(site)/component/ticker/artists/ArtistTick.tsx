@@ -11,10 +11,10 @@ interface Props {
   priortiy?: boolean;
 }
 
-export const ArtistTick = ({ name, image, width = 88, height = 90, priortiy = false }: Props) => (
+export const ArtistTick = ({ name, image, width = 88, height = 90 }: Props) => (
   <article className="artist-tick">
     <p>
-      <small className={priortiy ? 'typescale-5' : 'typescale-4'}>{name}</small>
+      <small className="typescale-3">{name}</small>
     </p>
     <Image width={width} height={height} alt={name} src={image} />
   </article>
