@@ -105,7 +105,7 @@ export const Tickets = ({ events }: Props) => {
   };
 
   return (
-    <section className="tickets dark-section">
+    <section className="dark-section">
       <Tabs tabs={filters} hollow />
       <main>
         <ul>

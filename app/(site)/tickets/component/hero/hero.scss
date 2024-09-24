@@ -4,13 +4,11 @@
 @use '../../../../style/01_tools/mixin' as mixins;
 
 .tickets-hero {
-  padding: utils.bu(18.25) utils.bu(2) utils.bu(7.5);
   background-color: map.get(colors.$base-color, black);
   padding-bottom: 0;
 
   @include mixins.breakpoint(lg) {
-    padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
-    padding-bottom: 0;
+    padding: 0;
   }
 
   > h1 {
