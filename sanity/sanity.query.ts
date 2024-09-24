@@ -144,7 +144,7 @@ export async function getArtists() {
     url,
     image,
     spotlight,
-    description
+    bio
 }`
   );
 }
