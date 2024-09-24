@@ -33,10 +33,10 @@ export const Playlist = () => (
     </div>
     <footer>
       <Button
-        medium
+        greyHollow
         link="https://open.spotify.com/playlist/37i9dQZF1DWWuGghJUW6Hp"
         target="_blank"
-        label="View Spotify Playlist"
+        label="View Playlist"
         icon={<ViewIcon />}
       />
     </footer>

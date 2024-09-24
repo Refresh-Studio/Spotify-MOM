@@ -64,6 +64,9 @@
 
   > footer {
     margin-top: utils.bu(5);
+    width: 100%;
+    padding-left: utils.bu(2);
+    padding-right: utils.bu(2);
 
     @include mixins.breakpoint(lg) {
       display: none;
@@ -73,9 +76,11 @@
       height: 36px;
       margin-left: auto;
       margin-right: auto;
+      width: 100%;
 
       @include mixins.breakpoint(lg) {
         height: 48px;
+        width: 179px;
       }
     }
   }
