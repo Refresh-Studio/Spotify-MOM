@@ -63,7 +63,6 @@ export const Acts = ({ accessToken }: Props) => {
       <header>
         <div>
           <p className={`typescale-5 ${wideFont.className}`}>Discover the artists</p>
-          <p className={`typescale-5 ${wideFont.className}`}>More being announced</p>
         </div>
         <Button light small link="/artists" label="View All Artists" />
       </header>
