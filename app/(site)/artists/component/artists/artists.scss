@@ -79,6 +79,7 @@
 
     @include mixins.breakpoint(lg) {
       display: block;
+      border-left: none;
     }
 
     > h1 {

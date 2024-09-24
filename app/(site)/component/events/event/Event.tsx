@@ -61,7 +61,7 @@ export const Event = ({
     >
       <header>
         <div>
-          <p className="typescale-3">
+          <p className="typescale-2">
             {event.startDate}&nbsp;
             {filled && event.endDate && `- ${event.endDate}`}
           </p>
