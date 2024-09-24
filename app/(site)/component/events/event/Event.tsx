@@ -44,8 +44,7 @@ export const Event = ({
       underlineRef.current,
       { width: '100%' },
       {
-        background:
-          'linear-gradient(to right, #f036a4, #fff)',
+        background: 'linear-gradient(to right, #f036a4, #fff)',
         duration: 1,
         ease: 'power1.inOut'
       }

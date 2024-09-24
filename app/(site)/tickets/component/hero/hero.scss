@@ -16,7 +16,7 @@
     display: flex;
     font-weight: 500;
     position: relative;
-    color: map-get(colors.$base-color, grey);
+    color: map.get(colors.$base-color, grey);
 
     > span {
       margin-left: utils.bu(3);

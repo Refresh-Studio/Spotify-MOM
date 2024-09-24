@@ -3,8 +3,8 @@
 import gsap from 'gsap-trial';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { hotjar } from 'react-hotjar';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { hotjar } from 'react-hotjar';
 
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
@@ -18,11 +18,25 @@ export const Header = () => {
   const [, setInverted] = useState<boolean>(false);
   const [pushed, setPushed] = useState<boolean>(false);
 
+  const ref = useRef(null);
+
   useEffect(() => {
     hotjar.initialize({ id: 5081246, sv: 6 });
   }, []);
 
   useEffect(() => {
+    gsap.fromTo(
+      ref.current,
+      { opacity: 0, y: -50 },
+      {
+        delay: 1.5,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }
+    );
+
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       let found = false;
@@ -74,7 +88,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className={`header ${pushed ? 'header--pushed' : ''}`}>
+      <header className={`header ${pushed ? 'header--pushed' : ''}`} ref={ref}>
         <Link className="mom" href="/">
           <MomIcon />
         </Link>
