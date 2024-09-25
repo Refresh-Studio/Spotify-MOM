@@ -1,8 +1,8 @@
 'use client';
 
 import axios from 'axios';
-import gsap from 'gsap-trial';
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { useEffect, useState } from 'react';
 
 import { Acts } from './component/acts/Acts';

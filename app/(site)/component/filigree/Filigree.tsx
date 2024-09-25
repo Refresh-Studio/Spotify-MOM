@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber';
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import React, { Suspense, useEffect, useRef } from 'react';
 import { EquirectangularReflectionMapping, Texture, TextureLoader } from 'three';
 

@@ -1,4 +1,4 @@
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';

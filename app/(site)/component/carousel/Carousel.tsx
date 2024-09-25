@@ -1,7 +1,7 @@
 'use client';
 
-import gsap from 'gsap-trial';
-import { Draggable } from 'gsap-trial/Draggable';
+import gsap from 'gsap';
+import { Draggable } from 'gsap/Draggable';
 import React, { MouseEvent, useEffect, useState } from 'react';
 
 import { DragPositionType } from '../../../interface/drag-position.interface';
