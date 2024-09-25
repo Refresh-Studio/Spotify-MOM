@@ -55,51 +55,18 @@ export const Social = () => {
   );
 
   useGSAP(() => {
-    scrollTimeline
-      .set(scrollWrapperRef.current, {
-        rotationX: 20
-      })
-      .set(scrollItemRefs.current, {
-        z: () => gsap.utils.random(-3000, -1000)
-      })
-      .fromTo(
-        scrollItemRefs.current,
-        {
-          yPercent: () => gsap.utils.random(100, 1000),
-          rotationY: -45,
-          scale: 2,
-          filter: 'brightness(50%)'
-        },
-        {
-          yPercent: () => gsap.utils.random(-1000, -100),
-          rotationY: 45,
-          scale: 0.5,
-          filter: 'brightness(10%)'
-        },
-        0
-      )
-      .fromTo(
-        scrollWrapperRef.current,
-        {
-          rotationZ: -5
-        },
-        {
-          rotationX: -20,
-          rotationZ: 10,
-          scale: 1.2
-        },
-        0
-      )
-      .fromTo(
-        scrollItemRefs.current,
-        {
-          scale: 2
-        },
-        {
-          scale: 0.5
-        },
-        0
-      );
+    scrollTimeline.fromTo(
+      scrollItemRefs.current,
+      {
+        yPercent: () => gsap.utils.random(100, 1000),
+        filter: 'brightness(50%)'
+      },
+      {
+        yPercent: () => gsap.utils.random(-1000, -100),
+        filter: 'brightness(10%)'
+      },
+      0
+    );
   }, [scrollTimeline]);
 
   useEffect(() => {
@@ -108,21 +75,19 @@ export const Social = () => {
         topBorderRef.current,
         {
           duration: 0.5,
-          width: '0%',
-          backgroundColor: '#f036a4'
+          width: '0%'
         },
         {
           duration: 0.5,
           width: '100%',
-          backgroundColor: '#f036a4'
+          background: 'linear-gradient(to right, #f036a4, #f0c4d9)'
         }
       )
       .fromTo(
         rightBorderRef.current,
         {
           duration: 0.5,
-          height: '0%',
-          backgroundColor: '#f036a4'
+          height: '0%'
         },
         {
           duration: 0.5,
@@ -134,21 +99,19 @@ export const Social = () => {
         bottomBorderRef.current,
         {
           duration: 0.5,
-          width: '0%',
-          backgroundColor: '#f0c4d9'
+          width: '0%'
         },
         {
           duration: 0.5,
           width: '100%',
-          backgroundColor: '#f0c4d9'
+          background: 'linear-gradient(to left, #f0c4d9, #f036a4)'
         }
       )
       .fromTo(
         leftBorderRef.current,
         {
           duration: 0.5,
-          height: '0%',
-          backgroundColor: '#f0c4d9'
+          height: '0%'
         },
         {
           duration: 0.5,
