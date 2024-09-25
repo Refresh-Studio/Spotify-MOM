@@ -1,4 +1,4 @@
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import React, { MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { wideFont } from '../../../constant';

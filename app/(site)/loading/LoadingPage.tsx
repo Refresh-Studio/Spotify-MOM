@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
