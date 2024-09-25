@@ -21,7 +21,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   background-color: map.get(colors.$base-color, black);
 }
 

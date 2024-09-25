@@ -1,4 +1,6 @@
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import gsap from 'gsap';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
@@ -8,39 +10,70 @@ import SpotifyMomImage from './../../../../public/images/spotify-mom.jpg';
 import './mother-of-music.scss';
 
 const MotherOfMusic = () => {
-  const imageRef = useRef(null);
-  const sectionRef = useRef(null);
   const headerRef = useRef(null);
+  const messageRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const image = imageRef.current;
-    const section = sectionRef.current;
+    AOS.init({ animatedClassName: 'aos-animate' });
 
-    ScrollTrigger.create({
-      trigger: section,
-      pin: image,
-      start: 'top center',
-      end: '+=300',
-      scrub: 1,
-      pinSpacing: false,
-      markers: true
-    });
+    gsap.fromTo(
+      headerRef.current,
+      {
+        opacity: 0,
+        y: -50
+      },
+      {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top center'
+        },
+        delay: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }
+    );
+
+    gsap.fromTo(
+      messageRef.current,
+      {
+        opacity: 0,
+        y: -50
+      },
+      {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top center'
+        },
+        delay: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }
+    );
   }, []);
 
   return (
-    <section className="mother-of-music" ref={sectionRef}>
+    <section className="mother-of-music" ref={containerRef}>
       <Image
-        ref={imageRef}
+        data-aos="fade-down"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="3000"
         width={205}
         alt="Mother of Music event promotion"
         src={SpotifyMomImage}
         className="mother-of-music__image"
       />
-      <header className="mother-of-music__header" ref={headerRef}>
-        <h2 className={`typescale-10 ${wideFont.className}`}>Mother of music</h2>
+      <header className="mother-of-music__header">
+        <h2 ref={headerRef} className={`typescale-10 ${wideFont.className}`}>
+          Mother of music
+        </h2>
       </header>
       <div className="mother-of-music__content">
-        <p className="typescale-3">
+        <p className="typescale-3" ref={messageRef}>
           Mother of Music (MOM) is a four-day event hosted in the Cape Town Peninsula. Featuring a
           local and international lineup with a world-class stage and sound design.
         </p>

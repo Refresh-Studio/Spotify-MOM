@@ -6,9 +6,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
-import firstImage from '../../../public/images/loader/image.jpg';
-import secondImage from '../../../public/images/loader/second.jpg';
-import thirdImage from '../../../public/images/loader/third.jpg';
+import firstImage from '../../../public/images/loader/image-1.jpg';
+import secondImage from '../../../public/images/loader/image-2.jpg';
+import thirdImage from '../../../public/images/loader/image-3.jpg';
+import fourthImage from '../../../public/images/loader/image-4.jpg';
+import fifthImage from '../../../public/images/loader/image-5.jpg';
+import sixthImage from '../../../public/images/loader/image-6.jpg';
 
 import './loading.scss';
 
@@ -26,6 +29,9 @@ export const LoadingPage = ({ onComplete }: Props) => {
   const imageRef = useRef(null);
   const secondRef = useRef(null);
   const thirdRef = useRef(null);
+  const fourthRef = useRef(null);
+  const fifthRef = useRef(null);
+  const sixthRef = useRef(null);
   const imageTimeline = useMemo(() => gsap.timeline({ paused: false }), []);
 
   const titleRef = useRef(null);
@@ -44,7 +50,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           duration: 1,
           backgroundColor: 'transparent',
           clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(39)
+          onComplete: () => setPercentage(22)
         }
       )
       .fromTo(
@@ -58,11 +64,53 @@ export const LoadingPage = ({ onComplete }: Props) => {
           duration: 0.75,
           backgroundColor: 'transparent',
           clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(84)
+          onComplete: () => setPercentage(36)
         }
       )
       .fromTo(
         thirdRef.current,
+        {
+          zIndex: 4,
+          clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)'
+        },
+        {
+          zIndex: 5,
+          duration: 0.75,
+          backgroundColor: 'transparent',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          onComplete: () => setPercentage(49)
+        }
+      )
+      .fromTo(
+        fourthRef.current,
+        {
+          zIndex: 4,
+          clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)'
+        },
+        {
+          zIndex: 5,
+          duration: 0.75,
+          backgroundColor: 'transparent',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          onComplete: () => setPercentage(61)
+        }
+      )
+      .fromTo(
+        fifthRef.current,
+        {
+          zIndex: 4,
+          clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)'
+        },
+        {
+          zIndex: 5,
+          duration: 0.75,
+          backgroundColor: 'transparent',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          onComplete: () => setPercentage(88)
+        }
+      )
+      .fromTo(
+        sixthRef.current,
         {
           zIndex: 4,
           clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)'
@@ -78,11 +126,11 @@ export const LoadingPage = ({ onComplete }: Props) => {
   }, [loadingTimeline]);
 
   useEffect(() => {
-    gsap.fromTo(mainContainerRef.current, { paddingTop: '5%' }, { paddingTop: 0, delay: 3.5 });
+    gsap.fromTo(mainContainerRef.current, { paddingTop: '5%' }, { paddingTop: 0, delay: 4.75 });
     gsap.fromTo(
       thirdRef.current,
       { objectPosition: 'initial' },
-      { duration: 0.5, ease: 'power2.in', objectPosition: '0 -580px', delay: 3.5 }
+      { duration: 0.5, ease: 'power2.in', objectPosition: '0 -580px', delay: 4.75 }
     );
 
     imageTimeline.fromTo(
@@ -92,7 +140,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
         height: '576px'
       },
       {
-        delay: 3.5,
+        delay: 4.75,
         width: '100vw',
         height: '100vh',
         duration: 1,
@@ -136,6 +184,9 @@ export const LoadingPage = ({ onComplete }: Props) => {
           <Image priority ref={imageRef} src={firstImage} alt="image" width={380} height={576} />
           <Image priority ref={secondRef} src={secondImage} alt="image" width={380} height={576} />
           <Image priority ref={thirdRef} src={thirdImage} alt="image" width={380} height={576} />
+          <Image priority ref={fourthRef} src={fourthImage} alt="image" width={380} height={576} />
+          <Image priority ref={fifthRef} src={fifthImage} alt="image" width={380} height={576} />
+          <Image priority ref={sixthRef} src={sixthImage} alt="image" width={380} height={576} />
         </div>
         <p ref={titleRef} className="typescale-3">
           MOM: Mother of Music
