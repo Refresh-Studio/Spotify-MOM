@@ -10,7 +10,7 @@ import { Banner } from './component/banner/Banner';
 import { Carousel } from './component/carousel/Carousel';
 import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
-import MotherOfMusic from './component/mother-of-music/MotherOfMusic';
+import { MotherOfMusic } from './component/mother-of-music/MotherOfMusic';
 import { Playlist } from './component/playlist/Playlist';
 import { Social } from './component/social/Social';
 
@@ -52,10 +52,10 @@ const Home = () => {
       <MotherOfMusic />
       <Acts accessToken={accessToken!} />
       <Carousel />
-      {/*<Events />*/}
-      {/*<Banner />*/}
-      {/*<Playlist />*/}
-      {/*<Social />*/}
+      <Events />
+      <Banner />
+      <Playlist />
+      <Social />
     </main>
   );
 };

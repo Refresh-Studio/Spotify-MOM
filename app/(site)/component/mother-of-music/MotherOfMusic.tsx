@@ -9,7 +9,7 @@ import SpotifyMomImage from './../../../../public/images/spotify-mom.jpg';
 
 import './mother-of-music.scss';
 
-const MotherOfMusic = () => {
+export const MotherOfMusic = () => {
   const headerRef = useRef(null);
   const messageRef = useRef(null);
   const containerRef = useRef(null);
@@ -81,5 +81,3 @@ const MotherOfMusic = () => {
     </section>
   );
 };
-
-export default MotherOfMusic;
