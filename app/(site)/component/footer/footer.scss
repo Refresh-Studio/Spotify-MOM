@@ -43,6 +43,19 @@
 
     @include mixins.breakpoint(lg) {
       display: flex;
+
+      > li {
+        position: relative;
+
+        > span {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background-color: map.get(colors.$base-color, black);
+        }
+      }
     }
   }
 

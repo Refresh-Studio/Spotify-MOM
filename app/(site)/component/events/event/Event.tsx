@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
 import { EventItem, TextBlock } from '../../../../interface/event/event-item.interface';
