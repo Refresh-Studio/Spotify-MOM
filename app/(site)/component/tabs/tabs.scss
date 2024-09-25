@@ -51,15 +51,15 @@
 
         &:hover {
           color: map.get(colors.$base-color, black);
-          border-color: map-get(colors.$base-color, black);
-          background-color: map-get(colors.$base-color, secondary);
+          border-color: map.get(colors.$base-color, black);
+          background-color: map.get(colors.$base-color, secondary);
         }
       }
 
       &--active {
         > a {
           color: map.get(colors.$base-color, black);
-          border-color: map-get(colors.$base-color, primary);
+          border-color: map.get(colors.$base-color, primary);
         }
       }
     }

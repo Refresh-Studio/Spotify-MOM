@@ -40,7 +40,15 @@ export const Event = ({
   }, []);
 
   useEffect(() => {
-    timeline.fromTo(underlineRef.current, { width: '0%' }, { width: '100%', duration: 1 });
+    timeline.fromTo(
+      underlineRef.current,
+      { width: '100%' },
+      {
+        background: 'linear-gradient(to right, #f036a4, #fff)',
+        duration: 1,
+        ease: 'power1.inOut'
+      }
+    );
   }, [timeline, underlineRef]);
 
   const animate = (reverse?: boolean) => {
@@ -48,7 +56,6 @@ export const Event = ({
       timeline.reverse();
       return;
     }
-
     timeline.play();
   };
 

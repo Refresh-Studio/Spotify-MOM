@@ -2,13 +2,13 @@
 
 import gsap from 'gsap-trial';
 import { Draggable } from 'gsap-trial/Draggable';
-import { InertiaPlugin } from 'gsap-trial/InertiaPlugin';
 import React, { MouseEvent, useEffect, useState } from 'react';
 
 import { DragPositionType } from '../../../interface/drag-position.interface';
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
 
 import { getCarouselImages } from '../../../../sanity/sanity.query';
+import { InertiaPlugin } from '../../../plugins/InertiaPlugin';
 import { DragItem } from '../drag-item/DragItem';
 import { ResponsiveImage } from './ResponsiveImage';
 

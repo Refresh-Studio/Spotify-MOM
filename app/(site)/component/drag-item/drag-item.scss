@@ -9,8 +9,8 @@
     width: fit-content;
     height: 26px;
     border-radius: 16px;
-    background-color: map-get(colors.$base-color, secondary);
-    border: 1px solid rgba(map-get(colors.$base-color, grey), 0.2);
+    background-color: map.get(colors.$base-color, secondary);
+    border: 1px solid rgba(map.get(colors.$base-color, grey), 0.2);
     z-index: 10000;
     margin: utils.bu(2);
     padding: utils.bu(1) utils.rem(18);

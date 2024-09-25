@@ -7,13 +7,25 @@
   padding: utils.bu(18.25) utils.bu(2) utils.bu(7.5);
 
   @include mixins.breakpoint(lg) {
-    padding: utils.bu(21.5) utils.bu(7.5) utils.bu(15);
-    padding-bottom: 0;
+    padding: utils.bu(21.5) utils.bu(7.5) 0;
   }
 
   > div {
     padding-bottom: 0;
     background-color: map.get(colors.$base-color, black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: utils.bu(4);
+
+    @include mixins.breakpoint(sm) {
+      flex-direction: row;
+    }
+
+    > div {
+      display: flex;
+      gap: utils.bu(2);
+    }
 
     > p {
       margin-top: utils.bu(2);
@@ -62,19 +74,19 @@
     min-width: 32px;
     height: 32px;
     min-height: 32px;
-    color: map-get(colors.$base-color, white);
-    border: 1px solid map-get(colors.$base-color, grey);
+    color: map.get(colors.$base-color, white);
+    border: 1px solid map.get(colors.$base-color, grey);
 
     &:hover {
-      background-color: map-get(colors.$base-color, secondary);
-      border-color: map-get(colors.$base-color, secondary);
-      color: map-get(colors.$base-color, black);
+      background-color: map.get(colors.$base-color, secondary);
+      border-color: map.get(colors.$base-color, secondary);
+      color: map.get(colors.$base-color, black);
     }
 
     &--active {
-      background-color: map-get(colors.$base-color, primary);
-      border-color: map-get(colors.$base-color, primary);
-      color: map-get(colors.$base-color, black);
+      background-color: map.get(colors.$base-color, primary);
+      border-color: map.get(colors.$base-color, primary);
+      color: map.get(colors.$base-color, black);
     }
 
     @include mixins.breakpoint(lg) {
@@ -82,22 +94,6 @@
       min-width: 42px;
       height: 42px;
       min-height: 42px;
-    }
-  }
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: utils.bu(4);
-
-    @include mixins.breakpoint(sm) {
-      flex-direction: row;
-    }
-
-    > div {
-      display: flex;
-      gap: utils.bu(2);
     }
   }
 

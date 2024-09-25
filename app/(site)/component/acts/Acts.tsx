@@ -76,14 +76,14 @@ export const Acts = ({ accessToken }: Props) => {
                 name={artist.name}
                 image={artist.image}
                 height={70}
-                width={88}
+                width={70}
               />
             ))}
           </Ticker>
         ))}
       </main>
       <footer>
-        <Button small link="/artists" label="View All Artists" />
+        <Button greyHollow small link="/artists" label="View All Artists" />
       </footer>
     </section>
   );

@@ -21,7 +21,7 @@
     gap: 14vw;
 
     > img {
-      opacity: 50%;
+      opacity: 0.5;
     }
   }
 
@@ -31,13 +31,13 @@
       z-index: 2;
       text-align: center;
       margin-bottom: utils.bu(2);
-      color: map-get(colors.$base-color, white);
+      color: map.get(colors.$base-color, white);
     }
 
     > div {
       height: 67px;
       width: 266px;
-      border: 1px solid rgba(map-get(colors.$base-color, grey), 0.4);
+      border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -46,11 +46,11 @@
       transition: border-color 1.8s linear;
 
       &:hover {
-        border-color: rgba(map-get(colors.$base-color, grey), 0);
+        border-color: rgba(map.get(colors.$base-color, grey), 0);
       }
 
       > a {
-        color: map-get(colors.$base-color, white);
+        color: map.get(colors.$base-color, white);
       }
 
       > span {

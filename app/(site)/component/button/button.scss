@@ -118,9 +118,9 @@
   }
 
   &--light {
-    background-color: map-get(colors.$base-color, transparent);
-    border: 1px solid map-get(colors.$base-color, grey);
-    color: map-get(colors.$base-color, grey);
+    background-color: map.get(colors.$base-color, transparent);
+    border: 1px solid rgba(map.get(colors.$base-color, grey), 0.4);
+    color: map.get(colors.$base-color, grey);
 
     &:hover {
       border-color: map.get(colors.$base-color, black);
