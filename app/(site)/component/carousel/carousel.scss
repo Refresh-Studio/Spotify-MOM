@@ -7,7 +7,6 @@
   background-color: map.get(colors.$base-color, black);
   padding: utils.bu(10) 0;
   display: flex;
-  overflow: hidden;
 
   @include mixins.breakpoint(lg) {
     padding: utils.bu(13) 0;
