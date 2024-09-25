@@ -47,7 +47,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main style={{ backgroundColor: 'transparent' }}>
+    <main style={{ backgroundColor: 'transparent', overflowX: 'hidden' }}>
       <Hero />
       <MotherOfMusic />
       <Acts accessToken={accessToken!} />
