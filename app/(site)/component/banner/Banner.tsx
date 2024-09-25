@@ -43,7 +43,6 @@ export const Banner = () => {
           scrub: true,
           trigger: headingRef.current,
           end: 'top center',
-          markers: true,
           toggleActions: 'play none none reverse'
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
