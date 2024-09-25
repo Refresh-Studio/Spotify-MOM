@@ -28,5 +28,5 @@ export const FiligreeModel = ({ mousePosition }: Props) => {
     }
   });
 
-  return <primitive rotation={[0, 0, 0]} object={scene} ref={modelRef} scale={[1.3, 1.3, 1.3]} />;
+  return <primitive rotation={[0, 0, 0]} object={scene} ref={modelRef} scale={[1.2, 1.2, 1.2]} />;
 };

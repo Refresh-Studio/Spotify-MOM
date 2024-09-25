@@ -1,9 +1,14 @@
 'use client';
 
 import gsap from 'gsap';
+import Image from 'next/image';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
+
+import firstImage from '../../../public/images/loader/image.jpg';
+import secondImage from '../../../public/images/loader/second.jpg';
+import thirdImage from '../../../public/images/loader/third.jpg';
 
 import './loading.scss';
 
@@ -128,15 +133,9 @@ export const LoadingPage = ({ onComplete }: Props) => {
       </header>
       <div ref={mainContainerRef}>
         <div ref={containerRef}>
-          <img ref={imageRef} src="/images/loader/image.jpg" alt="image" width={380} height={576} />
-          <img
-            ref={secondRef}
-            src="/images/loader/second.jpg"
-            alt="image"
-            width={380}
-            height={576}
-          />
-          <img ref={thirdRef} src="/images/loader/third.jpg" alt="image" width={380} height={576} />
+          <Image priority ref={imageRef} src={firstImage} alt="image" width={380} height={576} />
+          <Image priority ref={secondRef} src={secondImage} alt="image" width={380} height={576} />
+          <Image priority ref={thirdRef} src={thirdImage} alt="image" width={380} height={576} />
         </div>
         <p ref={titleRef} className="typescale-3">
           MOM: Mother of Music
