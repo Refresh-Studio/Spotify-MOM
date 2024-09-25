@@ -8,7 +8,7 @@ interface DragItemProps {
   label?: string;
 }
 
-export const DragItem = ({ visible, position = { x: 0, y: 0 }, label = 'DRAG' }: DragItemProps) => (
+export const DragItem = ({ visible, position = { x: 0, y: 0 }, label = 'drag' }: DragItemProps) => (
   <div
     className={`drag-item ${visible ? 'drag-item--hover' : ''}`}
     style={{
@@ -16,6 +16,6 @@ export const DragItem = ({ visible, position = { x: 0, y: 0 }, label = 'DRAG' }:
       left: position.x
     }}
   >
-    <span className="typescale-2">{label}</span>
+    <span className="typescale-1">{label}</span>
   </div>
 );

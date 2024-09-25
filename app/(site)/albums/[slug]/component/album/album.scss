@@ -92,17 +92,6 @@
             color: map.get(colors.$base-color, black);
             border: 1px solid map.get(colors.$base-color, black);
           }
-
-          @include mixins.breakpoint(lg) {
-            background-color: map.get(colors.$base-color, primary);
-            border: 1px solid map.get(colors.$base-color, black);
-            color: map.get(colors.$base-color, black);
-
-            &:hover {
-              color: map.get(colors.$base-color, black);
-              border: 1px solid map.get(colors.$base-color, black);
-            }
-          }
         }
       }
     }

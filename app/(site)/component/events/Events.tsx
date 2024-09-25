@@ -1,7 +1,7 @@
 'use client';
 
-import gsap from 'gsap-trial';
-import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { EventItem } from '../../../interface/event/event-item.interface';
@@ -92,11 +92,6 @@ const ListOfEvents = ({ title, events }: EventListProps) => {
                 <Button light small link={`/tickets?event=${event.slug}`} label="Learn More" />
               }
             />
-            {index % 2 === 0 && (
-              <div>
-                <hr />
-              </div>
-            )}
           </div>
         ))}
       </section>

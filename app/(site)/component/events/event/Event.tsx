@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
 import { EventItem, TextBlock } from '../../../../interface/event/event-item.interface';
@@ -40,7 +40,15 @@ export const Event = ({
   }, []);
 
   useEffect(() => {
-    timeline.fromTo(underlineRef.current, { width: '0%' }, { width: '100%', duration: 1 });
+    timeline.fromTo(
+      underlineRef.current,
+      { width: '100%' },
+      {
+        background: 'linear-gradient(to right, #f036a4, #fff)',
+        duration: 1,
+        ease: 'power1.inOut'
+      }
+    );
   }, [timeline, underlineRef]);
 
   const animate = (reverse?: boolean) => {
@@ -48,7 +56,6 @@ export const Event = ({
       timeline.reverse();
       return;
     }
-
     timeline.play();
   };
 
@@ -61,7 +68,7 @@ export const Event = ({
     >
       <header>
         <div>
-          <p className="typescale-3">
+          <p className="typescale-2">
             {event.startDate}&nbsp;
             {filled && event.endDate && `- ${event.endDate}`}
           </p>

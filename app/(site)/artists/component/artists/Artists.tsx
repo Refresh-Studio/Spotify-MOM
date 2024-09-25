@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
@@ -83,7 +83,7 @@ export const Artists = ({ artists = [] }: Props) => {
               ))}
             </div>
             <div className="artists__description">
-              <p className="typescale-3">{activeArtist.description}</p>
+              <p className="typescale-3">{activeArtist.bio}</p>
             </div>
             <Button
               target="_blank"
@@ -184,7 +184,7 @@ const ArtistRow = ({ artist, activeArtist, setActiveArtist }: RowProps) => {
             ))}
           </div>
           <div className="artists__description">
-            <p className="typescale-3">{activeArtist.description}</p>
+            <p className="typescale-3">{activeArtist.bio}</p>
           </div>
           <Button
             target="_blank"

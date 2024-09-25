@@ -91,10 +91,11 @@ $border: 1px solid rgba(map.get(colors.$base-color, white), 0.4);
       }
 
       &:not(.event) {
-        display: none;
+        width: 100%;
 
         @include mixins.breakpoint(lg) {
           display: block;
+          width: 45%;
         }
       }
 

@@ -1,8 +1,8 @@
 'use client';
 
 import axios from 'axios';
-import gsap from 'gsap-trial';
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { useEffect, useState } from 'react';
 
 import { Acts } from './component/acts/Acts';
@@ -10,8 +10,6 @@ import { Banner } from './component/banner/Banner';
 import { Carousel } from './component/carousel/Carousel';
 import { Events } from './component/events/Events';
 import { Hero } from './component/hero/Hero';
-import MotherOfMusic from './component/mother-of-music/MotherOfMusic';
-import { PageTransition } from './component/page-slide/PageTransition';
 import { Playlist } from './component/playlist/Playlist';
 import { Social } from './component/social/Social';
 
@@ -49,7 +47,6 @@ const Home = () => {
 
   return (
     <main style={{ backgroundColor: 'transparent' }}>
-      <PageTransition />
       <Hero />
       <MotherOfMusic />
       <Acts accessToken={accessToken!} />

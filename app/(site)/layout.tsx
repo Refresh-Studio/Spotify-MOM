@@ -6,6 +6,7 @@ import { Footer } from './component/footer/Footer';
 import { Header } from './component/header/Header';
 
 import { defaultFont } from '../constant';
+import { LoadingManager } from './loading/LoadingManager';
 
 import '../index.scss';
 
@@ -61,13 +62,11 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => (
   <html lang="en">
     <GoogleAnalytics gaId="G-8YT65EB5MC" />
     <body className={`${defaultFont.className} layout`}>
-      {/*<div id="smooth-wrapper">*/}
-      {/*    <div id="smooth-content">*/}
-      <Header />
-      {children}
-      <Footer />
-      {/*    </div>*/}
-      {/*</div>*/}
+      <LoadingManager>
+        <Header />
+        {children}
+        <Footer />
+      </LoadingManager>
     </body>
   </html>
 );

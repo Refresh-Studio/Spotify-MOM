@@ -1,19 +1,15 @@
 'use client';
 
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { hotjar } from 'react-hotjar';
 
-import { Promotion } from '../../../interface/promotion.interface';
-
 import { ReactComponent as MomIcon } from '../../../asset/mom.svg';
 import { ReactComponent as SpotifyIcon } from '../../../asset/spotify.svg';
 
-import { getPromotion } from '../../../../sanity/sanity.query';
 import { Button } from '../button/Button';
-import { Modal } from '../modal/Modal';
 
 import './header.scss';
 
@@ -21,23 +17,26 @@ export const Header = () => {
   const pathname = usePathname();
   const [, setInverted] = useState<boolean>(false);
   const [pushed, setPushed] = useState<boolean>(false);
-  const [open, setOpen] = useState<boolean>(false);
-  const [promotion, setPromotion] = useState<Promotion>();
+
+  const ref = useRef(null);
 
   useEffect(() => {
-    setOpen(true);
     hotjar.initialize({ id: 5081246, sv: 6 });
-
-    const callApi = async () => {
-      const promotion = await getPromotion();
-      setPromotion(promotion.length > 0 ? promotion[0] : undefined);
-    };
-
-    callApi();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    gsap.fromTo(
+      ref.current,
+      { opacity: 0, y: -50 },
+      {
+        delay: 1.5,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }
+    );
+
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       let found = false;
@@ -89,7 +88,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className={`header ${pushed ? 'header--pushed' : ''}`}>
+      <header className={`header ${pushed ? 'header--pushed' : ''}`} ref={ref}>
         <Link className="mom" href="/">
           <MomIcon />
         </Link>
@@ -102,7 +101,6 @@ export const Header = () => {
           <Button light small link="/tickets" label="Get Tickets" />
         </nav>
       </header>
-      {promotion && <Modal open={open} setOpen={setOpen} promotion={promotion} />}
     </>
   );
 };

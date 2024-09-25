@@ -1,4 +1,4 @@
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -101,8 +101,8 @@ interface AlbumProps {
 const AlbumGridItem = ({ album }: AlbumProps) => (
   <Link href={`/albums/${album.slug}`} className="album">
     <Image src={album.coverImage} alt={album.name} height="480" width={387} />
-    <p className={`typescale-5 ${wideFont.className}`}>{album.event?.name}</p>
-    <p className={`typescale-5 ${wideFont.className}`}>{album.event?.address}</p>
+    <p className={`typescale-4 ${wideFont.className}`}>{album.event?.name}</p>
+    <p className={`typescale-4 ${wideFont.className}`}>{album.event?.address}</p>
     <small className="typescale-2">{album.images?.length ?? 0} images</small>
   </Link>
 );

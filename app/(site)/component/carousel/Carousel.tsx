@@ -1,19 +1,20 @@
 'use client';
 
-import gsap from 'gsap-trial';
-import { Draggable } from 'gsap-trial/Draggable';
+import gsap from 'gsap';
+import { Draggable } from 'gsap/Draggable';
 import React, { MouseEvent, useEffect, useState } from 'react';
 
 import { DragPositionType } from '../../../interface/drag-position.interface';
 import { CarouselImage } from '../../../interface/gallery/carousel-image.interface';
 
 import { getCarouselImages } from '../../../../sanity/sanity.query';
+import { InertiaPlugin } from '../../../plugins/InertiaPlugin';
 import { DragItem } from '../drag-item/DragItem';
 import { ResponsiveImage } from './ResponsiveImage';
 
 import './carousel.scss';
 
-gsap.registerPlugin(Draggable);
+gsap.registerPlugin(Draggable, InertiaPlugin);
 
 export const Carousel = () => {
   const [images, setImages] = useState<CarouselImage[]>([]);
@@ -37,7 +38,9 @@ export const Carousel = () => {
   useEffect(() => {
     Draggable.create('.carousel > div', {
       type: 'x',
-      inertia: true
+      inertia: true,
+      cursor: 'pointer',
+      activeCursor: 'grabbing'
     });
   }, []);
 
