@@ -90,6 +90,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
         delay: 3.5,
         width: '100vw',
         height: '100vh',
+        duration: 1,
         onComplete
       }
     );
