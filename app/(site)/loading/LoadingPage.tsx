@@ -16,6 +16,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
 
   const loadingTimeline = useMemo(() => gsap.timeline({ paused: false }), []);
 
+  const mainContainerRef = useRef(null);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const secondRef = useRef(null);
@@ -72,6 +73,13 @@ export const LoadingPage = ({ onComplete }: Props) => {
   }, [loadingTimeline]);
 
   useEffect(() => {
+    gsap.fromTo(mainContainerRef.current, { paddingTop: '5%' }, { paddingTop: 0, delay: 3.5 });
+    gsap.fromTo(
+      thirdRef.current,
+      { objectPosition: 'initial' },
+      { duration: 0.5, ease: 'power2.in', objectPosition: '0 -580px', delay: 3.5 }
+    );
+
     imageTimeline.fromTo(
       containerRef.current,
       {
@@ -79,7 +87,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
         height: '576px'
       },
       {
-        delay: 5,
+        delay: 3.5,
         width: '100vw',
         height: '100vh',
         onComplete
@@ -117,7 +125,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
       <header>
         <SpotifyIcon />
       </header>
-      <div>
+      <div ref={mainContainerRef}>
         <div ref={containerRef}>
           <img ref={imageRef} src="/images/loader/image.jpg" alt="image" width={380} height={576} />
           <img
