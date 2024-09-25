@@ -14,8 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
-  const [selectedArtist, setSelectedArtist] = useState<string>('');
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
+  const [selectedArtist, setSelectedArtist] = useState<string>('');
   const [dragPosition, setDragPosition] = useState<DragPositionType>();
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -34,6 +35,21 @@ export const Banner = () => {
     [bannerRef.current]
   );
 
+  const fadeTimeline = useMemo(
+    () =>
+      gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          scrub: true,
+          trigger: headingRef.current,
+          end: 'top center',
+          toggleActions: 'play none none reverse'
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }),
+    [headingRef.current]
+  );
+
   useEffect(() => {
     timeline.fromTo(
       bannerRef.current,
@@ -45,6 +61,21 @@ export const Banner = () => {
       }
     );
   }, [timeline]);
+
+  useEffect(() => {
+    fadeTimeline.fromTo(
+      headingRef.current,
+      {
+        opacity: 0,
+        y: 50
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6
+      }
+    );
+  }, [fadeTimeline]);
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -86,7 +117,7 @@ export const Banner = () => {
             onMouseLeave={() => setIsHovered(false)}
           />
         </div>
-        <h1 className={`typescale-8 ${wideFont.className}`}>
+        <h1 ref={headingRef} className={`typescale-8 ${wideFont.className}`}>
           DISCOVER. EMERGING. <br /> COMMUNITY.
         </h1>
       </div>
