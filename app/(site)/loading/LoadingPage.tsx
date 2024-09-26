@@ -191,6 +191,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           onComplete
         }
       );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imageTimeline]);
 
   useEffect(() => {
