@@ -6,12 +6,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
-import firstImage from '../../../public/images/loader/image-1.jpg';
-import secondImage from '../../../public/images/loader/image-2.jpg';
-import thirdImage from '../../../public/images/loader/image-3.jpg';
-import fourthImage from '../../../public/images/loader/image-4.jpg';
-import fifthImage from '../../../public/images/loader/image-5.jpg';
-import sixthImage from '../../../public/images/loader/image-6.jpg';
+import firstImage from '../../../public/images/loader/image-1.png';
+import secondImage from '../../../public/images/loader/image-2.png';
+import thirdImage from '../../../public/images/loader/image-3.png';
+import fourthImage from '../../../public/images/loader/image-4.png';
+import fifthImage from '../../../public/images/loader/image-5.png';
+import sixthImage from '../../../public/images/loader/image-6.png';
 
 import './loading.scss';
 
@@ -38,8 +38,22 @@ export const LoadingPage = ({ onComplete }: Props) => {
   const subtitleRef = useRef(null);
   const textTimeline = useMemo(() => gsap.timeline({ paused: false }), []);
 
+  const footerRef = useRef(null);
+
   useEffect(() => {
-    setPercentage(12);
+    const updatePercentage = () => {
+      gsap.ticker.add(() => {
+        const progress = loadingTimeline.progress();
+        const newPercentage = Math.round(progress * 100 * 2);
+
+        if (newPercentage > 100) {
+          setPercentage(100);
+        } else {
+          setPercentage(newPercentage);
+        }
+      });
+    };
+
     loadingTimeline
       .fromTo(
         containerRef.current,
@@ -49,8 +63,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
         {
           duration: 1,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(22)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       )
       .fromTo(
@@ -63,8 +76,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           zIndex: 3,
           duration: 0.75,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(36)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       )
       .fromTo(
@@ -77,8 +89,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           zIndex: 5,
           duration: 0.75,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(49)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       )
       .fromTo(
@@ -91,8 +102,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           zIndex: 5,
           duration: 0.75,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(61)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       )
       .fromTo(
@@ -105,8 +115,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           zIndex: 5,
           duration: 0.75,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(88)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       )
       .fromTo(
@@ -119,10 +128,15 @@ export const LoadingPage = ({ onComplete }: Props) => {
           zIndex: 5,
           duration: 0.75,
           backgroundColor: 'transparent',
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          onComplete: () => setPercentage(100)
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }
       );
+
+    updatePercentage();
+
+    return () => {
+      gsap.ticker.remove(() => updatePercentage());
+    };
   }, [loadingTimeline]);
 
   useEffect(() => {
@@ -133,20 +147,31 @@ export const LoadingPage = ({ onComplete }: Props) => {
       { duration: 0.5, ease: 'power2.in', objectPosition: '0 -580px', delay: 4.75 }
     );
 
-    imageTimeline.fromTo(
-      containerRef.current,
-      {
-        width: '380px',
-        height: '576px'
-      },
-      {
-        delay: 4.75,
-        width: '100vw',
-        height: '100vh',
-        duration: 1,
-        onComplete
-      }
-    );
+    imageTimeline
+      .fromTo(
+        footerRef.current,
+        {
+          opacity: 1
+        },
+        {
+          delay: 4.75,
+          opacity: 0,
+          duration: 0.2
+        }
+      )
+      .fromTo(
+        containerRef.current,
+        {
+          width: '380px',
+          height: '576px'
+        },
+        {
+          width: '100vw',
+          height: '100vh',
+          duration: 1,
+          onComplete
+        }
+      );
   }, [imageTimeline]);
 
   useEffect(() => {
@@ -195,7 +220,7 @@ export const LoadingPage = ({ onComplete }: Props) => {
           6 - 8 September, Cape Town
         </p>
       </div>
-      <footer>
+      <footer ref={footerRef}>
         <p className="typescale-3">Loading</p>
         <p className="typescale-3">{percentage}%</p>
       </footer>
