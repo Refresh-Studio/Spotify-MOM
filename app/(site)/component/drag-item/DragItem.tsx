@@ -12,8 +12,8 @@ export const DragItem = ({ visible, position = { x: 0, y: 0 }, label = 'drag' }:
   <div
     className={`drag-item ${visible ? 'drag-item--hover' : ''}`}
     style={{
-      top: position.y,
-      left: position.x
+      top: visible ? position.y : 0,
+      left: visible ? position.x : 0
     }}
   >
     <span className="typescale-1">{label}</span>
