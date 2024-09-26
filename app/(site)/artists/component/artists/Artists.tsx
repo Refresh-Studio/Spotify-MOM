@@ -115,32 +115,35 @@ const ArtistRow = ({ artist, activeArtist, setActiveArtist }: RowProps) => {
   const contentRef = useRef(null);
 
   const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
+  const contentTimeline = useMemo(() => gsap.timeline({ paused: true }), []);
 
   useEffect(() => {
-    timeline
-      .fromTo(
-        contentRef.current,
-        { duration: 0.2, z: 0, color: '#e0e1e3' },
-        {
-          duration: 0.2,
-          z: 1,
-          color: '#000'
-        }
-      )
-      .fromTo(
-        rowRef.current,
-        { duration: 0.4, height: 0, width: '100%', x: 0, y: 35 },
-        { duration: 0.4, height: '100%', width: '100%', x: 0, y: 0 }
-      );
-  }, [timeline]);
+    contentTimeline.fromTo(
+      contentRef.current,
+      { duration: 0.4, z: 0, color: '#e0e1e3' },
+      {
+        duration: 0.4,
+        z: 1,
+        color: '#000'
+      }
+    );
+
+    timeline.fromTo(
+      rowRef.current,
+      { duration: 0.3, height: 0, width: '100%', x: 0, y: 35 },
+      { duration: 0.3, height: '100%', width: '100%', x: 0, y: 0 }
+    );
+  }, [timeline, contentTimeline]);
 
   const animate = (reverse?: boolean) => {
     if (reverse) {
       timeline.reverse();
+      contentTimeline.reverse();
       return;
     }
 
     timeline.play();
+    contentTimeline.play();
   };
 
   return (

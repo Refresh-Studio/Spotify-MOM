@@ -44,25 +44,26 @@ export const Button = ({
   const buttonRef = useRef(null);
   const contentRef = useRef(null);
   const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
+  const contentTimeline = useMemo(() => gsap.timeline({ paused: true }), []);
 
   useEffect(() => {
-    timeline
-      .fromTo(
-        contentRef.current,
-        { duration: 0.3, z: 0, color: '#e0e1e3', borderColor: '#e0e1e3' },
-        {
-          duration: 0.3,
-          z: 1,
-          color: '#000',
-          borderColor: '#000'
-        }
-      )
-      .fromTo(
-        buttonRef.current,
-        { duration: 0.4, height: 0, width: '100%', x: 0, y: '50%' },
-        { duration: 0.4, height: '100%', width: '100%', x: 0, y: 0 }
-      );
-  }, [timeline]);
+    timeline.fromTo(
+      contentRef.current,
+      { duration: 0.4, z: 0, color: '#e0e1e3', borderColor: '#e0e1e3' },
+      {
+        duration: 0.4,
+        z: 1,
+        color: '#000',
+        borderColor: '#000'
+      }
+    );
+
+    contentTimeline.fromTo(
+      buttonRef.current,
+      { duration: 0.3, height: 0, width: '100%', x: 0, y: '50%' },
+      { duration: 0.3, height: '100%', width: '100%', x: 0, y: 0 }
+    );
+  }, [timeline, contentTimeline]);
 
   const handleClick = (event: { preventDefault: () => void }) => {
     if (clickable) {
@@ -107,10 +108,12 @@ export const Button = ({
   const animate = (reverse?: boolean) => {
     if (reverse) {
       timeline.reverse();
+      contentTimeline.reverse();
       return;
     }
 
     timeline.play();
+    contentTimeline.play();
   };
 
   return (

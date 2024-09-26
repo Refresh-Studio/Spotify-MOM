@@ -1,6 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
@@ -8,6 +9,8 @@ import { wideFont } from '../../../constant';
 import SpotifyMomImage from './../../../../public/images/spotify-mom.jpg';
 
 import './mother-of-music.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const MotherOfMusic = () => {
   const headerRef = useRef(null);
@@ -58,15 +61,14 @@ export const MotherOfMusic = () => {
 
   return (
     <section className="mother-of-music" ref={containerRef}>
-      <Image
-        data-aos="fade-down"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="3000"
-        width={205}
-        alt="Mother of Music event promotion"
-        src={SpotifyMomImage}
-        className="mother-of-music__image"
-      />
+      <div data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="3000">
+        <Image
+          width={205}
+          alt="Mother of Music event promotion"
+          src={SpotifyMomImage}
+          className="mother-of-music__image"
+        />
+      </div>
       <header className="mother-of-music__header">
         <h2 ref={headerRef} className={`typescale-10 ${wideFont.className}`}>
           Mother of music

@@ -10,6 +10,7 @@
   height: utils.rem(902);
   background-color: map.get(colors.$base-color, black);
   padding: utils.rem(120) utils.rem(60);
+  overflow-x: auto;
 
   &__header {
     display: flex;

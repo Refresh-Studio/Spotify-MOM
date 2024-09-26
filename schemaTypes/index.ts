@@ -7,6 +7,8 @@ import eventFilter from './eventFilter';
 import eventList from './eventList';
 import galleryFilter from './galleryFilter';
 import galleryImage from './galleryImage';
+import loaderImage from './loaderImage';
+import musicImage from './musicImage';
 import promotion from './promotion';
 
 export const schemaTypes = [
@@ -19,5 +21,7 @@ export const schemaTypes = [
   galleryFilter,
   artistFilter,
   eventFilter,
-  promotion
+  promotion,
+  musicImage,
+  loaderImage
 ];
