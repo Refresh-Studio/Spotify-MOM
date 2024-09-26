@@ -11,7 +11,7 @@ import secondImage from '../../../public/images/loader/image-2.jpg';
 import thirdImage from '../../../public/images/loader/image-3.jpg';
 import fourthImage from '../../../public/images/loader/image-4.jpg';
 import fifthImage from '../../../public/images/loader/image-5.jpg';
-import sixthImage from '../../../public/images/loader/image-6.jpg';
+import sixthImage from '../../../public/images/background.jpg';
 
 import './loading.scss';
 
