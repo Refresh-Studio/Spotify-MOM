@@ -11,7 +11,7 @@ import secondImage from '../../../public/images/loader/image-2.png';
 import thirdImage from '../../../public/images/loader/image-3.png';
 import fourthImage from '../../../public/images/loader/image-4.png';
 import fifthImage from '../../../public/images/loader/image-5.png';
-import sixthImage from '../../../public/images/loader/image-6.png';
+import sixthImage from '../../../public/images/loader/image-6.jpg';
 
 import './loading.scss';
 
@@ -140,22 +140,41 @@ export const LoadingPage = ({ onComplete }: Props) => {
   }, [loadingTimeline]);
 
   useEffect(() => {
-    gsap.fromTo(mainContainerRef.current, { paddingTop: '5%' }, { paddingTop: 0, delay: 4.75 });
     gsap.fromTo(
-      thirdRef.current,
+      sixthRef.current,
       { objectPosition: 'initial' },
-      { duration: 0.5, ease: 'power2.in', objectPosition: '0 -580px', delay: 4.75 }
+      { duration: 1, delay: 5.25, objectPosition: '0 -580px' }
     );
 
     imageTimeline
       .fromTo(
         footerRef.current,
         {
-          opacity: 1
+          display: 'flex'
         },
         {
           delay: 4.75,
-          opacity: 0,
+          display: 'none',
+          duration: 0.2
+        }
+      )
+      .fromTo(
+        titleRef.current,
+        {
+          display: 'block'
+        },
+        {
+          display: 'none',
+          duration: 0.2
+        }
+      )
+      .fromTo(
+        subtitleRef.current,
+        {
+          display: 'block'
+        },
+        {
+          display: 'none',
           duration: 0.2
         }
       )

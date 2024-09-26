@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../../style/00_settings/color' as colors;
 @use '../../style/00_settings/util' as utils;
+@use '../../style/01_tools/mixin' as mixins;
 
 .loading {
   width: 100vw;
@@ -16,18 +17,28 @@
   }
 
   > div {
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 5%;
 
     > div {
-      width: 380px;
-      height: 576px;
+      width: 172px;
+      height: 260px;
       position: relative;
       overflow: hidden;
+
+      @include mixins.breakpoint(md) {
+        width: 244px;
+        height: 372px;
+      }
+
+      @include mixins.breakpoint(lg) {
+        width: 380px;
+        height: 576px;
+      }
 
       > img {
         object-fit: cover;
