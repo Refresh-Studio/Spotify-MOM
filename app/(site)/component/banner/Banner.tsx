@@ -1,5 +1,4 @@
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { DragPositionType } from '../../../interface/drag-position.interface';

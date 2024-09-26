@@ -67,7 +67,7 @@ export const Social = () => {
       },
       0
     );
-  }, [scrollTimeline]);
+  }, [scrollTimeline, images]);
 
   useEffect(() => {
     hoverTimeline
