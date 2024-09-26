@@ -10,8 +10,6 @@ import { DragItem } from '../drag-item/DragItem';
 
 import './banner.scss';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const Banner = () => {
   const bannerRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);

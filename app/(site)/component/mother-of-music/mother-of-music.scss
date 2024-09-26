@@ -51,8 +51,12 @@
     position: absolute;
     top: 0;
     left: 60px;
-    z-index: 999;
+    z-index: 1;
     will-change: transform;
+
+    &--other {
+      z-index: 0;
+    }
 
     &.aos-animate {
       transform: translateY(500px) !important;

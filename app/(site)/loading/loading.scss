@@ -24,6 +24,10 @@
     align-items: center;
     justify-content: center;
 
+    > p {
+      opacity: 0;
+    }
+
     > div {
       width: 172px;
       height: 260px;

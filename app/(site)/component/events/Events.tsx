@@ -71,10 +71,6 @@ const ListOfEvents = ({ title, events }: EventListProps) => {
         );
       }
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, [events]);
 
   return (

@@ -158,3 +158,21 @@ export async function getCarouselImages() {
 }`
   );
 }
+
+export async function getLoaderImages() {
+  return client.fetch(
+    groq`*[_type == "loaderImage"] {
+    _id,
+    "src": image.asset->url
+}`
+  );
+}
+
+export async function getMomImages() {
+  return client.fetch(
+    groq`*[_type == "musicImage"] {
+    _id,
+    "src": image.asset->url
+}`
+  );
+}
