@@ -6,11 +6,11 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ReactComponent as SpotifyIcon } from '../../asset/spotify.svg';
 
-import firstImage from '../../../public/images/loader/image-1.png';
-import secondImage from '../../../public/images/loader/image-2.png';
-import thirdImage from '../../../public/images/loader/image-3.png';
-import fourthImage from '../../../public/images/loader/image-4.png';
-import fifthImage from '../../../public/images/loader/image-5.png';
+import firstImage from '../../../public/images/loader/image-1.jpg';
+import secondImage from '../../../public/images/loader/image-2.jpg';
+import thirdImage from '../../../public/images/loader/image-3.jpg';
+import fourthImage from '../../../public/images/loader/image-4.jpg';
+import fifthImage from '../../../public/images/loader/image-5.jpg';
 import sixthImage from '../../../public/images/loader/image-6.jpg';
 
 import './loading.scss';
