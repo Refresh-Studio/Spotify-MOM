@@ -42,8 +42,8 @@ export const Banner = () => {
           end: 'top center',
           toggleActions: 'play none none reverse'
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headingRef.current]
   );
 
