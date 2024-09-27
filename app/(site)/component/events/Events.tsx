@@ -1,7 +1,6 @@
 'use client';
 
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { EventItem } from '../../../interface/event/event-item.interface';

@@ -1,5 +1,4 @@
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { DragPositionType } from '../../../interface/drag-position.interface';
@@ -43,8 +42,8 @@ export const Banner = () => {
           end: 'top center',
           toggleActions: 'play none none reverse'
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headingRef.current]
   );
 

@@ -5,7 +5,7 @@
 
 .drag-item {
   @include mixins.breakpoint(lg) {
-    position: fixed;
+    position: absolute;
     width: fit-content;
     height: 26px;
     border-radius: 16px;
