@@ -4,13 +4,16 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
-import image1 from '../../../../public/images/music/image-1.jpg';
 import { wideFont } from '../../../constant';
-import image2 from './../../../../public/images/music/image-2.jpg';
-import image3 from './../../../../public/images/music/image-3.jpg';
-import image4 from './../../../../public/images/music/image-4.jpg';
 
 import './mother-of-music.scss';
+
+const images = {
+  image1: 'https://i.ibb.co/0C05GPD/image-1.jpg',
+  image2: 'https://i.ibb.co/QdFy064/image-2.jpg',
+  image3: 'https://i.ibb.co/7XWsKNW/image-3.jpg',
+  image4: 'https://i.ibb.co/JkCL4mV/image-4.jpg'
+};
 
 export const MotherOfMusic = () => {
   const headerRef = useRef(null);
@@ -20,6 +23,8 @@ export const MotherOfMusic = () => {
   const secondRef = useRef(null);
   const thirdRef = useRef(null);
   const fourthRef = useRef(null);
+
+  const { image1, image2, image3, image4 } = images;
 
   useEffect(() => {
     AOS.init({ animatedClassName: 'aos-animate' });
@@ -110,6 +115,7 @@ export const MotherOfMusic = () => {
     <section className="mother-of-music" ref={containerRef}>
       <Image
         width={205}
+        height={307}
         alt="Mother of Music event promotion"
         src={image1}
         className="mother-of-music__image"
@@ -120,6 +126,7 @@ export const MotherOfMusic = () => {
       <Image
         ref={secondRef}
         width={205}
+        height={307}
         alt="Mother of Music event promotion"
         src={image2}
         className="mother-of-music__image mother-of-music__image--other"
@@ -130,6 +137,7 @@ export const MotherOfMusic = () => {
       <Image
         ref={thirdRef}
         width={205}
+        height={307}
         alt="Mother of Music event promotion"
         src={image3}
         className="mother-of-music__image mother-of-music__image--other"
@@ -140,6 +148,7 @@ export const MotherOfMusic = () => {
       <Image
         ref={fourthRef}
         width={205}
+        height={307}
         alt="Mother of Music event promotion"
         src={image4}
         className="mother-of-music__image mother-of-music__image--other"
